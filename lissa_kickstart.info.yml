@@ -5,21 +5,39 @@ core: 8.x
 distribution_name: LISSA Kickstart
 exclusive: 1
 dependencies:
-  - node
   - block
+  - breakpoint
+  - ckeditor
   - config
   - contextual
-  - edit
-  - help
-  - menu
-  - image
-  - number
-  - options
-  - path
-  - taxonomy
+  - datetime
+  - dblog
+  - editor
+  - entity
+  - entity_reference
+  - field
   - field_ui
   - file
+  - filter
+  - hal
+  - help
+  - history
+  - image
+  - link
+  - menu_link
+  - menu_ui
+  - migrate
+  - node
+  - options
+  - path
+  - quickedit
+  - responsive_image
+  - rest
+  - serialization
+  - shortcut
+  - system
+  - taxonomy
+  - text
+  - toolbar
   - views
   - views_ui
-  - editor
-  - ckeditor
