@@ -41,3 +41,6 @@ dependencies:
   - toolbar
   - views
   - views_ui
+themes:
+  - bartik
+  - seven
