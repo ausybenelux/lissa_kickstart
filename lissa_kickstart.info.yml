@@ -1,0 +1,25 @@
+name: LISSA Kickstart
+type: profile
+description: 'Drupal distribution for LISSA, a second screen authoring backend.'
+core: 8.x
+distribution_name: LISSA Kickstart
+exclusive: 1
+dependencies:
+  - node
+  - block
+  - config
+  - contextual
+  - edit
+  - help
+  - menu
+  - image
+  - number
+  - options
+  - path
+  - taxonomy
+  - field_ui
+  - file
+  - views
+  - views_ui
+  - editor
+  - ckeditor
