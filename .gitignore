@@ -1,0 +1,2 @@
+; Ignore files downloaded by drush make.
+/modules/contrib
