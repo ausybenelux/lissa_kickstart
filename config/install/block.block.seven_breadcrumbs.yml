@@ -1,7 +1,6 @@
 id: seven_breadcrumbs
 weight: -2
 status: false
-uuid: bb523e6e-71a8-440d-af00-b2f03ce78604
 langcode: en
 dependencies:
   module:

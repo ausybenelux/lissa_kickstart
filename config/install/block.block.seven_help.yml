@@ -1,7 +1,6 @@
 id: seven_help
 weight: 0
 status: true
-uuid: 9c07d98f-9d90-4365-8d02-2f998492c556
 langcode: en
 dependencies:
   module:

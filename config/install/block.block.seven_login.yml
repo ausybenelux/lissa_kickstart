@@ -1,7 +1,6 @@
 id: seven_login
 weight: 10
 status: true
-uuid: aa9e88db-6929-4dd0-9a00-a9d0ea7d5497
 langcode: en
 dependencies:
   module:

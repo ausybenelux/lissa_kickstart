@@ -1,7 +1,6 @@
 id: seven_content
 weight: 0
 status: true
-uuid: 7a68fef5-a571-40b9-9c00-0e949c43177f
 langcode: en
 dependencies:
   module:

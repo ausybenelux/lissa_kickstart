@@ -4,6 +4,7 @@ description: ''
 help: ''
 has_title: true
 title_label: Name
+create_body: false
 settings:
   node:
     options:
@@ -14,6 +15,5 @@ settings:
     preview: 0
     submitted: false
 status: true
-uuid: 06fc6269-731f-4971-883d-61951230d41c
 langcode: en
 dependencies: {  }

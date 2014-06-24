@@ -3,7 +3,6 @@ name: 'Plain text'
 weight: 10
 cache: true
 status: true
-uuid: 566cb7c5-3827-45a1-8e00-a332f5384e7a
 langcode: en
 dependencies: {  }
 filters:

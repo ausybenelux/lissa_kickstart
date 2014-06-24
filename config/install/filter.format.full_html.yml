@@ -3,7 +3,6 @@ name: 'Full HTML'
 weight: 1
 cache: true
 status: true
-uuid: 800fa8b0-6cf4-4d7c-ab02-2fd6245e9a8c
 langcode: en
 dependencies: {  }
 filters:

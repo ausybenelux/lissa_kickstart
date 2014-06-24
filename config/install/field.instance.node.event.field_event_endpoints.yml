@@ -1,8 +1,6 @@
 id: node.event.field_event_endpoints
-uuid: 50cb1f0c-f4b8-472f-9200-c3bf3e1c063c
 status: true
 langcode: en
-field_uuid: 3189730d-153a-454c-9608-8a26f206e72d
 field_name: field_event_endpoints
 entity_type: node
 bundle: event
