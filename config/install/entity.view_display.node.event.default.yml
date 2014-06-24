@@ -1,0 +1,15 @@
+id: node.event.default
+uuid: 43e7cbee-9070-4eba-a900-b1f60d8db1a4
+targetEntityType: node
+bundle: event
+mode: default
+content: {  }
+hidden:
+  langcode: true
+  field_event_endpoints: true
+  body: true
+status: true
+dependencies:
+  entity:
+    - field.instance.node.event.field_event_endpoints
+    - node.type.event

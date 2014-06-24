@@ -1,10 +1,11 @@
 format: full_html
 name: 'Full HTML'
-status: true
 weight: 1
-roles:
-  - administrator
 cache: true
+status: true
+uuid: 800fa8b0-6cf4-4d7c-ab02-2fd6245e9a8c
+langcode: en
+dependencies: {  }
 filters:
   filter_caption:
     id: filter_caption
@@ -18,4 +19,37 @@ filters:
     status: true
     weight: 10
     settings: {  }
-langcode: en
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: false
+    weight: 0
+    settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h4> <h5> <h6>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_html_escape:
+    id: filter_html_escape
+    provider: filter
+    status: false
+    weight: -10
+    settings: {  }
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: false
+    weight: 9
+    settings: {  }
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: false
+    weight: 0
+    settings:
+      filter_url_length: 72

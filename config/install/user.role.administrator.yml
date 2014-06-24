@@ -1,4 +1,8 @@
 id: administrator
 label: Administrator
 weight: 2
+permissions: {  }
+status: true
+uuid: cb4dbf32-f2ce-439b-9200-0df745078cc5
 langcode: en
+dependencies: {  }

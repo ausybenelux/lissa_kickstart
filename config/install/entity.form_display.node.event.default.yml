@@ -1,0 +1,28 @@
+id: node.event.default
+uuid: 53be1f72-6eb1-46f2-9e58-88943258c650
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  title:
+    type: string
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+  field_event_endpoints:
+    type: link_default
+    weight: 1
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+hidden:
+  body: true
+  path: true
+status: true
+dependencies:
+  entity:
+    - field.instance.node.event.field_event_endpoints
+    - node.type.event
+  module:
+    - link

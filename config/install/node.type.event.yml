@@ -1,0 +1,19 @@
+type: event
+name: Event
+description: ''
+help: ''
+has_title: true
+title_label: Name
+settings:
+  node:
+    options:
+      status: true
+      promote: false
+      sticky: false
+      revision: false
+    preview: 0
+    submitted: false
+status: true
+uuid: 06fc6269-731f-4971-883d-61951230d41c
+langcode: en
+dependencies: {  }

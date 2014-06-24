@@ -1,0 +1,16 @@
+id: node.event.teaser
+uuid: 0052e9c1-2f21-4fa8-a32e-46014a434dad
+targetEntityType: node
+bundle: event
+mode: teaser
+content: {  }
+hidden:
+  langcode: true
+  field_event_endpoints: true
+  body: true
+status: true
+dependencies:
+  entity:
+    - entity.view_mode.node.teaser
+    - field.instance.node.event.field_event_endpoints
+    - node.type.event

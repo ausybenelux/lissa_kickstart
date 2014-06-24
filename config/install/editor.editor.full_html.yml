@@ -1,3 +1,11 @@
+status: true
+uuid: 5b5cc87e-02c9-4bc7-8e00-a145a996e117
+langcode: en
+dependencies:
+  entity:
+    - filter.format.full_html
+  module:
+    - ckeditor
 format: full_html
 editor: ckeditor
 settings:
@@ -12,7 +20,7 @@ settings:
             - Strike
             - Superscript
             - Subscript
-            - -
+            - '-'
             - RemoveFormat
         -
           name: Linking
@@ -51,10 +59,3 @@ image_upload:
   max_dimensions:
     width: 0
     height: 0
-status: true
-langcode: en
-dependencies:
-  entity:
-    - filter.format.full_html
-  module:
-    - ckeditor

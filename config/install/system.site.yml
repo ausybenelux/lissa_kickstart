@@ -1,0 +1,11 @@
+uuid: 17a5e66a-3565-408c-8c14-20e0049588d1
+name: 'Lissa kickstater'
+mail: klaas@codelab42.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: user
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en

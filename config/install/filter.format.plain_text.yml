@@ -1,26 +1,17 @@
-format: restricted_html
-name: 'Restricted HTML'
-weight: 0
+format: plain_text
+name: 'Plain text'
+weight: 10
 cache: true
 status: true
-uuid: 700a00cd-03fb-41af-905a-907cab3b6c84
+uuid: 566cb7c5-3827-45a1-8e00-a332f5384e7a
 langcode: en
 dependencies: {  }
 filters:
-  filter_html:
-    id: filter_html
+  filter_html_escape:
+    id: filter_html_escape
     provider: filter
     status: true
     weight: -10
-    settings:
-      allowed_html: '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h4> <h5> <h6>'
-      filter_html_help: true
-      filter_html_nofollow: false
-  filter_autop:
-    id: filter_autop
-    provider: filter
-    status: true
-    weight: 0
     settings: {  }
   filter_url:
     id: filter_url
@@ -29,11 +20,11 @@ filters:
     weight: 0
     settings:
       filter_url_length: 72
-  filter_htmlcorrector:
-    id: filter_htmlcorrector
+  filter_autop:
+    id: filter_autop
     provider: filter
     status: true
-    weight: 10
+    weight: 0
     settings: {  }
   filter_caption:
     id: filter_caption
@@ -41,11 +32,20 @@ filters:
     status: false
     weight: 0
     settings: {  }
-  filter_html_escape:
-    id: filter_html_escape
+  filter_html:
+    id: filter_html
     provider: filter
     status: false
     weight: -10
+    settings:
+      allowed_html: '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h4> <h5> <h6>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: false
+    weight: 10
     settings: {  }
   filter_html_image_secure:
     id: filter_html_image_secure
