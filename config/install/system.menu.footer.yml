@@ -1,8 +1,0 @@
-id: footer
-label: Footer
-description: 'Use this for linking to site information.'
-status: true
-uuid: 80a478a1-04cf-4cce-9518-242e72add4af
-langcode: en
-dependencies: {  }
-locked: true
