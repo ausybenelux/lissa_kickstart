@@ -1,0 +1,9 @@
+install-page:
+  version: VERSION
+  js:
+    js/mobile.install.js: {}
+  css:
+    theme:
+      install-page.css: {}
+  dependencies:
+    - system/maintenance

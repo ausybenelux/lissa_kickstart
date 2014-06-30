@@ -1,0 +1,7 @@
+name: LISSA Bluedrop
+type: theme
+description: 'A clean and friendly administration theme for LISSA based on Seven.'
+package: LISSA Kickstart
+version: 1.0
+core: 8.x
+base theme: seven
