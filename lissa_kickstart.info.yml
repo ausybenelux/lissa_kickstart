@@ -41,6 +41,7 @@ dependencies:
   - toolbar
   - views
   - views_ui
+  - lissa_kickstart_event
 themes:
   - bartik
   - seven

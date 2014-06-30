@@ -11,10 +11,12 @@ available at git@git.dotprojects.be:LISSA.
 
 ## Information architecture
 
+### Events
+
 ## API
 
 The LISSA backend publishes content through a REST API.
 
-### Get a list of active events
+### List active events
 
 GET http://lissa.dev/api/events
