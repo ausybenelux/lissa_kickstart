@@ -261,6 +261,14 @@ display:
     provider: rest
     display_options:
       path: api/events
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+        provider: user
+        dependencies: {  }
+      defaults:
+        access: false
   page_1:
     display_plugin: page
     id: page_1
