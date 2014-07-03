@@ -26,18 +26,18 @@
     <mkdir dir="${builddir}/logs" />
   </target>
 
-  <target name="drush-make" unless="drush.nomake" description="Run drush make">
+  <target name="drush-make" depends="prepare" unless="drush.nomake" description="Run drush make">
     <delete dir="${builddir}/docroot"/>
     <!-- Run drush make into ./build/drupal -->
-    <exec executable="${drush}">
+    <exec executable="drush">
       <arg value="make"/>
-      <arg value="--nocolor"/>
+      <arg value="--concurrency=5"/>
       <arg value="--prepare-install"/>
       <arg value="${phing.dir}/${drush.makefile}"/>
       <arg value="${builddir}/docroot"/>
     </exec>
     <!-- Rsync the build into ./docroot -->
-    <exec executable="${rsync}">
+    <exec executable="rsync">
       <arg value="-aqc"/>
       <arg value="--delete"/>
       <arg value="--exclude=sites/*/settings*.php"/>
@@ -48,7 +48,7 @@
   </target>
 
   <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">
-    <exec executable="${drush}" dir="${basedir}/docroot">
+    <exec executable="drush" dir="${basedir}/docroot">
       <arg value="site-install"/>
       <arg value="-y"/>
       <arg value="--nocolor"/>
@@ -59,12 +59,13 @@
       <arg value="--account-pass=${account.pass}"/>
       <arg value="--account-mail=${account.mail}"/>
       <arg value="--sites-subdir=${sites.subdir}"/>
+      <arg value="--writable"/>
       <arg value="${drupal.profile}"/>
     </exec>
   </target>
 
   <target name="uninstall" description="Run drush sql-drop">
-    <exec executable="${drush}" dir="${basedir}/docroot">
+    <exec executable="drush" dir="${basedir}/docroot">
       <arg value="sql-drop"/>
       <arg value="-y"/>
       <arg value="--nocolor"/>
