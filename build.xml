@@ -54,7 +54,7 @@
 
   <target name="composer-download" depends="composer-check" unless="composer.present">
     <property name="composer.noselfupdate" value="true"/>
-    <get src="https://getcomposer.org/composer.phar" dest="${composer}"/>
+    <httpget url="https://getcomposer.org/composer.phar" dir="${composer}"/>
   </target>
 
   <target name="composer-selfupdate" depends="php-check,composer-download" unless="composer.noselfupdate">
