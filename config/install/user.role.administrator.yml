@@ -1,4 +1,7 @@
 id: administrator
 label: Administrator
 weight: 2
+permissions: {  }
+status: true
 langcode: en
+dependencies: {  }

@@ -1,0 +1,11 @@
+name: LISSA Kickstart Event
+description: 'Event content type and functionality.'
+package: LISSA Kickstart
+type: module
+version: 1.0
+core: 8.x
+dependencies:
+  - field
+  - node
+  - views
+  - rest

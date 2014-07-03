@@ -1,0 +1,19 @@
+type: event
+name: Event
+description: ''
+help: ''
+has_title: true
+title_label: Name
+create_body: false
+settings:
+  node:
+    options:
+      status: true
+      promote: false
+      sticky: false
+      revision: false
+    preview: 0
+    submitted: false
+status: true
+langcode: en
+dependencies: {  }

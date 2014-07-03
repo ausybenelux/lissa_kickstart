@@ -2,8 +2,8 @@ name: LISSA Kickstart
 type: profile
 description: 'Drupal distribution for LISSA, a second screen authoring backend.'
 core: 8.x
-distribution_name: LISSA Kickstart
-exclusive: 1
+distribution:
+  name: LISSA Kickstart
 dependencies:
   - block
   - breakpoint
@@ -41,6 +41,7 @@ dependencies:
   - toolbar
   - views
   - views_ui
+  - lissa_kickstart_event
 themes:
   - bartik
   - seven

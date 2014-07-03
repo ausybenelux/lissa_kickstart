@@ -1,10 +1,10 @@
 format: restricted_html
 name: 'Restricted HTML'
-status: true
 weight: 0
-roles:
-  - anonymous
 cache: true
+status: true
+langcode: en
+dependencies: {  }
 filters:
   filter_html:
     id: filter_html
@@ -34,4 +34,21 @@ filters:
     status: true
     weight: 10
     settings: {  }
-langcode: en
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: false
+    weight: 0
+    settings: {  }
+  filter_html_escape:
+    id: filter_html_escape
+    provider: filter
+    status: false
+    weight: -10
+    settings: {  }
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: false
+    weight: 9
+    settings: {  }
