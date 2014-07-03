@@ -5,7 +5,6 @@
   <property file="build.properties" description="Local build configuration overrides"/>
 
   <property name="builddir" value="${basedir}/build"/>
-  <property name="composer" value="${builddir}/composer.phar"/>
 
   <target name="build" depends="install" description="Run drush make and drush site-install"/>
 
@@ -57,8 +56,7 @@
   </target>
 
   <target name="composer" depends="composer-check" unless="composer.noupdate" description="Run composer update">
-    <exec executable="${php}">
-      <arg value="${composer}"/>
+    <exec executable="${composer}">
       <arg value="update"/>
     </exec>
   </target>
@@ -78,9 +76,8 @@
     </condition>
   </target>
 
-  <target name="drush-download" depends="composer-selfupdate,drush-check" unless="drush.present">
-    <exec executable="${php}">
-      <arg value="${composer}"/>
+  <target name="drush-download" depends="composer-check,drush-check" unless="drush.present">
+    <exec executable="${composer}">
       <arg value="--working-dir=${builddir}"/>
       <arg value="require"/>
       <arg value="drush/drush:~6.0"/>
@@ -91,7 +88,6 @@
     <delete dir="${builddir}/docroot"/>
     <!-- Run drush make into ./build/drupal -->
     <exec executable="${drush}">
-      <env key="DRUSH_PHP" value="${php}"/>
       <arg value="make"/>
       <arg value="--nocolor"/>
       <arg value="${basedir}/${drush.makefile}"/>
@@ -110,7 +106,6 @@
 
   <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">
     <exec executable="${drush}" dir="${basedir}/docroot">
-      <env key="DRUSH_PHP" value="${php}"/>
       <arg value="site-install"/>
       <arg value="-y"/>
       <arg value="--nocolor"/>
@@ -127,7 +122,6 @@
 
   <target name="uninstall" depends="drush-check" description="Run drush sql-drop">
     <exec executable="${drush}" dir="${basedir}/docroot">
-      <env key="DRUSH_PHP" value="${php}"/>
       <arg value="sql-drop"/>
       <arg value="-y"/>
       <arg value="--nocolor"/>
