@@ -3,3 +3,4 @@
 
 ; Local build configuration
 build.properties.local
+/build

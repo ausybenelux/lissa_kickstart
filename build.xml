@@ -4,7 +4,7 @@
   <property file="build.default.properties" description="Default build configuration"/>
   <property file="build.properties" description="Local build configuration overrides"/>
 
-  <property name="builddir" value="${basedir}/build"/>
+  <property name="builddir" value="${phing.dir}/build"/>
 
   <target name="build" depends="install" description="Run drush make and drush site-install"/>
 
@@ -90,7 +90,7 @@
     <exec executable="${drush}">
       <arg value="make"/>
       <arg value="--nocolor"/>
-      <arg value="${basedir}/${drush.makefile}"/>
+      <arg value="${phing.dir}/${drush.makefile}"/>
       <arg value="${builddir}/docroot"/>
     </exec>
     <!-- Rsync the build into ./docroot -->
