@@ -1,2 +1,5 @@
 ; Ignore files downloaded by drush make.
 /modules/contrib
+
+; Local build configuration
+build.properties.local
