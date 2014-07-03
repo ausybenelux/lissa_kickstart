@@ -48,24 +48,15 @@
     <mkdir dir="${builddir}/logs" />
   </target>
 
-  <target name="composer-check" depends="prepare">
-    <available file="${composer}" property="composer.present"/>
+  <target name="composer-check">
+    <condition property="composer" value="composer">
+      <not>
+        <isset property="${composer}"/>
+      </not>
+    </condition>
   </target>
 
-  <target name="composer-download" depends="composer-check" unless="composer.present">
-    <property name="composer.noselfupdate" value="true"/>
-    <httpget url="https://getcomposer.org/composer.phar" dir="${composer}"/>
-  </target>
-
-  <target name="composer-selfupdate" depends="php-check,composer-download" unless="composer.noselfupdate">
-    <exec executable="${php}">
-      <arg value="${composer}"/>
-      <arg value="self-update"/>
-      <arg value="--quiet"/>
-    </exec>
-  </target>
-
-  <target name="composer" depends="composer-selfupdate" unless="composer.noupdate" description="Run composer update">
+  <target name="composer" depends="composer-check" unless="composer.noupdate" description="Run composer update">
     <exec executable="${php}">
       <arg value="${composer}"/>
       <arg value="update"/>
