@@ -17,79 +17,22 @@
     <delete dir="${basedir}/docroot"/>
   </target>
 
-  <target name="clean-vendor">
-    <delete dir="${basedir}/composer.lock"/>
-    <delete dir="${basedir}/vendor"/>
-  </target>
-
-  <target name="clean-src" depends="clean-docroot,clean-vendor" description="Clean source code"/>
+  <target name="clean-src" depends="clean-docroot" description="Clean source code"/>
 
   <target name="clean-all" depends="clean,clean-src" description="Clean build artifacts and source code"/>
-
-  <target name="php-check">
-    <condition property="php" value="php">
-      <not>
-        <isset property="${php}"/>
-      </not>
-    </condition>
-  </target>
-
-  <target name="rsync-check">
-    <condition property="rsync" value="rsync">
-      <not>
-        <isset property="${rsync}"/>
-      </not>
-    </condition>
-  </target>
 
   <target name="prepare">
     <mkdir dir="${builddir}" />
     <mkdir dir="${builddir}/logs" />
   </target>
 
-  <target name="composer-check">
-    <condition property="composer" value="composer">
-      <not>
-        <isset property="${composer}"/>
-      </not>
-    </condition>
-  </target>
-
-  <target name="composer" depends="composer-check" unless="composer.noupdate" description="Run composer update">
-    <exec executable="${composer}">
-      <arg value="update"/>
-    </exec>
-  </target>
-
-  <target name="drush-check" depends="prepare">
-    <condition property="drush.present">
-      <or>
-        <available file="${builddir}/vendor/bin/drush"/>
-        <isset property="${drush}"/>
-      </or>
-    </condition>
-    <!-- Set Composer path to build directory if executable is not set -->
-    <condition property="drush" value="${builddir}/vendor/bin/drush">
-      <not>
-        <isset property="${drush}"/>
-      </not>
-    </condition>
-  </target>
-
-  <target name="drush-download" depends="composer-check,drush-check" unless="drush.present">
-    <exec executable="${composer}">
-      <arg value="--working-dir=${builddir}"/>
-      <arg value="require"/>
-      <arg value="drush/drush:~6.0"/>
-    </exec>
-  </target>
-
-  <target name="drush-make" depends="rsync-check,drush-download" unless="drush.nomake" description="Run drush make">
+  <target name="drush-make" unless="drush.nomake" description="Run drush make">
     <delete dir="${builddir}/docroot"/>
     <!-- Run drush make into ./build/drupal -->
     <exec executable="${drush}">
       <arg value="make"/>
       <arg value="--nocolor"/>
+      <arg value="--prepare-install"/>
       <arg value="${phing.dir}/${drush.makefile}"/>
       <arg value="${builddir}/docroot"/>
     </exec>
@@ -120,7 +63,7 @@
     </exec>
   </target>
 
-  <target name="uninstall" depends="drush-check" description="Run drush sql-drop">
+  <target name="uninstall" description="Run drush sql-drop">
     <exec executable="${drush}" dir="${basedir}/docroot">
       <arg value="sql-drop"/>
       <arg value="-y"/>
