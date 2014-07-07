@@ -48,7 +48,7 @@
     </exec>
   </target>
 
-  <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">D
+  <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">
     <exec executable="drush" dir="${docroot}">
       <arg value="site-install"/>
       <arg value="-y"/>
