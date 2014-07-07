@@ -5,6 +5,7 @@
   <property file="build.properties" description="Local build configuration overrides"/>
 
   <property name="builddir" value="${phing.dir}/build"/>
+  <property name="docroot" value="${basedir}/${drupal.docroot}"/>
 
   <target name="build" depends="install" description="Run drush make and drush site-install"/>
 
@@ -13,8 +14,8 @@
   </target>
 
   <target name="clean-docroot">
-    <chmod dir="${basedir}/docroot/sites/${sites.subdir}" perm="755"/>
-    <delete dir="${basedir}/docroot"/>
+    <chmod dir="${docroot}/sites/${drupal.subdir}" perm="755"/>
+    <delete dir="${docroot}"/>
   </target>
 
   <target name="clean-src" depends="clean-docroot" description="Clean source code"/>
@@ -27,14 +28,14 @@
   </target>
 
   <target name="drush-make" unless="drush.nomake" description="Run drush make">
-    <delete dir="${builddir}/docroot"/>
+    <delete dir="${builddir}/${drupal.docroot}"/>
     <!-- Run drush make into ./build/drupal -->
     <exec executable="${drush}">
       <arg value="make"/>
-      <arg value="--nocolor"/>
+      <arg value="--concurrency=5"/>
       <arg value="--prepare-install"/>
       <arg value="${phing.dir}/${drush.makefile}"/>
-      <arg value="${builddir}/docroot"/>
+      <arg value="${builddir}/${drupal.docroot}"/>
     </exec>
     <!-- Rsync the build into ./docroot -->
     <exec executable="${rsync}">
@@ -42,13 +43,13 @@
       <arg value="--delete"/>
       <arg value="--exclude=sites/*/settings*.php"/>
       <arg value="--exclude=sites/*/files"/>
-      <arg value="${builddir}/docroot/"/>
-      <arg value="${basedir}/docroot"/>
+      <arg value="${builddir}/${drupal.docroot}/"/>
+      <arg value="${docroot}"/>
     </exec>
   </target>
 
   <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">
-    <exec executable="${drush}" dir="${basedir}/docroot">
+    <exec executable="${drush}" dir="${docroot}">
       <arg value="site-install"/>
       <arg value="-y"/>
       <arg value="--nocolor"/>
@@ -58,13 +59,14 @@
       <arg value="--account-name=${account.name}"/>
       <arg value="--account-pass=${account.pass}"/>
       <arg value="--account-mail=${account.mail}"/>
-      <arg value="--sites-subdir=${sites.subdir}"/>
+      <arg value="--sites-subdir=${drupal.subdir}"/>
+      <arg value="--writable"/>
       <arg value="${drupal.profile}"/>
     </exec>
   </target>
 
   <target name="uninstall" description="Run drush sql-drop">
-    <exec executable="${drush}" dir="${basedir}/docroot">
+    <exec executable="${drush}" dir="${docroot}">
       <arg value="sql-drop"/>
       <arg value="-y"/>
       <arg value="--nocolor"/>
