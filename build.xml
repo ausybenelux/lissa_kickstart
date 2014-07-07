@@ -10,7 +10,7 @@
   <target name="build" depends="clean-permissions,install" description="Run drush make and drush site-install"/>
 
   <target name="clean-permissions">
-    <chmod dir="${docroot}/sites/${drupal.subdir}" perm="755"/>
+    <chmod file="${docroot}/sites/${drupal.subdir}" mode="755"/>
   </target>
 
   <target name="clean" description="Clean build artifacts">
