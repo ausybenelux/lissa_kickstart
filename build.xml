@@ -7,14 +7,17 @@
   <property name="builddir" value="${phing.dir}/build"/>
   <property name="docroot" value="${basedir}/${drupal.docroot}"/>
 
-  <target name="build" depends="install" description="Run drush make and drush site-install"/>
+  <target name="build" depends="clean-permissions,install" description="Run drush make and drush site-install"/>
+
+  <target name="clean-permissions">
+    <chmod dir="${docroot}/sites/${drupal.subdir}" perm="755"/>
+  </target>
 
   <target name="clean" description="Clean build artifacts">
     <delete dir="${builddir}"/>
   </target>
 
-  <target name="clean-docroot">
-    <chmod dir="${docroot}/sites/${drupal.subdir}" perm="755"/>
+  <target name="clean-docroot" depends="clean-permissions">
     <delete dir="${docroot}"/>
   </target>
 
