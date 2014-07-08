@@ -6,7 +6,7 @@
 core = "8.x"
 api = 2
 
-projects[drupal][version] = 8.0-alpha12
+projects[drupal][version] = 8.0-alpha13
 projects[drupal][overwrite] = TRUE
 
 ; Download the install profile and recursively build all its dependencies:
