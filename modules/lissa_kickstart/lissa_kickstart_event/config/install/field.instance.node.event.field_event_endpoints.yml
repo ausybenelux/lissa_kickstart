@@ -1,19 +1,21 @@
-id: node.event.field_event_endpoints
-status: true
 langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.node.field_event_endpoints
+    - node.type.event
+id: node.event.field_event_endpoints
+label: 'Video endpoints'
+field_uuid: 231f1526-0c87-45b7-b30d-13c8d098d6f7
 field_name: field_event_endpoints
 entity_type: node
 bundle: event
-label: 'Video endpoints'
 description: 'Enter an endpoint to a video stream.'
 required: false
+translatable: true
 default_value: {  }
 default_value_function: ''
 settings:
   link_type: '16'
   title: '0'
-dependencies:
-  entity:
-    - field.field.node.field_event_endpoints
-    - node.type.event
 field_type: link

@@ -1,6 +1,10 @@
-id: node.field_event_endpoints
-status: true
 langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_event_endpoints
 name: field_event_endpoints
 entity_type: node
 type: link
@@ -10,7 +14,3 @@ locked: false
 cardinality: -1
 translatable: false
 indexes: {  }
-dependencies:
-  module:
-    - link
-    - node
