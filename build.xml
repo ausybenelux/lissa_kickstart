@@ -11,6 +11,7 @@
 
   <target name="clean-permissions">
     <chmod file="${docroot}/sites/${drupal.subdir}" mode="755"/>
+    <chmod file="${docroot}/sites/${drupal.subdir}/settings.php" mode="755"/>
   </target>
 
   <target name="clean" description="Clean build artifacts">
