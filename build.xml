@@ -5,7 +5,6 @@
   <property file="build.properties" description="Local build configuration overrides"/>
 
   <property name="builddir" value="${phing.dir}/build"/>
-  <property name="docroot" value="${basedir}/${drupal.docroot}"/>
 
   <target name="build" depends="clean-permissions,install" description="Run drush make and drush site-install"/>
 

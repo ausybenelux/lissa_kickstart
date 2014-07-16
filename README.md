@@ -19,7 +19,7 @@ Phing:
 
 - Install the latest version of Phing
 - cd to the root of this repository
-- Execute the following command: phing -Dbasedir=/path/to/docroot/parent
+- Execute the following command: phing -Ddocroot=/path/to/docroot
 - Replace /path/to/docroot/parent to the path to the directory where the
   distribution will be installed.
 
