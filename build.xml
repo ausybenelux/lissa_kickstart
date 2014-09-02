@@ -47,7 +47,7 @@
       <arg value="${builddir}/${drupal.docroot}"/>
     </exec>
     <!-- Run composer -->
-    <exec executable="composer" dir="${builddir}">
+    <exec executable="composer" dir="${phing.dir}">
       <arg value="install"/>
     </exec>
     <!-- Rsync the build into ./docroot -->
