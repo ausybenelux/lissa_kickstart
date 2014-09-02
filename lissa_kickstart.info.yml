@@ -24,7 +24,7 @@ dependencies:
   - history
   - image
   - link
-  - menu_link
+  - menu_link_content
   - menu_ui
   - migrate
   - node
