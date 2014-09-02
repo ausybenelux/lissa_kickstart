@@ -46,10 +46,6 @@
       <arg value="${phing.dir}/${drush.makefile}"/>
       <arg value="${builddir}/${drupal.docroot}"/>
     </exec>
-    <!-- Run composer -->
-    <exec executable="composer" dir="${phing.dir}">
-      <arg value="install"/>
-    </exec>
     <!-- Rsync the build into ./docroot -->
     <exec executable="rsync">
       <arg value="-aqc"/>
