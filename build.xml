@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="LISSA Kickstart" default="build">
-  <property file="build.default.properties" description="Default build configuration"/>
-  <property file="build.properties" description="Local build configuration overrides"/>
+  <property file="build.default.properties" description="Default build configuration" override="true" />
+  <property file="build.properties" description="Local build configuration overrides" override="true" />
 
   <property name="builddir" value="${phing.dir}/build"/>
 
