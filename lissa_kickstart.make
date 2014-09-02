@@ -9,4 +9,4 @@ projects[devel][download][branch] = 8.x-1.x
 
 projects[composer][type] = "module"
 projects[composer][subdir] = "contrib"
-projects[composer][version] = 8.x-1.0
+projects[composer][version] = 1.0
