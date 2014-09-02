@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.instance.node.event.field_event_endpoint
+    - node.type.event
+  module:
+    - link
+    - path
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  title:
+    type: string
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_event_endpoint:
+    type: link_default
+    weight: 1
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true

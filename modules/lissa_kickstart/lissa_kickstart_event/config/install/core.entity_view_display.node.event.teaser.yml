@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - core.entity_view_mode.node.teaser
+    - field.instance.node.event.field_event_endpoint
+    - node.type.event
+id: node.event.teaser
+label: null
+targetEntityType: node
+bundle: event
+mode: teaser
+content: {  }
+hidden:
+  langcode: true
+  field_event_endpoint: true
+  body: true

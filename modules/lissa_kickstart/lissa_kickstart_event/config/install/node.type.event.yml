@@ -5,13 +5,12 @@ name: Event
 type: event
 description: ''
 help: ''
-title_label: Name
 settings:
   node:
     options:
+      revision: false
       status: true
       promote: false
       sticky: false
-      revision: false
     preview: 0
     submitted: false
