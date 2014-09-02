@@ -14,7 +14,7 @@
       <then>
         <chmod file="${docroot}/sites/${drupal.subdir}" mode="755"/>
         <chmod file="${docroot}/sites/${drupal.subdir}/settings.php" mode="755"/>
-        <chown file="${docroot}" user="${web.user}" />
+        <exec command="chown -R ${web.user}:${web.user} ${docroot}" escape="false" />
       </then>
     </if>
   </target>
