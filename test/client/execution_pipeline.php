@@ -9,14 +9,14 @@
 require_once __DIR__ . '/../../../vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPConnection;
 
-$connection = new AMQPConnection('msgb.lissa.crosscheck.bev', 5672, 'guest', 'guest');
+$connection = new AMQPConnection('10.181.138.165', 5672, 'guest', 'guest');
 $channel = $connection->channel();
 
 $channel->queue_declare('content_notification', false, false, false, false);
 
 echo ' [*] Waiting for messages. To exit press CTRL+C', "\n";
 
-$ch = curl_init('http://worker.lissa.crosscheck.be/publish?channel=1');
+$ch = curl_init('10.179.65.90/publish?channel=1');
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
