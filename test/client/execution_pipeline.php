@@ -6,7 +6,7 @@
  * Time: 10:24
  */
 
-require_once __DIR__ . '/../../../vendor/autoload.php';
+require_once __DIR__ . '/../../../../core/vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPConnection;
 
 $connection = new AMQPConnection('10.181.138.165', 5672, 'guest', 'guest');
