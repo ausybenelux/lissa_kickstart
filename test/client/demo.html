@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>WebSocket Example</title>
+</head>
+<body>
+<p>Messages:</p>
+<div id="messages" style="width:800px;height:300px;overflow:scroll;"></div>
+
+<script src="js/pushstream.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+<script type="text/javascript" language="javascript" charset="utf-8">
+    // <![CDATA[
+    function messageReceived(text, id, channel) {
+        document.getElementById('messages').innerHTML = id + ': ' + text + '<br>';
+    };
+
+    var pushstream = new PushStream({
+        host: 'worker.lissa.crosscheck.be',
+        port: window.location.port,
+        modes: "websocket"
+    });
+    pushstream.onmessage = messageReceived;
+    pushstream.addChannel('1');
+    pushstream.connect();
+    // ]]>
+</script>
+</body>
+</html>
