@@ -72,6 +72,11 @@
       <arg value="--writable"/>
       <arg value="${drupal.profile}"/>
     </exec>
+    <!-- Set up the composer dependencies -->
+    <exec executable="composer" dir="${docroot}/sites/default/files/composer">
+      <arg value="--no-dev"/>
+      <arg value="install"/>
+    </exec>
   </target>
 
   <target name="uninstall" description="Run drush sql-drop">
