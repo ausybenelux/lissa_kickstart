@@ -7,7 +7,11 @@
  */
 
 require_once __DIR__ . '/../../../../core/vendor/autoload.php';
+require_once __DIR__ . '/../../../../core/includes/bootstrap.inc';
+
 use PhpAmqpLib\Connection\AMQPConnection;
+
+drupal_bootstrap(DRUPAL_BOOTSTRAP_KERNEL);
 
 $connection = new AMQPConnection('10.181.138.165', 5672, 'guest', 'guest');
 $channel = $connection->channel();
