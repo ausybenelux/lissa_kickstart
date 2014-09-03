@@ -15,21 +15,21 @@ define("LISSA_NOTIFICATIONS_SERVER_MB", '10.181.138.165');
  * Implements hook_entity_insert()
  */
 function lissa_notifications_entity_insert(EntityInterface $e) {
-  lissa_notifications_notify(EntityInterface $e, 'Entity inserted of type: ' . $e->getEntityTypeId());
+  lissa_notifications_notify($e, 'Entity inserted of type: ' . $e->getEntityTypeId());
 }
 
 /**
  * Implements hook_entity_update()
  */
 function lissa_notifications_entity_update(EntityInterface $e) {
-  lissa_notifications_notify(EntityInterface $e, 'Entity updated of type: ' . $e->getEntityTypeId());
+  lissa_notifications_notify($e, 'Entity updated of type: ' . $e->getEntityTypeId());
 }
 
 /**
  * Implements hook_entity_delete()
  */
 function lissa_notifications_entity_delete(EntityInterface $e) {
-  lissa_notifications_notify(EntityInterface $e, 'Entity deleted of type: ' . $e->getEntityTypeId());
+  lissa_notifications_notify($e, 'Entity deleted of type: ' . $e->getEntityTypeId());
 }
 
 function lissa_notifications_notify(EntityInterface $e, $message = '') {
