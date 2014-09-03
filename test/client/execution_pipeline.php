@@ -6,12 +6,9 @@
  * Time: 10:24
  */
 
-require_once __DIR__ . '/../../../../core/vendor/autoload.php';
-require_once __DIR__ . '/../../../../core/includes/bootstrap.inc';
+require_once __DIR__ . '/../../../../sites/all/vendor/autoload.php';
 
 use PhpAmqpLib\Connection\AMQPConnection;
-
-drupal_bootstrap(DRUPAL_BOOTSTRAP_KERNEL);
 
 $connection = new AMQPConnection('10.181.138.165', 5672, 'guest', 'guest');
 $channel = $connection->channel();
