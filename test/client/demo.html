@@ -12,7 +12,7 @@
 <script type="text/javascript" language="javascript" charset="utf-8">
     // <![CDATA[
     function messageReceived(text, id, channel) {
-        document.getElementById('messages').innerHTML = id + ': ' + text + '<br>';
+        document.getElementById('messages').innerHTML += id + ': ' + text + '<br>';
     };
 
     var pushstream = new PushStream({
