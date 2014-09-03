@@ -30,23 +30,6 @@ function lissa_kickstart_install() {
     ->execute();
 
 
-  // Populate the default shortcut set.
-  $shortcut = entity_create('shortcut', array(
-    'shortcut_set' => 'default',
-    'title' => t('Add content'),
-    'weight' => -20,
-    'path' => 'node/add',
-  ));
-  $shortcut->save();
-
-  $shortcut = entity_create('shortcut', array(
-    'shortcut_set' => 'default',
-    'title' => t('All content'),
-    'weight' => -19,
-    'path' => 'admin/content',
-  ));
-  $shortcut->save();
-
   // Enable the admin theme.
   \Drupal::config('node.settings')->set('use_admin_theme', '1')->save();
 }
