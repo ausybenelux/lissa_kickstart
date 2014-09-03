@@ -27,6 +27,8 @@ $callback = function($msg) {
   static $counter = 0;
   $counter++;
 
+  echo $msg->body;
+
   $data = array(
     'id' => $counter,
     'text' => $msg->body);
