@@ -74,7 +74,7 @@
     </exec>
     <!-- Set up the composer dependencies -->
     <if>
-      <available file="${docroot}/sites/default/files/composer" type="dir" />
+      <available file="${docroot}/sites/default/files/composer/composer.json" type="file" />
       <then>
         <exec executable="composer" dir="${docroot}/sites/default/files/composer">
           <arg value="--no-dev"/>
