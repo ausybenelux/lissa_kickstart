@@ -58,6 +58,7 @@
   </target>
 
   <target name="install" depends="drush-make,clean-permissions" unless="drush.noinstall" description="Run drush site-install">
+    <phingcall target="clean-permissions" />
     <exec executable="drush" dir="${docroot}">
       <arg value="site-install"/>
       <arg value="-y"/>
