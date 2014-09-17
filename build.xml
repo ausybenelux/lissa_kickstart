@@ -6,9 +6,10 @@
 
   <property name="builddir" value="${phing.dir}/build"/>
 
-  <target name="build" depends="clean-permissions,install" description="Run drush make and drush site-install"/>
+  <target name="build" depends="clean,prepare,install" description="Run drush make and drush site-install"/>
+  <target name="clean" depends="uninstall,clean-build,clean-docroot" description="Clean build artifacts and source code"/>
 
-  <target name="clean-permissions">
+  <target name="clean-permissions" description="Clean permissions">
      <if>
       <available file="${docroot}/sites/${drupal.subdir}/settings.php" type="file" />
       <then>
@@ -19,24 +20,30 @@
     </if>
   </target>
 
-  <target name="clean" description="Clean build artifacts">
-    <delete dir="${builddir}"/>
+  <target name="clean-build" description="Clean build artifacts">
+    <if>
+      <available file="${builddir}" type="dir" />
+      <then>
+        <delete dir="${builddir}"/>
+      </then>
+    </if>
   </target>
 
-  <target name="clean-docroot" depends="clean-permissions">
-    <delete dir="${docroot}"/>
+  <target name="clean-docroot" description="Clean docroot">
+    <if>
+      <available file="${docroot}" type="dir" />
+      <then>
+        <delete dir="${docroot}"/>
+      </then>
+    </if>
   </target>
-
-  <target name="clean-src" depends="clean-docroot" description="Clean source code"/>
-
-  <target name="clean-all" depends="clean,clean-src" description="Clean build artifacts and source code"/>
 
   <target name="prepare">
     <mkdir dir="${builddir}" />
     <mkdir dir="${builddir}/logs" />
   </target>
 
-  <target name="drush-make" depends="prepare" unless="drush.nomake" description="Run drush make">
+  <target name="drush-make" description="Run drush make">
     <delete dir="${builddir}/${drupal.docroot}"/>
     <!-- Run drush make into ./build/drupal -->
     <exec executable="drush">
@@ -58,7 +65,6 @@
   </target>
 
   <target name="install" depends="drush-make,clean-permissions" unless="drush.noinstall" description="Run drush site-install">
-    <phingcall target="clean-permissions" />
     <exec executable="drush" dir="${docroot}">
       <arg value="site-install"/>
       <arg value="-y"/>
@@ -86,11 +92,16 @@
   </target>
 
   <target name="uninstall" description="Run drush sql-drop">
-    <exec executable="drush" dir="${docroot}">
-      <arg value="sql-drop"/>
-      <arg value="-y"/>
-      <arg value="--nocolor"/>
-      <arg value="--db-url=${db.url}"/>
-    </exec>
+    <if>
+      <available file="${docroot}" type="dir" />
+      <then>
+        <exec executable="drush" dir="${docroot}">
+          <arg value="sql-drop"/>
+          <arg value="-y"/>
+          <arg value="--nocolor"/>
+          <arg value="--db-url=${db.url}"/>
+        </exec>
+      </then>
+    </if>
   </target>
 </project>
