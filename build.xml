@@ -10,7 +10,7 @@
 
   <target name="clean-permissions">
      <if>
-      <available file="${docroot}/sites/${drupal.subdir}" type="dir" />
+      <available file="${docroot}/sites/${drupal.subdir}/settings.php" type="file" />
       <then>
         <chmod file="${docroot}/sites/${drupal.subdir}" mode="777"/>
         <chmod file="${docroot}/sites/${drupal.subdir}/settings.php" mode="777"/>
