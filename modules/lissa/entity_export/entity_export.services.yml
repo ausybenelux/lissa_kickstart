@@ -1,0 +1,4 @@
+services:
+  entity_export.entity_exporter:
+    class: Drupal\entity_export\Exporter\EntityExporter
+    arguments: ['@serializer.normalizer.entity', '@Drupal\serialization\Encoder\JsonEncoder']

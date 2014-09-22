@@ -1,0 +1,8 @@
+name: Entity export module
+type: module
+description: 'Helps developers export entities using drush.'
+package: Development
+version: '8.x-1.0'
+core: '8.x'
+dependencies:
+  - serialization
