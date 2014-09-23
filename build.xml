@@ -104,4 +104,12 @@
       </then>
     </if>
   </target>
+
+  <target name="import" description="Import test data">
+    <exec executable="drush" dir="${docroot}">
+      <arg value="ime"/>
+      <arg value="node"/>
+      <arg value="profiles/lissa_kickstart/test_data/nodes.json"/>
+    </exec>
+  </target>
 </project>
