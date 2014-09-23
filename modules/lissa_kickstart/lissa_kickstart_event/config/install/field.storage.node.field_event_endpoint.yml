@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_event_endpoint
+name: field_event_endpoint
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

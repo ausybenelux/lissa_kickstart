@@ -16,3 +16,4 @@ config_devel:
   - node.type.event
   - views.view.events
   - field.field.node.event.field_event_endpoint
+  - field.storage.node.field_event_endpoint
