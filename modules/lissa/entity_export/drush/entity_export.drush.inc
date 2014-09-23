@@ -15,7 +15,7 @@ use Drupal\Core\Entity\Entity;
 function entity_export_drush_command() {
   $items = array();
 
-  $description = "Export entities in a given format." . "\n";
+  $description = "Export entities in JSON." . "\n";
 
   $items['export-entity'] = array(
     'description' => $description,
@@ -25,26 +25,25 @@ function entity_export_drush_command() {
     'options' => array(
       'bundle' => 'Entity bundle.',
       'ids' => 'One or more entity IDs.',
-      'format' => 'Format to print the data in, defaults to YAML',
     ),
     'examples' => array(
-      'drush entity-export node' => 'Export all nodes.',
+      'drush entity-export node > nodes.json' => 'Export all nodes to a nodes.json file.',
       'drush entity-export node --bundle=article' => 'Export all nodes of type article.',
       'drush entity-export node --ids=8,9' => 'Export the nodes with node id 8 and 9.',
     ),
     'aliases' => array('exe'),
   );
 
-  $description = "Import entities in YAMLt." . "\n";
+  $description = "Import entities from a JSON file." . "\n";
 
   $items['import-entity'] = array(
     'description' => $description,
     'arguments' => array(
       'type' => 'Entity type.',
-      'file' => 'Filepath of the file containing the YAML data.'
+      'file' => 'Filepath of the file containing the JSON data.'
     ),
     'examples' => array(
-      'drush entity-import node /path/to/nodes.yml' => 'Import all nodes.',
+      'drush entity-import node /path/to/nodes.json' => 'Import all nodes.',
     ),
     'aliases' => array('ime'),
   );
