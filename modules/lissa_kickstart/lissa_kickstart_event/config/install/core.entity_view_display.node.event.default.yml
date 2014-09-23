@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   entity:
-    - field.instance.node.event.field_event_endpoint
     - node.type.event
   module:
     - link
@@ -11,18 +10,7 @@ label: null
 targetEntityType: node
 bundle: event
 mode: default
-content:
-  field_event_endpoint:
-    weight: -3
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
+content: { }
 hidden:
   langcode: true
   body: true
