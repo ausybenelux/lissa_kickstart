@@ -89,7 +89,7 @@ function drush_entity_export_export_entity($type = NULL) {
  */
 function drush_entity_export_import_entity($type = NULL, $filepath = NULL) {
 
-  if (!empty($type) && \Drupal::entityManager()->getDefinition($type)) {
+  if (!empty($type) && \Drupal::entityManager()->getDefinition($type) && file_exists($filepath)) {
     $contents = @file_get_contents($filepath);
 
     if (!empty($contents)) {
@@ -104,6 +104,7 @@ function drush_entity_export_import_entity($type = NULL, $filepath = NULL) {
           }
           $entity = $serializer->denormalize($entity_values, 'Drupal\Core\Entity\Entity', NULL, array('entity_type' => $type));
           if ($entity) {
+            // Delete existing items so we can update them later.
             $uuid = $entity->uuid();
             if ($existing = \Drupal::entityManager()->loadEntityByUuid($type, $uuid)) {
               $existing->delete();
