@@ -33,7 +33,7 @@ function lissa_notifications_entity_delete(EntityInterface $e) {
 }
 
 function lissa_notifications_notify(EntityInterface $e, $message = '') {
-  if ($e->getEntityTypeId() == 'node') {
+  /*if ($e->getEntityTypeId() == 'node') {
     $connection = new AMQPConnection(LISSA_NOTIFICATIONS_SERVER_MB, 5672, 'guest', 'guest');
     $channel = $connection->channel();
 
@@ -44,5 +44,5 @@ function lissa_notifications_notify(EntityInterface $e, $message = '') {
 
     $channel->close();
     $connection->close();
-  }
+  }*/
 }

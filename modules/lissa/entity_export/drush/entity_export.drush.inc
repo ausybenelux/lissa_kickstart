@@ -6,7 +6,8 @@
  */
 
 
-use Drupal\Component\Serialization\Yaml;
+use Drupal\Core\Entity\Entity;
+
 
 /**
  * Implements hook_drush_command().
@@ -76,11 +77,9 @@ function drush_entity_export_export_entity($type = NULL) {
 
     // Normalize the entity objects.
     if (!empty($entities)) {
-      $result = array();
-      foreach ($entities as $id => $entity) {
-        $result[$id] = $entity->toArray();
-      }
-      drush_print_format($result, 'yaml');
+      $serializer = \Drupal::service('serializer');
+      $output = $serializer->serialize($entities, 'json');
+      drush_print($output);
     }
   }
 }
@@ -94,8 +93,30 @@ function drush_entity_export_import_entity($type = NULL, $filepath = NULL) {
     $contents = @file_get_contents($filepath);
 
     if (!empty($contents)) {
-      $data = Yaml::decode($contents);;
-      drush_print(var_export($data));
+      $serializer = \Drupal::service('serializer');
+      $data = $serializer->decode($contents, 'json');
+
+      if (is_array($data)) {
+        foreach ($data as $entity_values) {
+          // The entity denormalizer assumes value instead of target_id.
+          if (isset($entity_values['type'][0]['target_id'])) {
+            $entity_values['type'][0]['value'] = $entity_values['type'][0]['target_id'];
+          }
+          $entity = $serializer->denormalize($entity_values, 'Drupal\Core\Entity\Entity', NULL, array('entity_type' => $type));
+          if ($entity) {
+            $uuid = $entity->uuid();
+            if ($existing = \Drupal::entityManager()->loadEntityByUuid($type, $uuid)) {
+              $existing->delete();
+            }
+
+            $entity->save();
+            drush_print(t('Created entity: !label', array('!label' => $entity->label())));
+          }
+          else {
+            drush_set_error(t('Failed creating entity'));
+          }
+        }
+      }
     }
   }
 }
