@@ -2,8 +2,11 @@ langcode: en
 status: true
 dependencies:
   entity:
+    - field.field.node.event.field_event_endpoint
     - node.type.event
   module:
+    - entity_reference
+    - link
     - path
 id: node.event.default
 targetEntityType: node
@@ -22,5 +25,39 @@ content:
     weight: 2
     settings: {  }
     third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_type: tags
+      placeholder: ''
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: '1'
+    weight: 15
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: '1'
+    weight: 16
+    third_party_settings: {  }
+  field_event_endpoint:
+    weight: 26
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
 hidden:
   body: true
+third_party_settings: {  }

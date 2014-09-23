@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_event_endpoint
+    - node.type.event
+id: node.event.field_event_endpoint
+field_name: field_event_endpoint
+entity_type: node
+bundle: event
+label: 'Main video stream URL'
+description: 'The URL of the MPD file of the main video stream.'
+required: false
+translatable: false
+default_value: {  }
+default_value_function: ''
+settings:
+  link_type: '17'
+  title: '0'
+third_party_settings: {  }
+field_type: link

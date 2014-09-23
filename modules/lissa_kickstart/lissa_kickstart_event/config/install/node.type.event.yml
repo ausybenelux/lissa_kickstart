@@ -5,12 +5,7 @@ name: Event
 type: event
 description: ''
 help: ''
-settings:
-  node:
-    options:
-      revision: false
-      status: true
-      promote: false
-      sticky: false
-    preview: 0
-    submitted: false
+new_revision: false
+preview_mode: 1
+display_submitted: true
+third_party_settings: {  }

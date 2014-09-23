@@ -1,8 +1,18 @@
-base_field: nid
-base_table: node
-core: 8.x
-description: ''
+langcode: en
 status: true
+dependencies:
+  module:
+    - node
+    - rest
+    - user
+id: events
+label: Events
+module: views
+description: ''
+tag: ''
+base_table: node
+base_field: nid
+core: 8.x
 display:
   default:
     display_plugin: default
@@ -853,12 +863,3 @@ display:
         name: admin
         weight: 0
         context: '0'
-label: Events
-module: views
-id: events
-tag: ''
-langcode: en
-dependencies:
-  module:
-    - node
-    - user

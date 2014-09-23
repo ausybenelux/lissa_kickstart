@@ -9,3 +9,10 @@ dependencies:
   - node
   - views
   - rest
+config_devel:
+  - core.entity_form_display.node.event.default
+  - core.entity_view_display.node.event.default
+  - core.entity_view_display.node.event.teaser
+  - node.type.event
+  - views.view.events
+  - field.field.node.event.field_event_endpoint

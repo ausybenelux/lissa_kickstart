@@ -2,15 +2,31 @@ langcode: en
 status: true
 dependencies:
   entity:
+    - field.field.node.event.field_event_endpoint
     - node.type.event
   module:
     - link
+    - user
 id: node.event.default
 label: null
 targetEntityType: node
 bundle: event
 mode: default
-content: { }
+content:
+  links:
+    weight: 100
+  field_event_endpoint:
+    weight: 101
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
 hidden:
   langcode: true
   body: true
+third_party_settings: {  }

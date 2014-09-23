@@ -4,12 +4,17 @@ dependencies:
   entity:
     - core.entity_view_mode.node.teaser
     - node.type.event
+  module:
+    - user
 id: node.event.teaser
 label: null
 targetEntityType: node
 bundle: event
 mode: teaser
-content: {  }
+content:
+  links:
+    weight: 100
 hidden:
   langcode: true
   body: true
+third_party_settings: {  }
