@@ -110,7 +110,7 @@
     <!-- Rsync the assets into the files dir. -->
     <exec executable="rsync">
       <arg value="-aqc"/>
-      <arg value="${docroot}/profiles/lissa_kickstart/test_data/files"/>
+      <arg value="${docroot}/profiles/lissa_kickstart/test_data/files/"/>
       <arg value="${docroot}/sites/default/files"/>
     </exec>
     <exec executable="drush" dir="${docroot}">
