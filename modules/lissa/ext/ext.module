@@ -23,7 +23,7 @@ function ext_help($route_name, RouteMatchInterface $route_match) {
       $output .= '<li>' . t('Limits the file entities to just the URI.') . '</li>';
       $output .= '</ul>';
       $output .= '<h3>' . t('Usage') . '</h3>';
-      $output .= '<p>' . t('Use a Content: application/ext+json HTTP header when performing a request.') . '</p>';
+      $output .= '<p>' . t('Use an Accept: application/ext+json HTTP header when performing a request.') . '</p>';
       return $output;
   }
 }
