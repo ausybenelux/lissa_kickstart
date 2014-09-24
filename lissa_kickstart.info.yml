@@ -37,6 +37,7 @@ dependencies:
   - lissa_kickstart_event
   - lissa_notifications
   - entity_export
+  - ext
 themes:
   - bartik
   - seven
