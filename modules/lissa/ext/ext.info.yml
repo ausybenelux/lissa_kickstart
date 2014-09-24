@@ -1,0 +1,9 @@
+name: 'EXT'
+type: module
+description: 'Serializes entities in an extended format, including all reference data.'
+package: Web services
+dependencies:
+  - rest
+  - serialization
+version: '8.0.0-alpha15+55-dev'
+core: '8.x'

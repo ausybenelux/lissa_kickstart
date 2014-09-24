@@ -1,0 +1,32 @@
+services:
+  serializer.normalizer.entity_reference_item.ext:
+    class: Drupal\ext\Normalizer\EntityReferenceItemNormalizer
+    arguments: ['@rest.link_manager', '@serializer.entity_resolver']
+    tags:
+      - { name: normalizer, priority: 10 }
+  serializer.normalizer.field_item.ext:
+    class: Drupal\ext\Normalizer\FieldItemNormalizer
+    tags:
+      - { name: normalizer, priority: 10 }
+  serializer.normalizer.field.ext:
+    class: Drupal\ext\Normalizer\FieldNormalizer
+    tags:
+      - { name: normalizer, priority: 10 }
+  serializer.normalizer.file_entity.ext:
+    class: Drupal\ext\Normalizer\FileEntityNormalizer
+    tags:
+      - { name: normalizer, priority: 20 }
+    arguments: ['@entity.manager', '@http_client', '@rest.link_manager', '@module_handler']
+  serializer.normalizer.entity.ext:
+    class: Drupal\ext\Normalizer\ContentEntityNormalizer
+    arguments: ['@rest.link_manager', '@entity.manager', '@module_handler']
+    tags:
+      - { name: normalizer, priority: 10 }
+  serializer.encoder.ext:
+    class: Drupal\ext\Encoder\JsonEncoder
+    tags:
+      - { name: encoder, priority: 10, format: ext_json }
+  ext.subscriber:
+    class: Drupal\ext\ExtSubscriber
+    tags:
+      - { name: event_subscriber }

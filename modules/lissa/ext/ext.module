@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Adds support for serializing entities and expanding the references.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ext_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.ext':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The EXT module is an extension to default entity serialization, expanding other referenced entities. This enables clients to use a single request when querying an API.') . '</p>';;
+      return $output;
+  }
+}
