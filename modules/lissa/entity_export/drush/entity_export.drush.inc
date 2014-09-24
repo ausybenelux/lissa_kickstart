@@ -87,8 +87,9 @@ function drush_entity_export_export_entity($type = NULL) {
  * Drush command callback.
  */
 function drush_entity_export_import_entity($type = NULL, $filepath = NULL) {
+  $definition = \Drupal::entityManager()->getDefinition($type);
 
-  if (!empty($type) && \Drupal::entityManager()->getDefinition($type) && file_exists($filepath)) {
+  if ($definition && file_exists($filepath)) {
     $contents = @file_get_contents($filepath);
 
     if (!empty($contents)) {
@@ -97,9 +98,12 @@ function drush_entity_export_import_entity($type = NULL, $filepath = NULL) {
 
       if (is_array($data)) {
         foreach ($data as $entity_values) {
-          // The entity denormalizer assumes value instead of target_id.
-          if (isset($entity_values['type'][0]['target_id'])) {
-            $entity_values['type'][0]['value'] = $entity_values['type'][0]['target_id'];
+
+          // The entity denormalizer assumes value instead of target_id for the
+          // bundle property.
+          $keys = $definition->getKeys();
+          if ($keys['bundle'] && isset($entity_values[$keys['bundle']][0]['target_id'])) {
+            $entity_values[$keys['bundle']][0]['value'] = $entity_values[$keys['bundle']][0]['target_id'];
           }
           $entity = $serializer->denormalize($entity_values, 'Drupal\Core\Entity\Entity', NULL, array('entity_type' => $type));
           if ($entity) {
