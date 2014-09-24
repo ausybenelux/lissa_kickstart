@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.taxonomy_term.field_player_teams
+    - taxonomy.vocabulary.player
+id: taxonomy_term.player.field_player_teams
+field_name: field_player_teams
+entity_type: taxonomy_term
+bundle: player
+label: Teams
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_function: ''
+settings:
+  handler: default
+third_party_settings: {  }
+field_type: taxonomy_term_reference

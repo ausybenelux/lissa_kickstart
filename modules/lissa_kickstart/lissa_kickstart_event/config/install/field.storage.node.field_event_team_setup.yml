@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - image
+    - node
+id: node.field_event_team_setup
+name: field_event_team_setup
+entity_type: node
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    fid: 0
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+  target_bundle: null
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

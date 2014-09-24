@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.taxonomy_term.field_team_color
+    - taxonomy.vocabulary.team
+id: taxonomy_term.team.field_team_color
+field_name: field_team_color
+entity_type: taxonomy_term
+bundle: team
+label: Color
+description: 'The team main color, in hex incuding #. Example: #FFFFFF'
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_function: ''
+settings: {  }
+third_party_settings: {  }
+field_type: string
