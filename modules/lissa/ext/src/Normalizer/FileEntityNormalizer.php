@@ -53,6 +53,9 @@ class FileEntityNormalizer extends ContentEntityNormalizer {
    * {@inheritdoc}
    */
   public function normalize($entity, $format = NULL, array $context = array()) {
+    if (!isset($context['included_fields'])) {
+      $context['included_fields'] = array('uri');
+    }
     $data = parent::normalize($entity, $format, $context);
     // Replace the file url with a full url for the file.
     $data['uri'][0]['value'] = $this->getEntityUri($entity);

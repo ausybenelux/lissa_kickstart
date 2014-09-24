@@ -15,7 +15,15 @@ function ext_help($route_name, RouteMatchInterface $route_match) {
     case 'help.page.ext':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('The EXT module is an extension to default entity serialization, expanding other referenced entities. This enables clients to use a single request when querying an API.') . '</p>';;
+      $output .= '<p>' . t('The EXT module is an extension to default entity serialization, expanding other referenced entities. This enables clients to use a single request when querying an API.') . '</p>';
+      $output .= '<p>' . t('The module changes the default core JSON output in the following way:') . '</p>';
+      $output .= '<ul>';
+      $output .= '<li>' . t('Expands entity references to include all their fields instead of just a target_id.') . '</li>';
+      $output .= '<li>' . t('Excludes user entity references.') . '</li>';
+      $output .= '<li>' . t('Limits the file entities to just the URI.') . '</li>';
+      $output .= '</ul>';
+      $output .= '<h3>' . t('Usage') . '</h3>';
+      $output .= '<p>' . t('Use a Content: application/ext+json HTTP header when performing a request.') . '</p>';
       return $output;
   }
 }

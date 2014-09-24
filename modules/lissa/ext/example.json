@@ -1,0 +1,112 @@
+[
+    {
+        "uuid": [{"value": "6f0359f9-4252-471f-bd09-9d284110d92e"}],
+        "type": [{"target_id": "event"}],
+        "langcode": [{"value": "en"}],
+        "title": [{"value": "FCB - KVK", "lang": "en"}],
+        "status": [{"value": "1", "lang": "en"}],
+        "created": [{"value": "1411551574", "lang": "en"}],
+        "changed": [{"value": "1411556838", "lang": "en"}],
+        "promote": [{"value": "1", "lang": "en"}],
+        "sticky": [{"value": "0", "lang": "en"}],
+        "revision_timestamp": [{"value": "1411551574"}],
+        "revision_log": [{"value": "", "lang": "en"}],
+        "field_event_competition": [
+            {
+                "uuid": [{"value": "77da5380-eb94-480c-bb1d-292ce39135e6"}],
+                "vid": [{"target_id": "competition"}],
+                "langcode": [{"value": "en"}],
+                "name": [{"value": "Pro League", "lang": "en"}],
+                "weight": [{"value": "0"}],
+                "changed": [{"value": "1411556836"}]
+            }
+        ],
+        "field_event_encoder_on": [{"value": "1"}],
+        "field_event_endpoint": [
+            {
+                "url": "https:\/\/devimages.apple.com.edgekey.net\/streaming\/examples\/bipbop_16x9\/bipbop_16x9_variant.m3u8",
+                "title": "",
+                "route_name": null,
+                "route_parameters": [],
+                "options": []
+            }
+        ],
+        "field_event_hide": [{"value": "2014-09-26T23:00:00"}],
+        "field_event_match_start": [{"value": "2014-09-25T19:00:00"}],
+        "field_event_teams": [
+            {
+                "uuid": [{"value": "f1c3e324-b1ec-419e-921d-29a030c90de1"}],
+                "vid": [{"target_id": "team"}],
+                "langcode": [{"value": "en"}],
+                "name": [{"value": "Club Brugge", "lang": "en"}],
+                "weight": [{"value": "0"}],
+                "changed": [{"value": "1411556836"}],
+                "field_team_color": [{"value": "#0077B4"}],
+                "field_team_competitions": [
+                    {
+                        "uuid": [{"value": "c240bf18-9add-4d62-9251-819d7c93ee18"}],
+                        "vid": [{"target_id": "competition"}],
+                        "langcode": [{"value": "en"}],
+                        "name": [{"value": "Jupiler League", "lang": "en"}],
+                        "weight": [{"value": "0"}],
+                        "changed": [{"value": "1411556836"}]
+                    },
+                    {
+                        "uuid": [{"value": "77da5380-eb94-480c-bb1d-292ce39135e6"}],
+                        "vid": [{"target_id": "competition"}],
+                        "langcode": [{"value": "en"}],
+                        "name": [{"value": "Pro League", "lang": "en"}],
+                        "weight": [{"value": "0"}],
+                        "changed": [{"value": "1411556836"}]
+                    }
+                ]
+            },
+            {
+                "uuid": [{"value": "ae6314a2-7cf2-4112-a400-f9dcaa7d5332"}],
+                "vid": [{"target_id": "team"}],
+                "langcode": [{"value": "en"}],
+                "name": [{"value": "KV Kortrijk", "lang": "en"}],
+                "weight": [{"value": "0"}],
+                "changed": [{"value": "1411556836"}],
+                "field_team_color": [{"value": "#D31E2F"}],
+                "field_team_competitions": [
+                    {
+                        "uuid": [{"value": "c240bf18-9add-4d62-9251-819d7c93ee18"}],
+                        "vid": [{"target_id": "competition"}],
+                        "langcode": [{"value": "en"}],
+                        "name": [{"value": "Jupiler League", "lang": "en"}],
+                        "weight": [{"value": "0"}],
+                        "changed": [{"value": "1411556836"}]
+                    },
+                    {
+                        "uuid": [{"value": "77da5380-eb94-480c-bb1d-292ce39135e6"}],
+                        "vid": [{"target_id": "competition"}],
+                        "langcode": [{"value": "en"}],
+                        "name": [{"value": "Pro League", "lang": "en"}],
+                        "weight": [{"value": "0"}],
+                        "changed": [{"value": "1411556836"}]
+                    }
+                ]
+            }
+        ],
+        "field_event_team_setup": [{"uri": [{"value": "http:\/\/admin.lissa.dev\/sites\/default\/files\/event-setup.png"}]}],
+        "field_event_thumbnail": [{"uri": [{"value": "http:\/\/admin.lissa.dev\/sites\/default\/files\/event-thumbnail.png"}]}],
+        "field_event_timeline_end": [{"value": "2014-09-25T23:00:00"}],
+        "field_event_timeline_start": [{"value": "2014-09-25T18:00:00"}],
+        "field_event_visible": [{"value": "2014-09-24T17:00:00"}]
+    },
+    {
+        "uuid": [{"value": "8685158b-94c4-4c53-8237-559126994e9c"}],
+        "type": [{"target_id": "event"}],
+        "langcode": [{"value": "en"}],
+        "title": [{"value": "Test event 2", "lang": "en"}],
+        "status": [{"value": "1", "lang": "en"}],
+        "created": [{"value": "1411395799", "lang": "en"}],
+        "changed": [{"value": "1411556838", "lang": "en"}],
+        "promote": [{"value": "1", "lang": "en"}],
+        "sticky": [{"value": "0", "lang": "en"}],
+        "revision_timestamp": [{"value": "1411395880"}],
+        "revision_log": [{"value": "", "lang": "en"}],
+        "field_event_encoder_on": [{"value": "0"}]
+    }
+]

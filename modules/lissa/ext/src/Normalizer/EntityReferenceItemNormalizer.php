@@ -69,7 +69,6 @@ class EntityReferenceItemNormalizer extends FieldItemNormalizer implements UuidR
     // will include the langcode.
     $langcode = isset($context['langcode']) ? $context['langcode'] : NULL;
     unset($context['langcode']);
-    $context['included_fields'] = array('uuid');
 
     // Normalize the target entity.
     $embedded = $this->serializer->normalize($target_entity, $format, $context);
@@ -79,7 +78,10 @@ class EntityReferenceItemNormalizer extends FieldItemNormalizer implements UuidR
       $embedded['lang'] = $langcode;
     }
 
-    return $embedded;
+    $field = $field_item->getParent();
+    return array(
+      $field->getName() => array($embedded),
+    );
   }
 
   /**

@@ -75,7 +75,12 @@ class ContentEntityNormalizer extends NormalizerBase {
       $fields = $entity->getProperties();
     }
     // Ignore the entity ID and revision ID.
-    $exclude = array($entity->getEntityType()->getKey('id'), $entity->getEntityType()->getKey('revision'));
+    $exclude = array(
+      $entity->getEntityType()->getKey('id'),
+      $entity->getEntityType()->getKey('revision'),
+      'uid',
+      'revision_uid',
+    );
     foreach ($fields as $field) {
       if (in_array($field->getFieldDefinition()->getName(), $exclude)) {
         continue;
@@ -85,5 +90,32 @@ class ContentEntityNormalizer extends NormalizerBase {
     }
 
     return $normalized;
+  }
+
+  /**
+   * Denormalizes data back into an object of the given class
+   *
+   * @param mixed $data data to restore
+   * @param string $class the expected class to instantiate
+   * @param string $format format the given data was extracted from
+   * @param array $context options available to the denormalizer
+   *
+   * @return object
+   */
+  public function denormalize($data, $class, $format = NULL, array $context = array()) {
+    // TODO: Implement denormalize() method.
+  }
+
+  /**
+   * Constructs the entity URI.
+   *
+   * @param $entity
+   *   The entity.
+   *
+   * @return string
+   *   The entity URI.
+   */
+  protected function getEntityUri($entity) {
+    return $entity->url('canonical', array('absolute' => TRUE));
   }
 }
