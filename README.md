@@ -51,6 +51,9 @@ build.xml file for a list of possible tasks (called targets in Phing).
 
 The LISSA backend publishes content through a REST API.
 
-### List active events
+### List published events
 
-GET http://lissa.dev/api/events
+GET http://admin.lissa.dev/api/events; Accept: application/ext+json
+
+Example output can be found in lissa_kickstart/modules/lissa/ext/example.json
+
