@@ -19,20 +19,20 @@ config_devel:
   - core.entity_view_display.taxonomy_term.team.default
   - node.type.event
   - views.view.events
-  - field.field.node.event.field_event_competition
-  - field.field.node.event.field_event_encoder_on
-  - field.field.node.event.field_event_endpoint
-  - field.field.node.event.field_event_hide
-  - field.field.node.event.field_event_match_start
-  - field.field.node.event.field_event_team_setup
-  - field.field.node.event.field_event_teams
-  - field.field.node.event.field_event_thumbnail
-  - field.field.node.event.field_event_timeline_end
-  - field.field.node.event.field_event_timeline_start
-  - field.field.node.event.field_event_visible
-  - field.field.taxonomy_term.player.field_player_teams
-  - field.field.taxonomy_term.team.field_team_color
-  - field.field.taxonomy_term.team.field_team_competitions
+  - field.instance.node.event.field_event_competition
+  - field.instance.node.event.field_event_encoder_on
+  - field.instance.node.event.field_event_endpoint
+  - field.instance.node.event.field_event_hide
+  - field.instance.node.event.field_event_match_start
+  - field.instance.node.event.field_event_team_setup
+  - field.instance.node.event.field_event_teams
+  - field.instance.node.event.field_event_thumbnail
+  - field.instance.node.event.field_event_timeline_end
+  - field.instance.node.event.field_event_timeline_start
+  - field.instance.node.event.field_event_visible
+  - field.instance.taxonomy_term.player.field_player_teams
+  - field.instance.taxonomy_term.team.field_team_color
+  - field.instance.taxonomy_term.team.field_team_competitions
   - field.storage.node.field_event_competition
   - field.storage.node.field_event_encoder_on
   - field.storage.node.field_event_endpoint
