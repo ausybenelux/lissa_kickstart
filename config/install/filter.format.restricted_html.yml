@@ -1,10 +1,11 @@
-format: restricted_html
-name: 'Restricted HTML'
-weight: 0
-cache: true
-status: true
 langcode: en
-dependencies: {  }
+status: true
+dependencies:
+  module:
+    - editor
+name: 'Restricted HTML'
+format: restricted_html
+weight: 0
 filters:
   filter_html:
     id: filter_html
@@ -33,22 +34,4 @@ filters:
     provider: filter
     status: true
     weight: 10
-    settings: {  }
-  filter_caption:
-    id: filter_caption
-    provider: filter
-    status: false
-    weight: 0
-    settings: {  }
-  filter_html_escape:
-    id: filter_html_escape
-    provider: filter
-    status: false
-    weight: -10
-    settings: {  }
-  filter_html_image_secure:
-    id: filter_html_image_secure
-    provider: filter
-    status: false
-    weight: 9
     settings: {  }

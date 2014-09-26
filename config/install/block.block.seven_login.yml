@@ -1,16 +1,18 @@
-id: seven_login
-weight: 10
-status: true
 langcode: en
+status: true
 dependencies:
   module:
     - user
   theme:
     - seven
+id: seven_login
 theme: seven
 region: content
+weight: 10
+provider: null
 plugin: user_login_block
 settings:
+  visibility: {  }
   id: user_login_block
   label: 'User login'
   provider: user
@@ -18,13 +20,3 @@ settings:
   cache:
     max_age: 0
     contexts: {  }
-visibility:
-  path:
-    visibility: 0
-    pages: ''
-  role:
-    roles: {  }
-  node_type:
-    types:
-      article: '0'
-      page: '0'
