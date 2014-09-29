@@ -4,7 +4,7 @@ dependencies:
   module:
     - node
 id: node.field_event_encoder_on
-name: field_event_encoder_on
+field_name: field_event_encoder_on
 entity_type: node
 type: boolean
 settings:

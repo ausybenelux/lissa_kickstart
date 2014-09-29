@@ -6,7 +6,6 @@ dependencies:
     - image
     - node
 id: node.field_event_thumbnail
-name: field_event_thumbnail
 entity_type: node
 type: image
 settings:

@@ -1,4 +1,3 @@
-field_name: field_event_competition
 langcode: en
 status: true
 dependencies:
@@ -6,7 +5,7 @@ dependencies:
     - node
     - taxonomy
 id: node.field_event_competition
-name: field_event_competition
+field_name: field_event_competition
 entity_type: node
 type: taxonomy_term_reference
 settings:

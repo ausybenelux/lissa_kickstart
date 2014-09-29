@@ -6,7 +6,6 @@ dependencies:
     - datetime
     - node
 id: node.field_event_visible
-name: field_event_visible
 entity_type: node
 type: datetime
 settings:

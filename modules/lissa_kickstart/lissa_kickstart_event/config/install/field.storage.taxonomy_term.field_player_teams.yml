@@ -5,7 +5,6 @@ dependencies:
   module:
     - taxonomy
 id: taxonomy_term.field_player_teams
-name: field_player_teams
 entity_type: taxonomy_term
 type: taxonomy_term_reference
 settings:

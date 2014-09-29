@@ -5,7 +5,6 @@ dependencies:
   module:
     - taxonomy
 id: taxonomy_term.field_team_color
-name: field_team_color
 entity_type: taxonomy_term
 type: string
 settings:
