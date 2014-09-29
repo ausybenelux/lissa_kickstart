@@ -1,3 +1,4 @@
+field_name: field_event_competition
 langcode: en
 status: true
 dependencies:
