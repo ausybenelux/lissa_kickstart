@@ -8,6 +8,7 @@ api = 2
 
 projects[drupal][version] = 8.0.x-dev
 projects[drupal][overwrite] = TRUE
+projects[drupal][patch][] = "http://www.drupal.org/files/issues/2205527-54.patch"
 
 ; Download the install profile and recursively build all its dependencies:
 projects[lissa_kickstart][type] = profile
