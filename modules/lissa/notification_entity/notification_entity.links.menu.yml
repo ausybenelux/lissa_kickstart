@@ -1,0 +1,8 @@
+notification_entity.overview_types:
+  title: 'Notification types'
+  parent: system.admin_structure
+  description: 'Manage notification types.'
+  route_name: notification_entity.overview_types
+notification_entity.add_page:
+  title: 'Add notification'
+  route_name: entity.notification_entity.add

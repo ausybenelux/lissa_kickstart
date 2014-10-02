@@ -21,19 +21,6 @@ use Drupal\notification_entity\NotificationEntityInterface;
  *   id = "notification",
  *   label = @Translation("Notification"),
  *   bundle_label = @Translation("Notification type"),
- *   handlers = {
- *     "storage" = "Drupal\notification_entity\NotificationEntityStorage",
- *     "storage_schema" = "Drupal\notification_entity\NotificationEntityStorageSchema",
- *     "view_builder" = "Drupal\notification_entity\NotificationEntityViewBuilder",
- *     "access" = "Drupal\notification_entity\NotificationEntityAccessControlHandler",
- *     "views_data" = "Drupal\notification_entity\NotificationEntityViewsData",
- *     "form" = {
- *       "default" = "Drupal\notification_entity\NotificationEntityForm",
- *       "delete" = "Drupal\notification_entity\Form\NotificationEntityDeleteForm",
- *       "edit" = "Drupal\notification_entity\NotificationEntityForm"
- *     },
- *     "list_builder" = "Drupal\notification_entity\NotificationEntityListBuilder"
- *   },
  *   base_table = "notification",
  *   data_table = "notification_field_data",
  *   translatable = FALSE,
@@ -81,14 +68,14 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
    * {@inheritdoc}
    */
   public function getHost() {
-    return $this->get('hostid')->entity;
+    return $this->get('host_id')->entity;
   }
 
   /**
    * {@inheritdoc}
    */
   public function setHost(NodeInterface $node) {
-    $this->set('hostid', $node->id());
+    $this->set('host_id', $node->id());
     return $this;
   }
 
@@ -96,14 +83,14 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
    * {@inheritdoc}
    */
   public function getHostId() {
-    return $this->get('hostid')->target_id;
+    return $this->get('host_id')->target_id;
   }
 
   /**
    * {@inheritdoc}
    */
   public function setHostId($hostId) {
-    $this->set('hostid', $hostId);
+    $this->set('host_id', $hostId);
     return $this;
   }
 
@@ -131,72 +118,48 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
   }
 
   /**
-   * Returns the notification timeline timestamp.
-   *
-   * @return int
-   *   Timeline timestamp of the notification.
+   * {@inheritdoc}
    */
   public function getTimelineTime() {
-    // TODO: Implement getTimelineTime() method.
+    return $this->get('timeline')->value;
   }
 
   /**
-   * Sets the notification timeline timestamp.
-   *
-   * @param int $timestamp
-   *   The notification timeline timestamp.
-   *
-   * @return \Drupal\notification_entity\NotificationEntityInterface
-   *   The called notification entity.
+   * {@inheritdoc}
    */
   public function setTimelineTime($timestamp) {
-    // TODO: Implement setTimelineTime() method.
+    $this->set('timeline', $timestamp);
+    return $this;
   }
 
   /**
-   * Returns the notification rich content.
-   *
-   * @return string
-   *   The notification rich content.
+   * {@inheritdoc}
    */
   public function getRichContent() {
-    // TODO: Implement getRichContent() method.
+    return $this->get('content')->value;
   }
 
   /**
-   * Sets the notification rich content.
-   *
-   * @param string $content
-   *   The content.
-   *
-   * @return \Drupal\notification_entity\NotificationEntityInterface
-   *   The called notification entity.
+   * {@inheritdoc}
    */
   public function setRichContent($content) {
-    // TODO: Implement setRichContent() method.
+    $this->set('content', $content);
+    return $this;
   }
 
   /**
-   * Returns the notification image entity.
-   *
-   * @return \Drupal\file\FileInterface
-   *   The notification image entity.
+   * {@inheritdoc}
    */
   public function getImage() {
-    // TODO: Implement getImage() method.
+    return $this->get('image_id')->entity;
   }
 
   /**
-   * Sets the notification image entity.
-   *
-   * @param FileInterface $image
-   *   The image entity object.
-   *
-   * @return \Drupal\notification_entity\NotificationEntityInterface
-   *   The called notification entity.
+   * {@inheritdoc}
    */
   public function setImage(FileInterface $image) {
-    // TODO: Implement setImage() method.
+    $this->set('image_id', $image->id());
+    return $this;
   }
 
 
@@ -240,7 +203,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ))
       ->setDisplayConfigurable('form', TRUE);
 
-    $fields['hostid'] = BaseFieldDefinition::create('entity_reference')
+    $fields['host_id'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Host node'))
       ->setDescription(t('The node id of the Node entity the notification applies to.'))
       ->setRevisionable(TRUE)
@@ -287,11 +250,52 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE);
 
+    $fields['timeline'] = BaseFieldDefinition::create('timeline')
+      ->setLabel(t('Timeline time'))
+      ->setDescription(t('The time that the notification should appear on the timeline.'))
+      ->setRevisionable(TRUE)
+      ->setTranslatable(TRUE)
+      ->setDisplayOptions('view', array(
+        'label' => 'hidden',
+        'type' => 'timestamp',
+        'weight' => 0,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'datetime_timestamp',
+        'weight' => 10,
+      ))
+      ->setDisplayConfigurable('form', TRUE);
+
+    $fields['image_id'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Image'))
+      ->setDescription(t('The file fid of the file entity containing the notification image.'))
+      ->setRevisionable(TRUE)
+      ->setSetting('target_type', 'file')
+      ->setSetting('handler', 'default')
+      ->setTranslatable(TRUE)
+      ->setDisplayOptions('view', array(
+        'label' => 'hidden',
+        'type' => 'node',
+        'weight' => 0,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'entity_reference_autocomplete',
+        'weight' => 5,
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'size' => '60',
+          'autocomplete_type' => 'tags',
+          'placeholder' => '',
+        ),
+      ))
+      ->setDisplayConfigurable('form', TRUE);
+
+
     return $fields;
   }
 
   /**
-   * Default value callback for 'hostid' base field definition.
+   * Default value callback for 'host_id' base field definition.
    *
    * @see ::baseFieldDefinitions()
    *

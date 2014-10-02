@@ -1,0 +1,10 @@
+entity.notification_entity.edit_form:
+  route_name: entity.notification_entity.edit_form
+  group: notification_entity
+  title: Edit
+
+entity.notification_entity.delete_form:
+  route_name: entity.notification_entity.delete_form
+  group: notification_entity
+  title: Delete
+  weight: 10

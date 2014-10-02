@@ -1,4 +1,4 @@
-entity.notification.canonical:
+entity.notification_entity.canonical:
   path: '/notification/{notification_entity}'
   defaults:
     _content: '\Drupal\notification_entity\Controller\NotificationEntityViewController::view'
@@ -6,7 +6,7 @@ entity.notification.canonical:
   requirements:
     _entity_access: 'view_notification_entity'
 
-entity.notification.list:
+entity.notification_entity.list:
   path: '/notification/list'
   defaults:
     _entity_list: 'notification_entity'
@@ -14,7 +14,7 @@ entity.notification.list:
   requirements:
     _permission: 'view_notification_entity'
 
-entity.notification.add:
+entity.notification_entity.add:
   path: '/notification/add'
   defaults:
     _entity_form: 'notification_entity.add'
@@ -22,7 +22,7 @@ entity.notification.add:
   requirements:
     _permission: 'add_notification_entity'
 
-entity.notification.edit:
+entity.notification_entity.edit:
   path: '/notification/{notification_entity}/edit'
   defaults:
     _entity_form: 'notification_entity.edit'
@@ -30,10 +30,42 @@ entity.notification.edit:
   requirements:
     _permission: 'edit_notification_entity'
 
-entity.notification.delete:
+entity.notification_entity.delete:
   path: '/notification/{notification_entity}/delete'
   defaults:
     _entity_form: 'notification_entity.delete'
     _title: 'Delete notification'
   requirements:
     _permission: 'delete_notification_entity'
+
+notification_entity.overview_types:
+  path: '/admin/structure/notifications/types'
+  defaults:
+    _content: '\Drupal\Core\Entity\Controller\EntityListController::listing'
+    entity_type: 'notification_type'
+    _title: 'Notification types'
+  requirements:
+    _permission: 'administer notification types'
+
+notification_entity.type_add:
+  path: '/admin/structure/notifications/types/add'
+  defaults:
+    _entity_form: 'notification_type.add'
+    _title: 'Add notification type'
+  requirements:
+    _permission: 'administer notification types'
+
+entity.notification_type.edit_form:
+  path: '/admin/structure/notifications/types/manage/{notification_type}'
+  defaults:
+    _entity_form: 'notification_type.edit'
+  requirements:
+    _permission: 'administer notification types'
+
+entity.notification_type.delete_form:
+  path: '/admin/structure/notifications/types/manage/{notification_type}/delete'
+  defaults:
+    _entity_form: 'notification_type.delete'
+    _title: 'Delete'
+  requirements:
+    _entity_access: 'notification_type.delete'

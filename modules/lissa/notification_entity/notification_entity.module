@@ -26,3 +26,7 @@ function notification_entity_permission() {
     ),
   );
 }
+
+function notification_entity_type_load() {
+
+}

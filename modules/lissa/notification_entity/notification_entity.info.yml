@@ -1,5 +1,5 @@
 name: Notification Entity
 type: module
 description: 'Provides a notification entity type.'
-package: LISSA Kickstart
+package: LISSA
 core: 8.x
