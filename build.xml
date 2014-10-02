@@ -42,6 +42,7 @@
   <target name="prepare">
     <mkdir dir="${builddir}" />
     <mkdir dir="${builddir}/logs" />
+    <mkdir dir="${docroot}" />
   </target>
 
   <target name="drush-make" description="Run drush make">
