@@ -1,0 +1,28 @@
+<?php
+/**
+ * @file
+ * Contains Drupal\notification_entity\notification_entity.module
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function notification_entity_permission() {
+  return array(
+    'delete_notification_entity' => array(
+      'title' => t('Delete notification entities'),
+    ),
+    'add_notification_entity' => array(
+      'title' => t('Add notification entities'),
+    ),
+    'edit_notification_entity' => array(
+      'title' => t('Edit notification entities'),
+    ),
+    'view_notification_entity' => array(
+      'title' => t('View notification entities'),
+    ),
+    'administer_notification_entity' => array(
+      'title' => t('Administer notification entities'),
+    ),
+  );
+}

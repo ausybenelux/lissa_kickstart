@@ -1,0 +1,9 @@
+notification_entity.page_edit:
+  route_name: notification_entity.edit
+  base_route: notification_entity.edit
+  title: Edit
+notification_entity.delete_confirm:
+  route_name: notification_entity.delete
+  base_route: notification_entity.edit
+  title: Delete
+  weight: 10

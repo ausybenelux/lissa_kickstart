@@ -1,0 +1,39 @@
+entity.notification.canonical:
+  path: '/notification/{notification_entity}'
+  defaults:
+    _content: '\Drupal\notification_entity\Controller\NotificationEntityViewController::view'
+    _title_callback: '\Drupal\notification_entity\Controller\NotificationEntityViewController::title'
+  requirements:
+    _entity_access: 'view_notification_entity'
+
+entity.notification.list:
+  path: '/notification/list'
+  defaults:
+    _entity_list: 'notification_entity'
+    _title: 'Notifications'
+  requirements:
+    _permission: 'view_notification_entity'
+
+entity.notification.add:
+  path: '/notification/add'
+  defaults:
+    _entity_form: 'notification_entity.add'
+    _title: 'Add notification'
+  requirements:
+    _permission: 'add_notification_entity'
+
+entity.notification.edit:
+  path: '/notification/{notification_entity}/edit'
+  defaults:
+    _entity_form: 'notification_entity.edit'
+    _title: 'Edit notification'
+  requirements:
+    _permission: 'edit_notification_entity'
+
+entity.notification.delete:
+  path: '/notification/{notification_entity}/delete'
+  defaults:
+    _entity_form: 'notification_entity.delete'
+    _title: 'Delete notification'
+  requirements:
+    _permission: 'delete_notification_entity'
