@@ -10,6 +10,7 @@ namespace Drupal\notification_entity\Entity;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\file\FileInterface;
 use Drupal\node\NodeInterface;
 use Drupal\notification_entity\NotificationEntityInterface;
 
@@ -128,6 +129,76 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
   public function getChangedTime() {
     return $this->get('changed')->value;
   }
+
+  /**
+   * Returns the notification timeline timestamp.
+   *
+   * @return int
+   *   Timeline timestamp of the notification.
+   */
+  public function getTimelineTime() {
+    // TODO: Implement getTimelineTime() method.
+  }
+
+  /**
+   * Sets the notification timeline timestamp.
+   *
+   * @param int $timestamp
+   *   The notification timeline timestamp.
+   *
+   * @return \Drupal\notification_entity\NotificationEntityInterface
+   *   The called notification entity.
+   */
+  public function setTimelineTime($timestamp) {
+    // TODO: Implement setTimelineTime() method.
+  }
+
+  /**
+   * Returns the notification rich content.
+   *
+   * @return string
+   *   The notification rich content.
+   */
+  public function getRichContent() {
+    // TODO: Implement getRichContent() method.
+  }
+
+  /**
+   * Sets the notification rich content.
+   *
+   * @param string $content
+   *   The content.
+   *
+   * @return \Drupal\notification_entity\NotificationEntityInterface
+   *   The called notification entity.
+   */
+  public function setRichContent($content) {
+    // TODO: Implement setRichContent() method.
+  }
+
+  /**
+   * Returns the notification image entity.
+   *
+   * @return \Drupal\file\FileInterface
+   *   The notification image entity.
+   */
+  public function getImage() {
+    // TODO: Implement getImage() method.
+  }
+
+  /**
+   * Sets the notification image entity.
+   *
+   * @param FileInterface $image
+   *   The image entity object.
+   *
+   * @return \Drupal\notification_entity\NotificationEntityInterface
+   *   The called notification entity.
+   */
+  public function setImage(FileInterface $image) {
+    // TODO: Implement setImage() method.
+  }
+
 
   /**
    * {@inheritdoc}
