@@ -1,0 +1,10 @@
+name: LISSA Kickstart Core
+description: 'Lissa Kickstart core configuration'
+package: Lissa Kickstart
+type: module
+version: 1.0
+core: 8.x
+dependencies:
+  - user
+config_devel:
+  - user.role.production
