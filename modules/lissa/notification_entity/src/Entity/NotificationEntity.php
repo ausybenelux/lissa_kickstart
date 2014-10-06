@@ -209,7 +209,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setRevisionable(TRUE)
       ->setSetting('target_type', 'node')
       ->setSetting('handler', 'default')
-      ->setDefaultValueCallback(array('Drupal\notification_entity\Entity\NotificationEntity', 'getCurrentNodeId'))
+      ->setDefaultValueCallback('Drupal\notification_entity\Entity\NotificationEntity::getCurrentNodeId')
       ->setTranslatable(TRUE)
       ->setDisplayOptions('view', array(
         'label' => 'hidden',
