@@ -97,7 +97,7 @@ class NotificationEntityTypeListBuilder extends ConfigEntityListBuilder {
    */
   public function render() {
     $build = parent::render();
-    $build['#empty'] = t('No entity types available. <a href="@link">Add entity type</a>.', array(
+    $build['#empty'] = t('No notification types available. <a href="@link">Add notification type</a>.', array(
       '@link' => $this->urlGenerator->generateFromPath('/admin/structure/notifications/types/add'),
     ));
     return $build;
