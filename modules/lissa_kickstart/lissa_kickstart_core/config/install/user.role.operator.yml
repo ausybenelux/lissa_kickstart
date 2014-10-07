@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+id: operator
+label: Operator
+weight: 4
+permissions:
+  - 'create event content'
+  - 'delete any event content'
+  - 'delete own event content'
+  - 'delete event revisions'
+  - 'edit any event content'
+  - 'edit own event content'
+  - 'revert event revisions'
+  - 'view event revisions'
