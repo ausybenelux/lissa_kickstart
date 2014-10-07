@@ -6,7 +6,7 @@ distribution:
   name: LISSA Kickstart
 dependencies:
   - filter
-  - composer_manager
+#  - composer_manager
   - block
   - breakpoint
   - ckeditor

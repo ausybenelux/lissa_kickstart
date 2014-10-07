@@ -6,9 +6,10 @@
 core = "8.x"
 api = 2
 
-projects[drupal][version] = 8.0.0-beta1
 projects[drupal][overwrite] = TRUE
-;projects[drupal][patch][] = "http://www.drupal.org/files/issues/2205527-54.patch"
+projects[drupal][download][type] = git
+projects[drupal][download][revision] =  8d51bd412521ac66569d51987876cf577a0d4c2b
+projects[drupal][download][branch] = 8.0.x
 
 ; Download the install profile and recursively build all its dependencies:
 projects[lissa_kickstart][type] = profile
