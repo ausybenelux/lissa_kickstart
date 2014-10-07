@@ -3,7 +3,9 @@ api = 2
 
 projects[devel][type] = "module"
 projects[devel][subdir] = "contrib"
-projects[devel][version] = 1.0-alpha14
+projects[devel][download][type] = git
+projects[devel][download][revision] =  777465c7860a70d1ad4a16fc66d23c3e827cfb4b
+projects[devel][download][branch] = 8.x-1.x
 
 ; projects[composer_manager][type] = "module"
 ; projects[composer_manager][subdir] = "contrib"
