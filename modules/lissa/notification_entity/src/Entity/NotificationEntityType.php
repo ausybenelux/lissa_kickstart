@@ -24,7 +24,8 @@ use Drupal\notification_entity\NotificationEntityTypeInterface;
  *       "add" = "Drupal\notification_entity\Form\\NotificationEntityTypeForm",
  *       "edit" = "Drupal\notification_entity\Form\\NotificationEntityTypeForm",
  *       "delete" = "Drupal\notification_entity\Form\NotificationEntityTypeDeleteConfirm"
- *     }
+ *     },
+ *     "list_builder" = "Drupal\notification_entity\NotificationEntityTypeListBuilder"
  *   },
  *   admin_permission = "administer content types",
  *   config_prefix = "type",
