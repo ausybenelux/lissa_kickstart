@@ -21,9 +21,9 @@ use Drupal\notification_entity\NotificationEntityTypeInterface;
  *   handlers = {
  *     "access" = "Drupal\notification_entity\NotificationEntityTypeAccessControlHandler",
  *     "form" = {
- *       "add" = "Drupal\notification_entity\Form\\NotificationEntityTypeForm",
- *       "edit" = "Drupal\notification_entity\Form\\NotificationEntityTypeForm",
- *       "delete" = "Drupal\notification_entity\Form\NotificationEntityTypeDeleteConfirm"
+ *       "add" = "Drupal\notification_entity\NotificationEntityTypeForm",
+ *       "edit" = "Drupal\notification_entity\NotificationEntityTypeForm",
+ *       "delete" = "Drupal\notification_entity\NotificationEntityTypeDeleteConfirm"
  *     },
  *     "list_builder" = "Drupal\notification_entity\NotificationEntityTypeListBuilder"
  *   },
