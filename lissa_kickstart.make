@@ -3,7 +3,7 @@ api = 2
 
 projects[devel][type] = "module"
 projects[devel][subdir] = "contrib"
-projects[devel][version] = 8.x-1.0-alpha14
+projects[devel][version] = 1.0-alpha14
 
 ; projects[composer_manager][type] = "module"
 ; projects[composer_manager][subdir] = "contrib"
