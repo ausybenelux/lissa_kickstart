@@ -18,10 +18,10 @@ use Drupal\notification_entity\NotificationEntityInterface;
  * Defines the notification entity class.
  *
  * @ContentEntityType(
- *   id = "notification",
+ *   id = "notification_entity",
  *   label = @Translation("Notification"),
  *   bundle_label = @Translation("Notification type"),
- *   base_table = "notification",
+ *   base_table = "notification_entity",
  *   data_table = "notification_field_data",
  *   translatable = FALSE,
  *   entity_keys = {
