@@ -15,12 +15,13 @@ entity.notification_entity.list:
     _permission: 'view_notification_entity'
 
 entity.notification_entity.add:
-  path: '/notification/add'
+  path: '/notification/add/{notification_type}'
   defaults:
     _entity_form: 'notification_entity.add'
     _title: 'Add notification'
   requirements:
     _permission: 'add_notification_entity'
+
 
 entity.notification_entity.edit_form:
   path: '/notification/{notification_entity}/edit'

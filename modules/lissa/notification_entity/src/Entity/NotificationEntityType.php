@@ -19,7 +19,7 @@ use Drupal\notification_entity\NotificationEntityTypeInterface;
  *   id = "notification_type",
  *   label = @Translation("Notification type"),
  *   handlers = {
- *     "access" = "Drupal\notification_entity\NotificationEntityTypeAccessControlHandler",
+ *     "access" = "Drupal\Core\Entity\EntityAccessControlHandler",
  *     "form" = {
  *       "add" = "Drupal\notification_entity\NotificationEntityTypeForm",
  *       "edit" = "Drupal\notification_entity\NotificationEntityTypeForm",

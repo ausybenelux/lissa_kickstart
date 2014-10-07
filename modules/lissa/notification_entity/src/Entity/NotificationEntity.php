@@ -21,6 +21,19 @@ use Drupal\notification_entity\NotificationEntityInterface;
  *   id = "notification_entity",
  *   label = @Translation("Notification"),
  *   bundle_label = @Translation("Notification type"),
+ *   handlers = {
+ *     "storage" = "Drupal\Core\Entity\Sql\SqlContentEntityStorage",
+ *     "storage_schema" = "Drupal\Core\Entity\Sql\SqlContentEntityStorageSchema",
+ *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
+ *     "access" = "Drupal\Core\Entity\EntityAccessControlHandler",
+ *     "views_data" = "Drupal\views\EntityViewsData",
+ *     "form" = {
+ *       "default" = "Drupal\Core\Entity\ContentEntityForm",
+ *       "delete" = "Drupal\Core\Entity\ContentEntityConfirmFormBase",
+ *       "edit" = "Drupal\Core\Entity\ContentEntityForm"
+ *     },
+ *     "list_builder" = "Drupal\Core\Entity\EntityListBuilder"
+ *   },
  *   base_table = "notification_entity",
  *   data_table = "notification_field_data",
  *   translatable = FALSE,
