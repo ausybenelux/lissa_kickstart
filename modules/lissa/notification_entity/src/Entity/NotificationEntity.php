@@ -250,7 +250,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE);
 
-    $fields['timeline'] = BaseFieldDefinition::create('timeline')
+    $fields['timeline'] = BaseFieldDefinition::create('datetime')
       ->setLabel(t('Timeline time'))
       ->setDescription(t('The time that the notification should appear on the timeline.'))
       ->setRevisionable(TRUE)
