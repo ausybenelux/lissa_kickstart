@@ -16,3 +16,9 @@ projects[devel][download][branch] = 8.x-1.x
 projects[config_devel][type] = "module"
 projects[config_devel][subdir] = "contrib"
 projects[config_devel][version] = 1.0-alpha14
+
+projects[page_manager][type] = "module"
+projects[page_manager][subdir] = "contrib"
+projects[page_manager][download][type] = git
+projects[page_manager][download][revision] =  95d183aa09343a647bdb91ab9208737abe9827d7
+projects[page_manager][download][branch] = 8.x-1.x
