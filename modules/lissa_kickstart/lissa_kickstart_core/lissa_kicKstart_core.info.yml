@@ -9,3 +9,5 @@ dependencies:
 config_devel:
   - user.role.production
   - user.role.operator
+  - block.block.seven_login.yml
+  - system.site.yml
