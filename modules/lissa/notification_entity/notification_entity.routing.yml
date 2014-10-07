@@ -22,7 +22,7 @@ entity.notification_entity.add:
   requirements:
     _permission: 'add_notification_entity'
 
-entity.notification_entity.edit:
+entity.notification_entity.edit_form:
   path: '/notification/{notification_entity}/edit'
   defaults:
     _entity_form: 'notification_entity.edit'
@@ -30,7 +30,7 @@ entity.notification_entity.edit:
   requirements:
     _permission: 'edit_notification_entity'
 
-entity.notification_entity.delete:
+entity.notification_entity.delete_form:
   path: '/notification/{notification_entity}/delete'
   defaults:
     _entity_form: 'notification_entity.delete'

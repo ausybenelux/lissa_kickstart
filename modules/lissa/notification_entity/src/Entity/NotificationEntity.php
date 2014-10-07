@@ -34,9 +34,9 @@ use Drupal\notification_entity\NotificationEntityInterface;
  *   field_ui_base_route = "entity.notification_type.edit_form",
  *   permission_granularity = "bundle",
  *   links = {
- *     "canonical" = "entity.notification.canonical",
- *     "delete-form" = "entity.notification.delete_form",
- *     "edit-form" = "entity.notification.edit_form"
+ *     "canonical" = "entity.notification_entity.canonical",
+ *     "delete-form" = "entity.notification_entity.delete_form",
+ *     "edit-form" = "entity.notification_entity.edit_form"
  *   }
  * )
  */
