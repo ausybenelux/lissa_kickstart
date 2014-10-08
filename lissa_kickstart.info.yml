@@ -40,7 +40,6 @@ dependencies:
   - lissa_notifications
   - entity_export
   - ext
-  - page_manager
 themes:
   - bartik
   - seven
