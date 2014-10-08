@@ -25,7 +25,7 @@ class LissaKickstartCoreController extends ControllerBase {
 
     // Show the events overview when the user has production or operator access.
     if (in_array('production', $roles) || in_array('operator', $roles)) {
-      $response = $this->redirect('events.admin_overview');
+      $response = $this->redirect('view.events.admin_overview');
     }
     // If user is anonymous or has no manage event access.
     else {
