@@ -223,23 +223,23 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setSetting('target_type', 'node')
       ->setSetting('handler', 'default')
       ->setDefaultValueCallback('Drupal\notification_entity\Entity\NotificationEntity::getCurrentNodeId')
-      ->setTranslatable(TRUE)
-      ->setDisplayOptions('view', array(
-        'label' => 'hidden',
-        'type' => 'node',
-        'weight' => 0,
-      ))
-      ->setDisplayOptions('form', array(
-        'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
-        'settings' => array(
-          'match_operator' => 'CONTAINS',
-          'size' => '60',
-          'autocomplete_type' => 'tags',
-          'placeholder' => '',
-        ),
-      ))
-      ->setDisplayConfigurable('form', TRUE);
+      ->setTranslatable(TRUE);
+//      ->setDisplayOptions('view', array(
+//        'label' => 'hidden',
+//        'type' => 'node',
+//        'weight' => 0,
+//      ))
+//      ->setDisplayOptions('form', array(
+//        'type' => 'entity_reference_autocomplete',
+//        'weight' => 5,
+//        'settings' => array(
+//          'match_operator' => 'CONTAINS',
+//          'size' => '60',
+//          'autocomplete_type' => 'tags',
+//          'placeholder' => '',
+//        ),
+//      ))
+//      ->setDisplayConfigurable('form', TRUE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Authored on'))
@@ -316,6 +316,8 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
    *   An array of default values.
    */
   public static function getCurrentNodeId() {
+    // @todo Remove return 1
+    return 1;
     return array(\Drupal::request()->attributes->get('node')->id());
   }
 }
