@@ -134,5 +134,10 @@
       <arg value="node"/>
       <arg value="profiles/lissa_kickstart/test_data/nodes.json"/>
     </exec>
+    <exec executable="drush" dir="${docroot}">
+      <arg value="ime"/>
+      <arg value="shortcut"/>
+      <arg value="profiles/lissa_kickstart/test_data/shortcuts.json"/>
+    </exec>
   </target>
 </project>

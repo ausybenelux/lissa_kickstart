@@ -56,4 +56,6 @@ config_devel:
   - filter.format.restricted_html
   - system.theme
   - user.role.administrator
-  - system.site.yml
+  - system.site
+  - shortcut.set.default
+  -
