@@ -1,0 +1,19 @@
+# Schema for the configuration files of the notification entity module.
+
+notification_entity.type.*:
+  type: config_entity
+  label: 'Notification type'
+  mapping:
+    name:
+      type: label
+      label: 'Name'
+    type:
+      type: string
+      label: 'Machine-readable name'
+    description:
+      type: text
+      label: 'Description'
+    help:
+      type: text
+      label: 'Explanation or submission guidelines'
+

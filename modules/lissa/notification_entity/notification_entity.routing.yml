@@ -14,15 +14,26 @@ entity.notification_entity.list:
   requirements:
     _permission: 'view_notification_entity'
 
-entity.notification_entity.add:
+notification_entity.add_page:
   path: '/notification/add'
   defaults:
-    _entity_form: 'notification_entity.add'
+    _content: '\Drupal\notification_entity\Controller\NotificationEntityController::addPage'
+    _title: 'Add Notification'
+  options:
+    _access_mode: 'ANY'
+  requirements:
+    _permission: 'administer notification types'
+
+notification_entity.add:
+  path: '/notification/add/{notification_type}'
+  defaults:
+    _content: '\Drupal\notification_entity\Controller\NotificationEntityController::add'
     _title: 'Add notification'
   requirements:
     _permission: 'add_notification_entity'
 
-entity.notification_entity.edit:
+
+entity.notification_entity.edit_form:
   path: '/notification/{notification_entity}/edit'
   defaults:
     _entity_form: 'notification_entity.edit'
@@ -30,7 +41,7 @@ entity.notification_entity.edit:
   requirements:
     _permission: 'edit_notification_entity'
 
-entity.notification_entity.delete:
+entity.notification_entity.delete_form:
   path: '/notification/{notification_entity}/delete'
   defaults:
     _entity_form: 'notification_entity.delete'

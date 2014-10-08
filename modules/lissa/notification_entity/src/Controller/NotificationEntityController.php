@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\node\Controller\NodeController.
+ * Contains \Drupal\notification_entity\Controller\NotificationEntityController.
  */
 
-namespace Drupal\node\Controller;
+namespace Drupal\notification_entity\Controller;
 
 use Drupal\Component\Utility\String;
 use Drupal\Component\Utility\Xss;
@@ -13,14 +13,14 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Datetime\DateFormatter;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Url;
-use Drupal\node\NodeTypeInterface;
-use Drupal\node\NodeInterface;
+use Drupal\notification_entity\NotificationEntityTypeInterface;
+use Drupal\notification_entity\NotificationEntityInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Returns responses for Node routes.
  */
-class NodeController extends ControllerBase implements ContainerInjectionInterface {
+class NotificationEntityController extends ControllerBase implements ContainerInjectionInterface {
 
   /**
    * The date formatter service.
@@ -64,7 +64,7 @@ class NodeController extends ControllerBase implements ContainerInjectionInterfa
     $content = array();
 
     // Only use node types the user has access to.
-    foreach ($this->entityManager()->getStorage('node_type')->loadMultiple() as $type) {
+    foreach ($this->entityManager()->getStorage('notification_type')->loadMultiple() as $type) {
       if ($this->entityManager()->getAccessControlHandler('node')->createAccess($type->type)) {
         $content[$type->type] = $type;
       }
@@ -73,7 +73,7 @@ class NodeController extends ControllerBase implements ContainerInjectionInterfa
     // Bypass the node/add listing if only one content type is available.
     if (count($content) == 1) {
       $type = array_shift($content);
-      return $this->redirect('node.add', array('node_type' => $type->type));
+      return $this->redirect('notification_entity.add', array('notification_type' => $type->type));
     }
 
     return array(
@@ -85,19 +85,18 @@ class NodeController extends ControllerBase implements ContainerInjectionInterfa
   /**
    * Provides the node submission form.
    *
-   * @param \Drupal\node\NodeTypeInterface $node_type
+   * @param \Drupal\notification_entity\NotificationEntityTypeInterface $node_type
    *   The node type entity for the node.
    *
    * @return array
    *   A node submission form.
    */
-  public function add(NodeTypeInterface $node_type) {
-    $node = $this->entityManager()->getStorage('node')->create(array(
-      'type' => $node_type->type,
+  public function add(NotificationEntityTypeInterface $notification_type) {
+    $notification_entity = $this->entityManager()->getStorage('notification_entity')->create(array(
+      'type' => $notification_type->id(),
     ));
 
-    $form = $this->entityFormBuilder()->getForm($node);
-
+    $form = $this->entityFormBuilder()->getForm($notification_entity);
     return $form;
   }
 

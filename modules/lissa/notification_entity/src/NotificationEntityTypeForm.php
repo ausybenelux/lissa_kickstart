@@ -119,7 +119,6 @@ class NotificationEntityTypeForm extends EntityForm {
    */
   public function save(array $form, FormStateInterface $form_state) {
     $type = $this->entity;
-    $type->setNewRevision($form_state->getValue(array('options', 'revision')));
     $type->type = trim($type->id());
     $type->name = trim($type->name);
 

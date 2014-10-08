@@ -18,10 +18,23 @@ use Drupal\notification_entity\NotificationEntityInterface;
  * Defines the notification entity class.
  *
  * @ContentEntityType(
- *   id = "notification",
+ *   id = "notification_entity",
  *   label = @Translation("Notification"),
  *   bundle_label = @Translation("Notification type"),
- *   base_table = "notification",
+ *   handlers = {
+ *     "storage" = "Drupal\Core\Entity\Sql\SqlContentEntityStorage",
+ *     "storage_schema" = "Drupal\Core\Entity\Sql\SqlContentEntityStorageSchema",
+ *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
+ *     "access" = "Drupal\Core\Entity\EntityAccessControlHandler",
+ *     "views_data" = "Drupal\views\EntityViewsData",
+ *     "form" = {
+ *       "default" = "Drupal\Core\Entity\ContentEntityForm",
+ *       "delete" = "Drupal\Core\Entity\ContentEntityConfirmFormBase",
+ *       "edit" = "Drupal\Core\Entity\ContentEntityForm"
+ *     },
+ *     "list_builder" = "Drupal\Core\Entity\EntityListBuilder"
+ *   },
+ *   base_table = "notification_entity",
  *   data_table = "notification_field_data",
  *   translatable = FALSE,
  *   entity_keys = {
@@ -34,9 +47,9 @@ use Drupal\notification_entity\NotificationEntityInterface;
  *   field_ui_base_route = "entity.notification_type.edit_form",
  *   permission_granularity = "bundle",
  *   links = {
- *     "canonical" = "entity.notification.canonical",
- *     "delete-form" = "entity.notification.delete_form",
- *     "edit-form" = "entity.notification.edit_form"
+ *     "canonical" = "entity.notification_entity.canonical",
+ *     "delete-form" = "entity.notification_entity.delete_form",
+ *     "edit-form" = "entity.notification_entity.edit_form"
  *   }
  * )
  */
@@ -209,24 +222,24 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setRevisionable(TRUE)
       ->setSetting('target_type', 'node')
       ->setSetting('handler', 'default')
-      ->setDefaultValueCallback(array('Drupal\notification_entity\Entity\NotificationEntity', 'getCurrentNodeId'))
-      ->setTranslatable(TRUE)
-      ->setDisplayOptions('view', array(
-        'label' => 'hidden',
-        'type' => 'node',
-        'weight' => 0,
-      ))
-      ->setDisplayOptions('form', array(
-        'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
-        'settings' => array(
-          'match_operator' => 'CONTAINS',
-          'size' => '60',
-          'autocomplete_type' => 'tags',
-          'placeholder' => '',
-        ),
-      ))
-      ->setDisplayConfigurable('form', TRUE);
+      ->setDefaultValueCallback('Drupal\notification_entity\Entity\NotificationEntity::getCurrentNodeId')
+      ->setTranslatable(TRUE);
+//      ->setDisplayOptions('view', array(
+//        'label' => 'hidden',
+//        'type' => 'node',
+//        'weight' => 0,
+//      ))
+//      ->setDisplayOptions('form', array(
+//        'type' => 'entity_reference_autocomplete',
+//        'weight' => 5,
+//        'settings' => array(
+//          'match_operator' => 'CONTAINS',
+//          'size' => '60',
+//          'autocomplete_type' => 'tags',
+//          'placeholder' => '',
+//        ),
+//      ))
+//      ->setDisplayConfigurable('form', TRUE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Authored on'))
@@ -250,7 +263,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE);
 
-    $fields['timeline'] = BaseFieldDefinition::create('timeline')
+    $fields['timeline'] = BaseFieldDefinition::create('datetime')
       ->setLabel(t('Timeline time'))
       ->setDescription(t('The time that the notification should appear on the timeline.'))
       ->setRevisionable(TRUE)
@@ -303,6 +316,8 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
    *   An array of default values.
    */
   public static function getCurrentNodeId() {
+    // @todo Remove return 1
+    return 1;
     return array(\Drupal::request()->attributes->get('node')->id());
   }
 }
