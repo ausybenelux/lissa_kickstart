@@ -1,0 +1,9 @@
+notification_timeline.node_timeline:
+  path: '/node/{node}/timeline'
+  defaults:
+    _content: '\Drupal\notification_timeline\Controller\NotificationTimelineController::nodeLoad'
+    _title: 'Timeline'
+  options:
+    _admin_route: TRUE
+  requirements:
+    _permission: 'access timeline'

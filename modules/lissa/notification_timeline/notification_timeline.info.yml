@@ -1,0 +1,5 @@
+name: Notification Timeline
+type: module
+description: Allows notification entities to be linked to a node's timeline.
+package: LISSA
+core: 8.x

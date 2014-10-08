@@ -1,0 +1,5 @@
+notification_timeline.timeline_node_tab:
+  route_name: notification_timeline.node_timeline
+  title: 'Timeline'
+  base_route: entity.node.canonical
+  weight: 100

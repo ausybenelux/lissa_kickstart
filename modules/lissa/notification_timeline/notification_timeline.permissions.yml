@@ -1,0 +1,4 @@
+access timeline:
+  description: 'Access and manage timelines'
+  title: 'Access and manage timelines'
+  restrict access: TRUE
