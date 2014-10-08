@@ -1,4 +1,3 @@
-field_name: field_event_timeline_start
 langcode: en
 status: true
 dependencies:
@@ -6,6 +5,7 @@ dependencies:
     - datetime
     - node
 id: node.field_event_timeline_start
+field_name: field_event_timeline_start
 entity_type: node
 type: datetime
 settings:

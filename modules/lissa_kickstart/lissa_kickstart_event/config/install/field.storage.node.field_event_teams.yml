@@ -1,4 +1,3 @@
-field_name: field_event_teams
 langcode: en
 status: true
 dependencies:
@@ -6,6 +5,7 @@ dependencies:
     - node
     - taxonomy
 id: node.field_event_teams
+field_name: field_event_teams
 entity_type: node
 type: taxonomy_term_reference
 settings:

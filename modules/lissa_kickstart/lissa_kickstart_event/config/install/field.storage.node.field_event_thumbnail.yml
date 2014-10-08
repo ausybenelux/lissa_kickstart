@@ -1,4 +1,3 @@
-field_name: field_event_thumbnail
 langcode: en
 status: true
 dependencies:
@@ -6,6 +5,7 @@ dependencies:
     - image
     - node
 id: node.field_event_thumbnail
+field_name: field_event_thumbnail
 entity_type: node
 type: image
 settings:

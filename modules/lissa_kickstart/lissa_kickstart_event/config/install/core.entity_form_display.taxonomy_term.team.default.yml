@@ -6,7 +6,6 @@ dependencies:
     - field.field.taxonomy_term.team.field_team_competitions
     - taxonomy.vocabulary.team
   module:
-    - options
     - path
     - text
 id: taxonomy_term.team.default
