@@ -32,7 +32,7 @@ use Drupal\notification_entity\NotificationEntityInterface;
  *       "delete" = "Drupal\Core\Entity\ContentEntityConfirmFormBase",
  *       "edit" = "Drupal\Core\Entity\ContentEntityForm"
  *     },
- *     "list_builder" = "Drupal\Core\Entity\EntityListBuilder"
+ *     "list_builder" = "Drupal\notification_entity\NotificationEntityListBuilder"
  *   },
  *   base_table = "notification_entity",
  *   data_table = "notification_field_data",

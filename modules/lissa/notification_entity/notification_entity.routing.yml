@@ -9,8 +9,9 @@ entity.notification_entity.canonical:
 entity.notification_entity.list:
   path: '/notification/list'
   defaults:
-    _entity_list: 'notification_entity'
-    _title: 'Notifications'
+    _content: '\Drupal\Core\Entity\Controller\EntityListController::listing'
+    entity_type: 'notification_entity'
+    _title: 'Notifications test'
   requirements:
     _permission: 'view_notification_entity'
 
