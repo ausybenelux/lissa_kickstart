@@ -33,8 +33,7 @@ notification_entity.add:
   requirements:
     _permission: 'add_notification_entity'
 
-
-entity.notification_entity.edit_form:
+notification_entity.edit_form:
   path: '/notification/{notification_entity}/edit'
   defaults:
     _entity_form: 'notification_entity.edit'

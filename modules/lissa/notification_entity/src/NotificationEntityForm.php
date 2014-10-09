@@ -18,8 +18,7 @@ class NotificationEntityForm extends ContentEntityForm {
   /**
    * {@inheritdoc}
    */
-  public function form(array $form, FormStateInterface $form_state)
-  {
+  public function form(array $form, FormStateInterface $form_state) {
     $form = parent::form($form, $form_state);
 
     // Let the user upload an image
@@ -35,8 +34,7 @@ class NotificationEntityForm extends ContentEntityForm {
   /**
    * {@inheritdoc}
    */
-  public function submit()
-  {
+  public function submit() {
     if (isset($form_state['values']['custom_content_block_image'])) {
       file_save_data($form_state['values']['custom_content_block_image']);
     }
