@@ -1,0 +1,14 @@
+administer notification type:
+  title: 'Administer notification type'
+
+add notification entity:
+  title: 'Add notification entity'
+
+edit notification entity:
+  title: 'Edit notification entity'
+
+delete notification entity:
+  title: 'Delete notification entity'
+
+view notification entity:
+  title: 'View notification entity'

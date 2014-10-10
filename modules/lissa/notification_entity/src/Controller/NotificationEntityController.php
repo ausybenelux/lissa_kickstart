@@ -7,89 +7,59 @@
 
 namespace Drupal\notification_entity\Controller;
 
-use Drupal\Component\Utility\String;
-use Drupal\Component\Utility\Xss;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Datetime\DateFormatter;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
-use Drupal\Core\Url;
 use Drupal\notification_entity\NotificationEntityTypeInterface;
 use Drupal\notification_entity\NotificationEntityInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Returns responses for Node routes.
+ * Returns responses for notification_entity routes.
  */
 class NotificationEntityController extends ControllerBase implements ContainerInjectionInterface {
 
   /**
-   * The date formatter service.
-   *
-   * @var \Drupal\Core\Datetime\DateFormatter
-   */
-  protected $dateFormatter;
-
-  /**
-   * Constructs a NodeController object.
-   *
-   * @param \Drupal\Core\Datetime\DateFormatter $date_formatter
-   *   The date formatter service.
-   */
-  public function __construct(DateFormatter $date_formatter) {
-    $this->dateFormatter = $date_formatter;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static($container->get('date.formatter'));
-  }
-
-
-  /**
    * Displays add content links for available content types.
    *
-   * Redirects to node/add/[type] if only one content type is available.
+   * Redirects to notification/add/[type] if only one content type is available.
    *
    * @return array
-   *   A render array for a list of the node types that can be added; however,
+   *   A render array for a list of the notification_entity types that can be added; however,
    *   if there is only one node type defined for the site, the function
    *   redirects to the node add page for that one node type and does not return
    *   at all.
    *
-   * @see node_menu()
    */
   public function addPage() {
     $content = array();
 
-    // Only use node types the user has access to.
+    // Only use notification types the user has access to.
     foreach ($this->entityManager()->getStorage('notification_type')->loadMultiple() as $type) {
-      if ($this->entityManager()->getAccessControlHandler('node')->createAccess($type->type)) {
+      if ($this->entityManager()->getAccessControlHandler('notification_type')->createAccess($type->type)) {
         $content[$type->type] = $type;
       }
     }
 
-    // Bypass the node/add listing if only one content type is available.
+    // Bypass the notification_entity/add listing if only one content type is available.
     if (count($content) == 1) {
       $type = array_shift($content);
       return $this->redirect('notification_entity.add', array('notification_type' => $type->type));
     }
 
     return array(
-      '#theme' => 'node_add_list',
+      '#theme' => 'notification_entity_add_list',
       '#content' => $content,
     );
   }
 
   /**
-   * Provides the node submission form.
+   * Provides the notification_entity submission form.
    *
-   * @param \Drupal\notification_entity\NotificationEntityTypeInterface $node_type
-   *   The node type entity for the node.
+   * @param \Drupal\notification_entity\NotificationEntityTypeInterface $notification_type
+   *   The notification type entity for the notification_entity.
    *
    * @return array
-   *   A node submission form.
+   *   A notification_entity submission form.
    */
   public function add(NotificationEntityTypeInterface $notification_type) {
     $notification_entity = $this->entityManager()->getStorage('notification_entity')->create(array(
@@ -101,136 +71,15 @@ class NotificationEntityController extends ControllerBase implements ContainerIn
   }
 
   /**
-   * Displays a node revision.
+   * The _title_callback for the notification_entity.add route.
    *
-   * @param int $node_revision
-   *   The node revision ID.
-   *
-   * @return array
-   *   An array suitable for drupal_render().
-   */
-  public function revisionShow($node_revision) {
-    $node = $this->entityManager()->getStorage('node')->loadRevision($node_revision);
-    $node_view_controller = new NodeViewController($this->entityManager);
-    $page = $node_view_controller->view($node);
-    unset($page['nodes'][$node->id()]['#cache']);
-    return $page;
-  }
-
-  /**
-   * Page title callback for a node revision.
-   *
-   * @param int $node_revision
-   *   The node revision ID.
+   * @param \Drupal\notification_entity\NotificationEntityTypeInterface $notification_type
+   *   The current notification type.
    *
    * @return string
    *   The page title.
    */
-  public function revisionPageTitle($node_revision) {
-    $node = $this->entityManager()->getStorage('node')->loadRevision($node_revision);
-    return $this->t('Revision of %title from %date', array('%title' => $node->label(), '%date' => format_date($node->getRevisionCreationTime())));
+  public function addTitle(NotificationEntityTypeInterface $notification_type) {
+    return $this->t('Add @name notification', ['@name' => $notification_type->name]);
   }
-
-  /**
-   * Generates an overview table of older revisions of a node.
-   *
-   * @param \Drupal\node\NodeInterface $node
-   *   A node object.
-   *
-   * @return array
-   *   An array as expected by drupal_render().
-   */
-  public function revisionOverview(NodeInterface $node) {
-    $account = $this->currentUser();
-    $node_storage = $this->entityManager()->getStorage('node');
-    $type = $node->getType();
-
-    $build = array();
-    $build['#title'] = $this->t('Revisions for %title', array('%title' => $node->label()));
-    $header = array($this->t('Revision'), $this->t('Operations'));
-
-    $revert_permission = (($account->hasPermission("revert $type revisions") || $account->hasPermission('revert all revisions') || $account->hasPermission('administer nodes')) && $node->access('update'));
-    $delete_permission =  (($account->hasPermission("delete $type revisions") || $account->hasPermission('delete all revisions') || $account->hasPermission('administer nodes')) && $node->access('delete'));
-
-    $rows = array();
-
-    $vids = $node_storage->revisionIds($node);
-
-    foreach (array_reverse($vids) as $vid) {
-      if ($revision = $node_storage->loadRevision($vid)) {
-        $row = array();
-
-        $revision_author = $revision->uid->entity;
-
-        if ($vid == $node->getRevisionId()) {
-          $username = array(
-            '#theme' => 'username',
-            '#account' => $revision_author,
-          );
-          $row[] = array('data' => $this->t('!date by !username', array('!date' => $node->link($this->dateFormatter->format($revision->revision_timestamp->value, 'short')), '!username' => drupal_render($username)))
-            . (($revision->revision_log->value != '') ? '<p class="revision-log">' . Xss::filter($revision->revision_log->value) . '</p>' : ''),
-            'class' => array('revision-current'));
-          $row[] = array('data' => String::placeholder($this->t('current revision')), 'class' => array('revision-current'));
-        }
-        else {
-          $username = array(
-            '#theme' => 'username',
-            '#account' => $revision_author,
-          );
-          $row[] = $this->t('!date by !username', array('!date' => $this->l($this->dateFormatter->format($revision->revision_timestamp->value, 'short'), new Url('node.revision_show', array('node' => $node->id(), 'node_revision' => $vid))), '!username' => drupal_render($username)))
-            . (($revision->revision_log->value != '') ? '<p class="revision-log">' . Xss::filter($revision->revision_log->value) . '</p>' : '');
-
-          if ($revert_permission) {
-            $links['revert'] = array(
-              'title' => $this->t('Revert'),
-              'route_name' => 'node.revision_revert_confirm',
-              'route_parameters' => array('node' => $node->id(), 'node_revision' => $vid),
-            );
-          }
-
-          if ($delete_permission) {
-            $links['delete'] = array(
-              'title' => $this->t('Delete'),
-              'route_name' => 'node.revision_delete_confirm',
-              'route_parameters' => array('node' => $node->id(), 'node_revision' => $vid),
-            );
-          }
-
-          $row[] = array(
-            'data' => array(
-              '#type' => 'operations',
-              '#links' => $links,
-            ),
-          );
-        }
-
-        $rows[] = $row;
-      }
-    }
-
-    $build['node_revisions_table'] = array(
-      '#theme' => 'table',
-      '#rows' => $rows,
-      '#header' => $header,
-      '#attached' => array(
-        'library' => array('node/drupal.node.admin'),
-      ),
-    );
-
-    return $build;
-  }
-
-  /**
-   * The _title_callback for the node.add route.
-   *
-   * @param \Drupal\node\NodeTypeInterface $node_type
-   *   The current node.
-   *
-   * @return string
-   *   The page title.
-   */
-  public function addPageTitle(NodeTypeInterface $node_type) {
-    return $this->t('Create @name', array('@name' => $node_type->name));
-  }
-
 }

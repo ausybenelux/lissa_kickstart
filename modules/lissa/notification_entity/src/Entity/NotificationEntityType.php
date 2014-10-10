@@ -86,7 +86,7 @@ class NotificationEntityType extends ConfigEntityBundleBase implements Notificat
    * {@inheritdoc}
    */
   public function isLocked() {
-    $locked = \Drupal::state()->get('node.type.locked');
+    $locked = \Drupal::state()->get('notification_entity.type.locked');
     return isset($locked[$this->id()]) ? $locked[$this->id()] : FALSE;
   }
 

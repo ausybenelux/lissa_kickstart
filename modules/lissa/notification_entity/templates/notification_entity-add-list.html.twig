@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Default theme implementation to list notification types available for adding notifications.
+ *
+ *
+ * Available variables:
+ * - types: A list of notification_entity types, each with the following properties:
+ *   - add_link: Link to create a notification_entity of this type.
+ *   - description: Description of this notification_entity.
+ */
+#}
+{% if types is not empty %}
+    <dl class="node-type-list">
+        {% for type in types %}
+            <dt>{{ type.add_link }}</dt>
+            <dd>{{ type.description }}</dd>
+        {% endfor %}
+    </dl>
+{% endif %}
