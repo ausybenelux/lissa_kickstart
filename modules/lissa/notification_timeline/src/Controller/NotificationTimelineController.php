@@ -29,6 +29,7 @@ class NotificationTimelineController extends ControllerBase {
   public function nodeLoad(NodeInterface $node) {
     $build = array();
     $build['notification_form'] = $this->formBuilder()->getForm('Drupal\notification_timeline\Form\NotificationTimelineNotificationForm');
+    $build['timeline'] = $this->getTimeline($node);
     return $build;
   }
 
@@ -48,9 +49,17 @@ class NotificationTimelineController extends ControllerBase {
     $form_builder = \Drupal::service('entity.form_builder');
     $entity = \Drupal::entityManager()->getStorage('notification_entity')->create(array('type' => $notification_type));
     $build['notification_form'] = $form_builder->getForm($entity);
-    $entities = $this->getNotifications($node);
-    $build['timeline'] = \Drupal::entityManager()->getViewBuilder('notification_entity')->viewMultiple($entities, 'full');
+    $build['timeline'] = $this->getTimeline($node);
     return $build;
+  }
+
+  /**
+   * Returns a render array with the timeline of the specified node.
+   */
+  protected function getTimeline(NodeInterface $node) {
+    $entities = $this->getNotifications($node);
+    $timeline = \Drupal::entityManager()->getViewBuilder('notification_entity')->viewMultiple($entities, 'full');
+    return $timeline;
   }
 
   /**
