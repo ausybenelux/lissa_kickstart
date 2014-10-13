@@ -3,3 +3,9 @@ notification_timeline.timeline_node_tab:
   title: 'Timeline'
   base_route: entity.node.canonical
   weight: 100
+
+notification_timeline.timeline_node_tab.notification_form:
+  route_name: notification_timeline.notification_form
+  title: 'Timeline'
+  parent_id: notification_timeline.timeline_node_tab
+  weight: 100
