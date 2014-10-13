@@ -7,6 +7,8 @@
 
 namespace Drupal\notification_entity\Entity;
 
+use DateInterval;
+use DateTime;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
@@ -54,6 +56,9 @@ use Drupal\notification_entity\NotificationEntityInterface;
  * )
  */
 class NotificationEntity extends ContentEntityBase implements NotificationEntityInterface {
+
+  // Number of seconds
+  CONST TIMELINE_TIME = 30;
 
   /**
    * {@inheritdoc}
@@ -224,22 +229,6 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setSetting('handler', 'default')
       ->setDefaultValueCallback('Drupal\notification_entity\Entity\NotificationEntity::getCurrentNodeId')
       ->setTranslatable(TRUE);
-//      ->setDisplayOptions('view', array(
-//        'label' => 'hidden',
-//        'type' => 'node',
-//        'weight' => 0,
-//      ))
-//      ->setDisplayOptions('form', array(
-//        'type' => 'entity_reference_autocomplete',
-//        'weight' => 5,
-//        'settings' => array(
-//          'match_operator' => 'CONTAINS',
-//          'size' => '60',
-//          'autocomplete_type' => 'tags',
-//          'placeholder' => '',
-//        ),
-//      ))
-//      ->setDisplayConfigurable('form', TRUE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Authored on'))
@@ -250,12 +239,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
         'label' => 'hidden',
         'type' => 'timestamp',
         'weight' => 0,
-      ))
-      ->setDisplayOptions('form', array(
-        'type' => 'datetime_timestamp',
-        'weight' => 10,
-      ))
-      ->setDisplayConfigurable('form', TRUE);
+      ));
 
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Changed'))
@@ -266,17 +250,9 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
     $fields['timeline'] = BaseFieldDefinition::create('datetime')
       ->setLabel(t('Timeline time'))
       ->setDescription(t('The time that the notification should appear on the timeline.'))
+      ->setDefaultValueCallback('Drupal\notification_entity\Entity\NotificationEntity::getDefaultTimelineTime')
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE)
-      ->setDisplayOptions('view', array(
-        'label' => 'hidden',
-        'type' => 'timestamp',
-        'weight' => 0,
-      ))
-      ->setDisplayOptions('form', array(
-        'type' => 'datetime_timestamp',
-        'weight' => 10,
-      ))
       ->setDisplayConfigurable('form', TRUE);
 
     $fields['image_id'] = BaseFieldDefinition::create('image')
@@ -302,7 +278,6 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ))
       ->setDisplayConfigurable('form', TRUE);
 
-
     return $fields;
   }
 
@@ -316,5 +291,22 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
    */
   public static function getCurrentNodeId() {
     return array(\Drupal::request()->attributes->get('node')->id());
+  }
+
+  /**
+   * Default value callback for 'timeline'
+   * Returns a timestamp from 30 seconds before the request time
+   *
+   * @return array
+   *   An array of default values
+   */
+  public static function getDefaultTimelineTime() {
+    $time = new DateTime;
+    $time->setTimestamp(REQUEST_TIME);
+
+    // Subtract x seconds from request time
+    $time->sub(new DateInterval('PT'.NotificationEntity::TIMELINE_TIME.'S'));
+
+    return [['default_date_type' => true, 'default_date' => $time->format('Y-m-d H:i:s')]];
   }
 }
