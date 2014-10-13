@@ -61,6 +61,6 @@ class NotificationTimelineController extends ControllerBase {
     $entity_query->condition('host_id', $node->id());
     $entity_query->sort('timeline', 'DESC');
     $result = $entity_query->execute();
-    return $result ? $this->loadMultiple($result) : array();
+    return $result ? \Drupal::entityManager()->getStorage('notification_entity')->loadMultiple($result) : array();
   }
 }
