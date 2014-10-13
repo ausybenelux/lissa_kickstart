@@ -23,10 +23,10 @@ class NotificationTimelineController extends ControllerBase {
     return $build;
   }
 
-  public function addNotification(NodeInterface $node, $vocabulary) {
+  public function addNotification(NodeInterface $node, $notification_type) {
     $build = array();
     $form_builder = \Drupal::service('entity.form_builder');
-    $entity = \Drupal::entityManager()->getStorage('taxonomy_term')->create(array('vid' => $vocabulary));
+    $entity = \Drupal::entityManager()->getStorage('notification_entity')->create(array('type' => $notification_type));
     $build['notification_form'] = $form_builder->getForm($entity);
     return $build;
   }

@@ -1,5 +1,5 @@
 notification_timeline.notification_form:
-  path: '/node/{node}/timeline/add/{vocabulary}'
+  path: '/node/{node}/timeline/add/{notification_type}'
   defaults:
     _content: '\Drupal\notification_timeline\Controller\NotificationTimelineController::addNotification'
     _title_callback: '\Drupal\node\Controller\NodeViewController::title'

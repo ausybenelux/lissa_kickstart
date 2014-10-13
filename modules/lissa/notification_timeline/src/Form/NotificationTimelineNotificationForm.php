@@ -30,8 +30,8 @@ class NotificationTimelineNotificationForm extends FormBase {
     );
 
     // Build a list of notification types.
-    $options = array('0' => t('- Pick Event Type -'));
-    foreach (\Drupal::entityManager()->getStorage('taxonomy_vocabulary')->loadMultiple() as $type) {
+    $options = array('0' => t('- Pick Notification Type -'));
+    foreach (\Drupal::entityManager()->getStorage('notification_type')->loadMultiple() as $type) {
       $options[$type->id()] = $type->label();
     }
 
@@ -57,7 +57,7 @@ class NotificationTimelineNotificationForm extends FormBase {
     $node = \Drupal::request()->attributes->get('node');
     $form_state->setRedirect('notification_timeline.notification_form', array(
       'node' => $node->id(),
-      'vocabulary' => $notification_type,
+      'notification_type' => $notification_type,
     ));
   }
 }
