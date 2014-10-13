@@ -36,7 +36,7 @@ function template_preprocess_notification_timeline(&$variables) {
   }
 
   $segments[] = t('Current');
-  array_flip($segments);
+  $segments = array_reverse($segments);
   $variables['segments'] = $segments;
 
   $variables['timeline'] = array(
