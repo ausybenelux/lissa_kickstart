@@ -1,0 +1,12 @@
+<div class="timeline">
+    <nav>
+        <ul>
+        {% for segment in segments %}
+            <li>{{ segment }}</li>
+        {% endfor %}
+        </ul>
+    </nav>
+    <div class="notifications">
+        {{ notifications }}
+    </div>
+</div>

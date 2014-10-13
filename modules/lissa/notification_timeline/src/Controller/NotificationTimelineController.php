@@ -58,8 +58,12 @@ class NotificationTimelineController extends ControllerBase {
    */
   protected function getTimeline(NodeInterface $node) {
     $entities = $this->getNotifications($node);
-    $timeline = \Drupal::entityManager()->getViewBuilder('notification_entity')->viewMultiple($entities, 'full');
-    return $timeline;
+    $output = array(
+      '#theme' => 'notification_timeline',
+      '#node' => $node,
+      '#notifications' => $entities,
+    );
+    return $output;
   }
 
   /**

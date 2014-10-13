@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Contains notification timeline hook implementations.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function notification_timeline_theme() {
+  return array(
+    'notification_timeline' => array(
+      'variables' => array(
+        'node' => NULL,
+        'notifications' => array(),
+        'segments' => array()
+      ),
+      'file' => 'notification_timeline.theme.inc',
+      'template' => 'notification-timeline',
+    ),
+  );
+}
