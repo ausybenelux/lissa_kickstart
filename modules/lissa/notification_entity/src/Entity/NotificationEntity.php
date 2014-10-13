@@ -305,8 +305,8 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
     $time->setTimestamp(REQUEST_TIME);
 
     // Subtract x seconds from request time
-    $time->sub(new DateInterval('PT'.NotificationEntity::TIMELINE_TIME.'S'));
+    $time->sub(new DateInterval('PT' . NotificationEntity::TIMELINE_TIME . 'S'));
 
-    return [['default_date_type' => true, 'default_date' => $time->format('Y-m-d H:i:s')]];
+    return [['default_date_type' => TRUE, 'default_date' => $time->format('Y-m-d H:i:s')]];
   }
 }
