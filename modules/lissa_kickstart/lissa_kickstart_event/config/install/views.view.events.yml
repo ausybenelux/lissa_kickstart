@@ -263,6 +263,8 @@ display:
           provider: views
       arguments: {  }
       title: Events
+      field_langcode: '***LANGUAGE_language_content***'
+      field_langcode_add_to_query: null
   rest_export_1:
     display_plugin: rest_export
     id: rest_export_1
@@ -279,10 +281,12 @@ display:
         dependencies: {  }
       defaults:
         access: false
-  page_1:
+      field_langcode: '***LANGUAGE_language_content***'
+      field_langcode_add_to_query: null
+  admin_overview:
     display_plugin: page
-    id: page_1
-    display_title: Page
+    id: admin_overview
+    display_title: 'Admin overview'
     position: 2
     provider: views
     display_options:
@@ -863,3 +867,6 @@ display:
         name: admin
         weight: 0
         context: '0'
+      field_langcode: '***LANGUAGE_language_content***'
+      field_langcode_add_to_query: null
+      display_description: ''

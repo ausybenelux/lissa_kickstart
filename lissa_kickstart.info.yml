@@ -36,6 +36,7 @@ dependencies:
   - views
   - views_ui
   - lissa_kickstart_event
+  - lissa_kickstart_core
   - lissa_notifications
   - entity_export
   - ext
@@ -55,3 +56,6 @@ config_devel:
   - filter.format.restricted_html
   - system.theme
   - user.role.administrator
+  - system.site
+  - shortcut.set.default
+  -

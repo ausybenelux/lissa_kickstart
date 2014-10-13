@@ -18,7 +18,6 @@ dependencies:
     - datetime
     - image
     - link
-    - options
 id: node.event.default
 targetEntityType: node
 bundle: event

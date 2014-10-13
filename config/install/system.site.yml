@@ -1,0 +1,11 @@
+uuid: a609ca59-098a-428f-9b04-4e549c0ef605
+name: 'LISSA Kickstart'
+mail: support@crosscheck.be
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: home
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en

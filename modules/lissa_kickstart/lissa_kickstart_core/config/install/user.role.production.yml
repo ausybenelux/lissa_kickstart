@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies: {  }
+id: production
+label: Production
+weight: 3
+permissions:
+  0: 'create event content'
+  1: 'delete any event content'
+  2: 'delete own event content'
+  3: 'delete event revisions'
+  4: 'edit any event content'
+  5: 'edit own event content'
+  6: 'revert event revisions'
+  7: 'view event revisions'
+  9: 'delete terms in competition'
+  10: 'delete terms in player'
+  11: 'delete terms in team'
+  12: 'edit terms in competition'
+  13: 'edit terms in player'
+  14: 'edit terms in team'
+  15: 'access contextual links'
+  16: 'use text format full_html'
+  17: 'access content overview'
+  18: 'administer nodes'
+  19: 'view own unpublished content'
+  20: 'access toolbar'
+  23: 'access shortcuts'
+  24: 'administer taxonomy'

@@ -5,7 +5,6 @@ dependencies:
     - field.field.taxonomy_term.player.field_player_teams
     - taxonomy.vocabulary.player
   module:
-    - options
     - path
     - text
 id: taxonomy_term.player.default

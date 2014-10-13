@@ -1,4 +1,3 @@
-field_name: field_event_team_setup
 langcode: en
 status: true
 dependencies:
@@ -6,6 +5,7 @@ dependencies:
     - image
     - node
 id: node.field_event_team_setup
+field_name: field_event_team_setup
 entity_type: node
 type: image
 settings:

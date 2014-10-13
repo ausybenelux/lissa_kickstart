@@ -13,7 +13,7 @@ description: 'The time the match will start.'
 required: false
 translatable: false
 default_value: {  }
-default_value_function: ''
+default_value_callback: ''
 settings: {  }
 third_party_settings: {  }
 field_type: datetime
