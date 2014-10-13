@@ -11,6 +11,7 @@ use Drupal\Component\Utility\Xss;
 use Drupal\Core\Url;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Core\Render\Element;
 
 /**
  * Prepares variables for list of available node type templates.
@@ -33,5 +34,24 @@ function template_preprocess_notification_entity_add_list(&$variables) {
         'description' => Xss::filterAdmin($type->description),
       );
     }
+  }
+}
+
+/**
+ * Prepares variables for notification_entity templates.
+ */
+function template_preprocess_notification_entity(&$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  $variables['notification_entity'] = $variables['elements']['#notification_entity'];
+  /** @var \Drupal\notification_entity\NotificationEntityInterface $notification_entity */
+  $notification_entity = $variables['notification_entity'];
+  $variables['id'] = $notification_entity->id();
+  $variables['label'] = $variables['elements']['title'];
+  unset($variables['elements']['title']);
+
+  // Helpful $content variable for templates.
+  $variables += array('content' => array());
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
   }
 }

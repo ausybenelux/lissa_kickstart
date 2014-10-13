@@ -18,5 +18,10 @@ function notification_entity_theme() {
       'file' => 'notification_entity.pages.inc',
       'template' => 'notification_entity-add-list',
     ),
+    'notification_entity' => array(
+      'render element' => 'elements',
+      'file' => 'notification_entity.pages.inc',
+      'template' => 'notification_entity',
+    ),
   );
 }

@@ -1,0 +1,14 @@
+{%
+  set classes = [
+    'notification-entity',
+    'notification--type-' ~ notification_entity.bundle|clean_class,
+    view_mode ? 'notification--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<article{{ attributes.addClass(classes) }} id="notification-entity-{{ id }}">
+  <h2{{ title_attributes }}>{{ label }}</h2>
+
+  <div{{ content_attributes.addClass('notification_entity__content') }}>
+    {{ content }}
+  </div>
+</article>

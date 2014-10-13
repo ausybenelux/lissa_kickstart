@@ -1,12 +1,14 @@
 <div class="timeline">
     <nav>
         <ul>
-        {% for segment in segments %}
-            <li>{{ segment }}</li>
+        {% for segment_id, segment in segments %}
+            <li data-step="{{ segment_id }}"><a href="#notification-entity-{{ segment_id }}">{{ segment }}</a></li>
         {% endfor %}
         </ul>
     </nav>
     <div class="notifications">
+        <a id="notification-entity-current"></a>
         {{ notifications }}
+        <a id="notification-entity-start"></a>
     </div>
 </div>
