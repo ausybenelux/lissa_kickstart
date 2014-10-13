@@ -28,11 +28,11 @@ use Drupal\notification_entity\NotificationEntityInterface;
  *     "access" = "Drupal\Core\Entity\EntityAccessControlHandler",
  *     "views_data" = "Drupal\views\EntityViewsData",
  *     "form" = {
- *       "default" = "Drupal\Core\Entity\ContentEntityForm",
+ *       "default" = "Drupal\notification_entity\NotificationEntityForm",
  *       "delete" = "Drupal\Core\Entity\ContentEntityConfirmFormBase",
- *       "edit" = "Drupal\Core\Entity\ContentEntityForm"
+ *       "edit" = "Drupal\notification_entity\NotificationEntityForm"
  *     },
- *     "list_builder" = "Drupal\Core\Entity\EntityListBuilder"
+ *     "list_builder" = "Drupal\notification_entity\NotificationEntityListBuilder"
  *   },
  *   base_table = "notification_entity",
  *   data_table = "notification_field_data",

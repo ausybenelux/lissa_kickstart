@@ -2,8 +2,16 @@ notification_entity.page_edit:
   route_name: entity.notification_entity.edit_form
   base_route: entity.notification_entity.edit_form
   title: Edit
+
 notification_entity.delete_confirm:
   route_name: entity.notification_entity.delete_form
   base_route: entity.notification_entity.edit_form
   title: Delete
   weight: 10
+
+notification_entity.type_add:
+  route_name: notification_entity.type_add
+  base_route: notification_entity.type_add
+  title: Add notification type
+  appears_on:
+    - notification_entity.overview_types
