@@ -28,9 +28,9 @@ use Drupal\notification_entity\NotificationEntityInterface;
  *     "access" = "Drupal\Core\Entity\EntityAccessControlHandler",
  *     "views_data" = "Drupal\views\EntityViewsData",
  *     "form" = {
- *       "default" = "Drupal\notification_entity\NotificationEntityForm",
+ *       "default" = "Drupal\Core\Entity\ContentEntityForm",
  *       "delete" = "Drupal\Core\Entity\ContentEntityConfirmFormBase",
- *       "edit" = "Drupal\notification_entity\NotificationEntityForm"
+ *       "edit" = "Drupal\Core\Entity\ContentEntityForm"
  *     },
  *     "list_builder" = "Drupal\notification_entity\NotificationEntityListBuilder"
  *   },
@@ -279,7 +279,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ))
       ->setDisplayConfigurable('form', TRUE);
 
-    $fields['image_id'] = BaseFieldDefinition::create('entity_reference')
+    $fields['image_id'] = BaseFieldDefinition::create('image')
       ->setLabel(t('Image'))
       ->setDescription(t('The file fid of the file entity containing the notification image.'))
       ->setRevisionable(TRUE)
@@ -297,7 +297,6 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
         'settings' => array(
           'match_operator' => 'CONTAINS',
           'size' => '60',
-          'autocomplete_type' => 'tags',
           'placeholder' => '',
         ),
       ))
