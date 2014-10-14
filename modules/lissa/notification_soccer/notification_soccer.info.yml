@@ -14,3 +14,8 @@ config_devel:
 
   - notification_entity.type.status
   - field.storage.notification_entity.field_status_type
+
+  - notification_entity.type.goal
+  - field.storage.notification_entity.field_goal_player
+  - field.storage.notification_entity.field_goal_team
+  - field.storage.notification_entity.field_goal_score
