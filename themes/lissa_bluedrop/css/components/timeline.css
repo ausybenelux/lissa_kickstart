@@ -1,0 +1,39 @@
+.notification-timeline-notification-form,
+.page-node-timeline .notification-entity-form {
+  padding: 3em;
+  border-radius: .5em;
+  background: #D8E5F0;
+  margin-bottom: 2em;
+}
+
+.notification-timeline-notification-form {
+  text-align: center;
+}
+
+.notification-timeline-notification-form .form-item {
+  display: inline;
+}
+
+.timeline nav {
+  float: left;
+  width: 20%;
+}
+
+.timeline ul {
+  float: left;
+  text-align: center;
+  padding: 0 1.5em;
+  margin: 0;
+  border-right: 4px solid black;
+}
+
+.timeline li {
+  list-style: none;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.timeline .notifications {
+  float: right;
+  width: 75%;
+}

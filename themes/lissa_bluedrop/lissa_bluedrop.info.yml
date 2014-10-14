@@ -6,6 +6,11 @@ version: 1.0
 core: 8.x
 base theme: seven
 
+stylesheets:
+  screen:
+    - css/components/timeline.css
+    - css/components/notification-entity.css
+
 stylesheets-override:
   - css/components/branding.css
   - css/components/page-title.css
