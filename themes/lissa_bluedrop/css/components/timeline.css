@@ -16,11 +16,11 @@
 
 .timeline nav {
   float: left;
-  width: 20%;
+  width: 15%;
 }
 
 .timeline ul {
-  float: left;
+  float: right;
   text-align: center;
   padding: 0 1.5em;
   margin: 0;
