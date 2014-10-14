@@ -44,6 +44,9 @@ class NotificationTimelineNotificationForm extends FormBase {
       '#type' => 'submit',
       '#name' => 'add',
       '#value' => t('Add'),
+      '#attributes' => array(
+        'class' => array('js-hide'),
+      ),
     );
 
     return $form;

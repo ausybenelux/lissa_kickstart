@@ -29,6 +29,24 @@ class NotificationTimelineController extends ControllerBase {
   public function nodeLoad(NodeInterface $node) {
     $build = array();
     $build['notification_form'] = $this->formBuilder()->getForm('Drupal\notification_timeline\Form\NotificationTimelineNotificationForm');
+    $build['notification_type_forms'] = array(
+      '#attributes' => array('id' => 'notification-forms'),
+      '#type' => 'html_tag',
+      '#tag' => 'div',
+      '#attached' => array(
+        'js' => array(
+          drupal_get_path('module', 'notification_timeline') . '/notification-timeline.js',
+        ),
+      ),
+    );
+    $form_builder = \Drupal::service('entity.form_builder');
+    // Add all type forms and hide them.
+    foreach (\Drupal::entityManager()->getStorage('notification_type')->loadMultiple() as $type) {
+      $entity = \Drupal::entityManager()->getStorage('notification_entity')->create(array('type' => $type->id()));
+      $build['notification_type_forms'][$type->id()] = $form_builder->getForm($entity);
+      $build['notification_type_forms'][$type->id()]['#attributes']['class'][] = 'js-hide';
+    }
+
     $build['timeline'] = $this->getTimeline($node);
     return $build;
   }
