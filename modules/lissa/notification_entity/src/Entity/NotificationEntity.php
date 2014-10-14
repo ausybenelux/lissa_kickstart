@@ -217,6 +217,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ))
       ->setDisplayOptions('form', array(
         'type' => 'string_textfield',
+        'rows' => 5,
         'weight' => -5,
       ))
       ->setDisplayConfigurable('form', TRUE);
@@ -251,11 +252,9 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setLabel(t('Timeline time'))
       ->setDescription(t('The time that the notification should appear on the timeline.'))
       ->setDefaultValueCallback('Drupal\notification_entity\Entity\NotificationEntity::getDefaultTimelineTime')
-      ->setRevisionable(TRUE)
-      ->setTranslatable(TRUE)
-      ->setDisplayConfigurable('form', TRUE);
+      ->setRevisionable(TRUE);
 
-    $fields['image_id'] = BaseFieldDefinition::create('image')
+    $fields['image'] = BaseFieldDefinition::create('image')
       ->setLabel(t('Image'))
       ->setDescription(t('The file fid of the file entity containing the notification image.'))
       ->setRevisionable(TRUE)
@@ -277,6 +276,15 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
         ),
       ))
       ->setDisplayConfigurable('form', TRUE);
+
+    $fields['content'] = BaseFieldDefinition::create('text_long')
+      ->setLabel(t('Content'))
+      ->setDisplayOptions('view', array(
+        'type' => 'text'
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'text_area'
+      ));
 
     return $fields;
   }
