@@ -7,6 +7,10 @@ dependencies:
   - notification_entity
 config_devel:
   - notification_entity.type.standard
+
   - notification_entity.type.card
   - field.storage.notification_entity.field_card_player
   - field.storage.notification_entity.field_card_type
+
+  - notification_entity.type.status
+  - field.storage.notification_entity.field_status_type
