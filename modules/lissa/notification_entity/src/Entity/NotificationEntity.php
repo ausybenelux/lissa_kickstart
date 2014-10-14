@@ -298,7 +298,13 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
    *   An array of default values.
    */
   public static function getCurrentNodeId() {
-    return array(\Drupal::request()->attributes->get('node')->id());
+    $node = \Drupal::request()->attributes->get('node');
+
+    if (isset($node)) {
+      return [$node->id()];
+    }
+
+    return [];
   }
 
   /**
