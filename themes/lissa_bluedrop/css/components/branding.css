@@ -3,6 +3,7 @@
  */
 #branding {
   overflow: hidden;
-  background-color: #158DD0;
   padding: 24px 0 0;
+  background: #158DD0 url(../../images/logo.png) 100% 0 no-repeat;
+  background-size: contain;
 }
