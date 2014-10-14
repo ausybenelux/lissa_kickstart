@@ -6,6 +6,10 @@ version: 1.0
 core: 8.x
 dependencies:
   - user
+  - lissa_kickstart_event
+  - notification_entity
+  - notification_timeline
+  - lissa_notifications
 config_devel:
   - user.role.production
   - user.role.operator

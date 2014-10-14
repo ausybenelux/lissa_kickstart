@@ -35,9 +35,7 @@ dependencies:
   - toolbar
   - views
   - views_ui
-  - lissa_kickstart_event
   - lissa_kickstart_core
-  - lissa_notifications
   - entity_export
   - ext
 themes:
