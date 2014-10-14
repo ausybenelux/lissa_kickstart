@@ -28,7 +28,7 @@
           $context.find('.notification-timeline-notification-form').removeClass('js-hide');
         });
 
-        $cancel.appendTo($context.find('#notification-forms form'));
+        $cancel.appendTo($context.find('#notification-forms .form-actions'));
       });
     }
   };
