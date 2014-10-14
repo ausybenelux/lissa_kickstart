@@ -1,0 +1,9 @@
+name: Notification soccer
+description: 'Provides soccer notification types'
+package: LISSA
+type: module
+core: 8.x
+dependencies:
+  - notification_entity
+config_devel:
+  - notification_entity.type.standard
