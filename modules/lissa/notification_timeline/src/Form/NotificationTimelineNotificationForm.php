@@ -55,9 +55,12 @@ class NotificationTimelineNotificationForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $notification_type = $form_state->getValue(array('notification_timeline', 'notification_type'));
     $node = \Drupal::request()->attributes->get('node');
-    $form_state->setRedirect('notification_timeline.notification_form', array(
+    $params = array(
       'node' => $node->id(),
       'notification_type' => $notification_type,
-    ));
+    );
+    // Redirect the next form to this page.
+    $options = array('query' => drupal_get_destination());
+    $form_state->setRedirect('notification_timeline.notification_form', $params, $options);
   }
 }
