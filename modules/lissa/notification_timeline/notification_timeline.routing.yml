@@ -7,6 +7,8 @@ notification_timeline.notification_form:
     _admin_route: TRUE
   requirements:
     _permission: 'access timeline'
+    _custom_access: '\Drupal\notification_timeline\Controller\NotificationTimelineController::checkTimelineAccess'
+    _entity_access: 'node.update'
 
 notification_timeline.node_timeline:
   path: '/node/{node}/timeline'
@@ -17,3 +19,5 @@ notification_timeline.node_timeline:
     _admin_route: TRUE
   requirements:
     _permission: 'access timeline'
+    _custom_access: '\Drupal\notification_timeline\Controller\NotificationTimelineController::checkTimelineAccess'
+    _entity_access: 'node.update'
