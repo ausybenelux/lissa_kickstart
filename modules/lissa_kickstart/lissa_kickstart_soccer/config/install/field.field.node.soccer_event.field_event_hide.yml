@@ -7,7 +7,7 @@ dependencies:
 id: node.soccer_event.field_event_hide
 field_name: field_event_hide
 entity_type: node
-bundle: event
+bundle: soccer_event
 label: 'Hide on'
 description: 'The date the event should become unavailable in the client application.'
 required: false

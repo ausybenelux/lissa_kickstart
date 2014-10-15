@@ -7,7 +7,7 @@ dependencies:
 id: node.soccer_event.field_event_competition
 field_name: field_event_competition
 entity_type: node
-bundle: event
+bundle: soccer_event
 label: Competition
 description: ''
 required: false

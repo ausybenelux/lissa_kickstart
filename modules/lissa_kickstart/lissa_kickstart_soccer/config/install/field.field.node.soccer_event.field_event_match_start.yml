@@ -7,7 +7,7 @@ dependencies:
 id: node.soccer_event.field_event_match_start
 field_name: field_event_match_start
 entity_type: node
-bundle: event
+bundle: soccer_event
 label: 'Match start time'
 description: 'The time the match will start.'
 required: false

@@ -7,7 +7,7 @@ dependencies:
 id: node.soccer_event.field_event_team_setup
 field_name: field_event_team_setup
 entity_type: node
-bundle: event
+bundle: soccer_event
 label: 'Team setup'
 description: 'An image showing the player positions.'
 required: false

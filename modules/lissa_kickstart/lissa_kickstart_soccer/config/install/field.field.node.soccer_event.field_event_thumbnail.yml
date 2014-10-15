@@ -7,7 +7,7 @@ dependencies:
 id: node.soccer_event.field_event_thumbnail
 field_name: field_event_thumbnail
 entity_type: node
-bundle: event
+bundle: soccer_event
 label: Thumbnail
 description: 'An image representing the event in the client application.'
 required: false

@@ -7,7 +7,7 @@ dependencies:
 id: node.soccer_event.field_event_endpoint
 field_name: field_event_endpoint
 entity_type: node
-bundle: event
+bundle: soccer_event
 label: 'Main video stream URL'
 description: 'The URL of the MPD file of the main video stream.'
 required: false
