@@ -1,0 +1,124 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.node.soccer_player_stats.field_stats_ball_pos
+    - field.field.node.soccer_player_stats.field_stats_fouls_committed
+    - field.field.node.soccer_player_stats.field_stats_free_kicks
+    - field.field.node.soccer_player_stats.field_stats_goals_conceded
+    - field.field.node.soccer_player_stats.field_stats_goals_scored
+    - field.field.node.soccer_player_stats.field_stats_injuries
+    - field.field.node.soccer_player_stats.field_stats_offside
+    - field.field.node.soccer_player_stats.field_stats_penalties
+    - field.field.node.soccer_player_stats.field_stats_player
+    - field.field.node.soccer_player_stats.field_stats_red_cards
+    - field.field.node.soccer_player_stats.field_stats_season
+    - field.field.node.soccer_player_stats.field_stats_yellow_cards
+    - node.type.soccer_player_stats
+  module:
+    - taxonomy
+    - user
+id: node.soccer_player_stats.default
+label: null
+targetEntityType: node
+bundle: soccer_player_stats
+mode: default
+content:
+  field_stats_player:
+    type: taxonomy_term_reference_plain
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
+  field_stats_season:
+    type: taxonomy_term_reference_plain
+    weight: 102
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
+  field_stats_goals_scored:
+    type: number_integer
+    weight: 103
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    label: inline
+  field_stats_goals_conceded:
+    type: number_integer
+    weight: 104
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    label: inline
+  field_stats_fouls_committed:
+    type: number_integer
+    weight: 105
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    label: inline
+  field_stats_ball_pos:
+    type: number_integer
+    weight: 106
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    label: inline
+  field_stats_free_kicks:
+    type: number_integer
+    weight: 107
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    label: inline
+  field_stats_penalties:
+    type: number_integer
+    weight: 108
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    label: inline
+  field_stats_yellow_cards:
+    type: number_integer
+    weight: 109
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    label: inline
+  field_stats_red_cards:
+    type: number_integer
+    weight: 110
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    label: inline
+  field_stats_injuries:
+    type: number_integer
+    weight: 111
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    label: inline
+  field_stats_offside:
+    type: number_integer
+    weight: 112
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    label: inline
+hidden:
+  langcode: true
+  body: true
+  field_stats_free_kick: true
+  links: true
+third_party_settings: {  }

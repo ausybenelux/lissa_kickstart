@@ -10,6 +10,7 @@ dependencies:
   - notification_entity
   - notification_timeline
   - lissa_notifications
+  - lissa_kickstart_soccer_stats
 config_devel:
   - user.role.production
   - user.role.operator
