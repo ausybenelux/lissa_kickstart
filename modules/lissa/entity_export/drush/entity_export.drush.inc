@@ -105,6 +105,13 @@ function drush_entity_export_import_entity($type = NULL, $filepath = NULL) {
           if ($keys['bundle'] && isset($entity_values[$keys['bundle']][0]['target_id'])) {
             $entity_values[$keys['bundle']][0]['value'] = $entity_values[$keys['bundle']][0]['target_id'];
           }
+
+          // Taxonomy terms without a parent are saved as NULL while 0 is
+          // expected when saving a term.
+          if (empty($entity_values['parent'][0]['target_id'])) {
+            $entity_values['parent'][0]['target_id'] = "0";
+          }
+
           $entity = $serializer->denormalize($entity_values, 'Drupal\Core\Entity\Entity', NULL, array('entity_type' => $type));
           if ($entity) {
             // Delete existing items so we can update them later.
