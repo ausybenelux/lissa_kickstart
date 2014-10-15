@@ -2,13 +2,13 @@ langcode: en
 status: true
 dependencies:
   entity:
-    - field.storage.node.field_event_teams
-    - node.type.event
-id: node.event.field_event_teams
-field_name: field_event_teams
+    - field.storage.node.field_event_competition
+    - node.type.soccer_event
+id: node.soccer_event.field_event_competition
+field_name: field_event_competition
 entity_type: node
 bundle: event
-label: Teams
+label: Competition
 description: ''
 required: false
 translatable: false

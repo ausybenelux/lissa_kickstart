@@ -3,8 +3,8 @@ status: true
 dependencies:
   entity:
     - field.storage.node.field_event_hide
-    - node.type.event
-id: node.event.field_event_hide
+    - node.type.soccer_event
+id: node.soccer_event.field_event_hide
 field_name: field_event_hide
 entity_type: node
 bundle: event

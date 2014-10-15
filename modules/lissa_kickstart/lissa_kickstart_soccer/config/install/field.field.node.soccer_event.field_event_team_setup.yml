@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   entity:
-    - field.storage.node.field_event_thumbnail
-    - node.type.event
-id: node.event.field_event_thumbnail
-field_name: field_event_thumbnail
+    - field.storage.node.field_event_team_setup
+    - node.type.soccer_event
+id: node.soccer_event.field_event_team_setup
+field_name: field_event_team_setup
 entity_type: node
 bundle: event
-label: Thumbnail
-description: 'An image representing the event in the client application.'
+label: 'Team setup'
+description: 'An image showing the player positions.'
 required: false
 translatable: false
 default_value: {  }

@@ -1,8 +1,8 @@
 langcode: en
 status: true
 dependencies: {  }
-name: Event
-type: event
+name: Soccer Event
+type: soccer_event
 description: ''
 help: ''
 new_revision: false

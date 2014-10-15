@@ -213,7 +213,7 @@ display:
           table: node_field_data
           field: type
           value:
-            event: event
+            soccer_event: soccer_event
       sorts:
         created:
           id: created
@@ -241,7 +241,7 @@ display:
               - views
           empty: true
           tokenize: false
-          content: "<ul class=\"action-links\">\n<li><a href=\"/node/add/event\" class=\"button button--primary button--small button-action\">Add event</a></li>\n</ul>"
+          content: "<ul class=\"action-links\">\n<li><a href=\"/node/add/soccer-event\" class=\"button button--primary button--small button-action\">Add soccer event</a></li>\n</ul>"
           format: full_html
           plugin_id: text
           provider: views
@@ -296,7 +296,7 @@ display:
           table: node_field_data
           field: type
           value:
-            event: event
+            soccer_event: soccer_event
         status:
           id: status
           table: node_field_data

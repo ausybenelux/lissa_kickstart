@@ -6,7 +6,7 @@ version: 1.0
 core: 8.x
 dependencies:
   - user
-  - lissa_kickstart_event
+  - lissa_kickstart_soccer
   - notification_entity
   - notification_timeline
   - lissa_notifications
