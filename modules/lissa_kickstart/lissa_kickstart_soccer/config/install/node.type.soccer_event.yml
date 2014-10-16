@@ -1,6 +1,9 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+    - notification_timeline
 name: 'Soccer Event'
 type: soccer_event
 description: ''
@@ -8,4 +11,10 @@ help: ''
 new_revision: false
 preview_mode: 1
 display_submitted: true
-third_party_settings: {  }
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  notification_timeline:
+    enabled: 1
