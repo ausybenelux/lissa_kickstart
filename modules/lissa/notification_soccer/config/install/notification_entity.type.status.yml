@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: Status
-type: status
-description: 'The status of the match (first half, second half, ...)'
-help: null

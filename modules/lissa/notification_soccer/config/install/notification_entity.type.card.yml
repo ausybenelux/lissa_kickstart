@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: Card
-type: card
-description: 'A card has been given to a player.'
-help: null

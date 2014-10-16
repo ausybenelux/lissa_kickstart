@@ -1,1 +1,7 @@
-{  }
+langcode: en
+status: true
+dependencies: {  }
+name: Goal
+type: goal
+description: 'A goal notification. The player who scored the goal can be specified.'
+help: null
