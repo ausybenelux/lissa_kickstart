@@ -1,0 +1,48 @@
+<?php
+/**
+ * @file
+ * The module that sends content created events to the message bus
+ *
+ */
+
+use \Drupal\Core\Entity\EntityInterface;
+use PhpAmqpLib\Connection\AMQPConnection;
+use PhpAmqpLib\Message\AMQPMessage;
+
+define("NOTIFICATION_PUSH_SERVER_MB", '10.181.138.165');
+
+/**
+ * Implements hook_entity_insert()
+ */
+function notification_push_entity_insert(EntityInterface $e) {
+  notification_push_notify($e, 'Entity inserted of type: ' . $e->getEntityTypeId());
+}
+
+/**
+ * Implements hook_entity_update()
+ */
+function notification_push_entity_update(EntityInterface $e) {
+  notification_push_notify($e, 'Entity updated of type: ' . $e->getEntityTypeId());
+}
+
+/**
+ * Implements hook_entity_delete()
+ */
+function notification_push_entity_delete(EntityInterface $e) {
+  notification_push_notify($e, 'Entity deleted of type: ' . $e->getEntityTypeId());
+}
+
+function notification_push_notify(EntityInterface $e, $message = '') {
+  if ($e->getEntityTypeId() == 'node') {
+    $connection = new AMQPConnection(NOTIFICATION_PUSH_SERVER_MB, 5672, 'guest', 'guest');
+    $channel = $connection->channel();
+
+    $channel->queue_declare('content_notification', false, false, false, false);
+
+    $channel->basic_publish(new AMQPMessage(var_export($e->toArray(), true)), '', 'content_notification');
+    \Drupal::logger('LISSA Entity')->info($message);
+
+    $channel->close();
+    $connection->close();
+  }
+}
