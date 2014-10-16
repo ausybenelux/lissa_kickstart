@@ -35,7 +35,8 @@ class NotificationTimelineController extends ControllerBase {
       '#tag' => 'div',
       '#attached' => array(
         'js' => array(
-          drupal_get_path('module', 'notification_timeline') . '/notification-timeline.js',
+          drupal_get_path('module', 'notification_timeline') . '/js/plugins/Sticky/jquery.sticky.js',
+          drupal_get_path('module', 'notification_timeline') . '/js/notification-timeline.js'
         ),
       ),
     );

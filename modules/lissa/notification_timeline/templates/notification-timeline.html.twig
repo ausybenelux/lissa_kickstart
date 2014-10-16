@@ -1,5 +1,5 @@
 <div class="timeline">
-    <nav>
+    <nav class="js-timeline-navigation">
         <ul>
         {% for segment_id, segment in segments %}
             <li data-step="{{ segment_id }}"><a href="#notification-entity-{{ segment_id }}" class="js-sidebar-link">{{ segment }}</a></li>

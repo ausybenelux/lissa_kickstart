@@ -45,6 +45,9 @@
           }
         }
       });
+
+      // Makes the timeline naviation sticky with the jQuery Sticky plugin
+      $context.find(".js-timeline-navigation").sticky({topSpacing:100});
     }
   };
 
