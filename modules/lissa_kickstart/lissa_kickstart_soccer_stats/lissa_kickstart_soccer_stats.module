@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Contains hook implementations for the lissa_kickstart_soccer_stats module.
+ */
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ *
+ * Automatically set the player and team statistics node title.
+ */
+function lissa_kickstart_soccer_stats_node_presave(Drupal\node\NodeInterface $node) {
+  if ($node->getType() == 'soccer_player_stats') {
+    $player = $node->get('field_stats_player')->entity->label();
+    $season = $node->get('field_stats_season')->entity->label();
+    $title = $player . ' - ' . $season;
+    $node->setTitle($title);
+  }
+  elseif ($node->getType() == 'soccer_team_stats') {
+    $team = $node->get('field_stats_team')->entity->label();
+    $season = $node->get('field_stats_season')->entity->label();
+    $title = $team . ' - ' . $season;
+    $node->setTitle($title);
+  }
+}

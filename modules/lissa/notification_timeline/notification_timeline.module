@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeTypeInterface;
+
 /**
  * @file
  * Contains notification timeline hook implementations.
@@ -20,4 +23,35 @@ function notification_timeline_theme() {
       'template' => 'notification-timeline',
     ),
   );
+}
+
+/**
+ * Implements hook_form_node_type_form_alter().
+ */
+function notification_timeline_form_node_type_form_alter(&$form, FormStateInterface $form_state) {
+  /** @var \Drupal\node\NodeTypeInterface $type */
+  $type = $form_state->getFormObject()->getEntity();
+  $form['notification_timeline'] = array(
+    '#type' => 'details',
+    '#title' => t('Timeline'),
+    '#weight' => 35,
+    '#group' => 'additional_settings',
+  );
+
+  $form['notification_timeline']['notification_timeline_enable'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable the notification timeline for this content type'),
+    '#default_value' => $type->getThirdPartySetting('notification_timeline', 'enabled', FALSE),
+  );
+
+  $form['#entity_builders'][] = 'notification_timeline_form_node_type_form_builder';
+}
+
+/**
+ * Entity builder for the node type form with timeline options.
+ *
+ * @see notification_timeline_form_node_type_form_alter().
+ */
+function notification_timeline_form_node_type_form_builder($entity_type, NodeTypeInterface $type, &$form, FormStateInterface $form_state) {
+  $type->setThirdPartySetting('notification_timeline', 'enabled', $form_state->getValue('notification_timeline_enable'));
 }

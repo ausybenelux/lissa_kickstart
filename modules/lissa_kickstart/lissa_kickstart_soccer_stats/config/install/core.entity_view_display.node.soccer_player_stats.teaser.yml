@@ -1,0 +1,45 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.soccer_player_stats.field_stats_ball_pos
+    - field.field.node.soccer_player_stats.field_stats_fouls_committed
+    - field.field.node.soccer_player_stats.field_stats_free_kicks
+    - field.field.node.soccer_player_stats.field_stats_goals_conceded
+    - field.field.node.soccer_player_stats.field_stats_goals_scored
+    - field.field.node.soccer_player_stats.field_stats_injuries
+    - field.field.node.soccer_player_stats.field_stats_offside
+    - field.field.node.soccer_player_stats.field_stats_penalties
+    - field.field.node.soccer_player_stats.field_stats_player
+    - field.field.node.soccer_player_stats.field_stats_red_cards
+    - field.field.node.soccer_player_stats.field_stats_season
+    - field.field.node.soccer_player_stats.field_stats_yellow_cards
+    - node.type.soccer_player_stats
+  module:
+    - user
+id: node.soccer_player_stats.teaser
+label: null
+targetEntityType: node
+bundle: soccer_player_stats
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  langcode: true
+  body: true
+  field_stats_ball_pos: true
+  field_stats_fouls_committed: true
+  field_stats_goals_conceded: true
+  field_stats_goals_scored: true
+  field_stats_player: true
+  field_stats_season: true
+  field_stats_free_kick: true
+  field_stats_free_kicks: true
+  field_stats_injuries: true
+  field_stats_offside: true
+  field_stats_penalties: true
+  field_stats_red_cards: true
+  field_stats_yellow_cards: true
+third_party_settings: {  }

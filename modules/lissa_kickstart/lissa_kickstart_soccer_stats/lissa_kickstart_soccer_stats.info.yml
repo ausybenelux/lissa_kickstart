@@ -1,0 +1,57 @@
+name: LISSA Kickstart Soccer Statistics
+description: 'Soccer statistic configuration.'
+package: LISSA Kickstart
+type: module
+version: 1.0
+core: 8.x
+dependencies:
+  - field
+  - node
+  - taxonomy
+config_devel:
+  - core.base_field_override.node.soccer_player_stats.promote
+  - core.base_field_override.node.soccer_team_stats.promote
+  - core.entity_form_display.node.soccer_player_stats.default
+  - core.entity_form_display.node.soccer_team_stats.default
+  - core.entity_view_display.node.soccer_player_stats.default
+  - core.entity_view_display.node.soccer_player_stats.teaser
+  - core.entity_view_display.node.soccer_team_stats.default
+  - core.entity_view_display.node.soccer_team_stats.teaser
+  - field.field.node.soccer_player_stats.field_stats_ball_pos
+  - field.field.node.soccer_player_stats.field_stats_fouls_committed
+  - field.field.node.soccer_player_stats.field_stats_free_kicks
+  - field.field.node.soccer_player_stats.field_stats_goals_conceded
+  - field.field.node.soccer_player_stats.field_stats_goals_scored
+  - field.field.node.soccer_player_stats.field_stats_injuries
+  - field.field.node.soccer_player_stats.field_stats_offside
+  - field.field.node.soccer_player_stats.field_stats_penalties
+  - field.field.node.soccer_player_stats.field_stats_player
+  - field.field.node.soccer_player_stats.field_stats_red_cards
+  - field.field.node.soccer_player_stats.field_stats_season
+  - field.field.node.soccer_player_stats.field_stats_yellow_cards
+  - field.field.node.soccer_team_stats.field_stats_defeats
+  - field.field.node.soccer_team_stats.field_stats_draws
+  - field.field.node.soccer_team_stats.field_stats_matches
+  - field.field.node.soccer_team_stats.field_stats_season
+  - field.field.node.soccer_team_stats.field_stats_team
+  - field.field.node.soccer_team_stats.field_stats_wins
+  - field.storage.node.field_stats_ball_pos
+  - field.storage.node.field_stats_defeats
+  - field.storage.node.field_stats_draws
+  - field.storage.node.field_stats_fouls_committed
+  - field.storage.node.field_stats_free_kicks
+  - field.storage.node.field_stats_goals_conceded
+  - field.storage.node.field_stats_goals_scored
+  - field.storage.node.field_stats_injuries
+  - field.storage.node.field_stats_matches
+  - field.storage.node.field_stats_offside
+  - field.storage.node.field_stats_penalties
+  - field.storage.node.field_stats_player
+  - field.storage.node.field_stats_red_cards
+  - field.storage.node.field_stats_season
+  - field.storage.node.field_stats_team
+  - field.storage.node.field_stats_wins
+  - field.storage.node.field_stats_yellow_cards
+  - node.type.soccer_player_stats
+  - node.type.soccer_team_stats
+  - taxonomy.vocabulary.season

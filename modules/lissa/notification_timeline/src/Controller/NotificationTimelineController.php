@@ -9,7 +9,7 @@ namespace Drupal\notification_timeline\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\node\NodeInterface;
-use Drupal\taxonomy\VocabularyInterface;
+use Drupal\Core\Access\AccessResult;
 
 
 /**
@@ -97,5 +97,20 @@ class NotificationTimelineController extends ControllerBase {
     $entity_query->sort('timeline', 'DESC');
     $result = $entity_query->execute();
     return $result ? \Drupal::entityManager()->getStorage('notification_entity')->loadMultiple($result) : array();
+  }
+
+  /**
+   * Checks access to the node timeline.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   The current node.
+   *
+   * @return string
+   *   A \Drupal\Core\Access\AccessInterface constant value.
+   */
+  public function checkTimelineAccess(NodeInterface $node) {
+    $node_type = $node->type->entity;
+    $enabled = $node_type->getThirdPartySetting('notification_timeline', 'enabled', FALSE);
+    return AccessResult::allowedIf($enabled);
   }
 }

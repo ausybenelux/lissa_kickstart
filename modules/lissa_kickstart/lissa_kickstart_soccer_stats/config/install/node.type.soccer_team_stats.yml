@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - notification_timeline
+name: 'Team statistics'
+type: soccer_team_stats
+description: 'Seasonal statistics for soccer teams.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: 'main:'
+  notification_timeline:
+    enabled: 0
