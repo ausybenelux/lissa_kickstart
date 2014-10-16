@@ -33,7 +33,7 @@
 
       // Adds smooth scrolling to the timeline links
       // Credits to: http://css-tricks.com/snippets/jquery/smooth-scrolling/
-      $context.find('.js-sidebar-link').click(function() {
+      $context.find('.js-timeline-link').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
           var target = $(this.hash);
           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -44,6 +44,14 @@
             return false;
           }
         }
+      });
+
+      // Set active class to timeline link
+      $context.find('.js-timeline-link').click(function() {
+        // Remove old selected timeline link
+        $context.find('.timeline-active-link').removeClass('timeline-active-link');
+
+        $(this).addClass('timeline-active-link');
       });
 
       // Makes the timeline naviation sticky with the jQuery Sticky plugin

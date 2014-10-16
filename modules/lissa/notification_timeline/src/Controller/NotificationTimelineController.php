@@ -38,6 +38,9 @@ class NotificationTimelineController extends ControllerBase {
           drupal_get_path('module', 'notification_timeline') . '/js/plugins/Sticky/jquery.sticky.js',
           drupal_get_path('module', 'notification_timeline') . '/js/notification-timeline.js'
         ),
+        'css' => array(
+          drupal_get_path('module', 'notification_timeline') . '/css/notification-timeline.css',
+        ),
       ),
     );
     $form_builder = \Drupal::service('entity.form_builder');
