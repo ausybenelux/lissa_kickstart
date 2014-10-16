@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies: {  }
-name: Soccer Event
+name: 'Soccer Event'
 type: soccer_event
 description: ''
 help: ''

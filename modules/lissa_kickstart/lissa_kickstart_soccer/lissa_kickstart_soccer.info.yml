@@ -33,6 +33,7 @@ config_devel:
   - field.field.taxonomy_term.player.field_player_teams
   - field.field.taxonomy_term.team.field_team_color
   - field.field.taxonomy_term.team.field_team_competitions
+  - field.field.taxonomy_term.team.field_team_logo
   - field.storage.node.field_event_competition
   - field.storage.node.field_event_encoder_on
   - field.storage.node.field_event_endpoint
@@ -47,6 +48,7 @@ config_devel:
   - field.storage.taxonomy_term.field_player_teams
   - field.storage.taxonomy_term.field_team_color
   - field.storage.taxonomy_term.field_team_competitions
+  - field.storage.taxonomy_term.field_team_logo
   - taxonomy.vocabulary.competition
   - taxonomy.vocabulary.player
   - taxonomy.vocabulary.team

@@ -19,7 +19,6 @@ dependencies:
     - image
     - link
     - taxonomy
-    - user
 id: node.soccer_event.default
 label: null
 targetEntityType: node

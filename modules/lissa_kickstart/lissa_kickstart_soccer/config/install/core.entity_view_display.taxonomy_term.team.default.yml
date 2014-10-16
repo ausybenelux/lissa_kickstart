@@ -4,8 +4,10 @@ dependencies:
   entity:
     - field.field.taxonomy_term.team.field_team_color
     - field.field.taxonomy_term.team.field_team_competitions
+    - field.field.taxonomy_term.team.field_team_logo
     - taxonomy.vocabulary.team
   module:
+    - image
     - taxonomy
     - text
 id: taxonomy_term.team.default
@@ -32,5 +34,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: taxonomy_term_reference_link
+  field_team_logo:
+    weight: 3
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
 hidden: {  }
 third_party_settings: {  }
