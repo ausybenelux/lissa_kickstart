@@ -37,3 +37,8 @@
   float: right;
   width: 75%;
 }
+
+.timeline-active-link {
+  border-width:5px;
+  border-style:solid;
+}
