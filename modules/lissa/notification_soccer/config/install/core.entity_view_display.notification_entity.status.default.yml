@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.notification_entity.status.field_status_type
+    - notification_entity.type.status
+  module:
+    - options
+id: notification_entity.status.default
+label: null
+targetEntityType: notification_entity
+bundle: status
+mode: default
+content:
+  field_status_type:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+hidden: {  }
+third_party_settings: {  }

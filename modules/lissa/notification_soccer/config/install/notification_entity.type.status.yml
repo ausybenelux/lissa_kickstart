@@ -3,5 +3,5 @@ status: true
 dependencies: {  }
 name: Status
 type: status
-description: ''
+description: 'The status of the match (first half, second half, ...)'
 help: null

@@ -3,5 +3,5 @@ status: true
 dependencies: {  }
 name: Goal
 type: goal
-description: 'Goal notification. The player who scored the goal can be specified.'
+description: 'A goal notification. The player who scored the goal can be specified.'
 help: null
