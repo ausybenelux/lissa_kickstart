@@ -9,6 +9,7 @@ dependencies:
   - node
   - views
   - rest
+  - notification_entity
 config_devel:
   - core.entity_form_display.node.soccer_event.default
   - core.entity_view_display.node.soccer_event.default
@@ -52,3 +53,24 @@ config_devel:
   - taxonomy.vocabulary.competition
   - taxonomy.vocabulary.player
   - taxonomy.vocabulary.team
+  - notification_entity.type.card
+  - field.storage.notification_entity.field_card_player
+  - field.field.notification_entity.card.field_card_player
+  - field.storage.notification_entity.field_card_type
+  - field.field.notification_entity.card.field_card_type
+  - core.entity_form_display.notification_entity.card.default
+  - core.entity_view_display.notification_entity.card.default
+  - notification_entity.type.goal
+  - field.storage.notification_entity.field_goal_player
+  - field.storage.notification_entity.field_goal_team
+  - field.storage.notification_entity.field_goal_score
+  - field.field.notification_entity.goal.field_goal_player
+  - field.field.notification_entity.goal.field_goal_team
+  - field.field.notification_entity.goal.field_goal_score
+  - core.entity_form_display.notification_entity.goal.default
+  - core.entity_view_display.notification_entity.goal.default
+  - notification_entity.type.status
+  - field.storage.notification_entity.field_status_type
+  - field.field.notification_entity.status.field_status_type
+  - core.entity_form_display.notification_entity.status.default
+  - core.entity_view_display.notification_entity.status.default
