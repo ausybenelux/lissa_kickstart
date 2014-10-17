@@ -8,6 +8,8 @@
   namespace Drupal\notification_timeline\Controller;
 
 use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\InvokeCommand;
+use Drupal\Core\Ajax\PrependCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -123,12 +125,24 @@ class NotificationTimelineController extends ControllerBase {
    *   Form state information.
    *
    * @return AjaxResponse
-   *   Ajax response with the rendered sample date using the given format. If
-   *   the given format cannot be identified or was empty, the response will
-   *   be empty as well.
+   *   Ajax response with the html code for the new notification. A list of commands is given with the response
+   *   to reset the form and the page to its original state.
    */
   public function ajaxSubmitNotificationEntity(array $form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
+
+    /** @var \Drupal\notification_entity\Entity\NotificationEntity $notification_entity */
+    $notification_entity = $form_state->getFormObject()->getEntity();
+
+    // Create the html for the notification entity
+    $view_builder = \Drupal::entityManager()->getViewBuilder('notification_entity');
+    $build = $view_builder->view($notification_entity);
+    $view = render($build);
+
+    $response->addCommand(new PrependCommand('#notification-list', $view));
+    $response->addCommand(new InvokeCommand('#notification-timeline-notification-form', 'removeClass', ['js-hide']));
+    $response->addCommand(new InvokeCommand('#' . $notification_entity->bundle() . '-notification-entity-form', 'addClass', ['js-hide']));
+    $response->addCommand(new InvokeCommand('#' . $notification_entity->bundle() . '-notification-entity-form', 'trigger', ['reset']));
 
     return $response;
   }
