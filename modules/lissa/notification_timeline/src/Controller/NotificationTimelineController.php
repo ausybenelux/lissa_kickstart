@@ -5,9 +5,12 @@
  * Contains \Drupal\notification_timeline\Controller\NotificationTimelineController.
  */
 
-namespace Drupal\notification_timeline\Controller;
+  namespace Drupal\notification_timeline\Controller;
 
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Access\AccessResult;
 
@@ -109,5 +112,24 @@ class NotificationTimelineController extends ControllerBase {
     $node_type = $node->type->entity;
     $enabled = $node_type->getThirdPartySetting('notification_timeline', 'enabled', FALSE);
     return AccessResult::allowedIf($enabled);
+  }
+
+  /**
+   * Ajax callback to submit a notification entity.
+   *
+   * @param array $form
+   *   Form API array structure.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   Form state information.
+   *
+   * @return AjaxResponse
+   *   Ajax response with the rendered sample date using the given format. If
+   *   the given format cannot be identified or was empty, the response will
+   *   be empty as well.
+   */
+  public function ajaxSubmitNotificationEntity(array $form, FormStateInterface $form_state) {
+    $response = new AjaxResponse();
+
+    return $response;
   }
 }
