@@ -60,6 +60,8 @@
       <arg value="${phing.dir}/${drush.makefile}"/>
       <arg value="${builddir}/${drupal.docroot}"/>
     </exec>
+    <!-- Prepare the services.yml file -->
+    <exec command="cp ${builddir}/${drupal.docroot}/sites/default/default.services.yml ${builddir}/${drupal.docroot}/sites/${drupal.subdir}/services.yml" escape="false" />
     <!-- Rsync the build into ./docroot -->
     <exec executable="rsync">
       <arg value="-aqc"/>
