@@ -1,14 +1,17 @@
 <div class="timeline">
-    <nav class="js-timeline-navigation">
-        <ul>
-        {% for segment_id, segment in segments %}
-            <li data-step="{{ segment_id }}"><a href="#notification-entity-{{ segment_id }}" class="js-timeline-link">{{ segment }}</a></li>
-        {% endfor %}
-        </ul>
-    </nav>
+    <div class="timeline-navigation">
+        <nav class="js-timeline-navigation">
+            <ul>
+                {% for segment_id, segment in segments %}
+                    <li data-step="{{ segment_id }}"><a href="#notification-entity-{{ segment_id }}" class="js-timeline-link">{{ segment }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+
     <div class="notifications">
         <a id="notification-entity-current"></a>
-        <div id="notification-list">
+        <div id="js-notification-list">
             {{ notifications }}
         </div>
         <a id="notification-entity-start"></a>

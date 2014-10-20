@@ -41,7 +41,8 @@ class NotificationTimelineController extends ControllerBase {
       '#attached' => array(
         'js' => array(
           drupal_get_path('module', 'notification_timeline') . '/js/plugins/Sticky/jquery.sticky.js',
-          drupal_get_path('module', 'notification_timeline') . '/js/notification-timeline.js'
+          drupal_get_path('module', 'notification_timeline') . '/js/notification-timeline.js',
+          drupal_get_path('module', 'notification_timeline') . '/js/plugins/Waypoints/waypoints.min.js',
         ),
       ),
     );
@@ -139,7 +140,7 @@ class NotificationTimelineController extends ControllerBase {
     $build = $view_builder->view($notification_entity);
     $view = render($build);
 
-    $response->addCommand(new PrependCommand('#notification-list', $view));
+    $response->addCommand(new PrependCommand('#js-notification-list', $view));
     $response->addCommand(new InvokeCommand('#notification-timeline-notification-form', 'removeClass', ['js-hide']));
     $response->addCommand(new InvokeCommand('#' . $notification_entity->bundle() . '-notification-entity-form', 'addClass', ['js-hide']));
     $response->addCommand(new InvokeCommand('#' . $notification_entity->bundle() . '-notification-entity-form', 'trigger', ['reset']));

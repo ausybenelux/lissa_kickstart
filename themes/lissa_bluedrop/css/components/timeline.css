@@ -14,7 +14,7 @@
   display: inline;
 }
 
-.timeline nav {
+.timeline .timeline-navigation {
   float: left;
   width: 15%;
 }

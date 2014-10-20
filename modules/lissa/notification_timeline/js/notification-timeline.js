@@ -46,15 +46,39 @@
         }
       });
 
+      var currentActiveLink = $context.find('#notification-entity-current');
+      var updateCurrentActiveLink = function($new) {
+        // Remove old selected timeline link
+        currentActiveLink.removeClass('timeline-active-link');
+
+        currentActiveLink = $new;
+        currentActiveLink.addClass('timeline-active-link');
+      };
+
       // Set active class to timeline link
       $context.find('.js-timeline-link').click(function() {
-        // Remove old selected timeline link
-        $context.find('.timeline-active-link').removeClass('timeline-active-link');
-
-        $(this).addClass('timeline-active-link');
+        updateCurrentActiveLink($(this));
       });
 
-      // Makes the timeline naviation sticky with the jQuery Sticky plugin
+      // Automatically update selected timeline link when scrolling
+      $context.scroll(function () {
+        var top = window.pageYOffset;
+        console.log('top:' + top);
+
+        $context.find('.js-timeline-link').each(function () {
+          var distance = top - $(this).offset().top;
+          console.log($(this).offset().top);
+          console.log('distance: ' + distance);
+          var hash = $(this).attr('href');
+
+          if (distance < 30 && distance > -30 && currentActiveLink.attr('href') !== hash) {
+            console.log(hash);
+            updateCurrentActiveLink($(this));
+          }
+        })
+      });
+
+      // Makes the timeline navigation sticky with the jQuery Sticky plugin
       $context.find(".js-timeline-navigation").sticky({topSpacing:100});
     }
   };
