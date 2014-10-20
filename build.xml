@@ -11,12 +11,17 @@
   <target name="clean" depends="uninstall,clean-build,clean-docroot" description="Clean build artifacts and source code"/>
 
   <target name="clean-permissions" description="Clean permissions">
+     <exec command="chown -R ${web.user} ${docroot}" escape="false" />
      <if>
-      <available file="${docroot}/sites/${drupal.subdir}/settings.php" type="file" />
+      <available file="${docroot}/sites/${drupal.subdir}" type="dir" />
       <then>
         <chmod file="${docroot}/sites/${drupal.subdir}" mode="777"/>
+      </then>
+    </if>
+    <if>
+      <available file="${docroot}/sites/${drupal.subdir}/settings.php" type="file" />
+      <then>
         <chmod file="${docroot}/sites/${drupal.subdir}/settings.php" mode="777"/>
-        <exec command="chown -R ${web.user} ${docroot}" escape="false" />
       </then>
     </if>
   </target>
