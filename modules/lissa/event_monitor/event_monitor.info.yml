@@ -1,0 +1,5 @@
+name: Event monitor
+type: module
+description: 'Provides functionality to monitor events.'
+package: LISSA
+core: 8.x

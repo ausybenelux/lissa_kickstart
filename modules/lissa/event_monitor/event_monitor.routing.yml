@@ -1,0 +1,7 @@
+event_monitor:
+  path: '/event/monitor'
+  defaults:
+    _form: '\Drupal\event_monitor\Form\SelectEventsForm'
+    _title_callback: '\Drupal\event_monitor\Form\SelectEventsForm::getPageTitle'
+  requirements:
+    _permission: 'access content'
