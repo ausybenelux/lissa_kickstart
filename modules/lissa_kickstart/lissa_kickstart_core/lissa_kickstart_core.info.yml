@@ -14,3 +14,4 @@ dependencies:
 config_devel:
   - user.role.production
   - user.role.operator
+  - user.role.technical_engineer
