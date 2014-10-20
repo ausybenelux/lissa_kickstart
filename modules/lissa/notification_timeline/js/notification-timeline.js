@@ -46,7 +46,7 @@
         }
       });
 
-      var currentActiveLink = $context.find('#notification-entity-current');
+      var currentActiveLink = $context.find('a[href="#notification-entity-current"]');
       var updateCurrentActiveLink = function($new) {
         // Remove old selected timeline link
         currentActiveLink.removeClass('timeline-active-link');
@@ -55,27 +55,23 @@
         currentActiveLink.addClass('timeline-active-link');
       };
 
-      // Set active class to timeline link
+      // Set active class to timeline link when clicked
       $context.find('.js-timeline-link').click(function() {
         updateCurrentActiveLink($(this));
       });
 
-      // Automatically update selected timeline link when scrolling
-      $context.scroll(function () {
-        var top = window.pageYOffset;
-        console.log('top:' + top);
+      // Add waypoints so active timeline link updates when scrolling
+      $context.find('.js-notification-entity').each(function () {
+        $(this).waypoint(function () {
+          // Find the timeline link for this notification entity
+          var notification_entity = $(this).attr('id');
+          var link = $('.js-timeline-navigation').find('a[href="#' + notification_entity + '"]');
 
-        $context.find('.js-timeline-link').each(function () {
-          var distance = top - $(this).offset().top;
-          console.log($(this).offset().top);
-          console.log('distance: ' + distance);
-          var hash = $(this).attr('href');
-
-          if (distance < 30 && distance > -30 && currentActiveLink.attr('href') !== hash) {
-            console.log(hash);
-            updateCurrentActiveLink($(this));
+          // If a link exists for the notification entity, make it active
+          if (link.length) {
+            updateCurrentActiveLink(link);
           }
-        })
+        });
       });
 
       // Makes the timeline navigation sticky with the jQuery Sticky plugin
