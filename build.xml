@@ -6,7 +6,7 @@
 
   <property name="builddir" value="${phing.dir}/build"/>
 
-  <target name="build" depends="clean,prepare,drush-make,install,import" description="Run drush make and drush site-install"/>
+  <target name="build" depends="clean,prepare,drush-make,clean-permissions,install,import" description="Run drush make and drush site-install"/>
   <target name="rebuild" depends="uninstall,install,import" description="Perform a non destructive rebuild"/>
   <target name="clean" depends="uninstall,clean-build,clean-docroot" description="Clean build artifacts and source code"/>
 

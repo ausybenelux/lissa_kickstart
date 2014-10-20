@@ -56,4 +56,3 @@ config_devel:
   - user.role.administrator
   - system.site
   - shortcut.set.default
-  -
