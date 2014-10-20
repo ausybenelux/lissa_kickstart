@@ -33,7 +33,7 @@ function notification_push_entity_delete(EntityInterface $e) {
 }
 
 function notification_push_notify(EntityInterface $e, $message = '') {
-  if ($e->getEntityTypeId() == 'node') {
+  if ($e->getEntityTypeId() == 'notification_entity') {
     $connection = new AMQPConnection(NOTIFICATION_PUSH_SERVER_MB, 5672, 'guest', 'guest');
     $channel = $connection->channel();
 
