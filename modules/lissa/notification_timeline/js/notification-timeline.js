@@ -31,9 +31,18 @@
         $cancel.appendTo($context.find('#notification-forms .form-actions'));
       });
 
+      var currentActiveLink = $context.find('a[href="#notification-entity-current"]');
+      var updateCurrentActiveLink = function($new) {
+        // Remove old selected timeline link
+        $('.timeline-active-link').removeClass('timeline-active-link');
+
+        currentActiveLink = $new;
+        currentActiveLink.addClass('timeline-active-link');
+      };
+
       // Adds smooth scrolling to the timeline links
       // Credits to: http://css-tricks.com/snippets/jquery/smooth-scrolling/
-      $context.find('.js-timeline-link').click(function() {
+      $context.find('.js-timeline-link').once('not-time-link').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
           var target = $(this.hash);
           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -44,24 +53,13 @@
             return false;
           }
         }
-      });
 
-      var currentActiveLink = $context.find('a[href="#notification-entity-current"]');
-      var updateCurrentActiveLink = function($new) {
-        // Remove old selected timeline link
-        currentActiveLink.removeClass('timeline-active-link');
-
-        currentActiveLink = $new;
-        currentActiveLink.addClass('timeline-active-link');
-      };
-
-      // Set active class to timeline link when clicked
-      $context.find('.js-timeline-link').click(function() {
+        // Set active class to timeline link when clicked.
         updateCurrentActiveLink($(this));
       });
 
       // Add waypoints so active timeline link updates when scrolling
-      $context.find('.js-notification-entity').each(function () {
+      $context.find('.js-notification-entity').once('not-time-entity').each(function () {
         $(this).waypoint(function () {
           // Find the timeline link for this notification entity
           var notification_entity = $(this).attr('id');
@@ -75,7 +73,7 @@
       });
 
       // Makes the timeline navigation sticky with the jQuery Sticky plugin
-      $context.find(".js-timeline-navigation").sticky({topSpacing:100});
+      $context.find(".js-timeline-navigation").once('not-time-nav').sticky({topSpacing:100});
     }
   };
 

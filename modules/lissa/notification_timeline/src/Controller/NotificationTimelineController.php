@@ -74,15 +74,15 @@ class NotificationTimelineController extends ControllerBase {
     $form_builder = \Drupal::service('entity.form_builder');
     $entity = \Drupal::entityManager()->getStorage('notification_entity')->create(array('type' => $notification_type));
     $build['notification_form'] = $form_builder->getForm($entity);
-    $build['timeline'] = $this->getTimeline($node);
+    $build['timeline'] = self::getTimeline($node);
     return $build;
   }
 
   /**
    * Returns a render array with the timeline of the specified node.
    */
-  protected function getTimeline(NodeInterface $node) {
-    $entities = $this->getNotifications($node);
+  protected static function getTimeline(NodeInterface $node) {
+    $entities = self::getNotifications($node);
     $output = array(
       '#theme' => 'notification_timeline',
       '#node' => $node,
@@ -94,7 +94,7 @@ class NotificationTimelineController extends ControllerBase {
   /**
    * Returns an array of notifications linked to the specified node.
    */
-  protected function getNotifications(NodeInterface $node) {
+  protected static function getNotifications(NodeInterface $node) {
     $entity_query = \Drupal::entityQuery('notification_entity', 'AND');
     $entity_query->condition('host_id', $node->id());
     $entity_query->sort('timeline', 'DESC');
@@ -129,7 +129,7 @@ class NotificationTimelineController extends ControllerBase {
    *   Ajax response with the html code for the new notification. A list of commands is given with the response
    *   to reset the form and the page to its original state.
    */
-  public function ajaxSubmitNotificationEntity(array $form, FormStateInterface $form_state) {
+  public static function ajaxSubmitNotificationEntity(array $form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
 
     /** @var \Drupal\notification_entity\Entity\NotificationEntity $notification_entity */
@@ -144,6 +144,12 @@ class NotificationTimelineController extends ControllerBase {
     $response->addCommand(new InvokeCommand('#notification-timeline-notification-form', 'removeClass', ['js-hide']));
     $response->addCommand(new InvokeCommand('#' . $notification_entity->bundle() . '-notification-entity-form', 'addClass', ['js-hide']));
     $response->addCommand(new InvokeCommand('#' . $notification_entity->bundle() . '-notification-entity-form', 'trigger', ['reset']));
+
+    // Rebuild the timeline navigation.
+    $node = $notification_entity->getHost();
+    $timeline = self::getTimeline($node);
+    $timeline_output = render($timeline);
+    $response->addCommand(new ReplaceCommand('.timeline', $timeline_output));
 
     return $response;
   }

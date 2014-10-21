@@ -57,9 +57,9 @@ function notification_timeline_form_node_type_form_builder($entity_type, NodeTyp
 }
 
 /**
- * Adds ajax functionality to the notification entity form
+ * Implements hook_form_ENTITY_TYPE_alter().
  *
- * Implements hook_form_alter().
+ * Adds ajax functionality to the notification entity form.
  */
 function notification_entity_form_notification_entity_form_alter(&$form, FormStateInterface $form_state) {
   $form['actions']['submit']['#ajax'] = [
