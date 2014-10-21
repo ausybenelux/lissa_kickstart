@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display an mpeg dash field.
+ *
+ * Available variables:
+ * - video: A collection of image data.
+ * - id: the id of the field.
+ */
+#}
+<div class="js-dash-video-player" data-url="{{ url }}">
+    <video id="video-{{ id }}" controls="true" style="width: 640px; height: 480px"></video>
+</div>

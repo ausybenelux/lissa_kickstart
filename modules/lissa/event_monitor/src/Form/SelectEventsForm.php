@@ -24,7 +24,6 @@ class SelectEventsForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['#method'] = 'get';
 
     $header = [
       'event' => t('Event'),
@@ -36,7 +35,7 @@ class SelectEventsForm extends FormBase {
       '#type' => 'tableselect',
       '#header' => $header,
       '#options' => $options,
-      ];
+    ];
 
     $form['submit'] = [
       '#type' => 'submit',
@@ -46,10 +45,16 @@ class SelectEventsForm extends FormBase {
     return $form;
   }
 
+  /**
+   * @return array
+   *  a list of selectable events, which can be used by tableselect form element
+   */
   private function getEvents() {
     $return = [];
 
-    $events = entity_load_multiple_by_properties('node', ['type' => 'soccer_event']);
+    $events = entity_load_multiple_by_properties(
+      'node', ['type' => 'soccer_event']
+    );
 
     foreach ($events as $event) {
       $return[$event->id()] = [
@@ -67,9 +72,23 @@ class SelectEventsForm extends FormBase {
   }
 
   /**
+   * Redirects the user to the monitor view page with a parameter containing the
+   * selected events.
+   *
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    $results = $form_state->getValue('events');
+
+    $selected_events = [];
+    foreach ($results as $event_id => $selected) {
+      if ($selected) {
+        $selected_events[] = $event_id;
+      }
+    }
+
+    $form_state->setRedirect('event_monitor.view',
+      ['events' => $selected_events]);
   }
 
   public function getPageTitle() {

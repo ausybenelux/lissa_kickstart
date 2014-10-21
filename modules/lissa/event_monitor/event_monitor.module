@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Contains .
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function event_monitor_theme() {
+  return [
+    'dash_formatter' => [
+      'variables' => array('url' => NULL, 'id' => NULL),
+      'template' => 'mpeg-dash-formatter',
+    ]
+  ];
+}
