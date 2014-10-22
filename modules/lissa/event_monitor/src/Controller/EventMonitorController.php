@@ -33,6 +33,7 @@ class EventMonitorController extends ControllerBase {
     $events = entity_load_multiple('node', $event_ids);
 
     $build['events'] = [
+      '#attributes' => array('id' => 'events-list'),
       '#type' => 'html_tag',
       '#tag' => 'div',
     ];

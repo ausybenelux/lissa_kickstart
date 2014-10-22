@@ -21,7 +21,7 @@
 
                 // This can not be a jquery element or the dash library crashes!
                 player.attachView(document.querySelector('#video-'+ id));
-                player.setAutoPlay(true);
+                // player.setAutoPlay(true);
                 player.attachSource(url);
             });
         }

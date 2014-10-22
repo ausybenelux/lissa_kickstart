@@ -2,3 +2,39 @@
   width: 640px;
   height: 480px;
 }
+
+#events-list article {
+  width: 75%;
+  border: 2px solid;
+  border-radius: 25px;
+  background: #787878 ;
+}
+
+#events-list .node__meta {
+  display: none;
+}
+
+#events-list .node__content {
+  position: relative;
+}
+
+#events-list .node__content .field-name-field-event-endpoint {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+#events-list .node__content .field-label {
+  display: none;
+}
+
+#events-list .node__content .encoder-running-false {
+  width: 100px;
+  border-radius: 15px;
+  background: #970f00;
+}
+
+#events-list .node__content .encoder-running-true {
+  border-radius: 15px;
+  background: #008000;
+}

@@ -11,8 +11,12 @@
 function event_monitor_theme() {
   return [
     'dash_formatter' => [
-      'variables' => array('url' => NULL, 'id' => NULL),
+      'variables' => ['url' => NULL, 'id' => NULL],
       'template' => 'mpeg-dash-formatter',
+    ],
+    'encoder_boolean' => [
+      'variables' => ['markup' => NULL, 'running' => FALSE],
+      'template' => 'encoder-boolean',
     ]
   ];
 }
