@@ -13,7 +13,7 @@ function lissa_bluedrop_preprocess_page(&$variables) {
   $libraries = array(
     '#attached' => array(
       'library' => array(
-        'lissa_bluedrop/form-tooltips',
+        'lissa_bluedrop/form.tooltips',
       ),
     ),
   );

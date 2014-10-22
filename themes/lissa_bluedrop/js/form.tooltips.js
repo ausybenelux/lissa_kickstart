@@ -9,13 +9,17 @@
 
   Drupal.behaviors.formTooltips = {
     attach: function (context) {
-      $(document).once('form-tooltip').tooltip({
+      $(document).tooltip({
         items: "input[type=text]",
         content: function() {
-          var $description = $(this).sibling('.description');
+          var $description = $(this).siblings('.description');
           if ($description.length) {
             return $description.html();
           }
+        },
+        position: {
+          my: "left top",
+          at: "right+5 top-5"
         }
       });
     }
