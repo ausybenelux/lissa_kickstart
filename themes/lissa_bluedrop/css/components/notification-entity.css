@@ -18,3 +18,7 @@
 .notification-entity-form .form-item {
   clear: left;
 }
+
+.notification-entity-form .filter-wrapper {
+  display: none;
+}

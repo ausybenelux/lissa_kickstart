@@ -217,8 +217,10 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ))
       ->setDisplayOptions('form', array(
         'type' => 'string_textfield',
-        'size' => 40,
         'weight' => -5,
+        'settings' => array(
+          'size' => 40,
+        ),
       ));
 
     $fields['host_id'] = BaseFieldDefinition::create('entity_reference')
@@ -283,6 +285,9 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setDisplayOptions('form', array(
         'type' => 'text_textarea',
         'weight' => 51,
+        'settings' => array(
+          'rows' => 2,
+        ),
       ));
 
     return $fields;
