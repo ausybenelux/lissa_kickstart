@@ -5,14 +5,14 @@ id: production
 label: Production
 weight: 3
 permissions:
-  0: 'create event content'
-  1: 'delete any event content'
-  2: 'delete own event content'
-  3: 'delete event revisions'
-  4: 'edit any event content'
-  5: 'edit own event content'
-  6: 'revert event revisions'
-  7: 'view event revisions'
+  0: 'create soccer_event content'
+  1: 'delete any soccer_event content'
+  2: 'delete own soccer_event content'
+  3: 'delete soccer_event revisions'
+  4: 'edit any soccer_event content'
+  5: 'edit own soccer_event content'
+  6: 'revert soccer_event revisions'
+  7: 'view soccer_event revisions'
   9: 'delete terms in competition'
   10: 'delete terms in player'
   11: 'delete terms in team'

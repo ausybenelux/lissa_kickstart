@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.notification_entity.card.field_card_player
+    - field.field.notification_entity.card.field_card_type
+    - notification_entity.type.card
+  module:
+    - options
+    - taxonomy
+id: notification_entity.card.default
+label: null
+targetEntityType: notification_entity
+bundle: card
+mode: default
+content:
+  field_card_type:
+    type: list_key
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    label: above
+  field_card_player:
+    type: taxonomy_term_reference_link
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    label: above
+hidden: {  }
+third_party_settings: {  }

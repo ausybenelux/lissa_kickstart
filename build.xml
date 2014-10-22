@@ -11,12 +11,17 @@
   <target name="clean" depends="uninstall,clean-build,clean-docroot" description="Clean build artifacts and source code"/>
 
   <target name="clean-permissions" description="Clean permissions">
-     <if>
+    <exec command="chown -R ${web.user}:${web.group} ${docroot}" escape="false" />
+    <if>
+      <available file="${docroot}/sites/${drupal.subdir}" type="dir" />
+      <then>
+        <exec command="chmod -R 0777 ${docroot}/sites/${drupal.subdir}" escape="false" />
+      </then>
+    </if>
+    <if>
       <available file="${docroot}/sites/${drupal.subdir}/settings.php" type="file" />
       <then>
-        <chmod file="${docroot}/sites/${drupal.subdir}" mode="777"/>
         <chmod file="${docroot}/sites/${drupal.subdir}/settings.php" mode="777"/>
-        <exec command="chown -R ${web.user} ${docroot}" escape="false" />
       </then>
     </if>
   </target>
@@ -55,6 +60,8 @@
       <arg value="${phing.dir}/${drush.makefile}"/>
       <arg value="${builddir}/${drupal.docroot}"/>
     </exec>
+    <!-- Prepare the services.yml file -->
+    <exec command="cp ${builddir}/${drupal.docroot}/sites/default/default.services.yml ${builddir}/${drupal.docroot}/sites/${drupal.subdir}/services.yml" escape="false" />
     <!-- Rsync the build into ./docroot -->
     <exec executable="rsync">
       <arg value="-aqc"/>

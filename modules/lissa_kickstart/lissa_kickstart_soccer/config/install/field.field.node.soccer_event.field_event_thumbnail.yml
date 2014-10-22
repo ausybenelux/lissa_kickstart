@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_event_thumbnail
+    - node.type.soccer_event
+id: node.soccer_event.field_event_thumbnail
+field_name: field_event_thumbnail
+entity_type: node
+bundle: soccer_event
+label: Thumbnail
+description: 'An image representing the event in the client application.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: ''
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    fid: 0
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: default
+third_party_settings: {  }
+field_type: image

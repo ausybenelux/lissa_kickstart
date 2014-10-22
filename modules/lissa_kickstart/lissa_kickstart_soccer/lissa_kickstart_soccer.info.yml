@@ -1,0 +1,76 @@
+name: LISSA Kickstart Soccer
+description: 'Soccer event content type and functionality.'
+package: LISSA Kickstart
+type: module
+version: 1.0
+core: 8.x
+dependencies:
+  - field
+  - node
+  - views
+  - rest
+  - notification_entity
+config_devel:
+  - core.entity_form_display.node.soccer_event.default
+  - core.entity_view_display.node.soccer_event.default
+  - core.entity_view_display.node.soccer_event.teaser
+  - core.entity_form_display.taxonomy_term.player.default
+  - core.entity_form_display.taxonomy_term.team.default
+  - core.entity_view_display.taxonomy_term.player.default
+  - core.entity_view_display.taxonomy_term.team.default
+  - node.type.soccer_event
+  - views.view.events
+  - field.field.node.soccer_event.field_event_competition
+  - field.field.node.soccer_event.field_event_encoder_on
+  - field.field.node.soccer_event.field_event_endpoint
+  - field.field.node.soccer_event.field_event_hide
+  - field.field.node.soccer_event.field_event_match_start
+  - field.field.node.soccer_event.field_event_team_setup
+  - field.field.node.soccer_event.field_event_teams
+  - field.field.node.soccer_event.field_event_thumbnail
+  - field.field.node.soccer_event.field_event_timeline_end
+  - field.field.node.soccer_event.field_event_timeline_start
+  - field.field.node.soccer_event.field_event_visible
+  - field.field.taxonomy_term.player.field_player_teams
+  - field.field.taxonomy_term.team.field_team_color
+  - field.field.taxonomy_term.team.field_team_competitions
+  - field.field.taxonomy_term.team.field_team_logo
+  - field.storage.node.field_event_competition
+  - field.storage.node.field_event_encoder_on
+  - field.storage.node.field_event_endpoint
+  - field.storage.node.field_event_hide
+  - field.storage.node.field_event_match_start
+  - field.storage.node.field_event_team_setup
+  - field.storage.node.field_event_teams
+  - field.storage.node.field_event_thumbnail
+  - field.storage.node.field_event_timeline_end
+  - field.storage.node.field_event_timeline_start
+  - field.storage.node.field_event_visible
+  - field.storage.taxonomy_term.field_player_teams
+  - field.storage.taxonomy_term.field_team_color
+  - field.storage.taxonomy_term.field_team_competitions
+  - field.storage.taxonomy_term.field_team_logo
+  - taxonomy.vocabulary.competition
+  - taxonomy.vocabulary.player
+  - taxonomy.vocabulary.team
+  - notification_entity.type.card
+  - field.storage.notification_entity.field_card_player
+  - field.field.notification_entity.card.field_card_player
+  - field.storage.notification_entity.field_card_type
+  - field.field.notification_entity.card.field_card_type
+  - core.entity_form_display.notification_entity.card.default
+  - core.entity_view_display.notification_entity.card.default
+  - notification_entity.type.goal
+  - field.storage.notification_entity.field_goal_player
+  - field.storage.notification_entity.field_goal_team
+  - field.storage.notification_entity.field_goal_score
+  - field.field.notification_entity.goal.field_goal_player
+  - field.field.notification_entity.goal.field_goal_team
+  - field.field.notification_entity.goal.field_goal_score
+  - core.entity_form_display.notification_entity.goal.default
+  - core.entity_view_display.notification_entity.goal.default
+  - notification_entity.type.status
+  - field.storage.notification_entity.field_status_type
+  - field.field.notification_entity.status.field_status_type
+  - core.entity_form_display.notification_entity.status.default
+  - core.entity_view_display.notification_entity.status.default

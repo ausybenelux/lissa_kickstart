@@ -1,0 +1,6 @@
+name: LISSA Notification push
+type: module
+description: 'Sends notifications to a message bus'
+package: LISSA
+version: 1.0
+core: 8.x

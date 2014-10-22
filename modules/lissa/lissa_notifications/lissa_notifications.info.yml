@@ -1,6 +1,0 @@
-name: LISSA Notifications
-type: module
-description: 'Sends content created events to message bus'
-package: LISSA
-version: 1.0
-core: 8.x

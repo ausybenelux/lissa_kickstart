@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_event_visible
+    - node.type.soccer_event
+id: node.soccer_event.field_event_visible
+field_name: field_event_visible
+entity_type: node
+bundle: soccer_event
+label: 'Visible from'
+description: 'The date the event should become visible in the client application.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: datetime
