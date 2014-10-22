@@ -8,6 +8,7 @@ namespace Drupal\event_monitor\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 
 /**
  * This form lets the user select events which he wants to monitor.
@@ -87,8 +88,7 @@ class SelectEventsForm extends FormBase {
       }
     }
 
-    $form_state->setRedirect('event_monitor.view',
-      ['events' => $selected_events]);
+    $form_state->setRedirectUrl(Url::fromRoute('event_monitor.view', ['events' => json_encode($selected_events)]));
   }
 
   public function getPageTitle() {

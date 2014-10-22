@@ -26,11 +26,10 @@ class EventMonitorController extends ControllerBase {
    * @return array
    *   A render array containing the data to display.
    */
-  public function loadEvents(Request $request) {
+  public function loadEvents($events) {
     $build = [];
 
-    $event_ids = $request->get('events');
-    $events = entity_load_multiple('node', $event_ids);
+    $event_entities = entity_load_multiple('node', json_decode($events));
 
     $build['events'] = [
       '#attributes' => array('id' => 'events-list'),
@@ -39,7 +38,7 @@ class EventMonitorController extends ControllerBase {
     ];
 
     $view_builder = \Drupal::entityManager()->getViewBuilder('node');
-    foreach ($events as $event) {
+    foreach ($event_entities as $event) {
       $build['events'][$event->id()] = $view_builder->view($event);
     }
 

@@ -5,13 +5,31 @@
 
 #events-list article {
   width: 75%;
-  border: 2px solid;
+  height: 550px;
   border-radius: 25px;
-  background: #787878 ;
+  background: #6a6a6a;
 }
 
 #events-list .node__meta {
   display: none;
+}
+
+#events-list .field-node--title {
+  top: 30px;
+  left: 30px;
+  position: absolute;
+}
+
+#events-list .node__content a:link{
+  color: #e2e2e2;
+}
+
+#events-list .node__content a:visited{
+  color: #e2e2e2;
+}
+
+#events-list .node__content a:hover{
+  color: #9e9e9e;
 }
 
 #events-list .node__content {
@@ -21,7 +39,7 @@
 #events-list .node__content .field-name-field-event-endpoint {
   position: absolute;
   top: 0px;
-  right: 0px;
+  right: 10px;
 }
 
 #events-list .node__content .field-label {
@@ -35,6 +53,7 @@
 }
 
 #events-list .node__content .encoder-running-true {
+  width: 100px;
   border-radius: 15px;
   background: #008000;
 }
