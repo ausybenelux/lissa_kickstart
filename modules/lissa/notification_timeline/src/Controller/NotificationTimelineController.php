@@ -51,6 +51,10 @@ class NotificationTimelineController extends ControllerBase {
     foreach (\Drupal::entityManager()->getStorage('notification_type')->loadMultiple() as $type) {
       $entity = \Drupal::entityManager()->getStorage('notification_entity')->create(array('type' => $type->id()));
       $build['notification_type_forms'][$type->id()] = $form_builder->getForm($entity);
+      $build['notification_type_forms'][$type->id()]['form_label'] = array(
+        '#markup' => '<h2>' . t('Add !notification_type', array('!notification_type' => $type->label())) . '</h2>',
+        '#weight' => -100,
+      );
       $build['notification_type_forms'][$type->id()]['#attributes']['class'][] = 'js-hide';
     }
 
