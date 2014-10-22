@@ -268,14 +268,13 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ))
       ->setDisplayOptions('form', array(
         'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
+        'weight' => 50,
         'settings' => array(
           'match_operator' => 'CONTAINS',
           'size' => '60',
           'placeholder' => '',
         ),
-      ))
-      ->setDisplayConfigurable('form', TRUE);
+      ));
 
     $fields['content'] = BaseFieldDefinition::create('text_long')
       ->setLabel(t('Content'))
@@ -283,7 +282,8 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
         'type' => 'text'
       ))
       ->setDisplayOptions('form', array(
-        'type' => 'text_area'
+        'type' => 'text_textarea',
+        'weight' => 51,
       ));
 
     return $fields;
