@@ -32,11 +32,12 @@ class DashFormatter extends FormatterBase {
     foreach ($items as $delta => $item) {
       $elements[$delta] = array(
         '#theme' => 'dash_formatter',
-        '#url' => $item->value,
-        '#id' => 1,
+        '#url' => $item->url,
+        '#id' => $item->getEntity()->id(),
       );
     }
 
+    // JS functionality to add mpeg dash player
     $elements['#attached']['js'] = [
       drupal_get_path('module', 'event_monitor') . '/js/dash.all.js',
       drupal_get_path('module', 'event_monitor') . '/js/dash_formatter.js',

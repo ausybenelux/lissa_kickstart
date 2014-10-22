@@ -10,6 +10,7 @@ stylesheets:
   screen:
     - css/components/timeline.css
     - css/components/notification-entity.css
+    - css/components/event-monitor.css
 
 stylesheets-override:
   - css/components/branding.css
