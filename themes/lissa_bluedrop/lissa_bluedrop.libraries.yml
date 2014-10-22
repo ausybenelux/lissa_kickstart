@@ -7,3 +7,9 @@ install-page:
       install-page.css: {}
   dependencies:
     - system/maintenance
+form-tooltips:
+  version: VERSION
+  js:
+    js/form.tooltips.js: {}
+  dependencies:
+    - jquery.ui.tooltip

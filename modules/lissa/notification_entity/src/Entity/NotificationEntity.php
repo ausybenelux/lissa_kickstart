@@ -217,10 +217,10 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ))
       ->setDisplayOptions('form', array(
         'type' => 'string_textfield',
-        'rows' => 5,
+        'placeholder' => t('Title'),
         'weight' => -5,
       ))
-      ->setDisplayConfigurable('form', TRUE);
+      ->setDisplayConfigurable('form', FALSE);
 
     $fields['host_id'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Host node'))
