@@ -33,12 +33,21 @@
   padding: 0;
 }
 
+.timeline-navigation a {
+  padding: 4px;
+}
+
+.timeline-navigation a:hover,
+.timeline-navigation a:active {
+  text-decoration: none;
+}
+
 .timeline .notifications {
   float: right;
   width: 75%;
 }
 
 .timeline-active-link {
-  border-width:5px;
-  border-style:solid;
+  background-color: #158DD0;
+  color: #fff;
 }
