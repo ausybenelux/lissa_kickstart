@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Contains hook implementations for the lissa_kickstart_core module.
+ */
+
+/**
+ * Implements hook_editor_js_settings_alter().
+ *
+ * Reduce the editor size.
+ */
+function lissa_kickstart_core_editor_js_settings_alter(array &$settings) {
+  if (isset($settings['editor']['formats']['full_html'])) {
+    $settings['editor']['formats']['full_html']['editorSettings']['height'] = 80;
+  }
+}

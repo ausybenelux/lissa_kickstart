@@ -17,8 +17,6 @@ settings:
             - Bold
             - Italic
             - Strike
-            - Superscript
-            - Subscript
             - '-'
             - RemoveFormat
         -
@@ -32,13 +30,8 @@ settings:
             - BulletedList
             - NumberedList
         -
-          name: 'Block Formatting'
-          items:
-            - Format
-        -
           name: Tools
           items:
-            - ShowBlocks
             - Source
   plugins:
     stylescombo:
