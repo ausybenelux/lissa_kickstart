@@ -1,27 +1,4 @@
 {
-  "1": {
-    "uid": [{"value": "1"}],
-    "uuid": [{"value": "60d2420c-4fed-45b2-b438-56770345fbfa"}],
-    "langcode": [{"value": "en"}],
-    "preferred_langcode": [{"value": "en"}],
-    "preferred_admin_langcode": [{"value": ""}],
-    "name": [{"value": "admin"}],
-    "pass": [{"value": "admin"}],
-    "mail": [{"value": "support@crosscheck.be"}],
-    "signature": [{"value": null}],
-    "signature_format": [{"value": null}],
-    "timezone": [{"value": "UTC"}],
-    "status": [{"value": "1"}],
-    "created": [{"value": "1413799830"}],
-    "changed": [{"value": "1413799830"}],
-    "access": [{"value": "1413804686"}],
-    "login": [{"value": "1413800029"}],
-    "init": [{"value": "support@crosscheck.be"}],
-    "roles": [
-      {"target_id": "authenticated"},
-      {"target_id": "administrator"}
-    ]
-  },
   "2": {
     "uid": [{"value": "2"}],
     "uuid": [{"value": "50b223bf-e2ca-4443-aa3e-62552bd8052b"}],
