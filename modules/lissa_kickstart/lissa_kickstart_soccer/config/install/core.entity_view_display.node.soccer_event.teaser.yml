@@ -16,6 +16,8 @@ dependencies:
     - field.field.node.soccer_event.field_event_timeline_start
     - field.field.node.soccer_event.field_event_visible
     - node.type.soccer_event
+  module:
+    - user
 id: node.soccer_event.teaser
 label: null
 targetEntityType: node

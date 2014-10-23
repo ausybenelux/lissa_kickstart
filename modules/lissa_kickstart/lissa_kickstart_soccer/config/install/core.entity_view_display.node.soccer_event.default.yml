@@ -17,99 +17,79 @@ dependencies:
     - node.type.soccer_event
   module:
     - datetime
-    - image
-    - link
+    - event_monitor
     - taxonomy
+    - user
 id: node.soccer_event.default
 label: null
 targetEntityType: node
 bundle: soccer_event
 mode: default
 content:
-  links:
-    weight: 100
-  field_event_endpoint:
-    weight: 101
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-  field_event_visible:
-    weight: 102
-    label: above
-    settings:
-      format_type: medium
-    third_party_settings: {  }
-    type: datetime_default
-  field_event_hide:
-    weight: 103
-    label: above
-    settings:
-      format_type: medium
-    third_party_settings: {  }
-    type: datetime_default
-  field_event_thumbnail:
-    weight: 104
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-  field_event_team_setup:
-    weight: 105
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-  field_event_teams:
-    weight: 107
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: taxonomy_term_reference_link
   field_event_competition:
-    weight: 108
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     type: taxonomy_term_reference_link
-  field_event_match_start:
-    weight: 109
-    label: above
-    settings:
-      format_type: medium
-    third_party_settings: {  }
-    type: datetime_default
-  field_event_encoder_on:
-    weight: 110
-    label: above
+    weight: 0
     settings: {  }
     third_party_settings: {  }
-    type: boolean
+    label: above
+  field_event_teams:
+    type: taxonomy_term_reference_link
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    label: above
+  field_event_match_start:
+    type: datetime_default
+    weight: 2
+    settings:
+      format_type: long
+    third_party_settings: {  }
+    label: above
+  field_event_encoder_on:
+    type: encoder_boolean
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    label: above
+  field_event_endpoint:
+    type: video_mpegdash
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    label: above
+  field_event_visible:
+    type: datetime_default
+    weight: 5
+    settings:
+      format_type: medium
+    third_party_settings: {  }
+    label: above
+  field_event_hide:
+    type: datetime_default
+    weight: 6
+    settings:
+      format_type: medium
+    third_party_settings: {  }
+    label: above
   field_event_timeline_start:
-    weight: 111
-    label: above
+    type: datetime_default
+    weight: 7
     settings:
       format_type: medium
     third_party_settings: {  }
-    type: datetime_default
+    label: above
   field_event_timeline_end:
-    weight: 112
-    label: above
+    type: datetime_default
+    weight: 8
     settings:
       format_type: medium
     third_party_settings: {  }
-    type: datetime_default
+    label: above
 hidden:
   langcode: true
   body: true
   field_event_team1: true
+  links: true
+  field_event_team_setup: true
+  field_event_thumbnail: true
 third_party_settings: {  }
