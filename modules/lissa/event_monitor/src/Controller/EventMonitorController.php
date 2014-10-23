@@ -8,7 +8,6 @@
 namespace Drupal\event_monitor\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\node\NodeInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -20,8 +19,8 @@ class EventMonitorController extends ControllerBase {
   /**
    * Route page callback: returns the HTML for the default monitor event page.
    *
-   * @param Request $request
-   *   The http request object containing url params.
+   * @param $events
+   *  an array containing id's of the selected events
    *
    * @return array
    *   A render array containing the data to display.

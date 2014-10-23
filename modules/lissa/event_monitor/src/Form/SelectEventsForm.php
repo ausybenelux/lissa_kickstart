@@ -11,7 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
 /**
- * This form lets the user select events which he wants to monitor.
+ * This form lets the user select which events he wants to monitor.
  */
 class SelectEventsForm extends FormBase {
   /**
@@ -25,7 +25,6 @@ class SelectEventsForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-
     $header = [
       'event' => t('Event'),
     ];
@@ -67,12 +66,6 @@ class SelectEventsForm extends FormBase {
   }
 
   /**
-   * {@inheritdoc}
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-  }
-
-  /**
    * Redirects the user to the monitor view page with a parameter containing the
    * selected events.
    *
@@ -88,9 +81,16 @@ class SelectEventsForm extends FormBase {
       }
     }
 
-    $form_state->setRedirectUrl(Url::fromRoute('event_monitor.view', ['events' => json_encode($selected_events)]));
+    $url = Url::fromRoute('event_monitor.view', [
+      'events' => json_encode($selected_events)
+    ]);
+
+    $form_state->setRedirectUrl($url);
   }
 
+  /**
+   * @return string the title for the form's page
+   */
   public function getPageTitle() {
     return t('Select Events');
   }
