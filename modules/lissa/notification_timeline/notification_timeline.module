@@ -55,3 +55,14 @@ function notification_timeline_form_node_type_form_alter(&$form, FormStateInterf
 function notification_timeline_form_node_type_form_builder($entity_type, NodeTypeInterface $type, &$form, FormStateInterface $form_state) {
   $type->setThirdPartySetting('notification_timeline', 'enabled', $form_state->getValue('notification_timeline_enable'));
 }
+
+/**
+ * Implements hook_form_ENTITY_TYPE_alter().
+ *
+ * Adds ajax functionality to the notification entity form.
+ */
+function notification_entity_form_notification_entity_form_alter(&$form, FormStateInterface $form_state) {
+  $form['actions']['submit']['#ajax'] = [
+    'callback' => '\Drupal\notification_timeline\Controller\NotificationTimeLineController::ajaxSubmitNotificationEntity'
+  ];
+}

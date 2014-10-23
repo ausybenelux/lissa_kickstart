@@ -17,8 +17,6 @@ settings:
             - Bold
             - Italic
             - Strike
-            - Superscript
-            - Subscript
             - '-'
             - RemoveFormat
         -
@@ -32,29 +30,9 @@ settings:
             - BulletedList
             - NumberedList
         -
-          name: Media
-          items:
-            - Blockquote
-            - DrupalImage
-            - Table
-            - HorizontalRule
-        -
-          name: 'Block Formatting'
-          items:
-            - Format
-        -
           name: Tools
           items:
-            - ShowBlocks
             - Source
   plugins:
     stylescombo:
       styles: ''
-image_upload:
-  status: true
-  scheme: public
-  directory: inline-images
-  max_size: ''
-  max_dimensions:
-    width: 0
-    height: 0

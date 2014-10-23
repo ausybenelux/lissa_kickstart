@@ -16,3 +16,4 @@ stylesheets-override:
   - css/components/branding.css
   - css/components/page-title.css
   - css/components/tabs.css
+  - css/components/form.css

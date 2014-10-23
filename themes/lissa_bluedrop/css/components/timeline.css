@@ -1,6 +1,6 @@
 .notification-timeline-notification-form,
 .page-node-timeline .notification-entity-form {
-  padding: 3em;
+  padding: 1.5em 3em;
   border-radius: .5em;
   background: #D8E5F0;
   margin-bottom: 2em;
@@ -14,7 +14,7 @@
   display: inline;
 }
 
-.timeline nav {
+.timeline .timeline-navigation {
   float: left;
   width: 15%;
 }
@@ -33,7 +33,21 @@
   padding: 0;
 }
 
+.timeline-navigation a {
+  padding: 4px;
+}
+
+.timeline-navigation a:hover,
+.timeline-navigation a:active {
+  text-decoration: none;
+}
+
 .timeline .notifications {
   float: right;
   width: 75%;
+}
+
+.timeline-active-link {
+  background-color: #158DD0;
+  color: #fff;
 }

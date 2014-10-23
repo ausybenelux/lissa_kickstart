@@ -1,9 +1,6 @@
-install-page:
+form.tooltips:
   version: VERSION
   js:
-    js/mobile.install.js: {}
-  css:
-    theme:
-      install-page.css: {}
+    js/form.tooltips.js: {}
   dependencies:
-    - system/maintenance
+    - core/jquery.ui.tooltip

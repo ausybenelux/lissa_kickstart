@@ -217,10 +217,11 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ))
       ->setDisplayOptions('form', array(
         'type' => 'string_textfield',
-        'rows' => 5,
         'weight' => -5,
-      ))
-      ->setDisplayConfigurable('form', TRUE);
+        'settings' => array(
+          'size' => 40,
+        ),
+      ));
 
     $fields['host_id'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Host node'))
@@ -268,14 +269,13 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ))
       ->setDisplayOptions('form', array(
         'type' => 'entity_reference_autocomplete',
-        'weight' => 5,
+        'weight' => 50,
         'settings' => array(
           'match_operator' => 'CONTAINS',
           'size' => '60',
           'placeholder' => '',
         ),
-      ))
-      ->setDisplayConfigurable('form', TRUE);
+      ));
 
     $fields['content'] = BaseFieldDefinition::create('text_long')
       ->setLabel(t('Content'))
@@ -283,7 +283,11 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
         'type' => 'text'
       ))
       ->setDisplayOptions('form', array(
-        'type' => 'text_area'
+        'type' => 'text_textarea',
+        'weight' => 51,
+        'settings' => array(
+          'rows' => 2,
+        ),
       ));
 
     return $fields;
