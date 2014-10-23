@@ -7,3 +7,6 @@ weight: 5
 permissions:
   - 'access contextual links'
   - 'edit any soccer_event content'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'access shortcuts'
