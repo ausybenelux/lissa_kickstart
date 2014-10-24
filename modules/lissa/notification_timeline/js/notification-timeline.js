@@ -52,10 +52,10 @@
         // Add the start item.
         $('<li data-step="start"><a href="#notification-entity-start" class="js-timeline-link">' + Drupal.t('Start') + '</a></li>')
             .appendTo($navigationList);
-      };
+      }();
 
       // Toggle notification entity forms based on type selection.
-      $context.find('.notification-timeline-notification-form select').once('not-time-select').change(function(e) {
+      $('.notification-timeline-notification-form select').once('not-time-select').change(function(e) {
         var $activeForm = $context.find('#notification-forms .' + $(this).val() + '-notification-entity-form');
         // Toggle the forms.
         $context.find('#notification-forms form').addClass('js-hide');
@@ -91,12 +91,9 @@
         $cancel.appendTo($context.find('#notification-forms .form-actions'));
       });
 
-      // Generate the timeline navigation.
-      generateNavigation();
-
       // Adds smooth scrolling to the timeline links
       // Credits to: http://css-tricks.com/snippets/jquery/smooth-scrolling/
-      $context.find('.js-timeline-link').once('not-time-link').click(function() {
+      $('.js-timeline-link').once('not-time-link').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
           var target = $(this.hash);
           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -113,7 +110,7 @@
       });
 
       // Add waypoints so active timeline link updates when scrolling
-      $context.find('.js-notification-entity').once('not-time-entity').each(function () {
+      $('.js-notification-entity').once('not-time-entity').each(function () {
         $(this).waypoint(function () {
           // Find the timeline link for this notification entity
           var notification_entity = $(this).attr('id');
@@ -127,7 +124,7 @@
       });
 
       // Makes the timeline navigation sticky with the jQuery Sticky plugin
-      $context.find(".js-timeline-navigation").once('not-time-nav').sticky({topSpacing:100});
+      $(".js-timeline-navigation").once('not-time-nav').sticky({topSpacing:100});
     }
   };
 
