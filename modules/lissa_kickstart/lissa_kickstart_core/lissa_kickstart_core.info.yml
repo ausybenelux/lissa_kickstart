@@ -9,8 +9,8 @@ dependencies:
   - lissa_kickstart_soccer
   - notification_entity
   - notification_timeline
-  - lissa_notifications
   - lissa_kickstart_soccer_stats
+  - event_monitor
 config_devel:
   - user.role.production
   - user.role.operator
