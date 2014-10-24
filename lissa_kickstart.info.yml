@@ -47,7 +47,6 @@ config_devel:
   - block.block.seven_help
   - block.block.seven_login
   - core.base_field_override.node.page.promote
-  - editor.editor.full_html
   - filter.format.full_html
   - system.theme
   - user.role.administrator
