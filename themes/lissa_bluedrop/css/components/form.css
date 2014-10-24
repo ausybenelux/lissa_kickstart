@@ -198,7 +198,7 @@ textarea.form-textarea {
     border: 1px solid #a6a6a6;
     border-radius: 0.143em;
     background:
-      url(../../../../misc/icons/333333/caret-down.svg) no-repeat 99% 63%,
+      url(../../../../../../core/misc/icons/333333/caret-down.svg) no-repeat 99% 63%,
       -webkit-linear-gradient(top, #f6f6f3, #e7e7df); /* LTR */
     text-shadow: 0 1px hsla(0, 0%, 100%, 0.6);
     font-size: 0.875rem;
@@ -212,7 +212,7 @@ textarea.form-textarea {
   }
   select:focus,
   select:hover {
-    background-image: url(../../../../misc/icons/333333/caret-down.svg),
+    background-image: url(../../../../../../core/misc/icons/333333/caret-down.svg),
     -webkit-linear-gradient(top, #fcfcfa, #e9e9dd);
     color: #1a1a1a;
   }
