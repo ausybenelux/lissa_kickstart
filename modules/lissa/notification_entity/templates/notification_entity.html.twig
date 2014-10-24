@@ -6,7 +6,7 @@
     view_mode ? 'notification--view-mode-' ~ view_mode|clean_class,
   ]
 %}
-<article{{ attributes.addClass(classes) }} id="notification-entity-{{ id }}">
+<article{{ attributes.addClass(classes) }} id="notification-entity-{{ id }}" data-timeline-step="{{ timeline_step }}">
   <h2{{ title_attributes }}>{{ label }}</h2>
 
   <div{{ content_attributes.addClass('notification_entity__content') }}>

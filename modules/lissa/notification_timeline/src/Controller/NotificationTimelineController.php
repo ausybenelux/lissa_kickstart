@@ -148,13 +148,6 @@ class NotificationTimelineController extends ControllerBase {
     $response->addCommand(new InvokeCommand('#notification-timeline-notification-form', 'removeClass', ['js-hide']));
     $response->addCommand(new InvokeCommand('#' . $notification_entity->bundle() . '-notification-entity-form', 'addClass', ['js-hide']));
     $response->addCommand(new InvokeCommand('#' . $notification_entity->bundle() . '-notification-entity-form', 'trigger', ['reset']));
-
-    // Rebuild the timeline navigation.
-    $node = $notification_entity->getHost();
-    $timeline = self::getTimeline($node);
-    $timeline_output = render($timeline);
-    $response->addCommand(new ReplaceCommand('.timeline', $timeline_output));
-
     return $response;
   }
 }

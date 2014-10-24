@@ -10,6 +10,49 @@
   Drupal.behaviors.notificationTimelineTypeSelector = {
     attach: function (context) {
       var $context = $(context);
+      var currentActiveLink = $context.find('a[href="#notification-entity-current"]');
+
+      /**
+       * Update the active link in the navigation.
+       *
+       * @param $new
+       *   The new active link.
+       */
+      var updateCurrentActiveLink = function($new) {
+        // Remove old selected timeline link
+        $('.timeline-active-link').removeClass('timeline-active-link');
+
+        currentActiveLink = $new;
+        currentActiveLink.addClass('timeline-active-link');
+      };
+
+      /**
+       * Generate a new navigation.
+       */
+      var generateNavigation = function() {
+        var $timeline = $('div.timeline');
+        var $navigation = $('<div class="timeline-navigation"><nav class="js-timeline-navigation"><ul></ul></nav></div>');
+        $timeline.find('.timeline-navigation').remove();
+        $navigation.prependTo($timeline);
+        var $navigationList = $navigation.find('ul');
+
+        // Add the current item.
+        $('<li data-step="current"><a href="#notification-entity-current" class="js-timeline-link">' + Drupal.t('Current') + '</a></li>')
+            .appendTo($navigationList);
+
+        // Add the steps to the timeline.
+        $('[data-timeline-step]').each(function() {
+          var step = $(this).attr('data-timeline-step');
+          if (!$navigationList.find('[data-step="' + step + '"]').length) {
+            $('<li data-step="' + step + '"><a href="#' + $(this).attr('id') + '" class="js-timeline-link">' + step + '</a></li>')
+                .appendTo($navigationList);
+          }
+        });
+
+        // Add the start item.
+        $('<li data-step="start"><a href="#notification-entity-start" class="js-timeline-link">' + Drupal.t('Start') + '</a></li>')
+            .appendTo($navigationList);
+      };
 
       // Toggle notification entity forms based on type selection.
       $context.find('.notification-timeline-notification-form select').once('not-time-select').change(function(e) {
@@ -48,14 +91,8 @@
         $cancel.appendTo($context.find('#notification-forms .form-actions'));
       });
 
-      var currentActiveLink = $context.find('a[href="#notification-entity-current"]');
-      var updateCurrentActiveLink = function($new) {
-        // Remove old selected timeline link
-        $('.timeline-active-link').removeClass('timeline-active-link');
-
-        currentActiveLink = $new;
-        currentActiveLink.addClass('timeline-active-link');
-      };
+      // Generate the timeline navigation.
+      generateNavigation();
 
       // Adds smooth scrolling to the timeline links
       // Credits to: http://css-tricks.com/snippets/jquery/smooth-scrolling/
