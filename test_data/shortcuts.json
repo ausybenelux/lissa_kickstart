@@ -1,1 +1,45 @@
-{"1":{"id":[{"value":"1"}],"uuid":[{"value":"4da3cc54-5d9d-40fe-b109-098238dd7e01"}],"shortcut_set":[{"target_id":"default"}],"title":[{"value":"Events"}],"weight":[{"value":null}],"route_name":[{"value":"view.events.admin_overview"}],"route_parameters":[[]],"langcode":[{"value":"en"}],"path":[{"value":"admin/content/events"}]},"2":{"id":[{"value":"2"}],"uuid":[{"value":"4d241fd4-0e72-49be-bd58-889d64b858a2"}],"shortcut_set":[{"target_id":"default"}],"title":[{"value":"Teams"}],"weight":[{"value":null}],"path":[{"value":"admin/structure/taxonomy/manage/team/overview"}],"route_parameters":[[]],"langcode":[{"value":"en"}]},"3":{"id":[{"value":"3"}],"uuid":[{"value":"37ad4783-cf89-433d-8a03-3c549db37ddd"}],"shortcut_set":[{"target_id":"default"}],"title":[{"value":"Players"}],"weight":[{"value":null}],"route_name":[{"value":"entity.taxonomy_vocabulary.overview_form"}],"route_parameters":[[]],"langcode":[{"value":"en"}],"path":[{"value":"admin/structure/taxonomy/manage/player/overview"}]},"4":{"id":[{"value":"4"}],"uuid":[{"value":"01ab5879-7ac6-45a5-8200-0dd889c5827b"}],"shortcut_set":[{"target_id":"default"}],"title":[{"value":"Competitions"}],"weight":[{"value":null}],"route_name":[{"value":"entity.taxonomy_vocabulary.overview_form"}],"route_parameters":[[]],"langcode":[{"value":"en"}],"path":[{"value":"admin/structure/taxonomy/manage/competition/overview"}]}}
+{
+  "1": {
+    "id": [{"value": "1"}],
+    "uuid": [{"value": "4da3cc54-5d9d-40fe-b109-098238dd7e01"}],
+    "shortcut_set": [{"target_id": "default"}],
+    "title": [{"value": "Events"}],
+    "weight": [{"value": null}],
+    "route_name": [{"value": "view.events.admin_overview"}],
+    "route_parameters": [[]],
+    "langcode": [{"value": "en"}],
+    "path": [{"value": "admin/content/events"}]
+  },
+  "2": {
+    "id": [{"value": "2"}],
+    "uuid": [{"value": "4d241fd4-0e72-49be-bd58-889d64b858a2"}],
+    "shortcut_set": [{"target_id": "default"}],
+    "title": [{"value": "Teams"}],
+    "weight": [{"value": null}],
+    "path": [{"value": "admin/structure/taxonomy/manage/team/overview"}],
+    "route_parameters": [[]],
+    "langcode": [{"value": "en"}]
+  },
+  "3": {
+    "id": [{"value": "3"}],
+    "uuid": [{"value": "37ad4783-cf89-433d-8a03-3c549db37ddd"}],
+    "shortcut_set": [{"target_id": "default"}],
+    "title": [{"value": "Players"}],
+    "weight": [{"value": null}],
+    "route_name": [{"value": "entity.taxonomy_vocabulary.overview_form"}],
+    "route_parameters": [[]],
+    "langcode": [{"value": "en"}],
+    "path": [{"value": "admin/structure/taxonomy/manage/player/overview"}]
+  },
+  "4": {
+    "id": [{"value": "4"}],
+    "uuid": [{"value": "01ab5879-7ac6-45a5-8200-0dd889c5827b"}],
+    "shortcut_set": [{"target_id": "default"}],
+    "title": [{"value": "Competitions"}],
+    "weight": [{"value": null}],
+    "route_name": [{"value": "entity.taxonomy_vocabulary.overview_form"}],
+    "route_parameters": [[]],
+    "langcode": [{"value": "en"}],
+    "path": [{"value": "admin/structure/taxonomy/manage/competition/overview"}]
+  }
+}

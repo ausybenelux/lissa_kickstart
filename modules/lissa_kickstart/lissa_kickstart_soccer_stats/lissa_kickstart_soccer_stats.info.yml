@@ -55,3 +55,4 @@ config_devel:
   - node.type.soccer_player_stats
   - node.type.soccer_team_stats
   - taxonomy.vocabulary.season
+  - views.view.statistics

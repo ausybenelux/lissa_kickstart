@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   entity:
+    - field.field.node.soccer_player_stats.body
     - field.field.node.soccer_player_stats.field_stats_ball_pos
     - field.field.node.soccer_player_stats.field_stats_fouls_committed
     - field.field.node.soccer_player_stats.field_stats_free_kicks
