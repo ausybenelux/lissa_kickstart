@@ -219,7 +219,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
         'type' => 'string_textfield',
         'weight' => -5,
         'settings' => array(
-          'size' => 40,
+          'size' => 60,
         ),
       ));
 
