@@ -5,14 +5,15 @@
   padding: 1em 2em;
 }
 
-.notification-entity-form label {
+.notification-entity-form label,
+.notification-entity-form h4.label {
   float: left;
   width: 180px;
 }
 
-.notification-entity-form .form-type-textarea label {
-  float: none;
-  width: auto;
+.notification-entity-form textarea,
+.notification-entity-form input[type=text] {
+  max-width: 375px;
 }
 
 .notification-entity-form .form-item {
