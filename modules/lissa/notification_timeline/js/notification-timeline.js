@@ -13,9 +13,26 @@
 
       // Toggle notification entity forms based on type selection.
       $context.find('.notification-timeline-notification-form select').once('not-time-select').change(function(e) {
+        var $activeForm = $context.find('#notification-forms .' + $(this).val() + '-notification-entity-form');
+        // Toggle the forms.
         $context.find('#notification-forms form').addClass('js-hide');
-        $context.find('#notification-forms .' + $(this).val() + '-notification-entity-form').removeClass('js-hide');
         $context.find('.notification-timeline-notification-form').addClass('js-hide');
+        $activeForm.removeClass('js-hide');
+
+        // Reset the timeline data.
+        var today = new Date();
+        // Go back 30 seconds.
+        today.setTime(today.getTime() - 30000);
+        var month = (today.getMonth() + 1).toString();
+        if (month.length < 2) {
+          month = "0" + month;
+        }
+        var day = today.getFullYear() + "-" + month + "-" + today.getDate();
+        var $dateElements = $activeForm.find("[name^='timeline']");
+        $dateElements.filter("[type=date]").val(day);
+        $dateElements.filter("[type=time]").val(today.toLocaleTimeString());
+
+        // Reset the select value.
         $(this).val('0');
       });
 
