@@ -253,7 +253,11 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setLabel(t('Timeline time'))
       ->setDescription(t('The time that the notification should appear on the timeline.'))
       ->setDefaultValueCallback('Drupal\notification_entity\Entity\NotificationEntity::getDefaultTimelineTime')
-      ->setRevisionable(TRUE);
+      ->setRevisionable(TRUE)
+      ->setDisplayOptions('form', array(
+        'type' => 'datetime_default',
+        'weight' => -4,
+      ));;
 
     $fields['image'] = BaseFieldDefinition::create('image')
       ->setLabel(t('Image'))
