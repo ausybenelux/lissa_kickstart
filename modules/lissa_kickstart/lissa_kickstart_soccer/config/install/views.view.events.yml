@@ -241,7 +241,7 @@ display:
               - views
           empty: true
           tokenize: false
-          content: "<ul class=\"action-links\">\n<li><a href=\"/node/add/soccer-event\" class=\"button button--primary button--small button-action\">Add soccer event</a></li>\n</ul>"
+          content: "<ul class=\"action-links\">\n<li><a href=\"/node/add/soccer-event?destination=admin/content/events\" class=\"button button--primary button--small button-action\">Add soccer event</a></li>\n</ul>"
           format: full_html
           plugin_id: text
           provider: views
