@@ -1,1 +1,169 @@
-{"3":{"nid":[{"value":"3"}],"uuid":[{"value":"8685158b-94c4-4c53-8237-559126994e9c"}],"vid":[{"value":"3"}],"type":[{"target_id":"soccer_event"}],"langcode":[{"value":"en"}],"title":[{"value":"Test event 2"}],"uid":[{"target_id":"1"}],"status":[{"value":"1"}],"created":[{"value":"1411395799"}],"changed":[{"value":"1413368520"}],"promote":[{"value":"1"}],"sticky":[{"value":"0"}],"revision_timestamp":[{"value":"1411395880"}],"revision_uid":[{"target_id":"1"}],"revision_log":[{"value":""}],"path":[{"alias":null,"pid":null}],"body":[{"value":null,"format":null,"summary":null}],"field_event_competition":[{"target_id":null}],"field_event_encoder_on":[{"value":"0"}],"field_event_endpoint":[{"url":null,"title":null,"route_name":null,"route_parameters":[],"options":[]}],"field_event_hide":[{"value":null}],"field_event_match_start":[{"value":null}],"field_event_teams":[{"target_id":null}],"field_event_team_setup":[{"target_id":null,"display":null,"description":null,"alt":null,"title":null,"width":null,"height":null}],"field_event_thumbnail":[{"target_id":null,"display":null,"description":null,"alt":null,"title":null,"width":null,"height":null}],"field_event_timeline_end":[{"value":null}],"field_event_timeline_start":[{"value":null}],"field_event_visible":[{"value":null}]},"4":{"nid":[{"value":"4"}],"uuid":[{"value":"6f0359f9-4252-471f-bd09-9d284110d92e"}],"vid":[{"value":"4"}],"type":[{"target_id":"soccer_event"}],"langcode":[{"value":"en"}],"title":[{"value":"FCB - KVK"}],"uid":[{"target_id":"1"}],"status":[{"value":"1"}],"created":[{"value":"1411551574"}],"changed":[{"value":"1413368520"}],"promote":[{"value":"1"}],"sticky":[{"value":"0"}],"revision_timestamp":[{"value":"1411551574"}],"revision_uid":[{"target_id":"0"}],"revision_log":[{"value":""}],"path":[{"alias":null,"pid":null}],"body":[{"value":null,"format":null,"summary":null}],"field_event_competition":[{"target_id":"1"}],"field_event_encoder_on":[{"value":"1"}],"field_event_endpoint":[{"url":"https:\/\/devimages.apple.com.edgekey.net\/streaming\/examples\/bipbop_16x9\/bipbop_16x9_variant.m3u8","title":"","route_name":null,"route_parameters":[],"options":[]}],"field_event_hide":[{"value":"2014-09-26T23:00:00"}],"field_event_match_start":[{"value":"2014-09-25T19:00:00"}],"field_event_teams":[{"target_id":"3"},{"target_id":"4"}],"field_event_team_setup":[{"target_id":"2","display":null,"description":null,"alt":"","title":"","width":"413","height":"599"}],"field_event_thumbnail":[{"target_id":"1","display":null,"description":null,"alt":"","title":"","width":"274","height":"168"}],"field_event_timeline_end":[{"value":"2014-09-25T23:00:00"}],"field_event_timeline_start":[{"value":"2014-09-25T18:00:00"}],"field_event_visible":[{"value":"2014-09-24T17:00:00"}]},"6":{"nid":[{"value":"6"}],"uuid":[{"value":"a691d7ed-e5e2-426b-8a00-fdd19585ebaa"}],"vid":[{"value":"6"}],"type":[{"target_id":"soccer_team_stats"}],"langcode":[{"value":"en"}],"title":[{"value":"Club Brugge - 2013\/2014"}],"uid":[{"target_id":"0"}],"status":[{"value":"1"}],"created":[{"value":"1413373304"}],"changed":[{"value":"1413373439"}],"promote":[{"value":"0"}],"sticky":[{"value":"0"}],"revision_timestamp":[{"value":"1413373304"}],"revision_uid":[{"target_id":"0"}],"revision_log":[{"value":""}],"path":[{"alias":null,"pid":null}],"body":[{"value":null,"format":null,"summary":null}],"field_stats_defeats":[{"value":"10"}],"field_stats_draws":[{"value":"0"}],"field_stats_matches":[{"value":"12"}],"field_stats_season":[{"target_id":"11"}],"field_stats_team":[{"target_id":"3"}],"field_stats_wins":[{"value":"90"}]},"7":{"nid":[{"value":"7"}],"uuid":[{"value":"580f8f15-65a9-4699-9200-fbf9925f1a0e"}],"vid":[{"value":"7"}],"type":[{"target_id":"soccer_player_stats"}],"langcode":[{"value":"en"}],"title":[{"value":"De Camargo - 2013\/2014"}],"uid":[{"target_id":"0"}],"status":[{"value":"1"}],"created":[{"value":"1413373511"}],"changed":[{"value":"1413373511"}],"promote":[{"value":"0"}],"sticky":[{"value":"0"}],"revision_timestamp":[{"value":"1413373511"}],"revision_uid":[{"target_id":"0"}],"revision_log":[{"value":""}],"path":[{"alias":null,"pid":null}],"body":[{"value":null,"format":null,"summary":null}],"field_stats_ball_pos":[{"value":"9"}],"field_stats_fouls_committed":[{"value":"10"}],"field_stats_free_kicks":[{"value":"12"}],"field_stats_goals_conceded":[{"value":"2"}],"field_stats_goals_scored":[{"value":"5"}],"field_stats_injuries":[{"value":"2"}],"field_stats_offside":[{"value":"6"}],"field_stats_penalties":[{"value":"6"}],"field_stats_player":[{"target_id":"8"}],"field_stats_red_cards":[{"value":"6"}],"field_stats_season":[{"target_id":"11"}],"field_stats_yellow_cards":[{"value":"5"}]}}
+{
+  "3": {
+    "nid": [{"value": "3"}],
+    "uuid": [{"value": "8685158b-94c4-4c53-8237-559126994e9c"}],
+    "vid": [{"value": "3"}],
+    "type": [{"target_id": "soccer_event"}],
+    "langcode": [{"value": "en"}],
+    "title": [{"value": "Test event 2"}],
+    "uid": [{"target_id": "1"}],
+    "status": [{"value": "1"}],
+    "created": [{"value": "1411395799"}],
+    "changed": [{"value": "1413368520"}],
+    "promote": [{"value": "1"}],
+    "sticky": [{"value": "0"}],
+    "revision_timestamp": [{"value": "1411395880"}],
+    "revision_uid": [{"target_id": "1"}],
+    "revision_log": [{"value": ""}],
+    "path": [{"alias": null, "pid": null}],
+    "body": [{"value": null, "format": null, "summary": null}],
+    "field_event_competition": [{"target_id": null}],
+    "field_event_encoder_on": [{"value": "0"}],
+    "field_event_endpoint": [{"url": null, "title": null, "route_name": null, "route_parameters": [], "options": []}],
+    "field_event_hide": [{"value": null}],
+    "field_event_match_start": [{"value": null}],
+    "field_event_teams": [{"target_id": null}],
+    "field_event_team_setup": [
+      {
+        "target_id": null,
+        "display": null,
+        "description": null,
+        "alt": null,
+        "title": null,
+        "width": null,
+        "height": null
+      }
+    ],
+    "field_event_thumbnail": [
+      {
+        "target_id": null,
+        "display": null,
+        "description": null,
+        "alt": null,
+        "title": null,
+        "width": null,
+        "height": null
+      }
+    ],
+    "field_event_timeline_end": [{"value": null}],
+    "field_event_timeline_start": [{"value": null}],
+    "field_event_visible": [{"value": null}]
+  },
+  "4": {
+    "nid": [{"value": "4"}],
+    "uuid": [{"value": "6f0359f9-4252-471f-bd09-9d284110d92e"}],
+    "vid": [{"value": "4"}],
+    "type": [{"target_id": "soccer_event"}],
+    "langcode": [{"value": "en"}],
+    "title": [{"value": "FCB - KVK"}],
+    "uid": [{"target_id": "1"}],
+    "status": [{"value": "1"}],
+    "created": [{"value": "1411551574"}],
+    "changed": [{"value": "1413368520"}],
+    "promote": [{"value": "1"}],
+    "sticky": [{"value": "0"}],
+    "revision_timestamp": [{"value": "1411551574"}],
+    "revision_uid": [{"target_id": "0"}],
+    "revision_log": [{"value": ""}],
+    "path": [{"alias": null, "pid": null}],
+    "body": [{"value": null, "format": null, "summary": null}],
+    "field_event_competition": [{"target_id": "1"}],
+    "field_event_encoder_on": [{"value": "1"}],
+    "field_event_endpoint": [
+      {
+        "url": "http:\/\/wams.edgesuite.net\/media\/MPTExpressionData01\/ElephantsDream_1080p24_IYUV_2ch.ism\/manifest(format=mpd-time-csf)",
+        "title": "",
+        "route_name": null,
+        "route_parameters": [],
+        "options": []
+      }
+    ],
+    "field_event_hide": [{"value": "2014-09-26T23:00:00"}],
+    "field_event_match_start": [{"value": "2014-09-25T19:00:00"}],
+    "field_event_teams": [
+      {"target_id": "3"},
+      {"target_id": "4"}
+    ],
+    "field_event_team_setup": [
+      {
+        "target_id": "2",
+        "display": null,
+        "description": null,
+        "alt": "",
+        "title": "",
+        "width": "413",
+        "height": "599"
+      }
+    ],
+    "field_event_thumbnail": [
+      {
+        "target_id": "1",
+        "display": null,
+        "description": null,
+        "alt": "",
+        "title": "",
+        "width": "274",
+        "height": "168"
+      }
+    ],
+    "field_event_timeline_end": [{"value": "2014-09-25T23:00:00"}],
+    "field_event_timeline_start": [{"value": "2014-09-25T18:00:00"}],
+    "field_event_visible": [{"value": "2014-09-24T17:00:00"}]
+  },
+  "6": {
+    "nid": [{"value": "6"}],
+    "uuid": [{"value": "a691d7ed-e5e2-426b-8a00-fdd19585ebaa"}],
+    "vid": [{"value": "6"}],
+    "type": [{"target_id": "soccer_team_stats"}],
+    "langcode": [{"value": "en"}],
+    "title": [{"value": "Club Brugge - 2013\/2014"}],
+    "uid": [{"target_id": "0"}],
+    "status": [{"value": "1"}],
+    "created": [{"value": "1413373304"}],
+    "changed": [{"value": "1413373439"}],
+    "promote": [{"value": "0"}],
+    "sticky": [{"value": "0"}],
+    "revision_timestamp": [{"value": "1413373304"}],
+    "revision_uid": [{"target_id": "0"}],
+    "revision_log": [{"value": ""}],
+    "path": [{"alias": null, "pid": null}],
+    "body": [{"value": null, "format": null, "summary": null}],
+    "field_stats_defeats": [{"value": "10"}],
+    "field_stats_draws": [{"value": "0"}],
+    "field_stats_matches": [{"value": "12"}],
+    "field_stats_season": [{"target_id": "11"}],
+    "field_stats_team": [{"target_id": "3"}],
+    "field_stats_wins": [{"value": "90"}]
+  },
+  "7": {
+    "nid": [{"value": "7"}],
+    "uuid": [{"value": "580f8f15-65a9-4699-9200-fbf9925f1a0e"}],
+    "vid": [{"value": "7"}],
+    "type": [{"target_id": "soccer_player_stats"}],
+    "langcode": [{"value": "en"}],
+    "title": [{"value": "De Camargo - 2013\/2014"}],
+    "uid": [{"target_id": "0"}],
+    "status": [{"value": "1"}],
+    "created": [{"value": "1413373511"}],
+    "changed": [{"value": "1413373511"}],
+    "promote": [{"value": "0"}],
+    "sticky": [{"value": "0"}],
+    "revision_timestamp": [{"value": "1413373511"}],
+    "revision_uid": [{"target_id": "0"}],
+    "revision_log": [{"value": ""}],
+    "path": [{"alias": null, "pid": null}],
+    "body": [{"value": null, "format": null, "summary": null}],
+    "field_stats_ball_pos": [{"value": "9"}],
+    "field_stats_fouls_committed": [{"value": "10"}],
+    "field_stats_free_kicks": [{"value": "12"}],
+    "field_stats_goals_conceded": [{"value": "2"}],
+    "field_stats_goals_scored": [{"value": "5"}],
+    "field_stats_injuries": [{"value": "2"}],
+    "field_stats_offside": [{"value": "6"}],
+    "field_stats_penalties": [{"value": "6"}],
+    "field_stats_player": [{"target_id": "8"}],
+    "field_stats_red_cards": [{"value": "6"}],
+    "field_stats_season": [{"target_id": "11"}],
+    "field_stats_yellow_cards": [{"value": "5"}]
+  }
+}
