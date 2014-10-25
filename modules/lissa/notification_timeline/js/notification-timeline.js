@@ -32,7 +32,7 @@
       var generateNavigation = function() {
         var $timeline = $('#notification-timeline-notification-form');
         var $navigation = $('<div class="timeline-navigation"><nav class="js-timeline-navigation"><ul></ul></nav></div>');
-        $timeline.find('.timeline-navigation').remove();
+        $('.timeline-navigation').remove();
         $navigation.insertBefore($timeline);
         var $navigationList = $navigation.find('ul');
 
