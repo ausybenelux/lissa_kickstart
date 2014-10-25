@@ -30,10 +30,10 @@
        * Generate a new navigation.
        */
       var generateNavigation = function() {
-        var $timeline = $('div.timeline');
+        var $timeline = $('#notification-timeline-notification-form');
         var $navigation = $('<div class="timeline-navigation"><nav class="js-timeline-navigation"><ul></ul></nav></div>');
         $timeline.find('.timeline-navigation').remove();
-        $navigation.prependTo($timeline);
+        $navigation.insertBefore($timeline);
         var $navigationList = $navigation.find('ul');
 
         // Add the current item.
