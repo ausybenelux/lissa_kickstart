@@ -285,7 +285,8 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
     $fields['content'] = BaseFieldDefinition::create('text_long')
       ->setLabel(t('Content'))
       ->setDisplayOptions('view', array(
-        'type' => 'text'
+        'type' => 'text',
+        'label' => 'hidden',
       ))
       ->setDisplayOptions('form', array(
         'type' => 'text_textarea',

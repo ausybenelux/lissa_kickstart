@@ -7,6 +7,7 @@ dependencies:
     - field.field.notification_entity.goal.field_goal_team
     - notification_entity.type.goal
   module:
+    - notification_entity
     - taxonomy
 id: notification_entity.goal.default
 label: null
@@ -15,22 +16,22 @@ bundle: goal
 mode: default
 content:
   field_goal_player:
+    type: taxonomy_term_reference_plain
     weight: 1
-    label: above
     settings: {  }
     third_party_settings: {  }
-    type: taxonomy_term_reference_link
+    label: inline
   field_goal_team:
+    type: taxonomy_term_reference_plain
     weight: 2
-    label: above
     settings: {  }
     third_party_settings: {  }
-    type: taxonomy_term_reference_link
+    label: inline
   field_goal_score:
+    type: string
     weight: 3
-    label: above
     settings: {  }
     third_party_settings: {  }
-    type: string
+    label: inline
 hidden: {  }
 third_party_settings: {  }

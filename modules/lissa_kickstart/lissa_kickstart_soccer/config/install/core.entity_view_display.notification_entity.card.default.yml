@@ -6,6 +6,7 @@ dependencies:
     - field.field.notification_entity.card.field_card_type
     - notification_entity.type.card
   module:
+    - notification_entity
     - options
     - taxonomy
 id: notification_entity.card.default
@@ -19,12 +20,12 @@ content:
     weight: 0
     settings: {  }
     third_party_settings: {  }
-    label: above
+    label: inline
   field_card_player:
-    type: taxonomy_term_reference_link
+    type: taxonomy_term_reference_plain
     weight: 1
     settings: {  }
     third_party_settings: {  }
-    label: above
+    label: inline
 hidden: {  }
 third_party_settings: {  }

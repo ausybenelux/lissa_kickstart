@@ -5,6 +5,7 @@ dependencies:
     - field.field.notification_entity.status.field_status_type
     - notification_entity.type.status
   module:
+    - notification_entity
     - options
 id: notification_entity.status.default
 label: null
@@ -13,10 +14,10 @@ bundle: status
 mode: default
 content:
   field_status_type:
+    type: list_default
     weight: 1
-    label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    label: inline
 hidden: {  }
 third_party_settings: {  }

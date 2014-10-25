@@ -239,6 +239,7 @@ display:
           dependencies:
             module:
               - views
+              - views
           empty: true
           tokenize: false
           content: "<ul class=\"action-links\">\n<li><a href=\"/node/add/soccer-event?destination=admin/content/events\" class=\"button button--primary button--small button-action\">Add soccer event</a></li>\n</ul>"

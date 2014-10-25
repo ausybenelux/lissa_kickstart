@@ -8,28 +8,12 @@ dependencies:
     - notification_entity.type.goal
   module:
     - entity_reference
+    - text
 id: notification_entity.goal.default
 targetEntityType: notification_entity
 bundle: goal
 mode: default
 content:
-  title:
-    type: string_textfield
-    rows: 5
-    weight: -5
-    settings:
-      size: 40
-      placeholder: ''
-    third_party_settings: {  }
-  image:
-    type: entity_reference_autocomplete
-    weight: 5
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-      autocomplete_type: tags
-    third_party_settings: {  }
   field_goal_player:
     weight: 6
     settings: {  }
