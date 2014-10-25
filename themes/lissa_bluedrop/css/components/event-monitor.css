@@ -69,7 +69,7 @@
   width: 80px;
   height: 26px;
   background: #333;
-  margin: 20px auto;
+  margin: 20px 0 20px 80px;
 
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
@@ -79,6 +79,10 @@
   -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
   -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
   box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+}
+
+.form-item-field-event-encoder-on-value input {
+  display: none;
 }
 
 .form-item-field-event-encoder-on-value:after {
@@ -102,6 +106,12 @@
   font-weight: bold;
 }
 
+.field-name-field-event-encoder-on:before {
+  content: 'Encoder';
+  font-weight: bold;
+  float: left;
+}
+
 .form-item-field-event-encoder-on-value label {
   display: block;
   width: 34px;
@@ -121,6 +131,7 @@
   top: 3px;
   left: 3px;
   z-index: 1;
+  text-indent: -9999px;
 
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
   -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
