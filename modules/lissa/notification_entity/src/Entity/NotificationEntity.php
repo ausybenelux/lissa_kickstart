@@ -236,12 +236,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setLabel(t('Authored on'))
       ->setDescription(t('The time that the node was created.'))
       ->setRevisionable(TRUE)
-      ->setTranslatable(TRUE)
-      ->setDisplayOptions('view', array(
-        'label' => 'hidden',
-        'type' => 'timestamp',
-        'weight' => 0,
-      ));
+      ->setTranslatable(TRUE);
 
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Changed'))
@@ -250,14 +245,20 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setTranslatable(TRUE);
 
     $fields['timeline'] = BaseFieldDefinition::create('datetime')
-      ->setLabel(t('Timeline time'))
+      ->setLabel(t('Time'))
       ->setDescription(t('The time that the notification should appear on the timeline.'))
       ->setDefaultValueCallback('Drupal\notification_entity\Entity\NotificationEntity::getDefaultTimelineTime')
       ->setRevisionable(TRUE)
+      ->setRequired(TRUE)
       ->setDisplayOptions('form', array(
         'type' => 'datetime_default',
         'weight' => -4,
-      ));;
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'inline',
+        'type' => 'timeline_date',
+        'weight' => -10,
+      ));
 
     $fields['image'] = BaseFieldDefinition::create('image')
       ->setLabel(t('Image'))
