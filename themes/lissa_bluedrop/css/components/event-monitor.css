@@ -106,10 +106,29 @@
   font-weight: bold;
 }
 
-.field-name-field-event-encoder-on:before {
+form .field-name-field-event-encoder-on:before,
+.field-node--field-event-encoder-on:before {
   content: 'Encoder';
   font-weight: bold;
   float: left;
+}
+
+.field-node--field-event-encoder-on .field-item > div {
+  display: block;
+  text-align: center;
+  height: 20px;
+  width: 50px;
+
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  margin-left: 80px;
+  color: #fff;
+  background-color: green;
+}
+
+.field-node--field-event-encoder-on .field-item > div.encoder-running-false {
+  background-color: red;
 }
 
 .form-item-field-event-encoder-on-value label {
