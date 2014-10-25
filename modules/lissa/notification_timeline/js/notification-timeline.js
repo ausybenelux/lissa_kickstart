@@ -37,7 +37,7 @@
         var $navigationList = $navigation.find('ul');
 
         // Add the current item.
-        $('<li data-step="current"><a href="#notification-entity-current" class="js-timeline-link">' + Drupal.t('Current') + '</a></li>')
+        $('<li data-step="current"><a href="#main-content" class="js-timeline-link">' + Drupal.t('Current') + '</a></li>')
             .appendTo($navigationList);
 
         // Add the steps to the timeline.
