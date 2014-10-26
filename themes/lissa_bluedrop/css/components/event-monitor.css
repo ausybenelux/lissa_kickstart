@@ -4,20 +4,15 @@
 }
 
 #events-list article {
-  width: 75%;
-  height: 550px;
-  border-radius: 25px;
-  background: #6a6a6a;
+  padding: 1.5em 3em;
+  border-radius: .5em;
+  background: #D8E5F0;
+  margin: 0 auto 2em;
+  width: 80%;
 }
 
 #events-list .node__meta {
   display: none;
-}
-
-#events-list .field-node--title {
-  top: 30px;
-  left: 30px;
-  position: absolute;
 }
 
 #events-list .field-node--field-event-competition {
