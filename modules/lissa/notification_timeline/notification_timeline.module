@@ -66,3 +66,20 @@ function notification_entity_form_notification_entity_form_alter(&$form, FormSta
     'callback' => '\Drupal\notification_timeline\Controller\NotificationTimeLineController::ajaxSubmitNotificationEntity'
   ];
 }
+
+/**
+ * Implements hook_views_data_alter().
+ *
+ * Adds a timeline link to nodes.
+ */
+function notification_timeline_views_data_alter(array &$data) {
+  if (isset($data['node']['edit_node'])) {
+    $data['node']['notification_timeline'] = array(
+      'field' => array(
+        'title' => t('Link to timeline'),
+        'help' => t('Provide a simple link to the event timeline.'),
+        'id' => 'node_link_timeline',
+      ),
+    );
+  }
+}

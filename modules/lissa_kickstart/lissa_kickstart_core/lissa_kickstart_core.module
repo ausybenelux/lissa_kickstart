@@ -15,3 +15,10 @@ function lissa_kickstart_core_editor_js_settings_alter(array &$settings) {
     $settings['editor']['formats']['full_html']['editorSettings']['height'] = 80;
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function lissa_kickstart_core_form_user_login_form_alter(&$form, &$form_state, $form_id) {
+  $form['#submit'][] = '\Drupal\lissa_kickstart_core\Controller\LissaKickstartCoreController::redirectLoginForm';
+}
