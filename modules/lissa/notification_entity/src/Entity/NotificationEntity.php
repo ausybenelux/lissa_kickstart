@@ -26,7 +26,7 @@ use Drupal\notification_entity\NotificationEntityInterface;
  *   handlers = {
  *     "storage" = "Drupal\Core\Entity\Sql\SqlContentEntityStorage",
  *     "storage_schema" = "Drupal\Core\Entity\Sql\SqlContentEntityStorageSchema",
- *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
+ *     "view_builder" = "Drupal\notification_entity\NotificationEntityViewBuilder",
  *     "access" = "Drupal\Core\Entity\EntityAccessControlHandler",
  *     "views_data" = "Drupal\views\EntityViewsData",
  *     "form" = {
