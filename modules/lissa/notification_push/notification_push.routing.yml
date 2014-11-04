@@ -1,5 +1,5 @@
 notification_push.settings:
-  path: '/admin/config/system/notification-push/settings'
+  path: '/admin/config/services/notification-push/settings'
   defaults:
     _form: '\Drupal\notification_push\Form\SettingsForm'
     _title: 'Notification Push Settings'
