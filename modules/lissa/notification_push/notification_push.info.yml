@@ -6,3 +6,5 @@ version: 1.0
 core: 8.x
 dependencies:
   - ext
+
+configure: 'notification_push.settings'

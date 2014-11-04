@@ -48,7 +48,7 @@ function notification_push_entity_delete(EntityInterface $notification) {
  *   - delete
  */
 function notification_push_notify(EntityInterface $notification, $action = 'create') {
-  $config = \Drupal::config('notification_push.amqp_server');
+  $config = \Drupal::config('notification_push.settings');
   $connection = new AMQPConnection($config->get('host'), $config->get('port'), $config->get('user'), $config->get('password'));
   $channel = $connection->channel();
 
