@@ -64,6 +64,13 @@
     <exec command="cp ${builddir}/${drupal.docroot}/sites/default/default.services.yml ${builddir}/${drupal.docroot}/sites/${drupal.subdir}/services.yml" escape="false" />
     <!-- Prepare the settings.php file -->
     <exec command="cp ${builddir}/${drupal.docroot}/profiles/lissa_kickstart/default.settings.php ${builddir}/${drupal.docroot}/sites/${drupal.subdir}/settings.php" escape="false" />
+    <!-- Prepare the settings.local.php file -->
+    <if>
+      <available file="${builddir}/${drupal.docroot}/profiles/lissa_kickstart/settings.local.php" type="file" />
+      <then>
+        <exec command="cp ${builddir}/${drupal.docroot}/profiles/lissa_kickstart/settings.local.php ${builddir}/${drupal.docroot}/sites/${drupal.subdir}/settings.local.php" escape="false" />
+      </then>
+    </if>
     <!-- Rsync the build into ./docroot -->
     <exec executable="rsync">
       <arg value="-aqc"/>
