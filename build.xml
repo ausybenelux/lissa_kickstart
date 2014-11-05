@@ -62,6 +62,8 @@
     </exec>
     <!-- Prepare the services.yml file -->
     <exec command="cp ${builddir}/${drupal.docroot}/sites/default/default.services.yml ${builddir}/${drupal.docroot}/sites/${drupal.subdir}/services.yml" escape="false" />
+    <!-- Prepare the settings.php file -->
+    <exec command="cp ${builddir}/${drupal.docroot}/profiles/lissa_kickstart/default.settings.php ${builddir}/${drupal.docroot}/sites/${drupal.subdir}/settings.php" escape="false" />
     <!-- Rsync the build into ./docroot -->
     <exec executable="rsync">
       <arg value="-aqc"/>
