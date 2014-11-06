@@ -264,6 +264,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setLabel(t('Image'))
       ->setDescription(t('The file fid of the file entity containing the notification image.'))
       ->setRevisionable(TRUE)
+      ->setDefaultValue(NULL)
       ->setSetting('target_type', 'file')
       ->setSetting('handler', 'default')
       ->setTranslatable(TRUE)
