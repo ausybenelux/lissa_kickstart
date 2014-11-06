@@ -55,9 +55,14 @@ function notification_push_notify(EntityInterface $notification, $action = 'crea
   $channel->queue_declare('content_notification', FALSE, FALSE, FALSE, FALSE);
 
   $serializer = \Drupal::service('serializer');
-  $output = $serializer->serialize($notification, 'json');
+  $context = array(
+    'excluded_fields' => array('host_id'),
+  );
+
+  $output = $serializer->serialize($notification, 'ext_json', $context);
   $properties = array(
     'type' => $action,
+    'event_id' => $notification->getHostId(),
   );
 
   $channel->basic_publish(new AMQPMessage($output, $properties), '', 'content_notification');
