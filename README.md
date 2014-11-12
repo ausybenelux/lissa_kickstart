@@ -7,7 +7,7 @@ You can use it by placing the project inside the profiles directory of a clean
 Drupal 8 download and running drush make.
 
 It can be automatically setup inside a Vagrant box using the LISSA repository
-available at git@git.dotprojects.be:LISSA.
+available at git@gitlab.crosscheck.be:lissa/infrastructure.
 
 ## Installation
 
