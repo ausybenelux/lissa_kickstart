@@ -9,12 +9,10 @@ namespace Drupal\notification_entity\Form;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Entity\ContentEntityConfirmFormBase;
 
 /**
- * Provides a deletion confirmation form for taxonomy term.
+ * Provides a deletion confirmation form for a notification entity.
  */
 class NotificationEntityDeleteForm extends ContentEntityConfirmFormBase {
 
@@ -54,13 +52,14 @@ class NotificationEntityDeleteForm extends ContentEntityConfirmFormBase {
   }
 
   /**
+   * Deletes the notification and notifies the user about this.
+   *
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    var_dump('delete');die;
     $this->entity->delete();
 
-    drupal_set_message($this->t('Deleted notification %title.', array('%name' => $this->entity->getTitle())));
+    drupal_set_message($this->t('Deleted notification %title.', array('%title' => $this->entity->getTitle())));
     $this->logger('notification_entity')->notice('Deleted notification %title.', array('%title' => $this->entity->getTitle()));
     $form_state->setRedirectUrl($this->getCancelUrl());
   }
