@@ -60,7 +60,7 @@ function notification_push_notify(EntityInterface $notification, $action = 'crea
     'merge_data' => array(
       'api_meta' => array(
         'type' => $action,
-        'event_id' => $notification->getHostId(),
+        'event_uuid' => $notification->uuid(),
       ),
     ),
   );
