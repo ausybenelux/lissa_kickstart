@@ -31,7 +31,7 @@ use Drupal\notification_entity\NotificationEntityInterface;
  *     "views_data" = "Drupal\views\EntityViewsData",
  *     "form" = {
  *       "default" = "Drupal\Core\Entity\ContentEntityForm",
- *       "delete" = "Drupal\Core\Entity\ContentEntityConfirmFormBase",
+ *       "delete" = "Drupal\notification_entity\Form\NotificationEntityDeleteForm",
  *       "edit" = "Drupal\Core\Entity\ContentEntityForm"
  *     },
  *     "list_builder" = "Drupal\notification_entity\NotificationEntityListBuilder"
