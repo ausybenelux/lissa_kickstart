@@ -1,0 +1,4 @@
+notification_push.settings_tab:
+  route_name: notification_push.settings
+  title: Settings
+  base_route: notification_push.settings

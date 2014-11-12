@@ -11,6 +11,7 @@ dependencies:
   - notification_timeline
   - lissa_kickstart_soccer_stats
   - event_monitor
+  - notification_push
 config_devel:
   - user.role.production
   - user.role.operator

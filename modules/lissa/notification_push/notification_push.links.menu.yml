@@ -1,0 +1,5 @@
+notification_push.settings:
+  title: 'Notification Push'
+  parent: system.admin_config_services
+  description: 'Configure the AMQP server to which notifications are pushed.'
+  route_name: notification_push.settings

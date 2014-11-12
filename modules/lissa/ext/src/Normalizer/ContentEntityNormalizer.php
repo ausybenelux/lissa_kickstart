@@ -81,10 +81,15 @@ class ContentEntityNormalizer extends NormalizerBase {
       'uid',
       'revision_uid',
     );
+    // Ignore fields based on context.
+    if (isset($context['excluded_fields'])) {
+      $exclude = array_merge($exclude, $context['excluded_fields']);
+    }
     foreach ($fields as $field) {
       if (in_array($field->getFieldDefinition()->getName(), $exclude)) {
         continue;
       }
+
       $normalized_property = $this->serializer->normalize($field, $format, $context);
       $normalized = NestedArray::mergeDeep($normalized, $normalized_property);
     }

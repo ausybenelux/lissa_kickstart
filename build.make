@@ -15,7 +15,7 @@ projects[drupal][patch][] = "http://www.drupal.org/files/issues/2310093.33.patch
 ; Download the install profile and recursively build all its dependencies:
 projects[lissa_kickstart][type] = profile
 projects[lissa_kickstart][download][type] = git
-projects[lissa_kickstart][download][url] = git@git.dotprojects.be:lissa_kickstart
+projects[lissa_kickstart][download][url] = git@gitlab.crosscheck.be:lissa/lissa_kickstart.git
 
 ; Overwrite an existing build;
 projects[lissa_kickstart][overwrite] = TRUE

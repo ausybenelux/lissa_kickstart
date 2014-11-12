@@ -9,40 +9,68 @@ use \Drupal\Core\Entity\EntityInterface;
 use PhpAmqpLib\Connection\AMQPConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
-define("NOTIFICATION_PUSH_SERVER_MB", '10.181.138.165');
-
 /**
  * Implements hook_entity_insert()
  */
-function notification_push_entity_insert(EntityInterface $e) {
-  notification_push_notify($e, 'Entity inserted of type: ' . $e->getEntityTypeId());
+function notification_push_entity_insert(EntityInterface $notification) {
+  if ($notification->getEntityTypeId() == 'notification_entity') {
+    notification_push_notify($notification);
+  }
 }
 
 /**
  * Implements hook_entity_update()
  */
-function notification_push_entity_update(EntityInterface $e) {
-  notification_push_notify($e, 'Entity updated of type: ' . $e->getEntityTypeId());
+function notification_push_entity_update(EntityInterface $notification) {
+  if ($notification->getEntityTypeId() == 'notification_entity') {
+    notification_push_notify($notification, 'update');
+  }
 }
 
 /**
  * Implements hook_entity_delete()
  */
-function notification_push_entity_delete(EntityInterface $e) {
-  notification_push_notify($e, 'Entity deleted of type: ' . $e->getEntityTypeId());
+function notification_push_entity_delete(EntityInterface $notification) {
+  if ($notification->getEntityTypeId() == 'notification_entity') {
+    notification_push_notify($notification, 'delete');
+  }
 }
 
-function notification_push_notify(EntityInterface $e, $message = '') {
-  if ($e->getEntityTypeId() == 'notification_entity') {
-    $connection = new AMQPConnection(NOTIFICATION_PUSH_SERVER_MB, 5672, 'guest', 'guest');
-    $channel = $connection->channel();
+/**
+ * Pushes an entity to an AMQP server.
+ *
+ * @param EntityInterface $notification
+ *   The entity to push.
+ * @param string $action
+ *   The action associated with the entity. Can be one of:
+ *   - create
+ *   - update
+ *   - delete
+ */
+function notification_push_notify(EntityInterface $notification, $action = 'create') {
+  $config = \Drupal::config('notification_push.settings');
+  $connection = new AMQPConnection($config->get('host'), $config->get('port'), $config->get('user'), $config->get('password'));
+  $channel = $connection->channel();
 
-    $channel->queue_declare('content_notification', false, false, false, false);
+  $channel->queue_declare('content_notification', FALSE, FALSE, FALSE, FALSE);
 
-    $channel->basic_publish(new AMQPMessage(var_export($e->toArray(), true)), '', 'content_notification');
-    \Drupal::logger('LISSA Entity')->info($message);
+  $serializer = \Drupal::service('serializer');
+  $context = array(
+    'excluded_fields' => array('host_id'),
+  );
 
-    $channel->close();
-    $connection->close();
-  }
+  $output = $serializer->serialize($notification, 'ext_json', $context);
+  $properties = array(
+    'type' => $action,
+    'event_id' => $notification->getHostId(),
+  );
+
+  $channel->basic_publish(new AMQPMessage($output, $properties), '', 'content_notification');
+  \Drupal::logger('notification_push')->info(t('!action: !entity_label', array(
+    '!action' => $action,
+    '!entity_label' => $notification->label(),
+  )));
+
+  $channel->close();
+  $connection->close();
 }
