@@ -287,6 +287,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setLabel(t('Content'))
       ->setDisplayOptions('view', array(
         'type' => 'text',
+        'weight' => 0,
         'label' => 'hidden',
       ))
       ->setDisplayOptions('form', array(
