@@ -7,22 +7,39 @@
 <body>
 <p>Messages:</p>
 <div id="messages" style="width:800px;height:300px;overflow:scroll;"></div>
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="js/pushstream.js" type="text/javascript" language="javascript" charset="utf-8"></script>
 <script type="text/javascript" language="javascript" charset="utf-8">
     // <![CDATA[
-    function messageReceived(text, id, channel) {
-        document.getElementById('messages').innerHTML += id + ': ' + text + '<br>';
-    };
 
-    var pushstream = new PushStream({
-        host: 'worker.lissa.crosscheck.be',
-        port: window.location.port,
-        modes: "websocket"
-    });
-    pushstream.onmessage = messageReceived;
-    pushstream.addChannel('1');
-    pushstream.connect();
+    // Parse the LISSA Event API Data.
+    (function($) {
+        $.ajax('http://admin.lissa.dev/api/events', {
+            accepts: {json: 'application/ext+json'},
+            success: function(data) {
+                var $messages = $('#messages');
+                $messages.empty();
+                var events = $.parseJSON(data);
+
+                for (var event_id in events) {
+                    var event = events[event_id];
+                    var uuid = event.uuid[0].value;
+                    $('<div id="event-' + uuid + '"><h2>' + event.title[0].value + '</h2><ul></ul></div>').appendTo($messages);
+                    var pushstream = new PushStream({
+                        host: 'worker.lissa.dev',
+                        port: window.location.port,
+                        modes: "websocket"
+                    });
+                    pushstream.onmessage = function (data) {
+                        var parsedData = JSON.parse(data);
+                        $('<li>' + parsedData.title[0].value + '</li>').appendTo($('#event-' + parsedData.api_meta.event_uuid + ' ul'));
+                    };
+                    pushstream.addChannel(uuid);
+                    pushstream.connect();
+                }
+            }
+        });
+    })(jQuery);
     // ]]>
 </script>
 </body>
