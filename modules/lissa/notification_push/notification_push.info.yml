@@ -8,3 +8,5 @@ dependencies:
   - ext
 
 configure: 'notification_push.settings'
+config_devel:
+  - views.view.notifications_api
