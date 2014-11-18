@@ -10,7 +10,7 @@ entity_type: node
 bundle: soccer_event
 label: 'Timeline end time'
 description: 'The time the timeline will end. Should be equal to the end time of the main video stream.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

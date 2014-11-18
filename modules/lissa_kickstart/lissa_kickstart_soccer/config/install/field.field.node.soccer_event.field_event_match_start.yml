@@ -10,7 +10,7 @@ entity_type: node
 bundle: soccer_event
 label: 'Match start time'
 description: 'The time the match will start.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
