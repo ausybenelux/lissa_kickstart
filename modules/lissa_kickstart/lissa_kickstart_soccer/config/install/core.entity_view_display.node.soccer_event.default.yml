@@ -44,13 +44,13 @@ content:
     weight: 2
     settings: {  }
     third_party_settings: {  }
-    label: above
+    label: inline
   field_event_away_team:
     type: taxonomy_term_reference_link
     weight: 3
     settings: {  }
     third_party_settings: {  }
-    label: above
+    label: inline
   field_event_competition:
     type: taxonomy_term_reference_plain
     weight: 4
