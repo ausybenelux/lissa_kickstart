@@ -136,18 +136,40 @@ class NotificationTimelineController extends ControllerBase {
   public static function ajaxSubmitNotificationEntity(array $form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
 
+    $form_builder = \Drupal::service('entity.form_builder');
+
     /** @var \Drupal\notification_entity\Entity\NotificationEntity $notification_entity */
     $notification_entity = $form_state->getFormObject()->getEntity();
 
-    // Create the html for the notification entity
-    $view_builder = \Drupal::entityManager()->getViewBuilder('notification_entity');
-    $build = $view_builder->view($notification_entity);
-    $view = render($build);
+    $notification_form = '#' . $notification_entity->bundle() . '-notification-entity-form';
 
-    $response->addCommand(new PrependCommand('#js-notification-list', $view));
-    $response->addCommand(new InvokeCommand('#notification-timeline-notification-form', 'removeClass', ['js-hide']));
-    $response->addCommand(new InvokeCommand('#' . $notification_entity->bundle() . '-notification-entity-form', 'addClass', ['js-hide']));
-    $response->addCommand(new InvokeCommand('#' . $notification_entity->bundle() . '-notification-entity-form', 'trigger', ['reset']));
+
+    if ($form_state->hasAnyErrors()) {
+      $array = [
+        'attributes' => ['id' => 'notification-form-errors'],
+        '#theme' => 'status_messages'
+      ];
+      $errors = render($array);
+
+      $response->addCommand(new PrependCommand($notification_form, $errors));
+
+    } else {
+      // Create the html for the notification entity
+      $view_builder = \Drupal::entityManager()->getViewBuilder('notification_entity');
+      $build = $view_builder->view($notification_entity);
+      $view = render($build);
+
+      // Create the html for the notification form
+
+
+      $response->addCommand(new PrependCommand('#js-notification-list', $view));
+      $response->addCommand(new InvokeCommand('#notification-timeline-notification-form', 'removeClass', ['js-hide']));
+
+      $response->addCommand(new ReplaceCommand($notification_form, ''));
+    }
+
     return $response;
   }
+
+
 }
