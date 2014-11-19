@@ -141,32 +141,28 @@ class NotificationTimelineController extends ControllerBase {
     /** @var \Drupal\notification_entity\Entity\NotificationEntity $notification_entity */
     $notification_entity = $form_state->getFormObject()->getEntity();
 
+    if ($form_state->hasAnyErrors()) {
+
+      return $form_builder->getForm($notification_entity);
+
+    }
+
     $notification_form = '#' . $notification_entity->bundle() . '-notification-entity-form';
 
+    // Create the html for the notification entity
+    $view_builder = \Drupal::entityManager()->getViewBuilder('notification_entity');
+    $build = $view_builder->view($notification_entity);
+    $view = drupal_render($build);
 
-    if ($form_state->hasAnyErrors()) {
-      $array = [
-        'attributes' => ['id' => 'notification-form-errors'],
-        '#theme' => 'status_messages'
-      ];
-      $errors = render($array);
+    // Create the html for the notification form
+    $form_state->cleanValues();
+    $new_form = $form_state->getFormObject();
+    $form_view = render($new_form);
 
-      $response->addCommand(new PrependCommand($notification_form, $errors));
-
-    } else {
-      // Create the html for the notification entity
-      $view_builder = \Drupal::entityManager()->getViewBuilder('notification_entity');
-      $build = $view_builder->view($notification_entity);
-      $view = render($build);
-
-      // Create the html for the notification form
-
-
-      $response->addCommand(new PrependCommand('#js-notification-list', $view));
-      $response->addCommand(new InvokeCommand('#notification-timeline-notification-form', 'removeClass', ['js-hide']));
-
-      $response->addCommand(new ReplaceCommand($notification_form, ''));
-    }
+    $response->addCommand(new PrependCommand('#js-notification-list', $view));
+    $response->addCommand(new InvokeCommand('#notification-timeline-notification-form', 'removeClass', ['js-hide']));
+    $response->addCommand(new ReplaceCommand($notification_form, render($new_form)));
+    $response->addCommand(new InvokeCommand($notification_form, 'addClass', ['js-hide']));
 
     return $response;
   }

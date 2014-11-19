@@ -63,7 +63,8 @@ function notification_timeline_form_node_type_form_builder($entity_type, NodeTyp
  */
 function notification_entity_form_notification_entity_form_alter(&$form, FormStateInterface $form_state) {
   $form['actions']['submit']['#ajax'] = [
-    'callback' => '\Drupal\notification_timeline\Controller\NotificationTimelineController::ajaxSubmitNotificationEntity'
+    'callback' => '\Drupal\notification_timeline\Controller\NotificationTimelineController::ajaxSubmitNotificationEntity',
+    'wrapper' => $form['#id'],
   ];
 }
 
