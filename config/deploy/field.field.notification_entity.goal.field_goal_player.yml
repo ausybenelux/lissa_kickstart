@@ -1,0 +1,21 @@
+uuid: bb5cc35f-ff3f-4ea1-8600-ab2f0455cad3
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.notification_entity.field_goal_player
+    - notification_entity.type.goal
+id: notification_entity.goal.field_goal_player
+field_name: field_goal_player
+entity_type: notification_entity
+bundle: goal
+label: Player
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+third_party_settings: {  }
+field_type: taxonomy_term_reference

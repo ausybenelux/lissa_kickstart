@@ -1,0 +1,23 @@
+uuid: 54d6c1f3-aa89-4ce7-8300-b66aa5b56f73
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_team_competitions
+field_name: field_team_competitions
+entity_type: taxonomy_term
+type: taxonomy_term_reference
+settings:
+  allowed_values:
+    -
+      vocabulary: competition
+      parent: 0
+  target_type: taxonomy_term
+  options_list_callback: null
+  target_bundle: null
+module: taxonomy
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }

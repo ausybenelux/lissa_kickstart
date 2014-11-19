@@ -1,0 +1,29 @@
+uuid: 716b25d5-cabd-40f5-8500-d232659c9206
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.notification_entity.card.field_card_player
+    - field.field.notification_entity.card.field_card_type
+    - notification_entity.type.card
+  module:
+    - datetime
+    - entity_reference
+    - text
+id: notification_entity.card.default
+targetEntityType: notification_entity
+bundle: card
+mode: default
+content:
+  field_card_type:
+    type: options_select
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+  field_card_player:
+    type: options_select
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
+third_party_settings: {  }

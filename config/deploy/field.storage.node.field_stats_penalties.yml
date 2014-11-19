@@ -1,0 +1,17 @@
+uuid: 8ab31746-8242-4d19-8a00-feab1b705b46
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_stats_penalties
+field_name: field_stats_penalties
+entity_type: node
+type: integer
+settings:
+  unsigned: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

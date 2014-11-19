@@ -1,0 +1,8 @@
+uuid: dc4af5ee-bb79-4afe-9814-20290b1a39eb
+langcode: en
+status: true
+dependencies: {  }
+name: Card
+type: card
+description: 'A card has been given to a player.'
+help: null

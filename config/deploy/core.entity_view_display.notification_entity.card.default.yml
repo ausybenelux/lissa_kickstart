@@ -1,0 +1,32 @@
+uuid: 38ac267c-2e9d-4399-ab00-b15486191471
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.notification_entity.card.field_card_player
+    - field.field.notification_entity.card.field_card_type
+    - notification_entity.type.card
+  module:
+    - notification_entity
+    - options
+    - taxonomy
+id: notification_entity.card.default
+label: null
+targetEntityType: notification_entity
+bundle: card
+mode: default
+content:
+  field_card_type:
+    type: list_key
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
+  field_card_player:
+    type: taxonomy_term_reference_plain
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
+hidden: {  }
+third_party_settings: {  }

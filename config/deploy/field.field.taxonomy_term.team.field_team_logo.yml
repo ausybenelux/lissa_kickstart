@@ -1,0 +1,36 @@
+uuid: f6dd3438-63d6-4dbb-9024-365fe660aed1
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.taxonomy_term.field_team_logo
+    - taxonomy.vocabulary.team
+id: taxonomy_term.team.field_team_logo
+field_name: field_team_logo
+entity_type: taxonomy_term
+bundle: team
+label: Logo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: ''
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    fid: 0
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: default
+third_party_settings: {  }
+field_type: image

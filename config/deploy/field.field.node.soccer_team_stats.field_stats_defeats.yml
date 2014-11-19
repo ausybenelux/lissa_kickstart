@@ -1,0 +1,25 @@
+uuid: 77464b96-960f-40db-b714-20b8e7d9f453
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_stats_defeats
+    - node.type.soccer_team_stats
+id: node.soccer_team_stats.field_stats_defeats
+field_name: field_stats_defeats
+entity_type: node
+bundle: soccer_team_stats
+label: Defeats
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: ''
+  suffix: '%'
+  size: normal
+third_party_settings: {  }
+field_type: integer

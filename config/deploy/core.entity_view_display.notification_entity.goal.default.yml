@@ -1,0 +1,38 @@
+uuid: a831d3f0-9b20-4a63-9e00-ceeacee896ac
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.notification_entity.goal.field_goal_player
+    - field.field.notification_entity.goal.field_goal_score
+    - field.field.notification_entity.goal.field_goal_team
+    - notification_entity.type.goal
+  module:
+    - notification_entity
+    - taxonomy
+id: notification_entity.goal.default
+label: null
+targetEntityType: notification_entity
+bundle: goal
+mode: default
+content:
+  field_goal_player:
+    type: taxonomy_term_reference_plain
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
+  field_goal_team:
+    type: taxonomy_term_reference_plain
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
+  field_goal_score:
+    type: string
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
+hidden: {  }
+third_party_settings: {  }

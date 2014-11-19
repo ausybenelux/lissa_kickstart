@@ -1,0 +1,21 @@
+uuid: 374a665e-29f2-4682-bb00-a91e04b95072
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_event_competition
+    - node.type.soccer_event
+id: node.soccer_event.field_event_competition
+field_name: field_event_competition
+entity_type: node
+bundle: soccer_event
+label: Competition
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+third_party_settings: {  }
+field_type: taxonomy_term_reference

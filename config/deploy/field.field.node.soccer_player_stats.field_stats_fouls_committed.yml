@@ -1,0 +1,25 @@
+uuid: f7c25b2b-733d-4423-9a39-57c8af9cdf16
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_stats_fouls_committed
+    - node.type.soccer_player_stats
+id: node.soccer_player_stats.field_stats_fouls_committed
+field_name: field_stats_fouls_committed
+entity_type: node
+bundle: soccer_player_stats
+label: 'Fouls committed'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+  size: normal
+third_party_settings: {  }
+field_type: integer

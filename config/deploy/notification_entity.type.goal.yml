@@ -1,0 +1,8 @@
+uuid: e4f41718-29f4-4c8a-8d06-06d0b779e5c3
+langcode: en
+status: true
+dependencies: {  }
+name: Goal
+type: goal
+description: 'A goal notification. The player who scored the goal can be specified.'
+help: null
