@@ -157,7 +157,19 @@
     </exec>
   </target>
 
+  <target name="config-export" description="Export configuration so it can be deployed during an update.">
+    <exec executable="drush" dir="${docroot}">
+      <arg value="config-export"/>
+      <arg value="deploy"/>
+      <arg value="-y"/>
+    </exec>
+  </target>
+
   <target name="update-drupal" description="Update to the latest version without destroying content.">
+    <!-- Rebuild all caches. -->
+    <exec executable="drush" dir="${docroot}">
+      <arg value="cache-rebuild"/>
+    </exec>
     <!-- Run updates. -->
     <exec executable="drush" dir="${docroot}">
       <arg value="updb"/>
@@ -167,6 +179,7 @@
     <exec executable="drush" dir="${docroot}">
       <arg value="config-import"/>
       <arg value="deploy"/>
+      <arg value="-y"/>
     </exec>
   </target>
 </project>
