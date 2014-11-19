@@ -2,8 +2,8 @@
 
 $config_directories= array();
 
-if (file_exists(DRUPAL_ROOT . '/profiles/lissa_kickstart/config/deploy/stagin')) {
-  $config_directories['staging'] = 'profiles/lissa_kickstart/config/deploy/staging';
+if (file_exists(DRUPAL_ROOT . '/profiles/lissa_kickstart/config/deploy')) {
+  $config_directories['deploy'] = 'profiles/lissa_kickstart/config/deploy';
 }
 
 $settings['hash_salt'] = 'NVPgQ-GudJktovJTq5v7x-3FveMR9dxdjsf6OOFxCl2Omd7iS2tFG4Ldt68dZ3yBpEyVdCgyGA';

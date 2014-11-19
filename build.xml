@@ -166,7 +166,7 @@
     <!-- Import the new configuration. -->
     <exec executable="drush" dir="${docroot}">
       <arg value="config-import"/>
-      <arg value="staging"/>
+      <arg value="deploy"/>
     </exec>
   </target>
 </project>
