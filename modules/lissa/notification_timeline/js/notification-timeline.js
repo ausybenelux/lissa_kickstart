@@ -91,6 +91,27 @@
         $cancel.appendTo($context.find('#notification-forms .form-actions'));
       });
 
+      $('#js-notification-list').on('ajaxSubmit', function () {
+        
+        removeContentsFromDiv('#js-notification-list');
+
+      });
+
+      // Ugly but necessary because of https://www.drupal.org/node/736066
+      var removeContentsFromDiv = function (selector) {
+        var div = $(selector).children(':first')[0];
+
+        if (div.tagName === 'DIV') {
+          var innerHtml = div.innerHTML;
+          $(selector).prepend(innerHtml);
+          $(div).remove();
+        }
+
+      };
+
+      // Sort the notifications based on the timeline time
+
+
       // Adds smooth scrolling to the timeline links
       // Credits to: http://css-tricks.com/snippets/jquery/smooth-scrolling/
       $('.js-timeline-link').once('not-time-link').click(function() {

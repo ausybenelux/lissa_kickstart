@@ -15,6 +15,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Access\AccessResult;
+use Drupal\notification_entity\Entity\NotificationEntity;
 
 
 /**
@@ -136,16 +137,16 @@ class NotificationTimelineController extends ControllerBase {
   public static function ajaxSubmitNotificationEntity(array $form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
 
+    if ($form_state->hasAnyErrors()) {
+
+      return $form;
+
+    }
+
     $form_builder = \Drupal::service('entity.form_builder');
 
     /** @var \Drupal\notification_entity\Entity\NotificationEntity $notification_entity */
     $notification_entity = $form_state->getFormObject()->getEntity();
-
-    if ($form_state->hasAnyErrors()) {
-
-      return $form_builder->getForm($notification_entity);
-
-    }
 
     $notification_form = '#' . $notification_entity->bundle() . '-notification-entity-form';
 
@@ -154,15 +155,10 @@ class NotificationTimelineController extends ControllerBase {
     $build = $view_builder->view($notification_entity);
     $view = drupal_render($build);
 
-    // Create the html for the notification form
-    $form_state->cleanValues();
-    $new_form = $form_state->getFormObject();
-    $form_view = render($new_form);
+    // $new_form = $form_builder->getForm();
 
     $response->addCommand(new PrependCommand('#js-notification-list', $view));
-    $response->addCommand(new InvokeCommand('#notification-timeline-notification-form', 'removeClass', ['js-hide']));
-    $response->addCommand(new ReplaceCommand($notification_form, render($new_form)));
-    $response->addCommand(new InvokeCommand($notification_form, 'addClass', ['js-hide']));
+    $response->addCommand(new InvokeCommand('#js-notification-list', 'trigger', ['ajaxSubmit']));
 
     return $response;
   }
