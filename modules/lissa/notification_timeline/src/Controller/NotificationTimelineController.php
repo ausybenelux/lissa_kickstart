@@ -160,15 +160,15 @@ class NotificationTimelineController extends ControllerBase {
 
     $form_builder = \Drupal::service('entity.form_builder');
 
-    $form_state = new FormState();
-    $form_state->setRebuild();
-
     // Create the html for the notification entity
     $view_builder = \Drupal::entityManager()->getViewBuilder('notification_entity');
     $build = $view_builder->view($notification_entity);
     $view = drupal_render($build);
 
-    // $new_form = $form_builder->getForm(NotificationEntity::create(['type' => 'standard']));
+    \Drupal::entityManager()->clearCachedDefinitions();
+    $entity = \Drupal::entityManager()->getStorage('notification_entity')->create(array('type' => 'standard'));
+
+    $new_form = $form_builder->getForm($entity);
 
     $response->addCommand(new PrependCommand('#js-notification-list', $view));
     $response->addCommand(new InvokeCommand('#js-notification-list', 'trigger', ['update']));
