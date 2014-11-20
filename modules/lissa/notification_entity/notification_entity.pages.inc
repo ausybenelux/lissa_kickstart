@@ -70,6 +70,7 @@ function template_preprocess_notification_entity(&$variables) {
         $current_step_formatted = '0' . $current_step_formatted;
       }
       $variables['timeline_step'] = $current_step_formatted;
+      $variables['timeline_time'] = $notification_time;
     }
   }
 

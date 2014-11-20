@@ -91,14 +91,20 @@
         $cancel.appendTo($context.find('#notification-forms .form-actions'));
       });
 
+      // Custom event is fired with an InvokeCommand when the ajax call is handled by the server
       $('#js-notification-list').on('ajaxSubmit', function () {
-        
-        removeContentsFromDiv('#js-notification-list');
+        removeContentFromDiv('#js-notification-list');
 
+        sortNotifications();
       });
 
-      // Ugly but necessary because of https://www.drupal.org/node/736066
-      var removeContentsFromDiv = function (selector) {
+      /*
+       Ugly but necessary because of https://www.drupal.org/node/736066
+
+       PrependCommand adds to the content to a div, which clutters the html structure
+       this function takes the first child div, puts the html one tag up and removes the div
+       */
+      var removeContentFromDiv = function (selector) {
         var div = $(selector).children(':first')[0];
 
         if (div.tagName === 'DIV') {
@@ -106,11 +112,18 @@
           $(selector).prepend(innerHtml);
           $(div).remove();
         }
-
       };
 
       // Sort the notifications based on the timeline time
+      var sortNotifications = function () {
+        var notifications = $('.notification-entity');
 
+        var ordered_notifications = notifications.sort(function (a, b) {
+          return $(a).data('timeline-time') < $(b).data('timeline-time');
+        });
+
+        $('#js-notification-list').html(ordered_notifications);
+      };
 
       // Adds smooth scrolling to the timeline links
       // Credits to: http://css-tricks.com/snippets/jquery/smooth-scrolling/
