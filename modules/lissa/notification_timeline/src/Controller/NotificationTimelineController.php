@@ -10,11 +10,13 @@
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\InvokeCommand;
 use Drupal\Core\Ajax\PrependCommand;
+use Drupal\Core\Ajax\RemoveCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Form\FormState;
 use Drupal\notification_entity\Entity\NotificationEntity;
 
 
@@ -136,29 +138,40 @@ class NotificationTimelineController extends ControllerBase {
    */
   public static function ajaxSubmitNotificationEntity(array $form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
+    /** @var \Drupal\notification_entity\Entity\NotificationEntity $notification_entity */
+    $notification_entity = $form_state->getFormObject()->getEntity();
+
+    $notification_form = '#' . $notification_entity->bundle() . '-notification-entity-form';
 
     if ($form_state->hasAnyErrors()) {
 
-      return $form;
+      $array = [
+        'attributes' => ['id' => 'notification-form-errors'],
+        '#theme' => 'status_messages',
+      ];
+      $errors = drupal_render($array);
+
+      $response->addCommand(new RemoveCommand('.messages--error'));
+      $response->addCommand(new PrependCommand($notification_form, $errors));
+
+      return $response;
 
     }
 
     $form_builder = \Drupal::service('entity.form_builder');
 
-    /** @var \Drupal\notification_entity\Entity\NotificationEntity $notification_entity */
-    $notification_entity = $form_state->getFormObject()->getEntity();
-
-    $notification_form = '#' . $notification_entity->bundle() . '-notification-entity-form';
+    $form_state = new FormState();
+    $form_state->setRebuild();
 
     // Create the html for the notification entity
     $view_builder = \Drupal::entityManager()->getViewBuilder('notification_entity');
     $build = $view_builder->view($notification_entity);
     $view = drupal_render($build);
 
-    // $new_form = $form_builder->getForm();
+    // $new_form = $form_builder->getForm(NotificationEntity::create(['type' => 'standard']));
 
     $response->addCommand(new PrependCommand('#js-notification-list', $view));
-    $response->addCommand(new InvokeCommand('#js-notification-list', 'trigger', ['ajaxSubmit']));
+    $response->addCommand(new InvokeCommand('#js-notification-list', 'trigger', ['update']));
 
     return $response;
   }

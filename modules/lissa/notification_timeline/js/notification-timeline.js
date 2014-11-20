@@ -91,8 +91,10 @@
         $cancel.appendTo($context.find('#notification-forms .form-actions'));
       });
 
-      // Custom event is fired with an InvokeCommand when the ajax call is handled by the server
-      $('#js-notification-list').on('ajaxSubmit', function () {
+      /*
+      Sorts the notification list according to the timeline time
+       */
+      $('#js-notification-list').on('update', function () {
         removeContentFromDiv('#js-notification-list');
 
         sortNotifications();
@@ -138,7 +140,6 @@
             return false;
           }
         }
-
         // Set active class to timeline link when clicked.
         updateCurrentActiveLink($(this));
       });
