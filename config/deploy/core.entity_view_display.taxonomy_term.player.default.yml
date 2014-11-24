@@ -1,0 +1,30 @@
+uuid: 1f3e409c-2785-4420-a700-cc0a930d10e2
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.taxonomy_term.player.field_player_teams
+    - taxonomy.vocabulary.player
+  module:
+    - taxonomy
+    - text
+id: taxonomy_term.player.default
+label: null
+targetEntityType: taxonomy_term
+bundle: player
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  field_player_teams:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: taxonomy_term_reference_link
+hidden: {  }
+third_party_settings: {  }

@@ -1,0 +1,14 @@
+uuid: 04bed1d9-5238-4fc5-963b-593c9682a2cc
+langcode: en
+status: true
+dependencies:
+  entity:
+    - user.role.technical_engineer
+  module:
+    - user
+id: user_remove_role_action.technical_engineer
+label: 'Remove the Technical engineer role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: technical_engineer

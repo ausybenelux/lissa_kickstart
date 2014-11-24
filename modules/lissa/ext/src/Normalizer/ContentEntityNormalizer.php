@@ -14,6 +14,10 @@ use Drupal\rest\LinkManager\LinkManagerInterface;
 
 /**
  * Converts the Drupal entity object structure to a EXT array structure.
+ *
+ * Adds the following serialize context options:
+ * - excluded_fields: an array of field names to excluded.
+ * - merge_data: an array of data to merge with the serialized data.
  */
 class ContentEntityNormalizer extends NormalizerBase {
 
@@ -92,6 +96,10 @@ class ContentEntityNormalizer extends NormalizerBase {
 
       $normalized_property = $this->serializer->normalize($field, $format, $context);
       $normalized = NestedArray::mergeDeep($normalized, $normalized_property);
+    }
+
+    if (isset($context['merge_data'])) {
+      $normalized = NestedArray::mergeDeep($normalized, $context['merge_data']);
     }
 
     return $normalized;

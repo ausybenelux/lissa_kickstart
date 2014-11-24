@@ -57,15 +57,17 @@ function notification_push_notify(EntityInterface $notification, $action = 'crea
   $serializer = \Drupal::service('serializer');
   $context = array(
     'excluded_fields' => array('host_id'),
+    'merge_data' => array(
+      'api_meta' => array(
+        'type' => $action,
+        'event_uuid' => $notification->getHost()->uuid(),
+      ),
+    ),
   );
 
   $output = $serializer->serialize($notification, 'ext_json', $context);
-  $properties = array(
-    'type' => $action,
-    'event_id' => $notification->getHostId(),
-  );
 
-  $channel->basic_publish(new AMQPMessage($output, $properties), '', 'content_notification');
+  $channel->basic_publish(new AMQPMessage($output), '', 'content_notification');
   \Drupal::logger('notification_push')->info(t('!action: !entity_label', array(
     '!action' => $action,
     '!entity_label' => $notification->label(),

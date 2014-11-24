@@ -1,0 +1,17 @@
+uuid: e68e24e4-f001-4c98-ae22-34a9249c77e8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_stats_ball_pos
+field_name: field_stats_ball_pos
+entity_type: node
+type: integer
+settings:
+  unsigned: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

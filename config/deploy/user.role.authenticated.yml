@@ -1,0 +1,10 @@
+uuid: e7689cbe-70da-43e5-8a00-b76daf02d2a7
+langcode: en
+status: true
+dependencies: {  }
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+permissions:
+  - 'use text format plain_text'
+  - 'access content'

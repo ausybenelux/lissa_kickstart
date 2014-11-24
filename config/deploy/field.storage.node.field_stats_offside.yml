@@ -1,0 +1,17 @@
+uuid: 1e1fc091-1aa3-4ebf-8f2d-45664c617081
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_stats_offside
+field_name: field_stats_offside
+entity_type: node
+type: integer
+settings:
+  unsigned: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

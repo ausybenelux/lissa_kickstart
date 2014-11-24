@@ -28,7 +28,7 @@ use Drupal\notification_entity\NotificationEntityInterface;
  *     "storage_schema" = "Drupal\Core\Entity\Sql\SqlContentEntityStorageSchema",
  *     "view_builder" = "Drupal\notification_entity\NotificationEntityViewBuilder",
  *     "access" = "Drupal\notification_entity\NotificationEntityAccessControlHandler",
- *     "views_data" = "Drupal\views\EntityViewsData",
+ *     "views_data" = "Drupal\notification_entity\NotificationEntityViewsData",
  *     "form" = {
  *       "default" = "Drupal\Core\Entity\ContentEntityForm",
  *       "delete" = "Drupal\notification_entity\Form\NotificationEntityDeleteForm",

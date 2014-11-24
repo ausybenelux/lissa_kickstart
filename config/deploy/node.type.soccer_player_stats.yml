@@ -1,0 +1,17 @@
+uuid: 4221f9ea-95cc-4551-b900-a5c654c3d010
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+name: 'Player statistics'
+type: soccer_player_stats
+description: 'Seasonal statistics for a soccer player.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: 'main:'

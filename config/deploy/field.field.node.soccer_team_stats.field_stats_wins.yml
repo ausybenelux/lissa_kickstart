@@ -1,0 +1,25 @@
+uuid: 1b6d8761-fe94-4ae5-a302-2c38ad68cd23
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_stats_wins
+    - node.type.soccer_team_stats
+id: node.soccer_team_stats.field_stats_wins
+field_name: field_stats_wins
+entity_type: node
+bundle: soccer_team_stats
+label: Wins
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: ''
+  suffix: '%'
+  size: normal
+third_party_settings: {  }
+field_type: integer

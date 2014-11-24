@@ -1,0 +1,18 @@
+uuid: f193ea06-41e1-4e39-a600-a414340cb7be
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_event_timeline_end
+field_name: field_event_timeline_end
+entity_type: node
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

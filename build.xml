@@ -7,7 +7,8 @@
   <property name="builddir" value="${phing.dir}/build"/>
 
   <target name="build" depends="clean,prepare,drush-make,install,import" description="Run drush make and drush site-install"/>
-  <target name="rebuild" depends="uninstall,install,import" description="Perform a non destructive rebuild"/>
+  <target name="rebuild" depends="uninstall,install,import" description="Perform a fast build"/>
+  <target name="update" depends="update-drupal,import" description="Update the instance without destroying existing data."/>
   <target name="clean" depends="uninstall,clean-build,clean-docroot" description="Clean build artifacts and source code"/>
 
   <target name="clean-permissions" description="Clean permissions">
@@ -153,6 +154,32 @@
       <arg value="ime"/>
       <arg value="shortcut"/>
       <arg value="profiles/lissa_kickstart/test_data/shortcuts.json"/>
+    </exec>
+  </target>
+
+  <target name="config-export" description="Export configuration so it can be deployed during an update.">
+    <exec executable="drush" dir="${docroot}">
+      <arg value="config-export"/>
+      <arg value="deploy"/>
+      <arg value="-y"/>
+    </exec>
+  </target>
+
+  <target name="update-drupal" description="Update to the latest version without destroying content.">
+    <!-- Rebuild all caches. -->
+    <exec executable="drush" dir="${docroot}">
+      <arg value="cache-rebuild"/>
+    </exec>
+    <!-- Run updates. -->
+    <exec executable="drush" dir="${docroot}">
+      <arg value="updb"/>
+      <arg value="-y"/>
+    </exec>
+    <!-- Import the new configuration. -->
+    <exec executable="drush" dir="${docroot}">
+      <arg value="config-import"/>
+      <arg value="deploy"/>
+      <arg value="-y"/>
     </exec>
   </target>
 </project>

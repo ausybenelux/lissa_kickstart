@@ -2,27 +2,88 @@
 <html>
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>WebSocket Example</title>
+    <title>LISSA Web client</title>
 </head>
 <body>
-<p>Messages:</p>
-<div id="messages" style="width:800px;height:300px;overflow:scroll;"></div>
-
+<h1>LISSA Web Client</h1>
+<p>Servers:</p>
+<form method="get" name="test-lissa-api" id="test-lissa-api">
+    <p><input type="text" size="60" name="lissa-admin-url" id="lissa-admin-url" placeholder="Enter the backend domain. Default: admin.lissa.dev"></p>
+    <p><input type="text" size="60" name="lissa-worker-url" id="lissa-worker-url" placeholder="Enter the worker domain. Default: worker.lissa.dev"></p>
+    <input type="submit" value="Load events" />
+</form>
+<p id="messages"></p>
+<div id="data"></div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="js/pushstream.js" type="text/javascript" language="javascript" charset="utf-8"></script>
 <script type="text/javascript" language="javascript" charset="utf-8">
     // <![CDATA[
-    function messageReceived(text, id, channel) {
-        document.getElementById('messages').innerHTML += id + ': ' + text + '<br>';
-    };
 
-    var pushstream = new PushStream({
-        host: 'worker.lissa.crosscheck.be',
-        port: window.location.port,
-        modes: "websocket"
-    });
-    pushstream.onmessage = messageReceived;
-    pushstream.addChannel('1');
-    pushstream.connect();
+    // Parse the LISSA Event API Data.
+    (function($) {
+        $('#test-lissa-api').submit(function(e) {
+            e.preventDefault();
+            var adminDomain = $('#lissa-admin-url').val();
+            var workerDomain = $('#lissa-worker-url').val();
+            adminDomain = adminDomain.length ? adminDomain : 'admin.lissa.dev';
+            workerDomain = workerDomain.length ? workerDomain : 'worker.lissa.dev';
+            var $messages = $('#messages');
+            var $data = $('#data');
+            $messages.add($data).empty();
+
+            var addNotification = function (notification) {
+                $('<li>' + notification.title[0].value + '</li>').prependTo($('#event-' + notification.api_meta.event_uuid + ' ul'));
+            };
+
+            $messages.append('<span>Loading events...</span>');
+
+            $.ajax('http://' + adminDomain + '/api/events', {
+                accepts: {
+                    json: 'application/ext+json'
+                },
+                headers: {
+                  'Accept': 'application/ext+json'
+                },
+                success: function (events) {
+                    $messages.empty();
+                    $messages.append('<span>Loading notifications...</span>');
+
+                    for (var event_id in events) {
+                        var event = events[event_id];
+                        var uuid = event.uuid[0].value;
+                        $('<div id="event-' + uuid + '"><h2>' + event.title[0].value + '</h2><ul></ul></div>').appendTo($data);
+
+                        // Fetch existing notifications.
+                        $.ajax('http://' + adminDomain + '/api/notifications/' + uuid, {
+                            accepts: {json: 'application/ext+json'},
+                            success: function (notifications) {
+                                $messages.empty();
+                                for (var notification_id in notifications) {
+                                    var notification = notifications[notification_id];
+                                    addNotification(notification);
+                                }
+                            },
+                            headers: {
+                                'Accept': 'application/ext+json'
+                            }
+                        });
+
+                        // Fetch new notifications.
+                        var pushstream = new PushStream({
+                            host: workerDomain,
+                            port: window.location.port,
+                            modes: "websocket"
+                        });
+                        pushstream.onmessage = function (data) {
+                            addNotification(data);
+                        };
+                        pushstream.addChannel(uuid);
+                        pushstream.connect();
+                    }
+                }
+            });
+        });
+    })(jQuery);
     // ]]>
 </script>
 </body>

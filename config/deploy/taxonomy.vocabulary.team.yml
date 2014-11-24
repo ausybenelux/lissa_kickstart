@@ -1,0 +1,10 @@
+uuid: c7e3b9e5-eea2-49e5-9a00-bf46fab35a7b
+langcode: en
+status: true
+dependencies: {  }
+name: Team
+vid: team
+description: ''
+hierarchy: 0
+weight: 0
+third_party_settings: {  }
