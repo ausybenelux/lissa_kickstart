@@ -11,6 +11,7 @@ projects[drupal][download][type] = git
 projects[drupal][download][revision] =  8d51bd412521ac66569d51987876cf577a0d4c2b
 projects[drupal][download][branch] = 8.0.x
 projects[drupal][patch][] = "http://www.drupal.org/files/issues/2310093.33.patch"
+projects[drupal][patch][] = "patches/fix-missing-image-quickedit-bug-LISSA-108.patch"
 
 ; Download the install profile and recursively build all its dependencies:
 projects[lissa_kickstart][type] = profile
