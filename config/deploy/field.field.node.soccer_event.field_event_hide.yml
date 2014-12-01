@@ -1,0 +1,20 @@
+uuid: cafa4df1-4c12-47c0-9d00-a2569db5c012
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_event_hide
+    - node.type.soccer_event
+id: node.soccer_event.field_event_hide
+field_name: field_event_hide
+entity_type: node
+bundle: soccer_event
+label: 'Hide on'
+description: 'The date the event should become unavailable in the client application.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: datetime

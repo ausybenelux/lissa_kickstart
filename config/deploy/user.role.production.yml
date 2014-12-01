@@ -1,0 +1,46 @@
+uuid: 176026fc-ab6e-4c5f-a600-a0eb20443eb9
+langcode: en
+status: true
+dependencies: {  }
+id: production
+label: Production
+weight: 3
+permissions:
+  0: 'create soccer_event content'
+  1: 'delete any soccer_event content'
+  2: 'delete own soccer_event content'
+  3: 'delete soccer_event revisions'
+  4: 'edit any soccer_event content'
+  5: 'edit own soccer_event content'
+  6: 'revert soccer_event revisions'
+  7: 'view soccer_event revisions'
+  9: 'delete terms in competition'
+  10: 'delete terms in player'
+  11: 'delete terms in team'
+  12: 'edit terms in competition'
+  13: 'edit terms in player'
+  14: 'edit terms in team'
+  15: 'access contextual links'
+  16: 'use text format full_html'
+  17: 'access content overview'
+  18: 'administer nodes'
+  19: 'view own unpublished content'
+  20: 'access toolbar'
+  23: 'access shortcuts'
+  24: 'administer taxonomy'
+  25: 'create soccer_player_stats content'
+  26: 'delete any soccer_player_stats content'
+  27: 'delete own soccer_player_stats content'
+  28: 'delete soccer_player_stats revisions'
+  29: 'edit any soccer_player_stats content'
+  30: 'edit own soccer_player_stats content'
+  31: 'revert soccer_player_stats revisions'
+  32: 'view soccer_player_stats revisions'
+  33: 'create soccer_team_stats content'
+  34: 'delete any soccer_team_stats content'
+  35: 'delete own soccer_team_stats content'
+  36: 'delete soccer_team_stats revisions'
+  37: 'edit any soccer_team_stats content'
+  38: 'edit own soccer_team_stats content'
+  39: 'delete terms in season'
+  40: 'edit terms in season'

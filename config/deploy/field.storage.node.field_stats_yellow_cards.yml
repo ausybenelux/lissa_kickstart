@@ -1,0 +1,17 @@
+uuid: ed8ce39e-dcd6-4cb4-8600-e99b30738a35
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_stats_yellow_cards
+field_name: field_stats_yellow_cards
+entity_type: node
+type: integer
+settings:
+  unsigned: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

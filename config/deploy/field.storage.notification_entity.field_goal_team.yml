@@ -1,0 +1,24 @@
+uuid: bb4fb480-f6bd-4c5b-8121-33c151dc2f9e
+langcode: en
+status: true
+dependencies:
+  module:
+    - notification_entity
+    - taxonomy
+id: notification_entity.field_goal_team
+field_name: field_goal_team
+entity_type: notification_entity
+type: taxonomy_term_reference
+settings:
+  allowed_values:
+    -
+      vocabulary: team
+      parent: 0
+  target_type: taxonomy_term
+  options_list_callback: null
+  target_bundle: null
+module: taxonomy
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

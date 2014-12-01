@@ -1,0 +1,17 @@
+uuid: 8814e9cb-58c9-4aa1-834c-761abc561e8b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_stats_free_kicks
+field_name: field_stats_free_kicks
+entity_type: node
+type: integer
+settings:
+  unsigned: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

@@ -1,0 +1,20 @@
+uuid: fee1bab9-a654-448d-9709-9c988976b951
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_event_timeline_start
+    - node.type.soccer_event
+id: node.soccer_event.field_event_timeline_start
+field_name: field_event_timeline_start
+entity_type: node
+bundle: soccer_event
+label: 'Timeline start time'
+description: 'The time the timeline starts. Should be equal to the time the main video stream starts.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: datetime

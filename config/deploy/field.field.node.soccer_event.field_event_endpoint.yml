@@ -1,0 +1,22 @@
+uuid: ec1ed655-6e70-4b2a-8f00-ab7cb421225b
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_event_endpoint
+    - node.type.soccer_event
+id: node.soccer_event.field_event_endpoint
+field_name: field_event_endpoint
+entity_type: node
+bundle: soccer_event
+label: 'Main video stream URL'
+description: 'The URL of the MPD file of the main video stream.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: '17'
+  title: '0'
+third_party_settings: {  }
+field_type: link

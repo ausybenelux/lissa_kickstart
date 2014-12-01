@@ -1,0 +1,23 @@
+uuid: f444283a-fad5-4c5e-9d02-2f8099501b68
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_player_teams
+field_name: field_player_teams
+entity_type: taxonomy_term
+type: taxonomy_term_reference
+settings:
+  allowed_values:
+    -
+      vocabulary: team
+      parent: 0
+  target_type: taxonomy_term
+  options_list_callback: null
+  target_bundle: null
+module: taxonomy
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }

@@ -1,0 +1,10 @@
+uuid: 2e6284a9-7306-4c51-af00-dba51f164afe
+langcode: en
+status: true
+dependencies: {  }
+name: Season
+vid: season
+description: ''
+hierarchy: 0
+weight: 0
+third_party_settings: {  }

@@ -1,0 +1,21 @@
+uuid: 78bb52e0-6570-4815-9100-f8fc67fc5537
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.body
+    - node.type.soccer_event
+id: node.soccer_event.body
+field_name: body
+entity_type: node
+bundle: soccer_event
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+third_party_settings: {  }
+field_type: text_with_summary

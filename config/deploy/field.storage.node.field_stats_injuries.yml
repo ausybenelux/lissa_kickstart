@@ -1,0 +1,17 @@
+uuid: 4ba8285c-40f7-4e3a-b750-80cc96c84041
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_stats_injuries
+field_name: field_stats_injuries
+entity_type: node
+type: integer
+settings:
+  unsigned: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

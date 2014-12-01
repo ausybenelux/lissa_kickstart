@@ -1,0 +1,13 @@
+uuid: 76761f29-48c4-499f-ad00-f629765d54ac
+langcode: en
+status: true
+dependencies: {  }
+id: technical_engineer
+label: 'Technical engineer'
+weight: 5
+permissions:
+  - 'access contextual links'
+  - 'edit any soccer_event content'
+  - 'use text format full_html'
+  - 'access shortcuts'
+  - 'access toolbar'

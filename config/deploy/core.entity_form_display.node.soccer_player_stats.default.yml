@@ -1,0 +1,104 @@
+uuid: d43f3812-5d94-4662-985a-90274c74265e
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.node.soccer_player_stats.body
+    - field.field.node.soccer_player_stats.field_stats_ball_pos
+    - field.field.node.soccer_player_stats.field_stats_fouls_committed
+    - field.field.node.soccer_player_stats.field_stats_free_kicks
+    - field.field.node.soccer_player_stats.field_stats_goals_conceded
+    - field.field.node.soccer_player_stats.field_stats_goals_scored
+    - field.field.node.soccer_player_stats.field_stats_injuries
+    - field.field.node.soccer_player_stats.field_stats_offside
+    - field.field.node.soccer_player_stats.field_stats_penalties
+    - field.field.node.soccer_player_stats.field_stats_player
+    - field.field.node.soccer_player_stats.field_stats_red_cards
+    - field.field.node.soccer_player_stats.field_stats_season
+    - field.field.node.soccer_player_stats.field_stats_yellow_cards
+    - node.type.soccer_player_stats
+id: node.soccer_player_stats.default
+targetEntityType: node
+bundle: soccer_player_stats
+mode: default
+content:
+  field_stats_player:
+    type: options_select
+    weight: 31
+    settings: {  }
+    third_party_settings: {  }
+  field_stats_season:
+    type: options_select
+    weight: 32
+    settings: {  }
+    third_party_settings: {  }
+  field_stats_goals_scored:
+    type: number
+    weight: 33
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_stats_goals_conceded:
+    type: number
+    weight: 34
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_stats_fouls_committed:
+    type: number
+    weight: 35
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_stats_ball_pos:
+    type: number
+    weight: 36
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_stats_free_kicks:
+    type: number
+    weight: 37
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_stats_penalties:
+    type: number
+    weight: 38
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_stats_yellow_cards:
+    type: number
+    weight: 39
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_stats_red_cards:
+    type: number
+    weight: 40
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_stats_injuries:
+    type: number
+    weight: 41
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_stats_offside:
+    type: number
+    weight: 42
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_stats_free_kick: true
+  title: true
+  uid: true
+  created: true
+  promote: true
+  sticky: true
+  path: true
+third_party_settings: {  }

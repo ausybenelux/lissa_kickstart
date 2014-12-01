@@ -10,8 +10,9 @@
                                            data-timeline-step="{{ timeline_step }}"
                                            data-timeline-time="{{ timeline_time }}"
   >
+  {{ title_prefix }}
   <h2{{ title_attributes }}>{{ label }}</h2>
-
+  {{ title_suffix }}
   <div{{ content_attributes.addClass('notification_entity__content') }}>
     {{ content }}
   </div>

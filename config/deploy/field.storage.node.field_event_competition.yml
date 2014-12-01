@@ -1,0 +1,24 @@
+uuid: 610d4a17-446c-49dd-a608-8f1cbee7326d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_event_competition
+field_name: field_event_competition
+entity_type: node
+type: taxonomy_term_reference
+settings:
+  allowed_values:
+    -
+      vocabulary: competition
+      parent: 0
+  target_type: taxonomy_term
+  options_list_callback: null
+  target_bundle: null
+module: taxonomy
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

@@ -1,0 +1,17 @@
+uuid: aae05f82-87dd-4248-8338-56108eb32d4f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_stats_red_cards
+field_name: field_stats_red_cards
+entity_type: node
+type: integer
+settings:
+  unsigned: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

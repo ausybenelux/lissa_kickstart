@@ -1,0 +1,10 @@
+uuid: 372e06d0-1d39-4ba5-8a00-d7a202aee52e
+langcode: en
+status: true
+dependencies: {  }
+name: Competition
+vid: competition
+description: ''
+hierarchy: 0
+weight: 0
+third_party_settings: {  }

@@ -1,0 +1,20 @@
+uuid: bb311745-728e-49a7-8200-a8875a4a6ac4
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - notification_timeline
+name: 'Soccer Event'
+type: soccer_event
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  notification_timeline:
+    enabled: 1

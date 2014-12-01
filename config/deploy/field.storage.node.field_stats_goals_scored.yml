@@ -1,0 +1,17 @@
+uuid: 0ba2ec40-0dad-4dd4-a55d-931331c3c356
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_stats_goals_scored
+field_name: field_stats_goals_scored
+entity_type: node
+type: integer
+settings:
+  unsigned: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

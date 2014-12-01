@@ -1,0 +1,24 @@
+uuid: 1d06dabe-7253-4a13-8b00-a720918d836c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_stats_player
+field_name: field_stats_player
+entity_type: node
+type: taxonomy_term_reference
+settings:
+  allowed_values:
+    -
+      vocabulary: player
+      parent: 0
+  target_type: taxonomy_term
+  options_list_callback: null
+  target_bundle: null
+module: taxonomy
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

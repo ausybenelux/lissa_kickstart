@@ -1,0 +1,21 @@
+uuid: ac4f34b2-d2c0-4b85-bc45-69c573403070
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.notification_entity.field_goal_team
+    - notification_entity.type.goal
+id: notification_entity.goal.field_goal_team
+field_name: field_goal_team
+entity_type: notification_entity
+bundle: goal
+label: Team
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+third_party_settings: {  }
+field_type: taxonomy_term_reference

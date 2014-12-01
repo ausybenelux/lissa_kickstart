@@ -1,0 +1,21 @@
+uuid: ee1665d0-e0cd-4bfe-9909-9a21c1ca0477
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.taxonomy_term.field_team_competitions
+    - taxonomy.vocabulary.team
+id: taxonomy_term.team.field_team_competitions
+field_name: field_team_competitions
+entity_type: taxonomy_term
+bundle: team
+label: Competitions
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+third_party_settings: {  }
+field_type: taxonomy_term_reference

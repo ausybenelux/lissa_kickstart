@@ -1,0 +1,18 @@
+uuid: 8c8592bb-514a-4852-9700-d1c7dbe0fc0d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_event_encoder_on
+field_name: field_event_encoder_on
+entity_type: node
+type: boolean
+settings:
+  on_label: On
+  off_label: Off
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
