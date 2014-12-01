@@ -7,8 +7,9 @@
   ]
 %}
 <article{{ attributes.addClass(classes) }} id="notification-entity-{{ id }}" data-timeline-step="{{ timeline_step }}">
+  {{ title_prefix }}
   <h2{{ title_attributes }}>{{ label }}</h2>
-
+  {{ title_suffix }}
   <div{{ content_attributes.addClass('notification_entity__content') }}>
     {{ content }}
   </div>

@@ -1,0 +1,21 @@
+uuid: cb27bdef-fc8a-4c39-9700-dccc03fb6e96
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_stats_season
+    - node.type.soccer_team_stats
+id: node.soccer_team_stats.field_stats_season
+field_name: field_stats_season
+entity_type: node
+bundle: soccer_team_stats
+label: Season
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+third_party_settings: {  }
+field_type: taxonomy_term_reference

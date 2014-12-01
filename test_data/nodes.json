@@ -22,7 +22,6 @@
     "field_event_endpoint": [{"url": null, "title": null, "route_name": null, "route_parameters": [], "options": []}],
     "field_event_hide": [{"value": null}],
     "field_event_match_start": [{"value": null}],
-    "field_event_teams": [{"target_id": null}],
     "field_event_team_setup": [
       {
         "target_id": null,
@@ -80,10 +79,8 @@
     ],
     "field_event_hide": [{"value": "2014-09-26T23:00:00"}],
     "field_event_match_start": [{"value": "2014-09-25T19:00:00"}],
-    "field_event_teams": [
-      {"target_id": "3"},
-      {"target_id": "4"}
-    ],
+    "field_event_home_team": [{"target_id": "3"}],
+    "field_event_away_team" :  [{"target_id": "4"}],
     "field_event_team_setup": [
       {
         "target_id": "2",

@@ -1,0 +1,18 @@
+uuid: a34991b2-aa30-4d91-b739-57cd09a40ec7
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_event_match_start
+field_name: field_event_match_start
+entity_type: node
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

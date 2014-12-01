@@ -1,0 +1,17 @@
+uuid: d9ba2ad9-3e0d-4ce1-a707-7a446b01f851
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_stats_goals_conceded
+field_name: field_stats_goals_conceded
+entity_type: node
+type: integer
+settings:
+  unsigned: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

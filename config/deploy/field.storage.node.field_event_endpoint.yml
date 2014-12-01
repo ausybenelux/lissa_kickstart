@@ -1,0 +1,17 @@
+uuid: 64576e9b-fbc5-44fd-8928-40084b69c1d6
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_event_endpoint
+field_name: field_event_endpoint
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

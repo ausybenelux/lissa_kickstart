@@ -7,7 +7,8 @@
   <property name="builddir" value="${phing.dir}/build"/>
 
   <target name="build" depends="clean,prepare,drush-make,install,import" description="Run drush make and drush site-install"/>
-  <target name="rebuild" depends="uninstall,install,import" description="Perform a non destructive rebuild"/>
+  <target name="rebuild" depends="uninstall,install,import" description="Perform a fast build"/>
+  <target name="update" depends="update-code,update-drupal,import" description="Update the instance without destroying existing data."/>
   <target name="clean" depends="uninstall,clean-build,clean-docroot" description="Clean build artifacts and source code"/>
 
   <target name="clean-permissions" description="Clean permissions">
@@ -50,12 +51,11 @@
     <mkdir dir="${docroot}" />
   </target>
 
-  <target name="drush-make" description="Run drush make">
-    <delete dir="${builddir}/${drupal.docroot}"/>
-    <!-- Run drush make into ./build/drupal -->
+  <target name="drush-make-create" description="Run drush make for creating a new instance.">
     <exec executable="drush">
       <arg value="make"/>
       <arg value="--concurrency=5"/>
+      <!-- Only prepare install if this is a new installation -->
       <arg value="--prepare-install"/>
       <arg value="${phing.dir}/${drush.makefile}"/>
       <arg value="${builddir}/${drupal.docroot}"/>
@@ -71,10 +71,33 @@
         <exec command="cp ${drupal.local_settings} ${builddir}/${drupal.docroot}/sites/${drupal.subdir}/settings.local.php" escape="false" />
       </then>
     </if>
+  </target>
+
+  <target name="drush-make-update" description="Run drush make for updating an existing instance.">
+    <exec executable="drush">
+      <arg value="make"/>
+      <arg value="--concurrency=5"/>
+      <arg value="${phing.dir}/${drush.makefile}"/>
+      <arg value="${builddir}/${drupal.docroot}"/>
+    </exec>
+  </target>
+
+  <target name="drush-make" description="Run drush make">
+    <delete dir="${builddir}/${drupal.docroot}"/>
+    <!-- Run drush make into ./build/drupal -->
+    <if>
+      <available file="${docroot}/core" type="dir" />
+      <then>
+        <phingcall target="drush-make-update" />
+      </then>
+      <else>
+        <phingcall target="drush-make-create" />
+      </else>
+    </if>
+
     <!-- Rsync the build into ./docroot -->
     <exec executable="rsync">
       <arg value="-aqc"/>
-      <arg value="--delete"/>
       <arg value="--exclude=sites/*/files/*"/>
       <arg value="${builddir}/${drupal.docroot}/"/>
       <arg value="${docroot}"/>
@@ -153,6 +176,44 @@
       <arg value="ime"/>
       <arg value="shortcut"/>
       <arg value="profiles/lissa_kickstart/test_data/shortcuts.json"/>
+    </exec>
+  </target>
+
+  <target name="config-export" description="Export configuration so it can be deployed during an update.">
+    <exec executable="drush" dir="${docroot}">
+      <arg value="config-export"/>
+      <arg value="deploy"/>
+      <arg value="-y"/>
+    </exec>
+  </target>
+
+  <target name="update-code" description="Install or update the instance files.">
+    <if>
+      <not><available file="${docroot}/core" type="dir" /></not>
+      <then>
+        <phingcall target="build" />
+      </then>
+      <else>
+        <phingcall target="drush-make" />
+      </else>
+    </if>
+  </target>
+
+  <target name="update-drupal" description="Update to the latest version without destroying content.">
+    <!-- Rebuild all caches. -->
+    <exec executable="drush" dir="${docroot}">
+      <arg value="cache-rebuild"/>
+    </exec>
+    <!-- Run updates. -->
+    <exec executable="drush" dir="${docroot}">
+      <arg value="updb"/>
+      <arg value="-y"/>
+    </exec>
+    <!-- Import the new configuration. -->
+    <exec executable="drush" dir="${docroot}">
+      <arg value="config-import"/>
+      <arg value="deploy"/>
+      <arg value="-y"/>
     </exec>
   </target>
 </project>

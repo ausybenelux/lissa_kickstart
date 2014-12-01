@@ -5,6 +5,7 @@ dependencies:
     - field.field.notification_entity.status.field_status_type
     - notification_entity.type.status
   module:
+    - datetime
     - entity_reference
     - text
 id: notification_entity.status.default

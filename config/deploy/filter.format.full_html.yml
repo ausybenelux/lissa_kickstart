@@ -1,0 +1,22 @@
+uuid: fee14480-0800-48a2-9d00-d2e1beb8a996
+langcode: en
+status: true
+dependencies:
+  module:
+    - editor
+name: 'Full HTML'
+format: full_html
+weight: 1
+filters:
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: true
+    weight: 9
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }

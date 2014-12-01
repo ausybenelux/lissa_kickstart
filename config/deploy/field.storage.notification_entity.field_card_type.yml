@@ -1,0 +1,25 @@
+uuid: 66931066-a627-4146-8000-adfff68df82d
+langcode: en
+status: true
+dependencies:
+  module:
+    - notification_entity
+    - options
+id: notification_entity.field_card_type
+field_name: field_card_type
+entity_type: notification_entity
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Yellow
+      label: Yellow
+    -
+      value: Red
+      label: Red
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

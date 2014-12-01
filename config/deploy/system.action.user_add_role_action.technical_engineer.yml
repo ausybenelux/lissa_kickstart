@@ -1,0 +1,14 @@
+uuid: 3ba1fe81-fcb8-4163-ba00-c5dc50238f56
+langcode: en
+status: true
+dependencies:
+  entity:
+    - user.role.technical_engineer
+  module:
+    - user
+id: user_add_role_action.technical_engineer
+label: 'Add the Technical engineer role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: technical_engineer

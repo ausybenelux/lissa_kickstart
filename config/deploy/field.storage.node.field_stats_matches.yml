@@ -1,0 +1,17 @@
+uuid: d39e17aa-fc0d-4b2f-9100-d4b478c865c6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_stats_matches
+field_name: field_stats_matches
+entity_type: node
+type: integer
+settings:
+  unsigned: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

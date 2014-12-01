@@ -1,0 +1,22 @@
+uuid: 3fdca649-45f4-436d-a73b-592142bfe495
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.notification_entity.field_card_type
+    - notification_entity.type.card
+id: notification_entity.card.field_card_type
+field_name: field_card_type
+entity_type: notification_entity
+bundle: card
+label: Type
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: Yellow
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: list_string

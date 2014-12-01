@@ -10,7 +10,7 @@ entity_type: node
 bundle: soccer_event
 label: 'Timeline start time'
 description: 'The time the timeline starts. Should be equal to the time the main video stream starts.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

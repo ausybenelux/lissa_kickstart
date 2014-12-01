@@ -1,0 +1,61 @@
+uuid: 2cc6786d-946b-453a-b400-d320ea67667c
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.node.soccer_team_stats.body
+    - field.field.node.soccer_team_stats.field_stats_defeats
+    - field.field.node.soccer_team_stats.field_stats_draws
+    - field.field.node.soccer_team_stats.field_stats_matches
+    - field.field.node.soccer_team_stats.field_stats_season
+    - field.field.node.soccer_team_stats.field_stats_team
+    - field.field.node.soccer_team_stats.field_stats_wins
+    - node.type.soccer_team_stats
+id: node.soccer_team_stats.default
+targetEntityType: node
+bundle: soccer_team_stats
+mode: default
+content:
+  field_stats_team:
+    type: options_select
+    weight: 31
+    settings: {  }
+    third_party_settings: {  }
+  field_stats_season:
+    type: options_select
+    weight: 32
+    settings: {  }
+    third_party_settings: {  }
+  field_stats_matches:
+    type: number
+    weight: 33
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_stats_wins:
+    type: number
+    weight: 34
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_stats_defeats:
+    type: number
+    weight: 35
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_stats_draws:
+    type: number
+    weight: 36
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  title: true
+  uid: true
+  created: true
+  promote: true
+  sticky: true
+  path: true
+third_party_settings: {  }

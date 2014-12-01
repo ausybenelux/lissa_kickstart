@@ -1,0 +1,14 @@
+uuid: d32b3c9f-458c-490d-9626-3862a5d77b02
+langcode: en
+status: true
+dependencies:
+  entity:
+    - user.role.production
+  module:
+    - user
+id: user_remove_role_action.production
+label: 'Remove the Production role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: production

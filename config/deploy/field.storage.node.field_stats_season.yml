@@ -1,0 +1,24 @@
+uuid: 0bab421f-ac55-4c7c-ac52-8268398a9fde
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_stats_season
+field_name: field_stats_season
+entity_type: node
+type: taxonomy_term_reference
+settings:
+  allowed_values:
+    -
+      vocabulary: season
+      parent: 0
+  target_type: taxonomy_term
+  options_list_callback: null
+  target_bundle: null
+module: taxonomy
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

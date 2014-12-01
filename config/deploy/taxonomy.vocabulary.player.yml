@@ -1,0 +1,10 @@
+uuid: b2d0ca7a-a94c-427d-ae56-866ea1ad9e44
+langcode: en
+status: true
+dependencies: {  }
+name: Player
+vid: player
+description: ''
+hierarchy: 0
+weight: 0
+third_party_settings: {  }

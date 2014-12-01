@@ -1,0 +1,24 @@
+uuid: 917f119f-c2fb-4dfe-b303-3ace7f3f65da
+langcode: en
+status: true
+dependencies:
+  module:
+    - notification_entity
+    - taxonomy
+id: notification_entity.field_card_player
+field_name: field_card_player
+entity_type: notification_entity
+type: taxonomy_term_reference
+settings:
+  allowed_values:
+    -
+      vocabulary: player
+      parent: 0
+  target_type: taxonomy_term
+  options_list_callback: null
+  target_bundle: null
+module: taxonomy
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

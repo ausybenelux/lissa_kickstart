@@ -1,0 +1,24 @@
+uuid: c61132b2-3a47-4b1f-8f00-a5e66903a9df
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.notification_entity.status.field_status_type
+    - notification_entity.type.status
+  module:
+    - notification_entity
+    - options
+id: notification_entity.status.default
+label: null
+targetEntityType: notification_entity
+bundle: status
+mode: default
+content:
+  field_status_type:
+    type: list_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
+hidden: {  }
+third_party_settings: {  }

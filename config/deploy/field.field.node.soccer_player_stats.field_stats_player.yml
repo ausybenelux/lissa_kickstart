@@ -1,0 +1,21 @@
+uuid: 296f6fd2-eafe-4bd9-9f0b-11b5bf039619
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_stats_player
+    - node.type.soccer_player_stats
+id: node.soccer_player_stats.field_stats_player
+field_name: field_stats_player
+entity_type: node
+bundle: soccer_player_stats
+label: Player
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+third_party_settings: {  }
+field_type: taxonomy_term_reference

@@ -1,0 +1,20 @@
+uuid: 154b83f9-28e0-4259-9d00-d68d2fe54065
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_event_match_start
+    - node.type.soccer_event
+id: node.soccer_event.field_event_match_start
+field_name: field_event_match_start
+entity_type: node
+bundle: soccer_event
+label: 'Match start time'
+description: 'The time the match will start.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: datetime

@@ -1,0 +1,28 @@
+uuid: 74cc6ab3-4d46-4ca1-a524-36981624a0a3
+langcode: en
+status: true
+dependencies:
+  module:
+    - image
+    - node
+id: node.field_event_thumbnail
+field_name: field_event_thumbnail
+entity_type: node
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    fid: 0
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+  target_bundle: null
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

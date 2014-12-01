@@ -1,0 +1,43 @@
+uuid: 850dbb97-c5bb-43f0-bf00-fe382c7a270a
+langcode: en
+status: true
+dependencies: {  }
+id: operator
+label: Operator
+weight: 4
+permissions:
+  0: 'create event content'
+  1: 'delete any event content'
+  2: 'delete own event content'
+  3: 'delete event revisions'
+  4: 'edit any event content'
+  5: 'edit own event content'
+  6: 'revert event revisions'
+  7: 'view event revisions'
+  8: 'access contextual links'
+  9: 'use text format full_html'
+  10: 'access content overview'
+  11: 'administer nodes'
+  12: 'view own unpublished content'
+  22: 'access shortcuts'
+  23: 'access toolbar'
+  24: 'create soccer_player_stats content'
+  25: 'delete any soccer_player_stats content'
+  26: 'delete own soccer_player_stats content'
+  27: 'delete soccer_player_stats revisions'
+  28: 'edit any soccer_player_stats content'
+  29: 'edit own soccer_player_stats content'
+  30: 'revert soccer_player_stats revisions'
+  31: 'view soccer_player_stats revisions'
+  32: 'create soccer_team_stats content'
+  33: 'delete any soccer_team_stats content'
+  34: 'delete own soccer_team_stats content'
+  35: 'delete soccer_team_stats revisions'
+  36: 'edit any soccer_team_stats content'
+  37: 'edit own soccer_team_stats content'
+  38: 'add notification entity'
+  39: 'delete notification entity'
+  40: 'edit notification entity'
+  41: 'view notification entity'
+  42: 'access timeline'
+  43: 'access in-place editing'

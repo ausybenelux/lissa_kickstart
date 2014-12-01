@@ -26,12 +26,12 @@ use Drupal\notification_entity\NotificationEntityInterface;
  *   handlers = {
  *     "storage" = "Drupal\Core\Entity\Sql\SqlContentEntityStorage",
  *     "storage_schema" = "Drupal\Core\Entity\Sql\SqlContentEntityStorageSchema",
- *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "access" = "Drupal\Core\Entity\EntityAccessControlHandler",
+ *     "view_builder" = "Drupal\notification_entity\NotificationEntityViewBuilder",
+ *     "access" = "Drupal\notification_entity\NotificationEntityAccessControlHandler",
  *     "views_data" = "Drupal\notification_entity\NotificationEntityViewsData",
  *     "form" = {
  *       "default" = "Drupal\Core\Entity\ContentEntityForm",
- *       "delete" = "Drupal\Core\Entity\ContentEntityConfirmFormBase",
+ *       "delete" = "Drupal\notification_entity\Form\NotificationEntityDeleteForm",
  *       "edit" = "Drupal\Core\Entity\ContentEntityForm"
  *     },
  *     "list_builder" = "Drupal\notification_entity\NotificationEntityListBuilder"
@@ -264,6 +264,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setLabel(t('Image'))
       ->setDescription(t('The file fid of the file entity containing the notification image.'))
       ->setRevisionable(TRUE)
+      ->setDefaultValue(NULL)
       ->setSetting('target_type', 'file')
       ->setSetting('handler', 'default')
       ->setTranslatable(TRUE)
@@ -286,6 +287,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setLabel(t('Content'))
       ->setDisplayOptions('view', array(
         'type' => 'text',
+        'weight' => 0,
         'label' => 'hidden',
       ))
       ->setDisplayOptions('form', array(

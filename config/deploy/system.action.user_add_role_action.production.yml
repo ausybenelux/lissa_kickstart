@@ -1,0 +1,14 @@
+uuid: 1c4383b3-f5a8-46a1-8f03-3f43af1c4430
+langcode: en
+status: true
+dependencies:
+  entity:
+    - user.role.production
+  module:
+    - user
+id: user_add_role_action.production
+label: 'Add the Production role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: production

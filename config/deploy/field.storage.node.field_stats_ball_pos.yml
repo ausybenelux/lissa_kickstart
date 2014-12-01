@@ -1,0 +1,17 @@
+uuid: 1bac8190-59de-462b-8720-3267c518a114
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_stats_ball_pos
+field_name: field_stats_ball_pos
+entity_type: node
+type: integer
+settings:
+  unsigned: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

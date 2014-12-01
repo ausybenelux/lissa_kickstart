@@ -1,0 +1,48 @@
+uuid: 45c6edee-7932-4408-b551-8135a65e8801
+langcode: en
+status: true
+dependencies:
+  entity:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.soccer_event.body
+    - field.field.node.soccer_event.field_event_away_team
+    - field.field.node.soccer_event.field_event_competition
+    - field.field.node.soccer_event.field_event_encoder_on
+    - field.field.node.soccer_event.field_event_endpoint
+    - field.field.node.soccer_event.field_event_hide
+    - field.field.node.soccer_event.field_event_home_team
+    - field.field.node.soccer_event.field_event_match_start
+    - field.field.node.soccer_event.field_event_team_setup
+    - field.field.node.soccer_event.field_event_thumbnail
+    - field.field.node.soccer_event.field_event_timeline_end
+    - field.field.node.soccer_event.field_event_timeline_start
+    - field.field.node.soccer_event.field_event_visible
+    - node.type.soccer_event
+  module:
+    - user
+id: node.soccer_event.teaser
+label: null
+targetEntityType: node
+bundle: soccer_event
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  langcode: true
+  body: true
+  field_event_endpoint: true
+  field_event_competition: true
+  field_event_encoder_on: true
+  field_event_hide: true
+  field_event_match_start: true
+  field_event_teams: true
+  field_event_team_setup: true
+  field_event_thumbnail: true
+  field_event_timeline_end: true
+  field_event_timeline_start: true
+  field_event_visible: true
+  field_event_team1: true
+  field_event_away_team: true
+  field_event_home_team: true
+third_party_settings: {  }

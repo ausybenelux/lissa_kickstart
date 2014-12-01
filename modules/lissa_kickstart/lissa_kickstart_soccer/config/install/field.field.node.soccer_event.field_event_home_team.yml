@@ -2,15 +2,15 @@ langcode: en
 status: true
 dependencies:
   entity:
-    - field.storage.node.field_event_teams
+    - field.storage.node.field_event_home_team
     - node.type.soccer_event
-id: node.soccer_event.field_event_teams
-field_name: field_event_teams
+id: node.soccer_event.field_event_home_team
+field_name: field_event_home_team
 entity_type: node
 bundle: soccer_event
-label: Teams
+label: 'Home team'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

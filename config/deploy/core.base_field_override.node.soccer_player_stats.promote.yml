@@ -1,0 +1,21 @@
+uuid: b4347cdf-1dbd-4456-a031-4934c8ea2991
+langcode: en
+status: true
+dependencies:
+  entity:
+    - node.type.soccer_player_stats
+id: node.soccer_player_stats.promote
+field_name: promote
+entity_type: node
+bundle: soccer_player_stats
+label: Promote
+description: 'A boolean indicating whether the node should be displayed on the front page.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: boolean
