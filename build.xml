@@ -131,7 +131,7 @@
       </then>
     </if>
   </target>
-ac
+
   <target name="uninstall" description="Run drush sql-drop">
     <if>
       <available file="${docroot}" type="dir" />
