@@ -41,3 +41,4 @@ permissions:
   41: 'view notification entity'
   42: 'access timeline'
   43: 'access in-place editing'
+  44: 'edit any soccer_event content'
