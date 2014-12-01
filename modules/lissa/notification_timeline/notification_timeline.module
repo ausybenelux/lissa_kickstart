@@ -62,9 +62,14 @@ function notification_timeline_form_node_type_form_builder($entity_type, NodeTyp
  * Adds ajax functionality to the notification entity form.
  */
 function notification_entity_form_notification_entity_form_alter(&$form, FormStateInterface $form_state) {
-  $form['actions']['submit']['#ajax'] = [
-    'callback' => '\Drupal\notification_timeline\Controller\NotificationTimelineController::ajaxSubmitNotificationEntity'
-  ];
+  $path = Drupal::routeMatch()->getRouteObject()->getPath();
+
+  if ($path !== '/notification/{notification_entity}/edit') {
+    $form['actions']['submit']['#ajax'] = [
+      'callback' => '\Drupal\notification_timeline\Controller\NotificationTimelineController::ajaxSubmitNotificationEntity'
+    ];
+  }
+
 }
 
 /**

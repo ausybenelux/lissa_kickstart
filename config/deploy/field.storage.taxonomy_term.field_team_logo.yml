@@ -1,0 +1,28 @@
+uuid: fcb9bd93-fb82-4761-bb18-24190f01b0db
+langcode: en
+status: true
+dependencies:
+  module:
+    - image
+    - taxonomy
+id: taxonomy_term.field_team_logo
+field_name: field_team_logo
+entity_type: taxonomy_term
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    fid: 0
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+  target_bundle: null
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

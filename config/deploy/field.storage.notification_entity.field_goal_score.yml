@@ -1,0 +1,17 @@
+uuid: a0231436-d1da-4550-8f00-cf58497cd2a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - notification_entity
+id: notification_entity.field_goal_score
+field_name: field_goal_score
+entity_type: notification_entity
+type: string
+settings:
+  max_length: 255
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

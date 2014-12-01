@@ -1,0 +1,17 @@
+uuid: 43299381-a2bb-4002-8900-d3dab2b849c4
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_team_color
+field_name: field_team_color
+entity_type: taxonomy_term
+type: string
+settings:
+  max_length: 255
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

@@ -1,0 +1,17 @@
+uuid: 311477ba-82ac-4ee6-8725-37a716ee7e66
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_stats_defeats
+field_name: field_stats_defeats
+entity_type: node
+type: integer
+settings:
+  unsigned: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

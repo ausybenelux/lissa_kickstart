@@ -1,0 +1,25 @@
+uuid: 30631aa3-0444-4434-b707-7b40e3c1619c
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_stats_ball_pos
+    - node.type.soccer_player_stats
+id: node.soccer_player_stats.field_stats_ball_pos
+field_name: field_stats_ball_pos
+entity_type: node
+bundle: soccer_player_stats
+label: 'Ball possession'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: ''
+  suffix: '%'
+  size: normal
+third_party_settings: {  }
+field_type: integer

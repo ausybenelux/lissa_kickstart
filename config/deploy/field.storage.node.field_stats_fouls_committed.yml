@@ -1,0 +1,17 @@
+uuid: 5e6e5c58-9bb0-4c70-9d00-d5c1cc25cfe2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_stats_fouls_committed
+field_name: field_stats_fouls_committed
+entity_type: node
+type: integer
+settings:
+  unsigned: ''
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

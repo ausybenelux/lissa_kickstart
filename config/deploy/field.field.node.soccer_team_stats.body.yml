@@ -1,0 +1,21 @@
+uuid: 49eab7d7-2ab7-428d-a129-41ed8a68d7ea
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.body
+    - node.type.soccer_team_stats
+id: node.soccer_team_stats.body
+field_name: body
+entity_type: node
+bundle: soccer_team_stats
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+third_party_settings: {  }
+field_type: text_with_summary

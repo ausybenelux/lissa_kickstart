@@ -1,0 +1,8 @@
+uuid: fd7ec71d-3510-43da-a900-bbcf2a9efd5c
+langcode: en
+status: true
+dependencies: {  }
+name: Standard
+type: standard
+description: 'A standard notification with an image and an html textfield'
+help: null

@@ -39,3 +39,4 @@ permissions:
   40: 'edit notification entity'
   41: 'view notification entity'
   42: 'access timeline'
+  43: 'access in-place editing'

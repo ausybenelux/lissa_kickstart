@@ -1,0 +1,71 @@
+uuid: 4893a246-913c-4fbb-ac00-c3b1dcb5dd7b
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.node.soccer_team_stats.body
+    - field.field.node.soccer_team_stats.field_stats_defeats
+    - field.field.node.soccer_team_stats.field_stats_draws
+    - field.field.node.soccer_team_stats.field_stats_matches
+    - field.field.node.soccer_team_stats.field_stats_season
+    - field.field.node.soccer_team_stats.field_stats_team
+    - field.field.node.soccer_team_stats.field_stats_wins
+    - node.type.soccer_team_stats
+  module:
+    - taxonomy
+    - user
+id: node.soccer_team_stats.default
+label: null
+targetEntityType: node
+bundle: soccer_team_stats
+mode: default
+content:
+  field_stats_team:
+    type: taxonomy_term_reference_plain
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
+  field_stats_season:
+    type: taxonomy_term_reference_plain
+    weight: 102
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
+  field_stats_matches:
+    type: number_integer
+    weight: 103
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    label: inline
+  field_stats_wins:
+    type: number_integer
+    weight: 104
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    label: inline
+  field_stats_defeats:
+    type: number_integer
+    weight: 105
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    label: inline
+  field_stats_draws:
+    type: number_integer
+    weight: 106
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    label: inline
+hidden:
+  langcode: true
+  body: true
+  links: true
+third_party_settings: {  }

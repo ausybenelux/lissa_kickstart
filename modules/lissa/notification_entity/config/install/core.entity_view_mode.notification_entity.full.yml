@@ -1,0 +1,9 @@
+id: notification_entity.full
+label: 'Full content'
+status: false
+cache: true
+targetEntityType: notification_entity
+
+dependencies:
+  module:
+    - notification_entity

@@ -1,0 +1,21 @@
+uuid: 30a68c9a-778d-42d4-8f62-987ac3f6c9b2
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_event_teams
+    - node.type.soccer_event
+id: node.soccer_event.field_event_teams
+field_name: field_event_teams
+entity_type: node
+bundle: soccer_event
+label: Teams
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+third_party_settings: {  }
+field_type: taxonomy_term_reference

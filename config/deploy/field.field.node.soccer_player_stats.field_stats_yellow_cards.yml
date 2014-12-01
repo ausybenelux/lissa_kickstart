@@ -1,0 +1,25 @@
+uuid: 941d916b-673c-4a11-9425-37ea0d91c9b9
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_stats_yellow_cards
+    - node.type.soccer_player_stats
+id: node.soccer_player_stats.field_stats_yellow_cards
+field_name: field_stats_yellow_cards
+entity_type: node
+bundle: soccer_player_stats
+label: 'Yellow cards'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+  size: normal
+third_party_settings: {  }
+field_type: integer

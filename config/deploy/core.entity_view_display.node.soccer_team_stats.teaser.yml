@@ -1,0 +1,34 @@
+uuid: 14c0cf67-9b1c-4f02-9300-c84970ccca4b
+langcode: en
+status: true
+dependencies:
+  entity:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.soccer_team_stats.body
+    - field.field.node.soccer_team_stats.field_stats_defeats
+    - field.field.node.soccer_team_stats.field_stats_draws
+    - field.field.node.soccer_team_stats.field_stats_matches
+    - field.field.node.soccer_team_stats.field_stats_season
+    - field.field.node.soccer_team_stats.field_stats_team
+    - field.field.node.soccer_team_stats.field_stats_wins
+    - node.type.soccer_team_stats
+  module:
+    - user
+id: node.soccer_team_stats.teaser
+label: null
+targetEntityType: node
+bundle: soccer_team_stats
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  langcode: true
+  body: true
+  field_stats_defeats: true
+  field_stats_draws: true
+  field_stats_matches: true
+  field_stats_season: true
+  field_stats_team: true
+  field_stats_wins: true
+third_party_settings: {  }
