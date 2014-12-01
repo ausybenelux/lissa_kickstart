@@ -98,7 +98,6 @@
     <!-- Rsync the build into ./docroot -->
     <exec executable="rsync">
       <arg value="-aqc"/>
-      <arg value="--delete"/>
       <arg value="--exclude=sites/*/files/*"/>
       <arg value="${builddir}/${drupal.docroot}/"/>
       <arg value="${docroot}"/>
