@@ -1,15 +1,15 @@
-uuid: 296f6fd2-eafe-4bd9-9f0b-11b5bf039619
+uuid: 2f3fed12-17b7-4ad7-b943-67e0ae8811fe
 langcode: en
 status: true
 dependencies:
   entity:
-    - field.storage.node.field_stats_player
-    - node.type.soccer_player_stats
-id: node.soccer_player_stats.field_stats_player
-field_name: field_stats_player
+    - field.storage.node.field_event_away_team
+    - node.type.soccer_event
+id: node.soccer_event.field_event_away_team
+field_name: field_event_away_team
 entity_type: node
-bundle: soccer_player_stats
-label: Player
+bundle: soccer_event
+label: 'Away team'
 description: ''
 required: true
 translatable: false

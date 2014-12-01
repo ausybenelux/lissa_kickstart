@@ -1,12 +1,12 @@
-uuid: b625beff-b7a6-4474-8303-3db4689f954a
+uuid: f7859ecd-7fad-46b0-8904-4d020e30970e
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.field_event_teams
-field_name: field_event_teams
+id: node.field_event_home_team
+field_name: field_event_home_team
 entity_type: node
 type: taxonomy_term_reference
 settings:
@@ -19,6 +19,6 @@ settings:
   target_bundle: null
 module: taxonomy
 locked: false
-cardinality: 2
+cardinality: 1
 translatable: true
 indexes: {  }

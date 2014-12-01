@@ -1,0 +1,10 @@
+id: notification_entity.full
+uuid: a5323179-5f60-453c-ba04-4e7134ca4452
+label: 'Full content'
+targetEntityType: notification_entity
+status: false
+cache: true
+langcode: und
+dependencies:
+  module:
+    - notification_entity

@@ -1,18 +1,18 @@
-uuid: 917f119f-c2fb-4dfe-b303-3ace7f3f65da
+uuid: a4c9960a-7d92-4ae9-9500-df0421492815
 langcode: en
 status: true
 dependencies:
   module:
-    - notification_entity
+    - node
     - taxonomy
-id: notification_entity.field_card_player
-field_name: field_card_player
-entity_type: notification_entity
+id: node.field_event_away_team
+field_name: field_event_away_team
+entity_type: node
 type: taxonomy_term_reference
 settings:
   allowed_values:
     -
-      vocabulary: player
+      vocabulary: team
       parent: 0
   target_type: taxonomy_term
   options_list_callback: null

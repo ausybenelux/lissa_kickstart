@@ -1,16 +1,17 @@
-uuid: 00f5111e-d87e-484e-9300-f376e5654592
+uuid: 79a172cd-0b64-4a33-910d-131e48789765
 langcode: en
 status: true
 dependencies:
   entity:
     - field.field.node.soccer_event.body
+    - field.field.node.soccer_event.field_event_away_team
     - field.field.node.soccer_event.field_event_competition
     - field.field.node.soccer_event.field_event_encoder_on
     - field.field.node.soccer_event.field_event_endpoint
     - field.field.node.soccer_event.field_event_hide
+    - field.field.node.soccer_event.field_event_home_team
     - field.field.node.soccer_event.field_event_match_start
     - field.field.node.soccer_event.field_event_team_setup
-    - field.field.node.soccer_event.field_event_teams
     - field.field.node.soccer_event.field_event_thumbnail
     - field.field.node.soccer_event.field_event_timeline_end
     - field.field.node.soccer_event.field_event_timeline_start
@@ -63,11 +64,6 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-  field_event_teams:
-    type: options_select
-    weight: 6
-    settings: {  }
-    third_party_settings: {  }
   field_event_competition:
     type: options_select
     weight: 7
@@ -102,4 +98,7 @@ hidden:
   promote: true
   sticky: true
   path: true
+  field_event_away_team: true
+  field_event_home_team: true
+  field_event_teams: true
 third_party_settings: {  }

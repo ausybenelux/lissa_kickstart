@@ -1,17 +1,17 @@
-uuid: 30a68c9a-778d-42d4-8f62-987ac3f6c9b2
+uuid: 0db92bb4-781b-471d-8405-5dc934dba74d
 langcode: en
 status: true
 dependencies:
   entity:
-    - field.storage.node.field_event_teams
+    - field.storage.node.field_event_home_team
     - node.type.soccer_event
-id: node.soccer_event.field_event_teams
-field_name: field_event_teams
+id: node.soccer_event.field_event_home_team
+field_name: field_event_home_team
 entity_type: node
 bundle: soccer_event
-label: Teams
+label: 'Home team'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

@@ -1,16 +1,17 @@
-uuid: 75288328-dffb-46e1-9000-e47cc522aef7
+uuid: 1ce4d0fe-4730-49da-b317-239e4418c903
 langcode: en
 status: true
 dependencies:
   entity:
     - field.field.node.soccer_event.body
+    - field.field.node.soccer_event.field_event_away_team
     - field.field.node.soccer_event.field_event_competition
     - field.field.node.soccer_event.field_event_encoder_on
     - field.field.node.soccer_event.field_event_endpoint
     - field.field.node.soccer_event.field_event_hide
+    - field.field.node.soccer_event.field_event_home_team
     - field.field.node.soccer_event.field_event_match_start
     - field.field.node.soccer_event.field_event_team_setup
-    - field.field.node.soccer_event.field_event_teams
     - field.field.node.soccer_event.field_event_thumbnail
     - field.field.node.soccer_event.field_event_timeline_end
     - field.field.node.soccer_event.field_event_timeline_start
@@ -42,12 +43,6 @@ content:
   field_event_competition:
     type: taxonomy_term_reference_plain
     weight: 2
-    settings: {  }
-    third_party_settings: {  }
-    label: inline
-  field_event_teams:
-    type: taxonomy_term_reference_plain
-    weight: 3
     settings: {  }
     third_party_settings: {  }
     label: inline
@@ -93,4 +88,7 @@ hidden:
   links: true
   field_event_team_setup: true
   field_event_thumbnail: true
+  field_event_away_team: true
+  field_event_home_team: true
+  field_event_teams: true
 third_party_settings: {  }
