@@ -51,12 +51,11 @@
     <mkdir dir="${docroot}" />
   </target>
 
-  <target name="drush-make" description="Run drush make">
-    <delete dir="${builddir}/${drupal.docroot}"/>
-    <!-- Run drush make into ./build/drupal -->
+  <target name="drush-make-create" description="Run drush make for creating a new instance.">
     <exec executable="drush">
       <arg value="make"/>
       <arg value="--concurrency=5"/>
+      <!-- Only prepare install if this is a new installation -->
       <arg value="--prepare-install"/>
       <arg value="${phing.dir}/${drush.makefile}"/>
       <arg value="${builddir}/${drupal.docroot}"/>
@@ -72,6 +71,30 @@
         <exec command="cp ${drupal.local_settings} ${builddir}/${drupal.docroot}/sites/${drupal.subdir}/settings.local.php" escape="false" />
       </then>
     </if>
+  </target>
+
+  <target name="drush-make-update" description="Run drush make for updating an existing instance.">
+    <exec executable="drush">
+      <arg value="make"/>
+      <arg value="--concurrency=5"/>
+      <arg value="${phing.dir}/${drush.makefile}"/>
+      <arg value="${builddir}/${drupal.docroot}"/>
+    </exec>
+  </target>
+
+  <target name="drush-make" description="Run drush make">
+    <delete dir="${builddir}/${drupal.docroot}"/>
+    <!-- Run drush make into ./build/drupal -->
+    <if>
+      <available file="${docroot}/core" type="dir" />
+      <then>
+        <phingcall target="drush-make-update" />
+      </then>
+      <else>
+        <phingcall target="drush-make-create" />
+      </else>
+    </if>
+
     <!-- Rsync the build into ./docroot -->
     <exec executable="rsync">
       <arg value="-aqc"/>
