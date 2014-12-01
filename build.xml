@@ -8,7 +8,7 @@
 
   <target name="build" depends="clean,prepare,drush-make,install,import" description="Run drush make and drush site-install"/>
   <target name="rebuild" depends="uninstall,install,import" description="Perform a fast build"/>
-  <target name="update" depends="prepare-update,update-drupal,import" description="Update the instance without destroying existing data."/>
+  <target name="update" depends="update-code,update-drupal,import" description="Update the instance without destroying existing data."/>
   <target name="clean" depends="uninstall,clean-build,clean-docroot" description="Clean build artifacts and source code"/>
 
   <target name="clean-permissions" description="Clean permissions">
@@ -131,7 +131,7 @@
       </then>
     </if>
   </target>
-
+ac
   <target name="uninstall" description="Run drush sql-drop">
     <if>
       <available file="${docroot}" type="dir" />
@@ -188,12 +188,15 @@
     </exec>
   </target>
 
-  <target name="prepare-update" description="Make sure the application is installed before it's updated.">
+  <target name="update-code" description="Install or update the instance files.">
     <if>
       <not><available file="${docroot}/core" type="dir" /></not>
       <then>
         <phingcall target="build" />
       </then>
+      <else>
+        <phingcall target="drush-make" />
+      </else>
     </if>
   </target>
 
