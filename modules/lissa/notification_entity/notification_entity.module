@@ -4,10 +4,6 @@
  * Contains Drupal\notification_entity\notification_entity.module
  */
 
-function notification_entity_type_load() {
-
-}
-
 /**
  * Implements hook_theme().
  */

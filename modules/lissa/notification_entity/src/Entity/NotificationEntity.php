@@ -15,6 +15,7 @@ use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\file\FileInterface;
 use Drupal\node\NodeInterface;
 use Drupal\notification_entity\NotificationEntityInterface;
+use Drupal\Core\Entity\EntityStorageInterface;
 
 /**
  * Defines the notification entity class.
@@ -334,5 +335,27 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
     $time->sub(new DateInterval('PT' . NotificationEntity::TIMELINE_TIME . 'S'));
 
     return [['default_date_type' => TRUE, 'default_date' => $time->format('Y-m-d H:i:s')]];
+  }
+
+  /**
+   * {@inheritdoc}
+   *
+   * Fixes a bug when a notification has no image, caused by
+   * https://www.drupal.org/node/2164601.
+   *
+   * @todo implement fix from d.o issue #2164601.
+   */
+  public function preSave(EntityStorageInterface $storage) {
+    $fields = $this->getFields();
+    if (isset($fields['image'])) {
+      $value = $fields['image']->getValue();
+      if (isset($value[0]['target_id']) && empty($value[0]['target_id'])) {
+        // Set the target_id to NULL instead of 0 so Drupal knows it's an empty
+        // field and won't attempt to save it.
+        $value[0]['target_id'] = NULL;
+        $fields['image']->setValue($value);
+      }
+    }
+    parent::preSave($storage);
   }
 }
