@@ -8,7 +8,6 @@
 namespace Drupal\notification_timeline\Controller;
 
 use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\InvokeCommand;
 use Drupal\Core\Ajax\PrependCommand;
 use Drupal\Core\Ajax\RemoveCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
@@ -44,7 +43,9 @@ class NotificationTimelineAjaxController extends FormAjaxController {
    * @throws \Symfony\Component\HttpKernel\Exception\HttpExceptionInterface
    */
   public function ajaxAddNotification(NodeInterface $node, Request $request) {
-    return self::content($request);
+    list($form, $form_state) = $this->getForm($request);
+    drupal_process_form($form['#form_id'], $form, $form_state);
+    return $this->ajaxSubmitNotificationEntity($form, $form_state);
   }
 
   /**

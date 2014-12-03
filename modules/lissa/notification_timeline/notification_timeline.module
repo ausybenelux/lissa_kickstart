@@ -68,7 +68,6 @@ function notification_entity_form_notification_entity_form_alter(&$form, FormSta
 
   if (strpos($path, '/node/{node}/timeline') === 0 && $node) {
     $form['actions']['submit']['#ajax'] = [
-      'callback' => '\Drupal\notification_timeline\Controller\NotificationTimelineAjaxController::ajaxSubmitNotificationEntity',
       'path' => 'node/' . $node->id() . '/timeline/ajax/add',
     ];
   }
