@@ -5,18 +5,11 @@
  * Contains \Drupal\notification_timeline\Controller\NotificationTimelineController.
  */
 
-  namespace Drupal\notification_timeline\Controller;
+namespace Drupal\notification_timeline\Controller;
 
-use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\InvokeCommand;
-use Drupal\Core\Ajax\PrependCommand;
-use Drupal\Core\Ajax\RemoveCommand;
-use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Access\AccessResult;
-use Drupal\Core\Form\FormState;
 use Drupal\notification_entity\Entity\NotificationEntity;
 
 
@@ -37,10 +30,20 @@ class NotificationTimelineController extends ControllerBase {
   public function nodeLoad(NodeInterface $node) {
     $build = array();
     $build['notification_form'] = $this->formBuilder()->getForm('Drupal\notification_timeline\Form\NotificationTimelineNotificationForm');
-    $build['notification_type_forms'] = array(
+    $build['notification_type_forms'] = self::buildNotificationForms();
+    $build['timeline'] = $this->getTimeline($node);
+    return $build;
+  }
+
+  /**
+   * Builds a render array containing all notification form types.
+   *
+   * @return array
+   */
+  public static function buildNotificationForms() {
+    $element = array(
       '#attributes' => array('id' => 'notification-forms'),
-      '#type' => 'html_tag',
-      '#tag' => 'div',
+      '#type' => 'container',
       '#attached' => array(
         'js' => array(
           drupal_get_path('module', 'notification_timeline') . '/js/plugins/Sticky/jquery.sticky.js',
@@ -51,18 +54,20 @@ class NotificationTimelineController extends ControllerBase {
     );
     $form_builder = \Drupal::service('entity.form_builder');
     // Add all type forms and hide them.
+    \Drupal::entityManager()->getStorage('notification_entity')->resetCache();
     foreach (\Drupal::entityManager()->getStorage('notification_type')->loadMultiple() as $type) {
       $entity = \Drupal::entityManager()->getStorage('notification_entity')->create(array('type' => $type->id()));
-      $build['notification_type_forms'][$type->id()] = $form_builder->getForm($entity);
-      $build['notification_type_forms'][$type->id()]['form_label'] = array(
+      // Force empty user input so this form is rebuilt from scratch on an ajax
+      // call.
+      $element[$type->id()] = $form_builder->getForm($entity, 'default', array('input' => array()));
+      $element[$type->id()]['form_label'] = array(
         '#markup' => '<h2>' . t('Add !notification_type', array('!notification_type' => $type->label())) . '</h2>',
         '#weight' => -100,
       );
-      $build['notification_type_forms'][$type->id()]['#attributes']['class'][] = 'js-hide';
+      $element[$type->id()]['#attributes']['class'][] = 'js-hide';
     }
 
-    $build['timeline'] = $this->getTimeline($node);
-    return $build;
+    return $element;
   }
 
   /**
@@ -123,58 +128,4 @@ class NotificationTimelineController extends ControllerBase {
     $enabled = $node_type->getThirdPartySetting('notification_timeline', 'enabled', FALSE);
     return AccessResult::allowedIf($enabled);
   }
-
-  /**
-   * Ajax callback to submit a notification entity.
-   *
-   * @param array $form
-   *   Form API array structure.
-   * @param \Drupal\Core\Form\FormStateInterface $form_state
-   *   Form state information.
-   *
-   * @return AjaxResponse
-   *   Ajax response with the html code for the new notification. A list of commands is given with the response
-   *   to reset the form and the page to its original state.
-   */
-  public static function ajaxSubmitNotificationEntity(array $form, FormStateInterface $form_state) {
-    $response = new AjaxResponse();
-    /** @var \Drupal\notification_entity\Entity\NotificationEntity $notification_entity */
-    $notification_entity = $form_state->getFormObject()->getEntity();
-
-    $notification_form = '#' . $notification_entity->bundle() . '-notification-entity-form';
-
-    if ($form_state->hasAnyErrors()) {
-
-      $array = [
-        'attributes' => ['id' => 'notification-form-errors'],
-        '#theme' => 'status_messages',
-      ];
-      $errors = drupal_render($array);
-
-      $response->addCommand(new RemoveCommand('.messages--error'));
-      $response->addCommand(new PrependCommand($notification_form, $errors));
-
-      return $response;
-
-    }
-
-    $form_builder = \Drupal::service('entity.form_builder');
-
-    // Create the html for the notification entity
-    $view_builder = \Drupal::entityManager()->getViewBuilder('notification_entity');
-    $build = $view_builder->view($notification_entity);
-    $view = drupal_render($build);
-
-    \Drupal::entityManager()->clearCachedDefinitions();
-    $entity = \Drupal::entityManager()->getStorage('notification_entity')->create(array('type' => 'standard'));
-
-    $new_form = $form_builder->getForm($entity);
-
-    $response->addCommand(new PrependCommand('#js-notification-list', $view));
-    $response->addCommand(new InvokeCommand('#js-notification-list', 'trigger', ['update']));
-
-    return $response;
-  }
-
-
 }

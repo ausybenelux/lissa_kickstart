@@ -63,11 +63,13 @@ function notification_timeline_form_node_type_form_builder($entity_type, NodeTyp
  */
 function notification_entity_form_notification_entity_form_alter(&$form, FormStateInterface $form_state) {
 
-  $path = Drupal::routeMatch()->getRouteObject()->getPath();
+  $path = \Drupal::routeMatch()->getRouteObject()->getPath();
+  $node = \Drupal::request()->attributes->get('node');
 
-  if ($path !== '/notification/{notification_entity}/edit') {
+  if (strpos($path, '/node/{node}/timeline') === 0 && $node) {
     $form['actions']['submit']['#ajax'] = [
-      'callback' => '\Drupal\notification_timeline\Controller\NotificationTimelineController::ajaxSubmitNotificationEntity'
+      'callback' => '\Drupal\notification_timeline\Controller\NotificationTimelineAjaxController::ajaxSubmitNotificationEntity',
+      'path' => 'node/' . $node->id() . '/timeline/ajax/add',
     ];
   }
 }
