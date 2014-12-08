@@ -15,7 +15,7 @@
 .notification-entity-form select,
 .notification-entity-form textarea,
 .notification-entity-form input[type=text] {
-  max-width: 375px;
+  width: 300px;
   display: inline-block;
 }
 
