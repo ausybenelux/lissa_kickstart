@@ -11,9 +11,12 @@
   width: 180px;
 }
 
+.notification-entity-form .selectize-control,
+.notification-entity-form select,
 .notification-entity-form textarea,
 .notification-entity-form input[type=text] {
   max-width: 375px;
+  display: inline-block;
 }
 
 .notification-entity-form .form-item {
