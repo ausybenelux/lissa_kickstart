@@ -20,6 +20,10 @@
       var self = this;
       var $context = $(context);
 
+      if (!settings.patternTextField) {
+        return;
+      }
+
       function clickEditHandler(e) {
         var data = e.data;
         e.preventDefault();

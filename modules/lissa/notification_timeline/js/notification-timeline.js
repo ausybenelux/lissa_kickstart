@@ -110,35 +110,38 @@
   /**
    * Toggle notification entity forms based on type selection.
    */
-  Drupal.notificationTimeline.generateToggleForm = function() {
-    $('.notification-timeline-notification-form').removeClass('js-hide');
+  Drupal.notificationTimeline.generateToggleForm = function($context) {
+    $context.find('.notification-timeline-notification-form').once('toggle-form').on('update', function() {
+      var $form = $(this);
+      $form.removeClass('js-hide');
+      $form.find('select').once('not-time-select').change(function (e) {
+        var $activeForm = $('#notification-forms .' + $(this).val() + '-notification-entity-form');
+        // Toggle the forms.
+        $('.notification-timeline-notification-form').addClass('js-hide');
+        $activeForm.removeClass('js-hide');
 
-    $('.notification-timeline-notification-form select').once('not-time-select').change(function (e) {
-      var $activeForm = $('#notification-forms .' + $(this).val() + '-notification-entity-form');
-      // Toggle the forms.
-      $('.notification-timeline-notification-form').addClass('js-hide');
-      $activeForm.removeClass('js-hide');
+        // Reset the timeline data.
+        var today = new Date();
+        // Go back 30 seconds.
+        today.setTime(today.getTime() - 30000);
+        var month = (today.getMonth() + 1).toString();
+        var day = today.getDate().toString();
+        if (month.length < 2) {
+          month = "0" + month;
+        }
+        if (day.length < 2) {
+          day = "0" + day;
+        }
+        var dayString = today.getFullYear() + "-" + month + "-" + day;
+        var $dateElements = $activeForm.find("[name^='timeline']");
+        $dateElements.filter("[type=date]").val(dayString);
+        $dateElements.filter("[type=time]").val(today.toLocaleTimeString());
 
-      // Reset the timeline data.
-      var today = new Date();
-      // Go back 30 seconds.
-      today.setTime(today.getTime() - 30000);
-      var month = (today.getMonth() + 1).toString();
-      var day = today.getDate().toString();
-      if (month.length < 2) {
-        month = "0" + month;
-      }
-      if (day.length < 2) {
-        day = "0" + day;
-      }
-      var dayString = today.getFullYear() + "-" + month + "-" + day;
-      var $dateElements = $activeForm.find("[name^='timeline']");
-      $dateElements.filter("[type=date]").val(dayString);
-      $dateElements.filter("[type=time]").val(today.toLocaleTimeString());
-
-      // Reset the select value.
-      $(this).val('0');
-    });
+        // Reset the select value.
+        $(this).val('0');
+      });
+    })
+    .trigger('update');
   };
 
   /**
@@ -159,10 +162,11 @@
 
   Drupal.behaviors.notificationTimeline = {
     attach: function (context) {
+      var $context = $(context);
       Drupal.notificationTimeline.currentActiveLink = $('a[href="#notification-entity-current"]');
       Drupal.notificationTimeline.sortItems();
       Drupal.notificationTimeline.generateNavigation();
-      Drupal.notificationTimeline.generateToggleForm();
+      Drupal.notificationTimeline.generateToggleForm($context);
       Drupal.notificationTimeline.addCancelLinks();
     }
   };

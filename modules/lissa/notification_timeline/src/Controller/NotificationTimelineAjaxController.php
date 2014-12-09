@@ -8,6 +8,7 @@
 namespace Drupal\notification_timeline\Controller;
 
 use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\InvokeCommand;
 use Drupal\Core\Ajax\PrependCommand;
 use Drupal\Core\Ajax\RemoveCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
@@ -94,6 +95,7 @@ class NotificationTimelineAjaxController extends FormAjaxController {
     $response = new AjaxResponse();
     $response->addCommand(new PrependCommand('#js-notification-list', $view));
     $response->addCommand(new ReplaceCommand('#notification-forms', $rendered_forms));
+    $response->addCommand(new InvokeCommand('.notification-timeline-notification-form', 'trigger', array('update')));
 
     return $response;
   }
