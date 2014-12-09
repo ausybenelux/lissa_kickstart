@@ -4,18 +4,18 @@ form.tooltips:
     js/form.tooltips.js: {}
   dependencies:
     - core/jquery.ui.tooltip
-lib.selectize:
+lib.chosen:
   version: VERSION
   js:
-    js/selectize/js/standalone/selectize.js: {}
+    js/chosen/chosen.jquery.min.js: {}
   css:
     component:
-      js/selectize/css/selectize.default.css: {}
+      js/chosen/chosen.min.css: {}
   dependencies:
     - core/jquery
-form.selectize:
+form.chosen:
   version: VERSION
   js:
-    js/form.selectize.js: {}
+    js/form.chosen.js: {}
   dependencies:
-    - lissa_bluedrop/lib.selectize
+    - lissa_bluedrop/lib.chosen
