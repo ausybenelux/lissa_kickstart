@@ -110,7 +110,11 @@
       $sources.each(function () {
         var $source = $(this);
         if (!isEmptyValue($source.val())) {
-          value = value.replace('[' + $source.attr('name') + ']', $source.val());
+          var sourceValue = $source.val();
+          if ($source.prop('tagName') == 'select') {
+            sourceValue = $source.selected().text();
+          }
+          value = value.replace('[' + sourceValue + ']', $source.val());
         }
       });
 
