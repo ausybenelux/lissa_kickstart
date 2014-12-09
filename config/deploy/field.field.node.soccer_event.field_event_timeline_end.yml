@@ -1,4 +1,4 @@
-uuid: 2b2fc50e-edad-405a-9c3d-61c49cee67df
+uuid: 59107419-ae33-4edd-bf03-3bb28ac11225
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ entity_type: node
 bundle: soccer_event
 label: 'Timeline end time'
 description: 'The time the timeline will end. Should be equal to the end time of the main video stream.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

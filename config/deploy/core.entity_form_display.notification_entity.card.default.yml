@@ -1,4 +1,4 @@
-uuid: 07c22320-6f30-41db-b100-cab851a8127c
+uuid: f6ee1fca-52ff-4ed1-8b00-a824d11dfd75
 langcode: en
 status: true
 dependencies:
@@ -9,12 +9,21 @@ dependencies:
   module:
     - datetime
     - entity_reference
+    - notification_entity
     - text
 id: notification_entity.card.default
 targetEntityType: notification_entity
 bundle: card
 mode: default
 content:
+  title:
+    type: pattern_textfield
+    weight: -5
+    settings:
+      size: '60'
+      placeholder: ''
+      pattern: '[field_card_type] card for [field_card_player]'
+    third_party_settings: {  }
   field_card_type:
     type: options_select
     weight: 2

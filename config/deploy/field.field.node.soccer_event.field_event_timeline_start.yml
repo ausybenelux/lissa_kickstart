@@ -1,4 +1,4 @@
-uuid: fee1bab9-a654-448d-9709-9c988976b951
+uuid: 0408e8c2-5a6f-4281-8d26-3840c73f7793
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ entity_type: node
 bundle: soccer_event
 label: 'Timeline start time'
 description: 'The time the timeline starts. Should be equal to the time the main video stream starts.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

@@ -1,4 +1,4 @@
-uuid: 154b83f9-28e0-4259-9d00-d68d2fe54065
+uuid: d88b1dc4-3b5c-48c3-a000-a81fe3dccc01
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ entity_type: node
 bundle: soccer_event
 label: 'Match start time'
 description: 'The time the match will start.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

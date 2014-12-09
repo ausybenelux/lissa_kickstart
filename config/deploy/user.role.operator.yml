@@ -1,4 +1,4 @@
-uuid: 850dbb97-c5bb-43f0-bf00-fe382c7a270a
+uuid: bb9596e2-1bf8-4ae5-9e10-164d1540700d
 langcode: en
 status: true
 dependencies: {  }
@@ -40,5 +40,5 @@ permissions:
   40: 'edit notification entity'
   41: 'view notification entity'
   42: 'access timeline'
-  43: 'access in-place editing'
-  44: 'edit any soccer_event content'
+  43: 'edit any soccer_event content'
+  44: 'access in-place editing'

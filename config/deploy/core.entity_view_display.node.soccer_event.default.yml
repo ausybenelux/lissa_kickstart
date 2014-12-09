@@ -1,4 +1,4 @@
-uuid: 1ce4d0fe-4730-49da-b317-239e4418c903
+uuid: 7d17ff95-3dee-49f2-a900-c4af7b47a276
 langcode: en
 status: true
 dependencies:
@@ -40,43 +40,55 @@ content:
     settings: {  }
     third_party_settings: {  }
     label: hidden
-  field_event_competition:
-    type: taxonomy_term_reference_plain
+  field_event_home_team:
+    type: taxonomy_term_reference_link
     weight: 2
     settings: {  }
     third_party_settings: {  }
     label: inline
-  field_event_visible:
-    type: datetime_default
-    weight: 4
-    settings:
-      format_type: medium
+  field_event_away_team:
+    type: taxonomy_term_reference_link
+    weight: 3
+    settings: {  }
     third_party_settings: {  }
     label: inline
-  field_event_hide:
+  field_event_competition:
+    type: taxonomy_term_reference_plain
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
+  field_event_visible:
     type: datetime_default
     weight: 5
     settings:
       format_type: medium
     third_party_settings: {  }
     label: inline
-  field_event_match_start:
+  field_event_hide:
     type: datetime_default
     weight: 6
+    settings:
+      format_type: medium
+    third_party_settings: {  }
+    label: inline
+  field_event_match_start:
+    type: datetime_default
+    weight: 7
     settings:
       format_type: long
     third_party_settings: {  }
     label: inline
   field_event_timeline_start:
     type: datetime_default
-    weight: 7
+    weight: 8
     settings:
       format_type: medium
     third_party_settings: {  }
     label: inline
   field_event_timeline_end:
     type: datetime_default
-    weight: 8
+    weight: 9
     settings:
       format_type: medium
     third_party_settings: {  }
@@ -88,7 +100,5 @@ hidden:
   links: true
   field_event_team_setup: true
   field_event_thumbnail: true
-  field_event_away_team: true
-  field_event_home_team: true
   field_event_teams: true
 third_party_settings: {  }
