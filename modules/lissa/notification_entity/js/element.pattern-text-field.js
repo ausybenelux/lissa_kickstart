@@ -96,7 +96,7 @@
         if ($target.val() === '') {
           $siblings.on('keyup.pattern change.pattern input.pattern', eventData, patternHandler)
             // Initialize machine name preview.
-              .trigger('keyup');
+            .trigger('keyup');
         }
       });
     },
@@ -109,12 +109,12 @@
       var value = pattern;
       $sources.each(function () {
         var $source = $(this);
-        if (!isEmptyValue($source.val())) {
-          var sourceValue = $source.val();
-          if ($source.prop('tagName') == 'select') {
-            sourceValue = $source.selected().text();
+        var sourceValue = $source.val();
+        if (!isEmptyValue(sourceValue)) {
+          if ($source.prop('tagName') == 'SELECT') {
+            sourceValue = $source.find('option[value=' + $source.val() + ']').text();
           }
-          value = value.replace('[' + sourceValue + ']', $source.val());
+          value = value.replace('[' + $source.attr('name') + ']', sourceValue);
         }
       });
 
