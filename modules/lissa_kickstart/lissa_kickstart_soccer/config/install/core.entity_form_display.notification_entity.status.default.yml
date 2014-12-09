@@ -7,16 +7,25 @@ dependencies:
   module:
     - datetime
     - entity_reference
+    - notification_entity
     - text
 id: notification_entity.status.default
 targetEntityType: notification_entity
 bundle: status
 mode: default
 content:
+  title:
+    type: pattern_textfield
+    weight: -5
+    settings:
+      size: '60'
+      placeholder: ''
+      pattern: '[field_status_type]'
+    third_party_settings: {  }
   field_status_type:
+    type: options_select
     weight: 6
     settings: {  }
     third_party_settings: {  }
-    type: options_select
 hidden: {  }
 third_party_settings: {  }

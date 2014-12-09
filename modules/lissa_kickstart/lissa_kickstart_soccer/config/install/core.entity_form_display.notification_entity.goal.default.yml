@@ -9,28 +9,37 @@ dependencies:
   module:
     - datetime
     - entity_reference
+    - notification_entity
     - text
 id: notification_entity.goal.default
 targetEntityType: notification_entity
 bundle: goal
 mode: default
 content:
+  title:
+    type: pattern_textfield
+    weight: -5
+    settings:
+      size: '60'
+      placeholder: ''
+      pattern: 'Goal by [field_goal_player]'
+    third_party_settings: {  }
   field_goal_player:
+    type: options_select
     weight: 6
     settings: {  }
     third_party_settings: {  }
-    type: options_select
   field_goal_team:
+    type: options_select
     weight: 7
     settings: {  }
     third_party_settings: {  }
-    type: options_select
   field_goal_score:
+    type: string_textfield
     weight: 8
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
 hidden: {  }
 third_party_settings: {  }
