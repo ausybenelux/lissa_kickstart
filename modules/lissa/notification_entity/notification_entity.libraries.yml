@@ -1,0 +1,6 @@
+element.pattern-text-field:
+  version: VERSION
+  js:
+    js/element.pattern-text-field.js: {}
+  dependencies:
+    - core/jquery

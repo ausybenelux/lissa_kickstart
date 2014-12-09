@@ -210,6 +210,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setTranslatable(TRUE)
       ->setRevisionable(TRUE)
       ->setDefaultValue('')
+      ->setDisplayConfigurable('form', TRUE)
       ->setSetting('max_length', 255)
       ->setDisplayOptions('view', array(
         'label' => 'hidden',
@@ -217,10 +218,11 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
         'weight' => -5,
       ))
       ->setDisplayOptions('form', array(
-        'type' => 'string_textfield',
+        'type' => 'pattern_textfield',
         'weight' => -5,
         'settings' => array(
           'size' => 60,
+          'pattern' => '[type]',
         ),
       ));
 
