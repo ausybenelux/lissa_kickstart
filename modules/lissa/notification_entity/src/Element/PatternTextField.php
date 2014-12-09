@@ -70,6 +70,10 @@ class PatternTextField extends Textfield {
    *   The processed element.
    */
   public static function afterBuild(array $element, FormStateInterface $form_state) {
+    if (empty($element['#pattern'])) {
+      return $element;
+    }
+
     // We need to pass the langcode to the client.
     $language = \Drupal::languageManager()->getCurrentLanguage();
 

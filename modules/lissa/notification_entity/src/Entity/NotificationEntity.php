@@ -222,7 +222,6 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
         'weight' => -5,
         'settings' => array(
           'size' => 60,
-          'pattern' => '[type]',
         ),
       ));
 
