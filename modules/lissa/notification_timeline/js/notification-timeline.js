@@ -124,12 +124,16 @@
       // Go back 30 seconds.
       today.setTime(today.getTime() - 30000);
       var month = (today.getMonth() + 1).toString();
+      var day = today.getDate().toString();
       if (month.length < 2) {
         month = "0" + month;
       }
-      var day = today.getFullYear() + "-" + month + "-" + today.getDate();
+      if (day.length < 2) {
+        day = "0" + day;
+      }
+      var dayString = today.getFullYear() + "-" + month + "-" + day;
       var $dateElements = $activeForm.find("[name^='timeline']");
-      $dateElements.filter("[type=date]").val(day);
+      $dateElements.filter("[type=date]").val(dayString);
       $dateElements.filter("[type=time]").val(today.toLocaleTimeString());
 
       // Reset the select value.
