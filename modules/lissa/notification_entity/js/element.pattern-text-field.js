@@ -27,6 +27,7 @@
         data.$target.trigger('focus');
         data.$preview.hide();
         data.$link.hide();
+        data.$siblings.off('keyup.pattern change.pattern input.pattern');
       }
 
       function patternHandler(e) {
@@ -75,7 +76,7 @@
         }
 
         // If it is editable, append an edit link.
-        var $link = $('<span class="admin-link"><button type="button" class="link">' + Drupal.t('Edit') + '</button></span>')
+        var $link = $('<span class="admin-link"><button type="button" class="link">' + Drupal.t('Edit') + '</button></span>');
 
         eventData = {
           $target: $target,
@@ -93,21 +94,30 @@
         // changes, but only if there is no machine name yet; i.e., only upon
         // initial creation, not when editing.
         if ($target.val() === '') {
-          $siblings.on('keyup.machineName change.machineName input.machineName', eventData, patternHandler)
+          $siblings.on('keyup.pattern change.pattern input.pattern', eventData, patternHandler)
             // Initialize machine name preview.
-            .trigger('keyup');
+              .trigger('keyup');
         }
       });
     },
 
-    replacePattern: function($target, $sources, pattern) {
+    replacePattern: function ($target, $sources, pattern) {
+      function isEmptyValue(value) {
+        return (value === '' || value === '_none');
+      }
+
       var value = pattern;
-      $sources.each(function() {
+      $sources.each(function () {
         var $source = $(this);
-        if ($source.val() !== '') {
-          value.replace('[' + $source.name + ']', $source.val());
+        if (!isEmptyValue($source.val())) {
+          value = value.replace('[' + $source.attr('name') + ']', $source.val());
         }
       });
+
+      // Leave the value empty if not all tokens have been replaced.
+      if (value.indexOf('[') != -1 && value.indexOf(']') != -1) {
+        return '';
+      }
 
       return value;
     },
