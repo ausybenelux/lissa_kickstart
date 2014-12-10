@@ -1,0 +1,4 @@
+lib.mousetrap:
+  version: VERSION
+  js:
+    js/plugins/mousetrap.min.js: {}

@@ -113,12 +113,53 @@
   Drupal.notificationTimeline.generateToggleForm = function($context) {
     $context.find('.notification-timeline-notification-form').once('toggle-form').on('update', function() {
       var $form = $(this);
+      var $select =  $form.find('select').once('not-time-select');
       $form.removeClass('js-hide');
-      $form.find('select').once('not-time-select').change(function (e) {
+
+      // Remove cancel shortcut.
+      Mousetrap.unbind("esc");
+
+      // Switch notification forms using shortcuts.
+      $select.find('option').each(function() {
+        var $option = $(this);
+        var shortcut = 'ctrl+';
+        var value = $option.attr('value');
+
+        // Skip placeholders
+        if (value == "0" || value == "_none") {
+          return;
+        }
+
+        if (value == 'standard') {
+          shortcut += "n";
+        }
+        else {
+          shortcut += value[0].toLowerCase();
+        }
+
+        // Add shortcut to select box.
+        $option.text($option.text() + " (" + shortcut + ")");
+
+        Mousetrap.bind(shortcut, function(e) {
+          $select.val(value).trigger('change');
+        });
+      });
+
+      // Switch notification forms on select change.
+      $select.change(function (e) {
         var $activeForm = $('#notification-forms .' + $(this).val() + '-notification-entity-form');
+
         // Toggle the forms.
         $('.notification-timeline-notification-form').addClass('js-hide');
         $activeForm.removeClass('js-hide');
+
+        // Remove previous cancel shortcut.
+        Mousetrap.unbind("esc");
+
+        // Add cancel shortcut.
+        Mousetrap.bind("esc", function(e) {
+          $activeForm.find("a.form-cancel").trigger('click');
+        });
 
         // Reset the timeline data.
         var today = new Date();

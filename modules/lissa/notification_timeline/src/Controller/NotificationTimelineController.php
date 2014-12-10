@@ -50,6 +50,9 @@ class NotificationTimelineController extends ControllerBase {
           drupal_get_path('module', 'notification_timeline') . '/js/notification-timeline.js',
           drupal_get_path('module', 'notification_timeline') . '/js/plugins/Waypoints/waypoints.min.js',
         ),
+        'library' => array(
+          'notification_timeline/lib.mousetrap',
+        ),
       ),
     );
     $form_builder = \Drupal::service('entity.form_builder');
