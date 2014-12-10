@@ -16,6 +16,7 @@ if (file_exists($config_base_directory . '/deploy')) {
 
 $settings['hash_salt'] = 'NVPgQ-GudJktovJTq5v7x-3FveMR9dxdjsf6OOFxCl2Omd7iS2tFG4Ldt68dZ3yBpEyVdCgyGA';
 $settings['update_free_access'] = FALSE;
+$config['system.site.uuid'] = '65119fd0-68f7-45b7-ae4e-784208b9632c';
 
 ini_set('session.gc_probability', 1);
 ini_set('session.gc_divisor', 100);
