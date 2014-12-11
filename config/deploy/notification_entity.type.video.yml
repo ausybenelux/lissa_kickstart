@@ -1,0 +1,8 @@
+uuid: a14ce33a-41b8-4a34-9800-e8778b4ca74a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Video on Demand'
+type: video
+description: 'Replay video snippets'
+help: null

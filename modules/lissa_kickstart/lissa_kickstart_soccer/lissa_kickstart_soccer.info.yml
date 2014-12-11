@@ -80,4 +80,4 @@ config_devel:
   - core.entity_view_display.notification_entity.video.default
   - field.field.notification_entity.video.field_video_url
   - field.storage.notification_entity.field_video_url
-  - notification_entity.type.vide
+  - notification_entity.type.video
