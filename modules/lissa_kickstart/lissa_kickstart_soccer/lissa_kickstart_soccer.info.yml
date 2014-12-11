@@ -76,3 +76,8 @@ config_devel:
   - field.field.notification_entity.status.field_status_type
   - core.entity_form_display.notification_entity.status.default
   - core.entity_view_display.notification_entity.status.default
+  - core.entity_form_display.notification_entity.video.default
+  - core.entity_view_display.notification_entity.video.default
+  - field.field.notification_entity.video.field_video_url
+  - field.storage.notification_entity.field_video_url
+  - notification_entity.type.vide

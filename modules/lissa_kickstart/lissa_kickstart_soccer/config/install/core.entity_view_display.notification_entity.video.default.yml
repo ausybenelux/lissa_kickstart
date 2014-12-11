@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.notification_entity.video.field_video_url
+    - notification_entity.type.video
+  module:
+    - notification_entity
+id: notification_entity.video.default
+label: null
+targetEntityType: notification_entity
+bundle: video
+mode: default
+content:
+  field_video_url:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: string
+hidden: {  }
+third_party_settings: {  }

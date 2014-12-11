@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.field.notification_entity.video.field_video_url
+    - notification_entity.type.video
+  module:
+    - datetime
+    - entity_reference
+    - notification_entity
+    - text
+id: notification_entity.video.default
+targetEntityType: notification_entity
+bundle: video
+mode: default
+content:
+  title:
+    type: pattern_textfield
+    weight: 0
+    settings:
+      size: 60
+      pattern: ''
+      placeholder: ''
+    third_party_settings: {  }
+  field_video_url:
+    type: string_textfield
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }
+third_party_settings: {  }
