@@ -215,6 +215,19 @@
           Drupal.notificationTimeline.sortItems();
         })
         .trigger('update-timeline');
+
+    // Fix contextual links.
+    $(document).on('drupalContextualLinkAdded', function(ev) {
+      // Remove the ajax trail.
+      $('.contextual-links a').each(function () {
+        var url = this.getAttribute('href');
+        var ajax_start = url.indexOf('/ajax/add');
+        if (ajax_start !== -1) {
+          url = url.replace('/ajax/add', '');
+          this.setAttribute('href', url);
+        }
+      });
+    });
   };
 
   Drupal.behaviors.notificationTimeline = {
