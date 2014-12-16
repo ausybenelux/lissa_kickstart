@@ -104,7 +104,7 @@
       return a_time > b_time ? -1 : 1;
     });
 
-    $('#js-notification-list').html(ordered_notifications);
+    ordered_notifications.detach().appendTo($('#js-notification-list'));
   };
 
   /**
