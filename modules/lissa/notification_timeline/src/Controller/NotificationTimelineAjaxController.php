@@ -95,7 +95,7 @@ class NotificationTimelineAjaxController extends FormAjaxController {
     $response = new AjaxResponse();
     $response->addCommand(new PrependCommand('#js-notification-list', $view));
     $response->addCommand(new ReplaceCommand('#notification-forms', $rendered_forms));
-    $response->addCommand(new InvokeCommand('.notification-timeline-notification-form', 'trigger', array('update')));
+    $response->addCommand(new InvokeCommand('body', 'trigger', array('update-timeline')));
 
     return $response;
   }
