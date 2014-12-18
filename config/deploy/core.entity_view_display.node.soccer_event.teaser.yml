@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.soccer_event.field_event_endpoint
     - field.field.node.soccer_event.field_event_hide
     - field.field.node.soccer_event.field_event_home_team
+    - field.field.node.soccer_event.field_event_interface
     - field.field.node.soccer_event.field_event_match_start
     - field.field.node.soccer_event.field_event_team_setup
     - field.field.node.soccer_event.field_event_thumbnail
@@ -45,4 +46,5 @@ hidden:
   field_event_team1: true
   field_event_away_team: true
   field_event_home_team: true
+  field_event_interface: true
 third_party_settings: {  }

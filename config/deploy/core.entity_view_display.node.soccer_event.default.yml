@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.soccer_event.field_event_endpoint
     - field.field.node.soccer_event.field_event_hide
     - field.field.node.soccer_event.field_event_home_team
+    - field.field.node.soccer_event.field_event_interface
     - field.field.node.soccer_event.field_event_match_start
     - field.field.node.soccer_event.field_event_team_setup
     - field.field.node.soccer_event.field_event_thumbnail
@@ -20,6 +21,8 @@ dependencies:
   module:
     - datetime
     - event_monitor
+    - image
+    - link
     - taxonomy
     - user
 id: node.soccer_event.default
@@ -28,67 +31,94 @@ targetEntityType: node
 bundle: soccer_event
 mode: default
 content:
-  field_event_endpoint:
-    type: video_mpegdash
+  field_event_thumbnail:
+    type: image
     weight: 0
-    settings: {  }
+    settings:
+      image_style: ''
+      image_link: ''
     third_party_settings: {  }
     label: hidden
-  field_event_encoder_on:
-    type: encoder_boolean
+  field_event_endpoint:
+    type: link
     weight: 1
-    settings: {  }
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
     third_party_settings: {  }
-    label: hidden
-  field_event_home_team:
-    type: taxonomy_term_reference_link
+    label: inline
+  field_event_interface:
+    type: string
     weight: 2
     settings: {  }
     third_party_settings: {  }
     label: inline
-  field_event_away_team:
-    type: taxonomy_term_reference_link
+  field_event_encoder_on:
+    type: encoder_boolean
     weight: 3
     settings: {  }
     third_party_settings: {  }
-    label: inline
-  field_event_competition:
+    label: hidden
+  field_event_home_team:
     type: taxonomy_term_reference_plain
     weight: 4
     settings: {  }
     third_party_settings: {  }
     label: inline
-  field_event_visible:
-    type: datetime_default
+  field_event_away_team:
+    type: taxonomy_term_reference_plain
     weight: 5
-    settings:
-      format_type: medium
+    settings: {  }
     third_party_settings: {  }
     label: inline
-  field_event_hide:
-    type: datetime_default
+  field_event_competition:
+    type: taxonomy_term_reference_plain
     weight: 6
-    settings:
-      format_type: medium
+    settings: {  }
     third_party_settings: {  }
     label: inline
-  field_event_match_start:
-    type: datetime_default
+  field_event_team_setup:
+    type: image
     weight: 7
     settings:
-      format_type: long
+      image_style: ''
+      image_link: ''
     third_party_settings: {  }
-    label: inline
-  field_event_timeline_start:
+    label: above
+  field_event_visible:
     type: datetime_default
     weight: 8
     settings:
       format_type: medium
     third_party_settings: {  }
     label: inline
-  field_event_timeline_end:
+  field_event_hide:
     type: datetime_default
     weight: 9
+    settings:
+      format_type: medium
+    third_party_settings: {  }
+    label: inline
+  field_event_match_start:
+    type: datetime_default
+    weight: 10
+    settings:
+      format_type: long
+    third_party_settings: {  }
+    label: inline
+  field_event_timeline_start:
+    type: datetime_default
+    weight: 11
+    settings:
+      format_type: medium
+    third_party_settings: {  }
+    label: inline
+  field_event_timeline_end:
+    type: datetime_default
+    weight: 12
     settings:
       format_type: medium
     third_party_settings: {  }
@@ -98,7 +128,5 @@ hidden:
   body: true
   field_event_team1: true
   links: true
-  field_event_team_setup: true
-  field_event_thumbnail: true
   field_event_teams: true
 third_party_settings: {  }

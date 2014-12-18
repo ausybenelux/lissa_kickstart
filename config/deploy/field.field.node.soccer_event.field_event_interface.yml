@@ -1,0 +1,22 @@
+uuid: 3c05c3cb-30d8-445c-b005-5cae8b6e8c28
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.node.field_event_interface
+    - node.type.soccer_event
+id: node.soccer_event.field_event_interface
+field_name: field_event_interface
+entity_type: node
+bundle: soccer_event
+label: Interface
+description: 'The video interface of this event. Usually a number between 0 and 3.'
+required: true
+translatable: false
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: string

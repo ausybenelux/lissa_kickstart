@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.soccer_event.field_event_endpoint
     - field.field.node.soccer_event.field_event_hide
     - field.field.node.soccer_event.field_event_home_team
+    - field.field.node.soccer_event.field_event_interface
     - field.field.node.soccer_event.field_event_match_start
     - field.field.node.soccer_event.field_event_team_setup
     - field.field.node.soccer_event.field_event_thumbnail
@@ -65,39 +66,46 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-  field_event_thumbnail:
-    type: image_image
+  field_event_interface:
+    type: string_textfield
     weight: 7
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-  field_event_team_setup:
+  field_event_thumbnail:
     type: image_image
     weight: 8
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
+  field_event_team_setup:
+    type: image_image
+    weight: 9
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
   field_event_match_start:
     type: datetime_default
-    weight: 9
+    weight: 10
     settings: {  }
     third_party_settings: {  }
   field_event_encoder_on:
     type: boolean_checkbox
-    weight: 10
+    weight: 11
     settings:
       display_label: '1'
     third_party_settings: {  }
   field_event_timeline_start:
     type: datetime_default
-    weight: 11
+    weight: 12
     settings: {  }
     third_party_settings: {  }
   field_event_timeline_end:
     type: datetime_default
-    weight: 12
+    weight: 13
     settings: {  }
     third_party_settings: {  }
 hidden:

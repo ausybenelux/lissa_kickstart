@@ -1,0 +1,17 @@
+uuid: 9940c468-2621-4302-a614-20f3452b76df
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_event_interface
+field_name: field_event_interface
+entity_type: node
+type: string
+settings:
+  max_length: 255
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
