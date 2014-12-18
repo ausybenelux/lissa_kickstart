@@ -118,6 +118,7 @@
     var $form = $('.notification-timeline-notification-form');
     var $select =  $form.find('select').once('not-time-select');
     $form.removeClass('js-hide');
+    $select.addClass('mousetrap');
 
     // Remove cancel shortcut.
     Mousetrap.unbind("esc");
@@ -183,6 +184,17 @@
 
       // Reset the select value.
       $(this).val('0');
+
+      // Autofocus on first field.
+      var $focusElement = $activeForm.find('input[name="title[0][value]"]').not('.pattern-textfield-target');
+      // If the title field uses a pattern to be populated select the first field after the time field.
+      if (!$focusElement.length) {
+        $focusElement = $activeForm.find('[required=required]').not('.pattern-textfield-target').not('.form-date, .form-time').first();
+      }
+
+      if ($focusElement.length) {
+        $focusElement.trigger('focus').trigger('chosen:activate');
+      }
     });
   };
 
