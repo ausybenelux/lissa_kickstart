@@ -165,6 +165,9 @@
         $activeForm.find("a.form-cancel").trigger('click');
       });
 
+      // Make sure the cancel shortcut is triggered from form elements.
+      $activeForm.find('select, input, textarea').not('.mousetrap').addClass('mousetrap');
+
       // Reset the timeline data.
       var today = new Date();
       // Go back 30 seconds.
