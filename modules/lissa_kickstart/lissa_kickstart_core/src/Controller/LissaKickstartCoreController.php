@@ -18,7 +18,7 @@ class LissaKickstartCoreController extends ControllerBase {
   protected static $redirectMap = [
     'production' => 'view.events.admin_overview',
     'operator' => 'view.events.admin_overview',
-    'technical_engineer' => 'event_monitor.form',
+    'technical_engineer' => 'view.events.admin_overview',
   ];
 
   /**
