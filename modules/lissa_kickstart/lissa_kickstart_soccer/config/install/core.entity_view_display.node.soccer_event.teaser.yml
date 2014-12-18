@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.soccer_event.field_event_thumbnail
     - field.field.node.soccer_event.field_event_timeline_end
     - field.field.node.soccer_event.field_event_timeline_start
+    - field.field.node.soccer_event.field_event_twitter
     - field.field.node.soccer_event.field_event_visible
     - node.type.soccer_event
   module:
@@ -46,4 +47,6 @@ hidden:
   field_event_away_team: true
   field_event_home_team: true
   field_event_interface: true
+  field_twitter_h: true
+  field_event_twitter: true
 third_party_settings: {  }

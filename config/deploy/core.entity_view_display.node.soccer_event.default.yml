@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.soccer_event.field_event_thumbnail
     - field.field.node.soccer_event.field_event_timeline_end
     - field.field.node.soccer_event.field_event_timeline_start
+    - field.field.node.soccer_event.field_event_twitter
     - field.field.node.soccer_event.field_event_visible
     - node.type.soccer_event
   module:
@@ -123,10 +124,17 @@ content:
       format_type: medium
     third_party_settings: {  }
     label: inline
+  field_event_twitter:
+    type: string
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    label: inline
 hidden:
   langcode: true
   body: true
   field_event_team1: true
   links: true
   field_event_teams: true
+  field_twitter_h: true
 third_party_settings: {  }
