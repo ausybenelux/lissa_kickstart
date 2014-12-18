@@ -116,7 +116,7 @@
         var sourceValue = $source.val();
         if (!isEmptyValue(sourceValue)) {
           if ($source.prop('tagName') == 'SELECT') {
-            sourceValue = $source.find('option[value=' + $source.val() + ']').text();
+            sourceValue = $source.find('option[value="' + $source.val() + '"]').text();
           }
           value = value.replace('[' + $source.attr('name') + ']', sourceValue);
         }
