@@ -1,0 +1,8 @@
+name: LISSA Notification twitter
+type: module
+description: 'Sends notifications to a twitter account'
+package: LISSA
+version: 1.0
+core: 8.x
+
+configure: 'notification_twitter.settings'
