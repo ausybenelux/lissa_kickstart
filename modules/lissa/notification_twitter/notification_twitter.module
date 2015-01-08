@@ -6,6 +6,7 @@
 
 use \Drupal\Core\Entity\EntityInterface;
 use Codebird\Codebird;
+use Drupal\notification_entity\Entity\NotificationEntity;
 
 /**
  * Implements hook_entity_insert()
@@ -13,7 +14,7 @@ use Codebird\Codebird;
  */
 function notification_twitter_entity_insert(EntityInterface $notification) {
   if ($notification->getEntityTypeId() == 'notification_entity') {
-    notification_tweet();
+    notification_tweet($notification);
   }
 }
 
@@ -41,10 +42,9 @@ function notification_twitter_entity_delete(EntityInterface $notification) {
 /**
  * Pushes a notification to twitter.
  *
- * @param EntityInterface $notification
- *   The entity to tweet.
+ * @param NotificationEntity $notificationEntity
  */
-function notification_tweet() {
+function notification_tweet(NotificationEntity $notificationEntity) {
   $config = \Drupal::config('notification_twitter.settings');
 
   $cb = new Codebird();
@@ -55,12 +55,12 @@ function notification_tweet() {
   );
 
   $cb->setConsumerKey(
-    'lQParw3owqVHjeNJyaCL6scou',
-    'IHsryIlmhRXYX29MpQO9XY67ozEaNSGqC2ArSfBVh4IIsPgDTy'
+    $config->get('consumer_key'),
+    $config->get('consumer_secret')
   );
 
   $params = [
-    'status' => 'Test status'
+    'status' => $notificationEntity->getTitle()
   ];
 
   $reply = $cb->statuses_update($params);

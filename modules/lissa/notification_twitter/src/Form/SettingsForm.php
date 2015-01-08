@@ -35,15 +35,27 @@ class SettingsForm extends ConfigFormBase implements FormInterface, ContainerInj
     $config = $this->config('notification_twitter.settings');
 
     $form['access_token'] = array(
-      '#title' => 'Access token',
+      '#title' => 'Access Token',
       '#type' => 'textfield',
       '#default_value' => $config->get('access_token'),
     );
 
+    // Secret tokens should not be shown again
     $form['access_token_secret'] = array(
-      '#title' => 'Secret Access token',
+      '#title' => 'Access Token Secret',
       '#type' => 'textfield',
-      '#default_value' => $config->get('access_token_secret'),
+    );
+
+    $form['consumer_token'] = array(
+      '#title' => 'Consumer Token',
+      '#type' => 'textfield',
+      '#default_value' => $config->get('consumer_token'),
+    );
+
+    // Secret tokens should not be shown again
+    $form['consumer_secret'] = array(
+      '#title' => 'Consumer Secret',
+      '#type' => 'textfield',
     );
 
     return $form;
@@ -59,6 +71,8 @@ class SettingsForm extends ConfigFormBase implements FormInterface, ContainerInj
     $this->config('notification_twitter.settings')
       ->set('access_token', $form_state_values['access_token'])
       ->set('access_token_secret', $form_state_values['access_token_secret'])
+      ->set('consumer_token', $form_state_values['consumer_token'])
+      ->set('consumer_secret', $form_state_values['consumer_secret'])
       ->save();
   }
 }

@@ -1,3 +1,5 @@
 # Acces tokens for the lissa test account https://twitter.com/LissaTest
-access_token: lQParw3owqVHjeNJyaCL6scou
-access_token_secret: IHsryIlmhRXYX29MpQO9XY67ozEaNSGqC2ArSfBVh4IIsPgDTy
+consumer_key: lQParw3owqVHjeNJyaCL6scou
+consumer_secret: IHsryIlmhRXYX29MpQO9XY67ozEaNSGqC2ArSfBVh4IIsPgDTy
+access_token: 2967605476-pdeC6CXFChPhH6POvaGTQsorKDWPezBfU5os2dT
+access_token_secret: wcWnZEx5XbdUB8TUNEVMX759IAKVljy9BYrxZ4QXJ8qae
