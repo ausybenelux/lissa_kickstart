@@ -6,7 +6,29 @@
 
 use \Drupal\Core\Entity\EntityInterface;
 use Codebird\Codebird;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\notification_entity\Entity\NotificationEntity;
+
+/**
+ * Implements hook_form_ENTITY_TYPE_alter().
+ *
+ * Adds a checkbox allowing or disallowing to send a tweet for this notification
+ * @param $form
+ * @param FormStateInterface $form_state
+ */
+function notification_twitter_form_notification_entity_form_alter(&$form, FormStateInterface $form_state) {
+
+  $path = \Drupal::routeMatch()->getRouteObject()->getPath();
+  $node = \Drupal::request()->attributes->get('node');
+
+  if (strpos($path, '/node/{node}/timeline') === 0 && $node) {
+    $form['tweet'] = array(
+      '#title' => 'Tweet this notification',
+      '#type' => 'checkbox',
+      '#default_value' => '1',
+    );
+  }
+}
 
 /**
  * Implements hook_entity_insert()
@@ -14,28 +36,7 @@ use Drupal\notification_entity\Entity\NotificationEntity;
  */
 function notification_twitter_entity_insert(EntityInterface $notification) {
   if ($notification->getEntityTypeId() == 'notification_entity') {
-    notification_tweet($notification);
-  }
-}
-
-/**
- * Implements hook_entity_update()
- * @param EntityInterface $notification
- */
-function notification_twitter_entity_update(EntityInterface $notification) {
-  if ($notification->getEntityTypeId() == 'notification_entity') {
-    notification_tweet($notification, 'update');
-  }
-}
-
-/**
- * Implements hook_entity_delete()
- *
- * @param EntityInterface $notification
- */
-function notification_twitter_entity_delete(EntityInterface $notification) {
-  if ($notification->getEntityTypeId() == 'notification_entity') {
-    notification_tweet($notification, 'delete');
+    tweet_notification($notification);
   }
 }
 
@@ -44,7 +45,13 @@ function notification_twitter_entity_delete(EntityInterface $notification) {
  *
  * @param NotificationEntity $notificationEntity
  */
-function notification_tweet(NotificationEntity $notificationEntity) {
+function tweet_notification(NotificationEntity $notificationEntity) {
+
+  // Don't know how to do this cleaner
+  if (!isset($_POST['tweet'])) {
+    return;
+  }
+
   $config = \Drupal::config('notification_twitter.settings');
 
   $cb = new Codebird();
@@ -61,6 +68,7 @@ function notification_tweet(NotificationEntity $notificationEntity) {
 
   $params = [
     'status' => $notificationEntity->getTitle()
+
   ];
 
   $reply = $cb->statuses_update($params);
