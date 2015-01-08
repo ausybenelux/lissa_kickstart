@@ -1,2 +1,3 @@
-access_token: Put your access token here
-access_token_secret: Put your secret access token here
+# Acces tokens for the lissa test account https://twitter.com/LissaTest
+access_token: lQParw3owqVHjeNJyaCL6scou
+access_token_secret: IHsryIlmhRXYX29MpQO9XY67ozEaNSGqC2ArSfBVh4IIsPgDTy

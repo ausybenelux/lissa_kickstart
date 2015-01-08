@@ -1,0 +1,69 @@
+<?php
+/**
+ * @file
+ * The module that sends notifications to twitter
+ */
+
+use \Drupal\Core\Entity\EntityInterface;
+use Codebird\Codebird;
+
+/**
+ * Implements hook_entity_insert()
+ * @param EntityInterface $notification
+ */
+function notification_twitter_entity_insert(EntityInterface $notification) {
+  if ($notification->getEntityTypeId() == 'notification_entity') {
+    notification_tweet();
+  }
+}
+
+/**
+ * Implements hook_entity_update()
+ * @param EntityInterface $notification
+ */
+function notification_twitter_entity_update(EntityInterface $notification) {
+  if ($notification->getEntityTypeId() == 'notification_entity') {
+    notification_tweet($notification, 'update');
+  }
+}
+
+/**
+ * Implements hook_entity_delete()
+ *
+ * @param EntityInterface $notification
+ */
+function notification_twitter_entity_delete(EntityInterface $notification) {
+  if ($notification->getEntityTypeId() == 'notification_entity') {
+    notification_tweet($notification, 'delete');
+  }
+}
+
+/**
+ * Pushes a notification to twitter.
+ *
+ * @param EntityInterface $notification
+ *   The entity to tweet.
+ */
+function notification_tweet() {
+  $config = \Drupal::config('notification_twitter.settings');
+
+  $cb = new Codebird();
+
+  $cb->setToken(
+    $config->get('access_token'),
+    $config->get('access_token_secret')
+  );
+
+  $cb->setConsumerKey(
+    'lQParw3owqVHjeNJyaCL6scou',
+    'IHsryIlmhRXYX29MpQO9XY67ozEaNSGqC2ArSfBVh4IIsPgDTy'
+  );
+
+  $params = [
+    'status' => 'Test status'
+  ];
+
+  $reply = $cb->statuses_update($params);
+
+  // TODO: handle error messages
+}
