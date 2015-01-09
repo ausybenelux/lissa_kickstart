@@ -73,5 +73,9 @@ function tweet_notification(NotificationEntity $notificationEntity) {
 
   $reply = $cb->statuses_update($params);
 
-  // TODO: handle error messages
+  // There are more possible status codes which specify the potential problem better
+  if (!$reply->httpstatus == 200) {
+    drupal_set_message([t('There was an error sending your tweet.')]);
+  }
+
 }
