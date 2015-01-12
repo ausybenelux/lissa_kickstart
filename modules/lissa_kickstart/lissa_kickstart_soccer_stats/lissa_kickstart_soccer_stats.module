@@ -33,7 +33,7 @@ function lissa_kickstart_soccer_stats_node_presave(Drupal\node\NodeInterface $no
  *
  * Adds statistics to the pushed notification data.
  */
-function lissa_kickstart_soccer_stats_notification_push_context_alter(array &$context, NotificationEntity $notification, $action) {
+function lissa_kickstart_soccer_stats_notification_push_context_alter(array &$context, NotificationEntity $notification, $action = 'create') {
   // An array of vocabularies linking to statistics. The value is the field name
   // of the statistic node.
   $vocabularies = [
