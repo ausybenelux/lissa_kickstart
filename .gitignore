@@ -4,3 +4,8 @@
 ; Local build configuration
 build.properties.local
 /build
+
+; staging files should not be committed
+/config/staging
+/config/active
+.idea
