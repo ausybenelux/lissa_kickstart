@@ -66,9 +66,13 @@ function tweet_notification(NotificationEntity $notificationEntity) {
     $config->get('consumer_secret')
   );
 
-  $params = [
-    'status' => $notificationEntity->getTitle()
+  $event = $notificationEntity->getHost();
+  $fields = $event->getFields();
+  $field = $fields['field_event_twitter'];
+  $hashtag = $field->getValue()[0]['value'];
 
+  $params = [
+    'status' => $notificationEntity->getTitle() . ' ' . $hashtag
   ];
 
   $reply = $cb->statuses_update($params);
