@@ -34,6 +34,12 @@ function lissa_kickstart_soccer_stats_node_presave(Drupal\node\NodeInterface $no
  * Adds statistics to the pushed notification data.
  */
 function lissa_kickstart_soccer_stats_notification_push_context_alter(array &$context, NotificationEntity $notification, $action = 'create') {
+  if (isset($context['merge_data']['soccer_stats'])) {
+    return;
+  }
+
+  $context['merge_data']['soccer_stats'] = array();
+
   // An array of vocabularies linking to statistics. The value is the field name
   // of the statistic node.
   $vocabularies = [
@@ -41,7 +47,6 @@ function lissa_kickstart_soccer_stats_notification_push_context_alter(array &$co
     'team' => 'field_stats_team',
   ];
 
-  $stats = array();
   // Fetch all fields referencing player or team terms.
   foreach ($notification->getFields() as $name => $field) {
     if (get_class($field) == 'Drupal\Core\Field\EntityReferenceFieldItemList') {
@@ -51,14 +56,12 @@ function lissa_kickstart_soccer_stats_notification_push_context_alter(array &$co
         if (get_class($referenced_entity) == 'Drupal\taxonomy\Entity\Term') {
           $vocabulary = $referenced_entity->getVocabularyId();
           if (isset($vocabularies[$vocabulary])) {
-            $stats[$name] = lissa_kickstart_get_term_statistics($vocabularies[$vocabulary], $referenced_entity->id());
+            $context['merge_data']['soccer_stats'][$name] = lissa_kickstart_get_term_statistics($vocabularies[$vocabulary], $referenced_entity->id());
           }
         }
       }
     }
   }
-
-  return $stats;
 }
 
 /**
