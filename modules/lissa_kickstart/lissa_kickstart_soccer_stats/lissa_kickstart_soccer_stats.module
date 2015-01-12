@@ -56,7 +56,10 @@ function lissa_kickstart_soccer_stats_notification_push_context_alter(array &$co
         if (get_class($referenced_entity) == 'Drupal\taxonomy\Entity\Term') {
           $vocabulary = $referenced_entity->getVocabularyId();
           if (isset($vocabularies[$vocabulary])) {
-            $context['merge_data']['soccer_stats'][$name] = lissa_kickstart_get_term_statistics($vocabularies[$vocabulary], $referenced_entity->id());
+            $stats = lissa_kickstart_get_term_statistics($vocabularies[$vocabulary], $referenced_entity->id());
+            if (!empty($stats)) {
+              $context['merge_data']['soccer_stats'][$name] = $stats;
+            }
           }
         }
       }
@@ -74,8 +77,16 @@ function lissa_kickstart_soccer_stats_notification_push_context_alter(array &$co
  *   A node object linked to the term or NULL if there are no statistics.
  */
 function lissa_kickstart_get_term_statistics($key_field, $key_value) {
+  $stats = &drupal_static(__FUNCTION__);
+
+  if (isset($stats[$key_field][$key_value])) {
+    return $stats[$key_field][$key_value];
+  }
+
   $entity_query = \Drupal::entityQuery('node', 'AND');
   $entity_query->condition($key_field, $key_value);
   $result = $entity_query->execute();
-  return $result ? \Drupal::entityManager()->getStorage('node')->loadMultiple($result) : array();
+  $stats[$key_field][$key_value] = $result ? \Drupal::entityManager()->getStorage('node')->loadMultiple($result) : array();
+
+  return $stats[$key_field][$key_value];
 }
