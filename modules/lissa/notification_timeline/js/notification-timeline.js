@@ -126,7 +126,7 @@
     // Switch notification forms using shortcuts.
     $select.find('option').each(function() {
       var $option = $(this);
-      var shortcut = 'ctrl+';
+      var shortcut = 'ctrl+shift+';
       var value = $option.attr('value');
 
       // Skip placeholders
