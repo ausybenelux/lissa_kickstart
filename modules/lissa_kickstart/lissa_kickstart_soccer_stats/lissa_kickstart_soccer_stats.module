@@ -58,7 +58,8 @@ function lissa_kickstart_soccer_stats_notification_push_context_alter(array &$co
           if (isset($vocabularies[$vocabulary])) {
             $stats = lissa_kickstart_get_term_statistics($vocabularies[$vocabulary], $referenced_entity->id());
             if (!empty($stats)) {
-              $context['merge_data']['soccer_stats'][$name] = $stats;
+              $node = array_shift($stats);
+              $context['merge_data']['soccer_stats'][$name] = $node->toArray();
             }
           }
         }
