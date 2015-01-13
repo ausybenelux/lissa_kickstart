@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   entity:
+    - field.field.taxonomy_term.player.field_player_first_name
     - field.field.taxonomy_term.player.field_player_teams
     - taxonomy.vocabulary.player
   module:
@@ -13,17 +14,23 @@ targetEntityType: taxonomy_term
 bundle: player
 mode: default
 content:
-  description:
-    label: hidden
-    type: text_default
+  field_player_first_name:
+    type: string
     weight: 0
     settings: {  }
     third_party_settings: {  }
-  field_player_teams:
-    weight: 1
     label: above
+  description:
+    type: text_default
+    weight: 1
     settings: {  }
     third_party_settings: {  }
+    label: hidden
+  field_player_teams:
     type: taxonomy_term_reference_link
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    label: above
 hidden: {  }
 third_party_settings: {  }
