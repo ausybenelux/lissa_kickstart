@@ -12,6 +12,7 @@ dependencies:
   - lissa_kickstart_soccer_stats
   - event_monitor
   - notification_push
+  - notification_twitter
 config_devel:
   - user.role.production
   - user.role.operator
