@@ -36,7 +36,7 @@ function notification_twitter_form_notification_entity_form_alter(&$form, FormSt
  */
 function notification_twitter_entity_insert(EntityInterface $notification) {
   if ($notification->getEntityTypeId() == 'notification_entity') {
-    tweet_notification($notification);
+    notification_twitter_tweet_notification($notification);
   }
 }
 
@@ -45,7 +45,7 @@ function notification_twitter_entity_insert(EntityInterface $notification) {
  *
  * @param NotificationEntity $notificationEntity
  */
-function tweet_notification(NotificationEntity $notificationEntity) {
+function notification_twitter_tweet_notification(NotificationEntity $notificationEntity) {
 
   // Don't know how to do this cleaner
   if (!isset($_POST['tweet'])) {
