@@ -123,11 +123,14 @@
     // Remove cancel shortcut.
     Mousetrap.unbind("esc");
 
+    var usedShortcutKeys = [];
+
     // Switch notification forms using shortcuts.
     $select.find('option').each(function() {
       var $option = $(this);
-      var shortcut = 'ctrl+';
+      var shortcut = 'ctrl+shift+';
       var value = $option.attr('value');
+      var shortcutKey = '';
 
       // Skip placeholders
       if (value == "0" || value == "_none") {
@@ -135,18 +138,31 @@
       }
 
       if (value == 'standard') {
-        shortcut += "n";
+        shortcutKey = 'n';
       }
       else {
-        shortcut += value[0].toLowerCase();
+        // Find a unique shortcut
+        var array = value.split('');
+
+        for (var index = 0 ; index < array.length ; index++) {
+          if (shortcutKey === '' && $.inArray(array[index], usedShortcutKeys) === -1) {
+            shortcutKey = array[index];
+          }
+        }
       }
 
-      // Add shortcut to select box.
-      $option.text($option.text() + " (" + shortcut + ")");
+      // Create the shortcut if a unique one was found
+      if (shortcutKey !== '') {
+        shortcut += shortcutKey;
+        usedShortcutKeys.push(shortcutKey);
 
-      Mousetrap.bind(shortcut, function(e) {
-        $select.val(value).trigger('change');
-      });
+        // Add shortcut to select box.
+        $option.text($option.text() + " (" + shortcut + ")");
+
+        Mousetrap.bind(shortcut, function(e) {
+          $select.val(value).trigger('change');
+        });
+      }
     });
 
     // Switch notification forms on select change.
