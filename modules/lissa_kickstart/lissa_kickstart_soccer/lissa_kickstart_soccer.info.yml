@@ -81,3 +81,5 @@ config_devel:
   - field.field.notification_entity.video.field_video_url
   - field.storage.notification_entity.field_video_url
   - notification_entity.type.video
+  - field.field.node.soccer_event.field_event_interface
+  - field.storage.node.field_event_interface

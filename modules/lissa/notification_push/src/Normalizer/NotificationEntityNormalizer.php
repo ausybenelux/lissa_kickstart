@@ -2,16 +2,16 @@
 
 /**
  * @file
- * Contains \Drupal\ext\Normalizer\NotificationEntityNormalizer.
+ * Contains \Drupal\notification_push\Normalizer\NotificationEntityNormalizer.
  */
 
-namespace Drupal\ext\Normalizer;
+namespace Drupal\notification_push\Normalizer;
 
 use Drupal\ext\Normalizer\ContentEntityNormalizer;
 
 
 /**
- * Converts the Drupal entity object structure to a EXT array structure.
+ * Converts notification entities to a serializable data structure.
  *
  * Adds the following serialize context options:
  * - excluded_fields: an array of field names to excluded.
@@ -31,7 +31,10 @@ class NotificationEntityNormalizer extends ContentEntityNormalizer {
    */
   public function normalize($entity, $format = NULL, array $context = array()) {
     $context['merge_data']['api_meta']['event_uuid'] = $entity->getHost()->uuid();
+    $context['merge_data']['api_meta']['type'] = 'create';
     $context['excluded_fields'][] = 'host_id';
+    // Allow other modules to alter the pushed data.
+    \Drupal::moduleHandler()->alter('notification_push_context', $context, $entity);
     return parent::normalize($entity, $format, $context);
   }
 }

@@ -9,7 +9,7 @@
 <p>Servers:</p>
 <form method="get" name="test-lissa-api" id="test-lissa-api">
     <p><input type="text" size="60" name="lissa-admin-url" id="lissa-admin-url" placeholder="Enter the backend domain. Default: admin.lissa.dev"></p>
-    <p><input type="text" size="60" name="lissa-worker-url" id="lissa-worker-url" placeholder="Enter the worker domain. Default: worker.lissa.dev"></p>
+    <p><input type="text" size="60" name="lissa-worker-url" id="lissa-worker-url" placeholder="Enter the worker domain. Default: admin.lissa.dev:8080"></p>
     <input type="submit" value="Load events" />
 </form>
 <p id="messages"></p>
@@ -26,7 +26,7 @@
             var adminDomain = $('#lissa-admin-url').val();
             var workerDomain = $('#lissa-worker-url').val();
             adminDomain = adminDomain.length ? adminDomain : 'admin.lissa.dev';
-            workerDomain = workerDomain.length ? workerDomain : 'worker.lissa.dev';
+            workerDomain = workerDomain.length ? workerDomain : 'admin.lissa.dev:8080';
             var $messages = $('#messages');
             var $data = $('#data');
             $messages.add($data).empty();

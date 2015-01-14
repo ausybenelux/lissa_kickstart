@@ -65,6 +65,9 @@ function notification_push_notify(EntityInterface $notification, $action = 'crea
     ),
   );
 
+  // Allow other modules to alter the pushed data.
+  \Drupal::moduleHandler()->alter('notification_push_context', $context, $notification, $action);
+
   $output = $serializer->serialize($notification, 'ext_json', $context);
 
   $channel->basic_publish(new AMQPMessage($output), '', 'content_notification');

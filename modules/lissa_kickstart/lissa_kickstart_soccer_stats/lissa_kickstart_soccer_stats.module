@@ -1,5 +1,8 @@
 <?php
 
+use \Drupal\notification_entity\Entity\NotificationEntity;
+use \Drupal\taxonomy\Entity\Term;
+
 /**
  * @file
  * Contains hook implementations for the lissa_kickstart_soccer_stats module.
@@ -23,4 +26,68 @@ function lissa_kickstart_soccer_stats_node_presave(Drupal\node\NodeInterface $no
     $title = $team . ' - ' . $season;
     $node->setTitle($title);
   }
+}
+
+/**
+ * Implements hook_notification_push_context_alter().
+ *
+ * Adds statistics to the pushed notification data.
+ */
+function lissa_kickstart_soccer_stats_notification_push_context_alter(array &$context, NotificationEntity $notification, $action = 'create') {
+  if (isset($context['merge_data']['soccer_stats'])) {
+    return;
+  }
+
+  $context['merge_data']['soccer_stats'] = array();
+
+  // An array of vocabularies linking to statistics. The value is the field name
+  // of the statistic node.
+  $vocabularies = [
+    'player' => 'field_stats_player',
+    'team' => 'field_stats_team',
+  ];
+
+  // Fetch all fields referencing player or team terms.
+  foreach ($notification->getFields() as $name => $field) {
+    if (get_class($field) == 'Drupal\Core\Field\EntityReferenceFieldItemList') {
+      $referenced_entities = $field->referencedEntities();
+      if (!empty($referenced_entities)) {
+        $referenced_entity = array_shift($referenced_entities);
+        if (get_class($referenced_entity) == 'Drupal\taxonomy\Entity\Term') {
+          $vocabulary = $referenced_entity->getVocabularyId();
+          if (isset($vocabularies[$vocabulary])) {
+            $stats = lissa_kickstart_get_term_statistics($vocabularies[$vocabulary], $referenced_entity->id());
+            if (!empty($stats)) {
+              $node = array_shift($stats);
+              $context['merge_data']['soccer_stats'][$name] = $node->toArray();
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Returns a statistics node for a given term.
+ *
+ * @param \Drupal\taxonomy\Entity\Term $term
+ *   An taxonomy term object.
+ *
+ * @return \Drupal\node\Entity\Node|NULL
+ *   A node object linked to the term or NULL if there are no statistics.
+ */
+function lissa_kickstart_get_term_statistics($key_field, $key_value) {
+  $stats = &drupal_static(__FUNCTION__);
+
+  if (isset($stats[$key_field][$key_value])) {
+    return $stats[$key_field][$key_value];
+  }
+
+  $entity_query = \Drupal::entityQuery('node', 'AND');
+  $entity_query->condition($key_field, $key_value);
+  $result = $entity_query->execute();
+  $stats[$key_field][$key_value] = $result ? \Drupal::entityManager()->getStorage('node')->loadMultiple($result) : array();
+
+  return $stats[$key_field][$key_value];
 }

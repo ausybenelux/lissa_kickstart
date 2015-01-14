@@ -22,11 +22,7 @@ services:
     arguments: ['@rest.link_manager', '@entity.manager', '@module_handler']
     tags:
       - { name: normalizer, priority: 10 }
-  serializer.normalizer.notification_entity.ext:
-      class: Drupal\ext\Normalizer\NotificationEntityNormalizer
-      arguments: ['@rest.link_manager', '@entity.manager', '@module_handler']
-      tags:
-        - { name: normalizer, priority: 20 }
+
   serializer.encoder.ext:
     class: Drupal\ext\Encoder\JsonEncoder
     tags:

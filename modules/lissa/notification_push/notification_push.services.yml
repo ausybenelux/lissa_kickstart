@@ -1,0 +1,6 @@
+services:
+  serializer.normalizer.notification_entity.notification_push:
+      class: Drupal\notification_push\Normalizer\NotificationEntityNormalizer
+      arguments: ['@rest.link_manager', '@entity.manager', '@module_handler']
+      tags:
+        - { name: normalizer, priority: 20 }
