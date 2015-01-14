@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   entity:
+    - field.field.taxonomy_term.player.field_player_first_name
     - field.field.taxonomy_term.player.field_player_teams
     - taxonomy.vocabulary.player
   module:
@@ -15,27 +16,34 @@ mode: default
 content:
   name:
     type: string_textfield
-    weight: -5
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  description:
-    type: text_textfield
     weight: 0
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_player_first_name:
+    type: string_textfield
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  description:
+    type: text_textarea
+    weight: 2
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 3
     settings: {  }
     third_party_settings: {  }
   field_player_teams:
-    weight: 31
+    type: options_select
+    weight: 4
     settings: {  }
     third_party_settings: {  }
-    type: options_select
 hidden: {  }
 third_party_settings: {  }

@@ -32,6 +32,7 @@ config_devel:
   - field.field.node.soccer_event.field_event_timeline_end
   - field.field.node.soccer_event.field_event_timeline_start
   - field.field.node.soccer_event.field_event_visible
+  - field.field.taxonomy_term.player.field_player_first_name
   - field.field.taxonomy_term.player.field_player_teams
   - field.field.taxonomy_term.team.field_team_color
   - field.field.taxonomy_term.team.field_team_competitions
@@ -48,6 +49,7 @@ config_devel:
   - field.storage.node.field_event_timeline_end
   - field.storage.node.field_event_timeline_start
   - field.storage.node.field_event_visible
+  - field.storage.taxonomy_term.field_player_first_name
   - field.storage.taxonomy_term.field_player_teams
   - field.storage.taxonomy_term.field_team_color
   - field.storage.taxonomy_term.field_team_competitions

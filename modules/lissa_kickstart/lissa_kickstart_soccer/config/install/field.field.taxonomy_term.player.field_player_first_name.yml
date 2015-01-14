@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  entity:
+    - field.storage.taxonomy_term.field_player_first_name
+    - taxonomy.vocabulary.player
+id: taxonomy_term.player.field_player_first_name
+field_name: field_player_first_name
+entity_type: taxonomy_term
+bundle: player
+label: 'First Name'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: string
