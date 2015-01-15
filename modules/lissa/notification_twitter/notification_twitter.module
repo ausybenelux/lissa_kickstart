@@ -15,13 +15,13 @@ use Drupal\notification_entity\Entity\NotificationEntity;
  * @param $form
  * @param FormStateInterface $form_state
  */
-function notification_twitter_form_notification_entity_form_alter(&$form, FormStateInterface $form_state)
-{
+function notification_twitter_form_notification_entity_form_alter(&$form, FormStateInterface $form_state) {
 
   $path = \Drupal::routeMatch()->getRouteObject()->getPath();
   $node = \Drupal::request()->attributes->get('node');
 
   if (strpos($path, '/node/{node}/timeline') === 0 && $node) {
+
     $form['tweet'] = array(
       '#title' => 'Tweet this notification',
       '#type' => 'checkbox',
@@ -29,11 +29,7 @@ function notification_twitter_form_notification_entity_form_alter(&$form, FormSt
     );
 
     $form['actions']['submit']['#submit'][] = 'notification_twitter_form_submit_callback';
-
-    $tmp = 1;
   }
-
-
 }
 
 /**
@@ -41,8 +37,8 @@ function notification_twitter_form_notification_entity_form_alter(&$form, FormSt
  * @param $form
  * @param FormStateInterface $form_state
  */
-function notification_twitter_form_submit_callback($form, FormStateInterface &$form_state)
-{
+function notification_twitter_form_submit_callback($form, FormStateInterface &$form_state) {
+
   /** @var \Drupal\notification_entity\Entity\NotificationEntity $notification_entity */
   $notification_entity = $form_state->getFormObject()->getEntity();
 
@@ -55,21 +51,19 @@ function notification_twitter_form_submit_callback($form, FormStateInterface &$f
 }
 
 /**
- * Pushes a notification to twitter.
+ * Pushes a notification entity to twitter.
  *
  * @param NotificationEntity $notificationEntity
  */
-function notification_twitter_tweet_notification(NotificationEntity $notificationEntity)
-{
+function notification_twitter_tweet_notification(NotificationEntity $notificationEntity) {
+
   $config = \Drupal::config('notification_twitter.settings');
 
   $cb = new Codebird();
-
   $cb->setToken(
     $config->get('access_token'),
     $config->get('access_token_secret')
   );
-
   $cb->setConsumerKey(
     $config->get('consumer_key'),
     $config->get('consumer_secret')
@@ -78,15 +72,20 @@ function notification_twitter_tweet_notification(NotificationEntity $notificatio
   $event = $notificationEntity->getHost();
   $fields = $event->getFields();
   $field = $fields['field_event_twitter'];
-  $hashtag = $field->getValue()[0]['value'];
+
+  $hashtags = ' ' . $field->getValue()[0]['value'];
+
+  // A tweet should be 140 chars max
+  $charsAvailable = 140 - strlen($hashtags);
+  $content = substr($notificationEntity->getTitle(), 0, $charsAvailable);
 
   $params = [
-    'status' => $notificationEntity->getTitle() . ' ' . $hashtag
+    'status' => $content . $hashtags
   ];
 
   $reply = $cb->statuses_update($params);
 
-// There are more possible status codes which specify the potential problem better
+  // There are more possible status codes which specify the potential problem better
   if (!$reply->httpstatus == 200) {
     drupal_set_message([t('There was an error sending your tweet.')]);
   }
