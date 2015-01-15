@@ -1,0 +1,5 @@
+notification_twitter.settings:
+  title: 'Notification Twitter'
+  parent: system.admin_config_services
+  description: 'Provide access tokens for the twitter account to which notification should be pushed'
+  route_name: notification_twitter.settings

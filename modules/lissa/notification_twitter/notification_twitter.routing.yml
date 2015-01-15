@@ -1,0 +1,7 @@
+notification_twitter.settings:
+  path: '/admin/config/services/notification-twitter/settings'
+  defaults:
+    _form: '\Drupal\notification_twitter\Form\SettingsForm'
+    _title: 'Notification Twitter Settings'
+  requirements:
+    _permission: 'administer site configuration'
