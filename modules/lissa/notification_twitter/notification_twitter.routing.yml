@@ -5,10 +5,3 @@ notification_twitter.settings:
     _title: 'Notification Twitter Settings'
   requirements:
     _permission: 'administer site configuration'
-
-notification_twitter.tweet:
-  path: '/notification/tweet'
-  defaults:
-    _content: '\Drupal\notification_twitter\Controller\NotificationTwitterController::ajaxTweetNotification'
-  requirements:
-    _permission: 'administer site configuration'
