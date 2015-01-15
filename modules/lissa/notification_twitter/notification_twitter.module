@@ -4,7 +4,6 @@
  * The module that sends notifications to twitter
  */
 
-use \Drupal\Core\Entity\EntityInterface;
 use Codebird\Codebird;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\notification_entity\Entity\NotificationEntity;
@@ -16,7 +15,8 @@ use Drupal\notification_entity\Entity\NotificationEntity;
  * @param $form
  * @param FormStateInterface $form_state
  */
-function notification_twitter_form_notification_entity_form_alter(&$form, FormStateInterface $form_state) {
+function notification_twitter_form_notification_entity_form_alter(&$form, FormStateInterface $form_state)
+{
 
   $path = \Drupal::routeMatch()->getRouteObject()->getPath();
   $node = \Drupal::request()->attributes->get('node');
@@ -27,20 +27,30 @@ function notification_twitter_form_notification_entity_form_alter(&$form, FormSt
       '#type' => 'checkbox',
       '#default_value' => '1',
     );
+
+    $form['actions']['submit']['#submit'][] = 'notification_twitter_form_submit_callback';
+
+    $tmp = 1;
   }
+
+
 }
 
 /**
- * Implements hook_entity_insert()
- * @param EntityInterface $notification
+ *
+ * @param $form
+ * @param FormStateInterface $form_state
  */
-function notification_twitter_entity_insert(EntityInterface $notification) {
-  if ($notification->getEntityTypeId() == 'notification_entity') {
+function notification_twitter_form_submit_callback($form, FormStateInterface &$form_state)
+{
+  /** @var \Drupal\notification_entity\Entity\NotificationEntity $notification_entity */
+  $notification_entity = $form_state->getFormObject()->getEntity();
 
-    // Don't know how to do this cleaner
-    if (isset($_POST['tweet'])) {
-      notification_twitter_tweet_notification($notification);
-    }
+  $isNotificationEntity = $notification_entity->getEntityTypeId() == 'notification_entity';
+  $allowedToTweet = $form_state->getValue('tweet');
+
+  if ($isNotificationEntity && $allowedToTweet) {
+    notification_twitter_tweet_notification($notification_entity);
   }
 }
 
@@ -49,7 +59,8 @@ function notification_twitter_entity_insert(EntityInterface $notification) {
  *
  * @param NotificationEntity $notificationEntity
  */
-function notification_twitter_tweet_notification(NotificationEntity $notificationEntity) {
+function notification_twitter_tweet_notification(NotificationEntity $notificationEntity)
+{
   $config = \Drupal::config('notification_twitter.settings');
 
   $cb = new Codebird();
@@ -75,9 +86,8 @@ function notification_twitter_tweet_notification(NotificationEntity $notificatio
 
   $reply = $cb->statuses_update($params);
 
-  // There are more possible status codes which specify the potential problem better
+// There are more possible status codes which specify the potential problem better
   if (!$reply->httpstatus == 200) {
     drupal_set_message([t('There was an error sending your tweet.')]);
   }
-
 }
