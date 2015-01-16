@@ -6,9 +6,9 @@
 
   <property name="builddir" value="${phing.dir}/build"/>
 
-  <target name="build" depends="clean,prepare,drush-make,install,import,composer-install" description="Run drush make and drush site-install"/>
-  <target name="rebuild" depends="uninstall,install,import,composer-install" description="Perform a fast build"/>
-  <target name="update" depends="update-code,update-drupal,composer-install" description="Update the instance without destroying existing data."/>
+  <target name="build" depends="clean,prepare,drush-make,install,import" description="Run drush make and drush site-install"/>
+  <target name="rebuild" depends="uninstall,install,import" description="Perform a fast build"/>
+  <target name="update" depends="update-code,update-drupal" description="Update the instance without destroying existing data."/>
   <target name="clean" depends="uninstall,clean-build,clean-docroot" description="Clean build artifacts and source code"/>
 
   <target name="clean-permissions" description="Clean permissions">
@@ -119,9 +119,7 @@
       <arg value="--writable"/>
       <arg value="${drupal.profile}"/>
     </exec>
-  </target>
-
-  <target name="composer-install">
+    <!-- Set up the composer dependencies -->
     <if>
       <available file="${docroot}/sites/default/files/composer/composer.json" type="file" />
       <then>
