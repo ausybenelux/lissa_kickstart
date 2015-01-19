@@ -6,8 +6,10 @@ id: technical_engineer
 label: 'Technical engineer'
 weight: 5
 permissions:
-  - 'access contextual links'
-  - 'edit any soccer_event content'
-  - 'use text format full_html'
-  - 'access shortcuts'
-  - 'access toolbar'
+  0: 'access contextual links'
+  1: 'edit any soccer_event content'
+  2: 'use text format full_html'
+  3: 'access shortcuts'
+  4: 'access toolbar'
+  6: 'administer nodes'
+  7: 'view own unpublished content'

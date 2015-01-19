@@ -10,3 +10,5 @@ permissions:
   - 'use text format full_html'
   - 'access shortcuts'
   - 'access toolbar'
+  - 'administer nodes'
+  - 'view own unpublished content'

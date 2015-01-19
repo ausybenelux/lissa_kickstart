@@ -45,17 +45,6 @@
   },
   "5": {
     "id": [{"value": "5"}],
-    "uuid": [{"value": "c5d9753c-288e-488e-b400-c988f98333a4"}],
-    "shortcut_set": [{"target_id": "default"}],
-    "title": [{"value": "Monitor"}],
-    "weight": [{"value": "-9"}],
-    "route_name": [{"value": "event_monitor.form"}],
-    "route_parameters": [[]],
-    "langcode": [{"value": "en"}],
-    "path": [{"value": "event/monitor"}]
-  },
-  "6": {
-    "id": [{"value": "6"}],
     "uuid": [{"value": "8576ef3f-7b72-46b5-a300-c78f24ac65ea"}],
     "shortcut_set": [{"target_id": "default"}],
     "title": [{"value": "Statistics"}],
