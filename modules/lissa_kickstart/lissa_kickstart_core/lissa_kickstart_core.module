@@ -22,3 +22,12 @@ function lissa_kickstart_core_editor_js_settings_alter(array &$settings) {
 function lissa_kickstart_core_form_user_login_form_alter(&$form, &$form_state, $form_id) {
   $form['#submit'][] = '\Drupal\lissa_kickstart_core\Controller\LissaKickstartCoreController::redirectLoginForm';
 }
+
+/**
+ * Implments hook_update_N
+ *
+ * Enables the notification_twitter module after deploying
+ */
+function lissa_kickstart_core_update_8100() {
+  \Drupal::service('module_installer')->install(['notification_twitter']);
+}
