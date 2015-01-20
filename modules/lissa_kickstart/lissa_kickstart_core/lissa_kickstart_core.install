@@ -1,10 +1,15 @@
 <?php
 
 /**
+ * @file
+ * contains hooks for the lissa_kickstart_core module
+ */
+
+/**
 * Implments hook_update_N
 *
 * Enables the notification_twitter module after deploying
 */
-function lissa_kickstart_core_update_8001() {
+function lissa_kickstart_core_update_8101() {
   \Drupal::service('module_installer')->install(['notification_twitter']);
 }
