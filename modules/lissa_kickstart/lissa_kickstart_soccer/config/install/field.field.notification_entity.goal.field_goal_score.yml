@@ -9,8 +9,8 @@ field_name: field_goal_score
 entity_type: notification_entity
 bundle: goal
 label: Score
-description: ''
-required: false
+description: 'Enter the score as it should be displayed in the app. E.g. 1 - 2.'
+required: true
 translatable: false
 default_value:
   -
