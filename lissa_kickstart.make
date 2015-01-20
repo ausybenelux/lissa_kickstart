@@ -14,7 +14,10 @@ projects[composer_manager][download][revision] =  b1510ee6560d76e69155dc49b69ec0
 projects[composer_manager][download][branch] = 8.x-1.x
 projects[composer_manager][patch][] = "http://www.drupal.org/files/issues/composer_manager-remove-url-calls-2347559-9.patch"
 
+projects[composer_manager][type] = "module"
+projects[composer_manager][subdir] = "contrib"
+projects[composer_manager][version] = 1.0-alpha8
+
 projects[config_devel][type] = "module"
 projects[config_devel][subdir] = "contrib"
 projects[config_devel][version] = 1.0-alpha14
-
