@@ -5,6 +5,6 @@
 *
 * Enables the notification_twitter module after deploying
 */
-function lissa_kickstart_core_update_8000() {
+function lissa_kickstart_core_update_8001() {
   \Drupal::service('module_installer')->install(['notification_twitter']);
 }
