@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.field.node.soccer_team_stats.body
     - field.field.node.soccer_team_stats.field_stats_defeats
     - field.field.node.soccer_team_stats.field_stats_draws

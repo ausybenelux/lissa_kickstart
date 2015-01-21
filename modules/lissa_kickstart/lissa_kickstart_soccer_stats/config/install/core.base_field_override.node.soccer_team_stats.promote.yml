@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - node.type.soccer_team_stats
 id: node.soccer_team_stats.promote
 field_name: promote

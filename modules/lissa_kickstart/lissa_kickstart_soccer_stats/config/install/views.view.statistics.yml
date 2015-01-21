@@ -3,6 +3,9 @@ status: true
 dependencies:
   module:
     - node
+  config:
+    - node.type.soccer_player_stats
+    - node.type.soccer_team_stats
 id: statistics
 label: Statistics
 module: views

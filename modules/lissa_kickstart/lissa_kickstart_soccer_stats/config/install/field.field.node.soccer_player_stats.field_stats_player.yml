@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_stats_player
     - node.type.soccer_player_stats
 id: node.soccer_player_stats.field_stats_player
