@@ -12,7 +12,6 @@
   <target name="clean" depends="uninstall,clean-build,clean-docroot" description="Clean build artifacts and source code"/>
 
   <target name="clean-permissions" description="Clean permissions">
-    <exec command="chown -R ${web.user}:${web.group} ${docroot}" escape="false" />
     <if>
       <available file="${docroot}/sites/${drupal.subdir}" type="dir" />
       <then>
