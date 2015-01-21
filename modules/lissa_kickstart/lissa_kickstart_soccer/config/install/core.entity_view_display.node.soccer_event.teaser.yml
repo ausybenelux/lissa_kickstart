@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - core.entity_view_mode.node.teaser
     - field.field.node.soccer_event.body
     - field.field.node.soccer_event.field_event_away_team

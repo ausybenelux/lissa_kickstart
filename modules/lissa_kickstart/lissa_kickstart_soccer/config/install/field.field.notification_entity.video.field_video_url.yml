@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.notification_entity.field_video_url
     - notification_entity.type.video
 id: notification_entity.video.field_video_url

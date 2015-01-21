@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.notification_entity.field_status_type
     - notification_entity.type.status
 id: notification_entity.status.field_status_type

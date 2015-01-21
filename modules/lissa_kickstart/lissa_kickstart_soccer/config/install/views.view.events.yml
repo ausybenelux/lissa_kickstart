@@ -3,8 +3,9 @@ status: true
 dependencies:
   module:
     - node
-    - notification_timeline
     - rest
+  config:
+    - node.type.soccer_event
 id: events
 label: Events
 module: views
@@ -12,7 +13,7 @@ description: ''
 tag: ''
 base_table: node
 base_field: nid
-core: 8.x
+core: '8'
 display:
   default:
     display_plugin: default
@@ -212,8 +213,12 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
           value:
             soccer_event: soccer_event
+          plugin_id: bundle
+          entity_type: node
+          entity_field: type
       sorts:
         created:
           id: created

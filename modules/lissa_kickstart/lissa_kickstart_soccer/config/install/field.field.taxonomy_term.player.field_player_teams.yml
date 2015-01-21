@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.taxonomy_term.field_player_teams
     - taxonomy.vocabulary.player
 id: taxonomy_term.player.field_player_teams

@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.taxonomy_term.field_team_color
     - taxonomy.vocabulary.team
 id: taxonomy_term.team.field_team_color

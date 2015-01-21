@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_event_visible
     - node.type.soccer_event
 id: node.soccer_event.field_event_visible

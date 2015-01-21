@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.field.taxonomy_term.player.field_player_first_name
     - field.field.taxonomy_term.player.field_player_teams
     - taxonomy.vocabulary.player

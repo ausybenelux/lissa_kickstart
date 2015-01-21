@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.notification_entity.field_card_type
     - notification_entity.type.card
 id: notification_entity.card.field_card_type

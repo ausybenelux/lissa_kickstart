@@ -272,7 +272,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
       ->setTranslatable(TRUE)
       ->setDisplayOptions('view', array(
         'label' => 'hidden',
-        'type' => 'node',
+        'type' => 'image',
         'weight' => 0,
       ))
       ->setDisplayOptions('form', array(
@@ -288,7 +288,7 @@ class NotificationEntity extends ContentEntityBase implements NotificationEntity
     $fields['content'] = BaseFieldDefinition::create('text_long')
       ->setLabel(t('Content'))
       ->setDisplayOptions('view', array(
-        'type' => 'text',
+        'type' => 'string',
         'weight' => 0,
         'label' => 'hidden',
       ))
