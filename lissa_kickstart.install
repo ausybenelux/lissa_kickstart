@@ -39,9 +39,9 @@ function lissa_kickstart_install() {
   $user_settings->set('admin_role', 'administrator')->save();
 
   // Assign user 1 the "administrator" role.
-  db_insert('users_roles')
-    ->fields(array('uid' => 1, 'rid' => 'administrator'))
-    ->execute();
+  $user = User::load(1);
+  $user->roles[] = 'administrator';
+  $user->save();
   
   // Enable the admin theme.
   \Drupal::config('node.settings')->set('use_admin_theme', '1')->save();
