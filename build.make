@@ -7,7 +7,7 @@ core = "8.x"
 api = 2
 
 projects[drupal][overwrite] = TRUE
-projects[drupal][version] = 8.0.0-beta4
+projects[drupal][version] = beta4
 
 ; Download the install profile and recursively build all its dependencies:
 projects[lissa_kickstart][type] = profile
