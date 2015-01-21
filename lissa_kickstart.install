@@ -4,6 +4,8 @@
  * Install, update and uninstall functions for the LISSA kickstart profile.
  */
 
+use Drupal\user\Entity\User;
+
 /**
  * Implements hook_install().
  *
