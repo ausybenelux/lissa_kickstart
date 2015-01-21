@@ -5,10 +5,10 @@
 // directories.
 $config_base_directory = DRUPAL_ROOT . '/profiles/lissa_kickstart/config';
 
-$config_directories = array(
+/*$config_directories = array(
   CONFIG_ACTIVE_DIRECTORY => $config_base_directory . '/active',
   CONFIG_STAGING_DIRECTORY => $config_base_directory . '/staging',
-);
+);*/
 
 if (file_exists($config_base_directory . '/deploy')) {
   $config_directories['deploy'] = $config_base_directory . '/deploy';
