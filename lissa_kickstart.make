@@ -9,8 +9,9 @@ projects[devel][download][branch] = 8.x-1.x
 
 projects[composer_manager][type] = "module"
 projects[composer_manager][subdir] = "contrib"
-projects[composer_manager][version] = 1.0-alpha8
-projects[composer_manager][patch][] = "https://www.drupal.org/files/issues/2401933-1.patch"
+projects[composer_manager][download][type] = git
+projects[composer_manager][download][revision] = 4bc5193
+projects[composer_manager][download][branch] = 8.x-1.x
 
 projects[config_devel][type] = "module"
 projects[config_devel][subdir] = "contrib"
