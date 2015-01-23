@@ -2,6 +2,7 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeTypeInterface;
+use Drupal\Core\Url;
 
 /**
  * @file
@@ -61,14 +62,14 @@ function notification_timeline_form_node_type_form_builder($entity_type, NodeTyp
  *
  * Adds ajax functionality to the notification entity form.
  */
-function notification_entity_form_notification_entity_form_alter(&$form, FormStateInterface $form_state) {
+function notification_timeline_form_notification_entity_form_alter(&$form, FormStateInterface $form_state) {
 
   $path = \Drupal::routeMatch()->getRouteObject()->getPath();
   $node = \Drupal::request()->attributes->get('node');
 
   if (strpos($path, '/node/{node}/timeline') === 0 && $node) {
     $form['actions']['submit']['#ajax'] = [
-      'path' => 'node/' . $node->id() . '/timeline/ajax/add',
+      'url' => new Url('entity.node.timeline_ajax_add', array('node' => $node->id())),
     ];
   }
 }

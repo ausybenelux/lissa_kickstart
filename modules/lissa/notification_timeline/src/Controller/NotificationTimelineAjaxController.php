@@ -44,8 +44,10 @@ class NotificationTimelineAjaxController extends FormAjaxController {
    * @throws \Symfony\Component\HttpKernel\Exception\HttpExceptionInterface
    */
   public function ajaxAddNotification(NodeInterface $node, Request $request) {
-    list($form, $form_state) = $this->getForm($request);
-    drupal_process_form($form['#form_id'], $form, $form_state);
+    $ajax_form = $this->getForm($request);
+    $form = $ajax_form->getForm();
+    $form_state = $ajax_form->getFormState();
+    \Drupal::formBuilder()->processForm($form['#form_id'], $form, $form_state);
     return $this->ajaxSubmitNotificationEntity($form, $form_state);
   }
 

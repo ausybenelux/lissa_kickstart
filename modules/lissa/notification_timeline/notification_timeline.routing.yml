@@ -29,7 +29,7 @@ entity.node.node_timeline:
       node:
         type: entity:node
 
-entity.node.node_timeline:
+entity.node.timeline_ajax_add:
   path: '/node/{node}/timeline/ajax/add'
   defaults:
     _controller: '\Drupal\notification_timeline\Controller\NotificationTimelineAjaxController::ajaxAddNotification'
