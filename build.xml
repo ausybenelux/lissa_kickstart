@@ -120,8 +120,12 @@
     </exec>
     <!-- Set up the composer dependencies -->
     <if>
-      <available file="${docroot}/sites/default/files/composer/composer.json" type="file" />
+      <available file="${docroot}/core/composer.json" type="file" />
       <then>
+        <exec executable="php" dir="${docroot}/profiles/lissa_kickstart/modules/contrib/composer_manager/scripts">
+          <arg value="--no-dev"/>
+          <arg value="install"/>
+        </exec>
         <exec executable="composer" dir="${docroot}/sites/default/files/composer">
           <arg value="--no-dev"/>
           <arg value="install"/>

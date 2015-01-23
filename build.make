@@ -9,7 +9,8 @@ api = 2
 projects[drupal][overwrite] = TRUE
 projects[drupal][type] = core
 projects[drupal][download][type] = git
-projects[drupal][download][tag] = 8.0.0-beta4
+; projects[drupal][download][tag] = 8.0.0-beta4
+projects[drupal][download][revision] = da288643ff6d8505a66bd388d4e82fd2ea04b0b3
 projects[drupal][download][branch] = 8.0.x
 
 ; Download the install profile and recursively build all its dependencies:
