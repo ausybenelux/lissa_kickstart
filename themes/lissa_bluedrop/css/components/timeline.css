@@ -1,5 +1,5 @@
 .notification-timeline-notification-form,
-.page-node-timeline .notification-entity-form {
+#notification-forms .notification-entity-form {
   padding: 1.5em 3em;
   border-radius: .5em;
   background: #D8E5F0;
