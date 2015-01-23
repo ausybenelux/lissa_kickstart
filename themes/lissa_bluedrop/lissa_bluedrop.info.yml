@@ -5,15 +5,12 @@ package: LISSA Kickstart
 version: 1.0
 core: 8.x
 base theme: seven
-
-stylesheets:
-  screen:
-    - css/components/timeline.css
-    - css/components/notification-entity.css
-    - css/components/event-monitor.css
+libraries:
+ - lissa_bluedrop/global-styling
 
 stylesheets-override:
-  - css/components/branding.css
+  - css/components/content-header.css
   - css/components/page-title.css
   - css/components/tabs.css
   - css/components/form.css
+  - css/layout/layout.css

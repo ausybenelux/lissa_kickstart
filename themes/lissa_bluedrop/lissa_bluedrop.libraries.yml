@@ -1,3 +1,11 @@
+global-styling:
+  version: VERSION
+  css:
+    component:
+      css/components/timeline.css: {}
+      css/components/notification-entity.css: {}
+      css/components/event-monitor.css: {}
+
 form.tooltips:
   version: VERSION
   js:

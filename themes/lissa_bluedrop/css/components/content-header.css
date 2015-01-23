@@ -1,7 +1,7 @@
 /**
  * Branding.
  */
-#branding {
+.content-header {
   overflow: hidden;
   padding: 24px 0 0;
   background: #158DD0 url(../../images/logo.png) 100% 0 no-repeat;
