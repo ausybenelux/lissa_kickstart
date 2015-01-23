@@ -9,7 +9,7 @@ event_monitor.form:
 event_monitor.view:
   path: '/event/monitor/{events}'
   defaults:
-    _content: '\Drupal\event_monitor\Controller\EventMonitorController::loadEvents'
+    _controller: '\Drupal\event_monitor\Controller\EventMonitorController::loadEvents'
     _title: 'Monitor events'
   requirements:
     _permission: 'access content'

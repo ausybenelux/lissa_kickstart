@@ -1,7 +1,7 @@
 entity.notification_entity.canonical:
   path: '/notification/{notification_entity}'
   defaults:
-    _content: '\Drupal\notification_entity\Controller\NotificationEntityViewController::view'
+    _controller: '\Drupal\notification_entity\Controller\NotificationEntityViewController::view'
     _title_callback: '\Drupal\notification_entity\Controller\NotificationEntityViewController::title'
   requirements:
     _permission: 'view notification entity'
@@ -9,7 +9,7 @@ entity.notification_entity.canonical:
 entity.notification_entity.list:
   path: '/notification/list'
   defaults:
-    _content: '\Drupal\Core\Entity\Controller\EntityListController::listing'
+    _controller: '\Drupal\Core\Entity\Controller\EntityListController::listing'
     entity_type: 'notification_entity'
     _title: 'Notifications'
   requirements:
@@ -18,7 +18,7 @@ entity.notification_entity.list:
 notification_entity.add_page:
   path: '/notification/add'
   defaults:
-    _content: '\Drupal\notification_entity\Controller\NotificationEntityController::addPage'
+    _controller: '\Drupal\notification_entity\Controller\NotificationEntityController::addPage'
     _title: 'Add Notification'
   requirements:
     _permission: 'add notification entity'
@@ -26,7 +26,7 @@ notification_entity.add_page:
 notification_entity.add:
   path: '/notification/add/{notification_type}'
   defaults:
-    _content: '\Drupal\notification_entity\Controller\NotificationEntityController::add'
+    _controller: '\Drupal\notification_entity\Controller\NotificationEntityController::add'
     _title_callback: '\Drupal\notification_entity\Controller\NotificationEntityController::addTitle'
   requirements:
     _permission: 'add notification entity'

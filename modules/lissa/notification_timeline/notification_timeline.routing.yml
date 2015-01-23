@@ -1,7 +1,7 @@
 entity.node.notification_form:
   path: '/node/{node}/timeline/add/{notification_type}'
   defaults:
-    _content: '\Drupal\notification_timeline\Controller\NotificationTimelineController::addNotification'
+    _controller: '\Drupal\notification_timeline\Controller\NotificationTimelineController::addNotification'
     _title_callback: '\Drupal\node\Controller\NodeViewController::title'
   requirements:
     _permission: 'access timeline'
@@ -17,7 +17,7 @@ entity.node.notification_form:
 entity.node.node_timeline:
   path: '/node/{node}/timeline'
   defaults:
-    _content: '\Drupal\notification_timeline\Controller\NotificationTimelineController::nodeLoad'
+    _controller: '\Drupal\notification_timeline\Controller\NotificationTimelineController::nodeLoad'
     _title_callback: '\Drupal\node\Controller\NodeViewController::title'
   requirements:
     _permission: 'access timeline'
@@ -32,7 +32,7 @@ entity.node.node_timeline:
 entity.node.node_timeline:
   path: '/node/{node}/timeline/ajax/add'
   defaults:
-    _content: '\Drupal\notification_timeline\Controller\NotificationTimelineAjaxController::ajaxAddNotification'
+    _controller: '\Drupal\notification_timeline\Controller\NotificationTimelineAjaxController::ajaxAddNotification'
   requirements:
     _permission: 'access timeline'
     _custom_access: '\Drupal\notification_timeline\Controller\NotificationTimelineController::checkTimelineAccess'
