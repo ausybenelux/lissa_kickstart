@@ -45,13 +45,8 @@ class NotificationTimelineController extends ControllerBase {
       '#attributes' => array('id' => 'notification-forms'),
       '#type' => 'container',
       '#attached' => array(
-        'js' => array(
-          drupal_get_path('module', 'notification_timeline') . '/js/plugins/Sticky/jquery.sticky.js',
-          drupal_get_path('module', 'notification_timeline') . '/js/notification-timeline.js',
-          drupal_get_path('module', 'notification_timeline') . '/js/plugins/Waypoints/waypoints.min.js',
-        ),
         'library' => array(
-          'notification_timeline/lib.mousetrap',
+          'notification_timeline/notification_timeline',
         ),
       ),
     );

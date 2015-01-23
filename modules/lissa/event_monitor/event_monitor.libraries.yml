@@ -1,0 +1,7 @@
+dash_player:
+  version: VERSION
+  js:
+    js/dash.all.js: {}
+    js/dash_formatter.js: {}
+  dependencies:
+    - core/jquery

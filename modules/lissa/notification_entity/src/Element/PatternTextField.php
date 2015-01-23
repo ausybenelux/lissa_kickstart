@@ -78,15 +78,10 @@ class PatternTextField extends Textfield {
     $language = \Drupal::languageManager()->getCurrentLanguage();
 
     $js_settings = array(
-      'type' => 'setting',
-      'data' => array(
-        'patternTextField' => array(
-          '#' . $element['#id'] => $element['#pattern'],
-        ),
-      ),
+      '#' . $element['#id'] => $element['#pattern'],
     );
     $element['#attached']['library'][] = 'notification_entity/element.pattern-text-field';
-    $element['#attached']['js'][] = $js_settings;
+    $element['#attached']['drupalSettings']['patternTextField'] = $js_settings;
 
     return $element;
   }

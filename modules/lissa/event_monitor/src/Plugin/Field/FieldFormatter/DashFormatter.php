@@ -38,10 +38,11 @@ class DashFormatter extends FormatterBase {
     }
 
     // JS functionality to add mpeg dash player
-    $elements['#attached']['js'] = [
-      drupal_get_path('module', 'event_monitor') . '/js/dash.all.js',
-      drupal_get_path('module', 'event_monitor') . '/js/dash_formatter.js',
-    ];
+    $elements['#attached'] = array(
+      'library' => array(
+        'event_monitor/dash_player',
+      ),
+    );
 
     return $elements;
   }

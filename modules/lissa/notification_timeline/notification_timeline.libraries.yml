@@ -1,4 +1,23 @@
+notification_timeline:
+  version: 1.x
+  js:
+    js/notification-timeline.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - notification_timeline/lib.mousetrap
+    - notification_timeline/lib.waypoints
+    - notification_timeline/lib.sticky
 lib.mousetrap:
   version: VERSION
   js:
     js/plugins/mousetrap.min.js: {}
+lib.waypoints:
+  version: VERSION
+  js:
+    js/plugins/Waypoints/waypoints.min.js: {}
+lib.sticky:
+  version: VERSION
+  js:
+    js/plugins/Sticky/jquery.sticky.js: {}
