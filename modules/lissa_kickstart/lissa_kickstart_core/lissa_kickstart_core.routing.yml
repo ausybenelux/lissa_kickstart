@@ -1,6 +1,6 @@
 lissa_kickstart_core_home:
   path: '/home'
   defaults:
-    _content: '\Drupal\lissa_kickstart_core\Controller\LissaKickstartCoreController::home'
+    _controller: '\Drupal\lissa_kickstart_core\Controller\LissaKickstartCoreController::home'
   requirements:
     _access: 'TRUE'
