@@ -83,7 +83,6 @@ class PatternTextField extends Textfield {
         'patternTextField' => array(
           '#' . $element['#id'] => $element['#pattern'],
         ),
-        'langcode' => $language->id,
       ),
     );
     $element['#attached']['library'][] = 'notification_entity/element.pattern-text-field';
