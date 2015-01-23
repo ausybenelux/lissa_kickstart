@@ -33,7 +33,7 @@ class LinkTimeline extends Link {
   protected function renderLink($node, ResultRow $values) {
     // Ensure user has access to manage the node timeline.
     $parameters = ['node' => $node->id()];
-    $access = \Drupal::service('access_manager')->checkNamedRoute('notification_timeline.node_timeline', $parameters, \Drupal::currentUser());
+    $access = \Drupal::service('access_manager')->checkNamedRoute('entity.node.node_timeline', $parameters, \Drupal::currentUser());
     if (!$access) {
       return;
     }

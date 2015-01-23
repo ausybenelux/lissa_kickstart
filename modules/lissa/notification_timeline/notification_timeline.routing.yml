@@ -1,4 +1,4 @@
-notification_timeline.notification_form:
+entity.node.notification_form:
   path: '/node/{node}/timeline/add/{notification_type}'
   defaults:
     _content: '\Drupal\notification_timeline\Controller\NotificationTimelineController::addNotification'
@@ -7,8 +7,14 @@ notification_timeline.notification_form:
     _permission: 'access timeline'
     _custom_access: '\Drupal\notification_timeline\Controller\NotificationTimelineController::checkTimelineAccess'
     _entity_access: 'node.update'
+  options:
+    _node_operation_route: TRUE
+    parameters:
+      node:
+        type: entity:node
 
-notification_timeline.node_timeline:
+
+entity.node.node_timeline:
   path: '/node/{node}/timeline'
   defaults:
     _content: '\Drupal\notification_timeline\Controller\NotificationTimelineController::nodeLoad'
@@ -17,8 +23,13 @@ notification_timeline.node_timeline:
     _permission: 'access timeline'
     _custom_access: '\Drupal\notification_timeline\Controller\NotificationTimelineController::checkTimelineAccess'
     _entity_access: 'node.update'
+  options:
+    _node_operation_route: TRUE
+    parameters:
+      node:
+        type: entity:node
 
-notification_timeline_ajax.node_timeline:
+entity.node.node_timeline:
   path: '/node/{node}/timeline/ajax/add'
   defaults:
     _content: '\Drupal\notification_timeline\Controller\NotificationTimelineAjaxController::ajaxAddNotification'
@@ -26,3 +37,8 @@ notification_timeline_ajax.node_timeline:
     _permission: 'access timeline'
     _custom_access: '\Drupal\notification_timeline\Controller\NotificationTimelineController::checkTimelineAccess'
     _entity_access: 'node.update'
+  options:
+    _node_operation_route: TRUE
+    parameters:
+      node:
+        type: entity:node

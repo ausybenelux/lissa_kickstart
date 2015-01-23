@@ -64,6 +64,6 @@ class NotificationTimelineNotificationForm extends FormBase {
     );
     // Redirect the next form to this page.
     $options = array('query' => drupal_get_destination());
-    $form_state->setRedirect('notification_timeline.notification_form', $params, $options);
+    $form_state->setRedirect('entity.node.notification_form', $params, $options);
   }
 }
