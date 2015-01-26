@@ -23,7 +23,7 @@ class SettingsForm extends ConfigFormBase implements FormInterface, ContainerInj
   /**
    * {@inheritdoc}
    */
-  public function getFormID() {
+  public function getFormId() {
     return 'notification_push_settings';
   }
 
