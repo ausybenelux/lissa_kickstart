@@ -1,4 +1,4 @@
-uuid: c6452d05-b09a-490e-a504-4e77190d0a3f
+uuid: 24bdba18-de33-40fb-ac47-718846371839
 langcode: en
 status: false
 dependencies:
@@ -13,7 +13,6 @@ weight: -2
 provider: null
 plugin: user_login_block
 settings:
-  visibility: {  }
   id: user_login_block
   label: 'User login'
   provider: user
@@ -21,3 +20,5 @@ settings:
   cache:
     max_age: 0
     contexts: {  }
+  visibility: {  }
+visibility: {  }

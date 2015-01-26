@@ -1,13 +1,14 @@
-uuid: 9a5643ae-a1ee-4cd5-953d-6177428d17ca
+uuid: 5784be72-1fc7-4b4d-b605-5bbf0f4d4e0b
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.field.notification_entity.goal.field_goal_player
     - field.field.notification_entity.goal.field_goal_score
     - field.field.notification_entity.goal.field_goal_team
     - notification_entity.type.goal
   module:
+    - image
     - notification_entity
     - taxonomy
 id: notification_entity.goal.default

@@ -1,4 +1,4 @@
-uuid: edf554e8-d7b3-4cb4-8e03-3be924e9337c
+uuid: b4c8291d-9192-4da0-a800-d4baf9282146
 langcode: en
 status: true
 dependencies:
@@ -9,9 +9,11 @@ field_name: field_stats_offside
 entity_type: node
 type: integer
 settings:
-  unsigned: ''
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
+persist_with_no_fields: false

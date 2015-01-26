@@ -1,10 +1,12 @@
-uuid: 0a2d857a-0445-40b0-8148-72a944884095
+uuid: 6a18886f-977c-4749-a015-21d9694f0052
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_event_away_team
     - node.type.soccer_event
+  module:
+    - taxonomy
 id: node.soccer_event.field_event_away_team
 field_name: field_event_away_team
 entity_type: node

@@ -1,10 +1,12 @@
-uuid: 72695210-1f51-4557-bf00-f30b44c87ab0
+uuid: 97ddb209-8ae0-4e5f-b55c-929e282db988
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.notification_entity.field_card_player
     - notification_entity.type.card
+  module:
+    - taxonomy
 id: notification_entity.card.field_card_player
 field_name: field_card_player
 entity_type: notification_entity

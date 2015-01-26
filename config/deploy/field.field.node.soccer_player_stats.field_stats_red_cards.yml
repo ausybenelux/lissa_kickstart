@@ -1,8 +1,8 @@
-uuid: 1c180273-f822-4dcf-910e-140b61ee4d8b
+uuid: 22408df0-5f1f-4ea7-be3d-615fb9f6c88d
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_stats_red_cards
     - node.type.soccer_player_stats
 id: node.soccer_player_stats.field_stats_red_cards
@@ -20,6 +20,5 @@ settings:
   max: null
   prefix: ''
   suffix: ''
-  size: normal
 third_party_settings: {  }
 field_type: integer

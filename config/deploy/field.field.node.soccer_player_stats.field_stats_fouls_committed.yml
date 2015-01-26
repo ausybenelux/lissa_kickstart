@@ -1,8 +1,8 @@
-uuid: 9bd7df46-5eb8-42d4-9600-fbaca59ef81a
+uuid: b284bfc6-29ca-498b-8e00-e7dac8485c07
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_stats_fouls_committed
     - node.type.soccer_player_stats
 id: node.soccer_player_stats.field_stats_fouls_committed
@@ -20,6 +20,5 @@ settings:
   max: null
   prefix: ''
   suffix: ''
-  size: normal
 third_party_settings: {  }
 field_type: integer

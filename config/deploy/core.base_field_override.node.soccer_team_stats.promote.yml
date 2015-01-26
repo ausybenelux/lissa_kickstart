@@ -1,8 +1,8 @@
-uuid: fa44528a-df6d-4c44-9506-6d60dc3ae4e6
+uuid: 15b7494f-8a97-4976-9900-ee8f0bc258c1
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - node.type.soccer_team_stats
 id: node.soccer_team_stats.promote
 field_name: promote

@@ -1,8 +1,8 @@
-uuid: 4dd0d6ba-6ba6-414f-8408-8bba86c299f0
+uuid: f78cc6df-4479-4be8-bb05-05c6b2636844
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.taxonomy_term.field_team_color
     - taxonomy.vocabulary.team
 id: taxonomy_term.team.field_team_color

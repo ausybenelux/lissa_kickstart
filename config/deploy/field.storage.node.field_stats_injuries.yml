@@ -1,4 +1,4 @@
-uuid: afb17405-012c-42c3-9a0e-14cb0da2b456
+uuid: a8e92552-9ade-40e2-b701-1dc30aa2000e
 langcode: en
 status: true
 dependencies:
@@ -9,9 +9,11 @@ field_name: field_stats_injuries
 entity_type: node
 type: integer
 settings:
-  unsigned: ''
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
+persist_with_no_fields: false

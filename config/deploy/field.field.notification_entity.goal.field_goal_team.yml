@@ -1,10 +1,12 @@
-uuid: 3f3e7e90-5c97-45d2-8c02-2ea479f4ccf4
+uuid: 96033833-77ee-4907-b200-f7b7c6ffd82b
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.notification_entity.field_goal_team
     - notification_entity.type.goal
+  module:
+    - taxonomy
 id: notification_entity.goal.field_goal_team
 field_name: field_goal_team
 entity_type: notification_entity

@@ -1,10 +1,12 @@
-uuid: 814b82c9-f7d0-4c97-ac46-70ea87cfed06
+uuid: 8011a319-c702-45ed-9314-200ceaee7b95
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_event_thumbnail
     - node.type.soccer_event
+  module:
+    - image
 id: node.soccer_event.field_event_thumbnail
 field_name: field_event_thumbnail
 entity_type: node
@@ -31,6 +33,7 @@ settings:
     title: ''
     width: null
     height: null
+    uuid: null
   handler: default
 third_party_settings: {  }
 field_type: image

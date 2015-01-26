@@ -1,8 +1,8 @@
-uuid: 53f3a3d8-d277-45c7-8700-d312044afc0e
+uuid: e17ab052-fe79-4b08-bc00-f0c5972dfd6d
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.notification_entity.field_goal_score
     - notification_entity.type.goal
 id: notification_entity.goal.field_goal_score

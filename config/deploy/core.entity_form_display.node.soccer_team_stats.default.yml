@@ -1,9 +1,8 @@
-uuid: da4865d7-8b65-4c8a-8000-abcb70868532
+uuid: 21748597-3770-45e8-bc00-e9eae33f75c8
 langcode: en
 status: true
 dependencies:
-  entity:
-    - field.field.node.soccer_team_stats.body
+  config:
     - field.field.node.soccer_team_stats.field_stats_defeats
     - field.field.node.soccer_team_stats.field_stats_draws
     - field.field.node.soccer_team_stats.field_stats_matches

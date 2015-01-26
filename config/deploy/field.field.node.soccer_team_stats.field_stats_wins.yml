@@ -1,8 +1,8 @@
-uuid: 7c4a6425-e29d-4380-8d03-3af793ee0268
+uuid: 12b53cce-9c9b-4373-b136-54c1034b9c8c
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_stats_wins
     - node.type.soccer_team_stats
 id: node.soccer_team_stats.field_stats_wins
@@ -20,6 +20,5 @@ settings:
   max: 100
   prefix: ''
   suffix: '%'
-  size: normal
 third_party_settings: {  }
 field_type: integer

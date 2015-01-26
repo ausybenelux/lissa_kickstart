@@ -1,12 +1,13 @@
-uuid: afb85277-47a0-4fe9-b42f-472c960dcf34
+uuid: 2d0ea848-10cb-477a-b725-3743c81d7030
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.field.notification_entity.card.field_card_player
     - field.field.notification_entity.card.field_card_type
     - notification_entity.type.card
   module:
+    - image
     - notification_entity
     - options
     - taxonomy

@@ -1,4 +1,4 @@
-uuid: f6cdc3ca-77e4-4656-933a-5884d4de2507
+uuid: f2fb28fc-2b32-42f1-8b03-3e2f798a7c24
 langcode: en
 status: true
 dependencies:
@@ -9,9 +9,11 @@ field_name: field_stats_fouls_committed
 entity_type: node
 type: integer
 settings:
-  unsigned: ''
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
+persist_with_no_fields: false

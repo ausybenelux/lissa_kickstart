@@ -1,10 +1,12 @@
-uuid: 272ad5b7-54d9-458d-9200-ac66233cb5b5
+uuid: 47f061a9-e0fe-4726-9e0a-10b71a4578b1
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_event_endpoint
     - node.type.soccer_event
+  module:
+    - link
 id: node.soccer_event.field_event_endpoint
 field_name: field_event_endpoint
 entity_type: node
@@ -16,7 +18,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  link_type: '17'
-  title: '0'
+  link_type: 17
+  title: 0
 third_party_settings: {  }
 field_type: link

@@ -1,8 +1,8 @@
-uuid: 3c05c3cb-30d8-445c-b005-5cae8b6e8c28
+uuid: 788ecdf8-348e-4a0c-9b00-d21b224190c4
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_event_interface
     - node.type.soccer_event
 id: node.soccer_event.field_event_interface

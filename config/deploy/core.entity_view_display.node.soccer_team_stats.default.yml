@@ -1,9 +1,8 @@
-uuid: 393a45a2-c890-4a4b-8807-7ec91b9895d7
+uuid: c92d5878-9c49-49e1-b800-fde8a2ab26ff
 langcode: en
 status: true
 dependencies:
-  entity:
-    - field.field.node.soccer_team_stats.body
+  config:
     - field.field.node.soccer_team_stats.field_stats_defeats
     - field.field.node.soccer_team_stats.field_stats_draws
     - field.field.node.soccer_team_stats.field_stats_matches
@@ -65,7 +64,6 @@ content:
     third_party_settings: {  }
     label: inline
 hidden:
-  langcode: true
   body: true
   links: true
 third_party_settings: {  }

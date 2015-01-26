@@ -1,10 +1,12 @@
-uuid: 9fa89503-9987-4bfb-be00-f0a8fb8f7f2e
+uuid: c3c4f3df-448e-4e9a-9d17-2368a320e595
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.taxonomy_term.field_team_competitions
     - taxonomy.vocabulary.team
+  module:
+    - taxonomy
 id: taxonomy_term.team.field_team_competitions
 field_name: field_team_competitions
 entity_type: taxonomy_term

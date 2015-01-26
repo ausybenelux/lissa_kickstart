@@ -1,4 +1,4 @@
-uuid: ce5a2103-5846-43e8-9f00-fddb4e57ac00
+uuid: aff2d419-bf8f-42ab-8202-02d45b8fb765
 langcode: en
 status: true
 dependencies:
@@ -9,9 +9,11 @@ field_name: field_stats_yellow_cards
 entity_type: node
 type: integer
 settings:
-  unsigned: ''
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
+persist_with_no_fields: false

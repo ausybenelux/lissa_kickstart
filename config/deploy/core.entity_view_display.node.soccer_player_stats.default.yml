@@ -1,9 +1,8 @@
-uuid: 1e59500d-e076-496e-a15a-90f4e017d4eb
+uuid: f9e288d7-100f-422d-9407-7cc5003561d8
 langcode: en
 status: true
 dependencies:
-  entity:
-    - field.field.node.soccer_player_stats.body
+  config:
     - field.field.node.soccer_player_stats.field_stats_ball_pos
     - field.field.node.soccer_player_stats.field_stats_fouls_committed
     - field.field.node.soccer_player_stats.field_stats_free_kicks
@@ -119,7 +118,6 @@ content:
     third_party_settings: {  }
     label: inline
 hidden:
-  langcode: true
   body: true
   field_stats_free_kick: true
   links: true

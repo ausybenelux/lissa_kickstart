@@ -1,8 +1,8 @@
-uuid: 2ba5ea69-38ee-439b-ac00-cccfe03cae9a
+uuid: 6c9582a1-c8d0-4164-ab2a-42f339108026
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - user.role.technical_engineer
   module:
     - user

@@ -1,8 +1,8 @@
-uuid: d5f70940-882a-446e-a80d-13f89e47fd96
+uuid: e568ca02-d1c3-4da4-b902-2e0e70ddaa7d
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_stats_yellow_cards
     - node.type.soccer_player_stats
 id: node.soccer_player_stats.field_stats_yellow_cards
@@ -20,6 +20,5 @@ settings:
   max: null
   prefix: ''
   suffix: ''
-  size: normal
 third_party_settings: {  }
 field_type: integer

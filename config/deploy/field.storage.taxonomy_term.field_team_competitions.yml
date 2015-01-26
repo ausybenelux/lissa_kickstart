@@ -1,4 +1,4 @@
-uuid: 461883cb-96aa-4c5b-a40e-14a2c7eda34a
+uuid: 3228bc08-fc2e-435e-8b61-97f96f10468e
 langcode: en
 status: true
 dependencies:
@@ -21,3 +21,4 @@ locked: false
 cardinality: -1
 translatable: true
 indexes: {  }
+persist_with_no_fields: false

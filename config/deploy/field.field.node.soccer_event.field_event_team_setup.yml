@@ -1,10 +1,12 @@
-uuid: 362b0fd5-b5a4-42fb-9604-4eea144ffa93
+uuid: 856e2aaf-c19a-45e2-a633-512df6224906
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_event_team_setup
     - node.type.soccer_event
+  module:
+    - image
 id: node.soccer_event.field_event_team_setup
 field_name: field_event_team_setup
 entity_type: node
@@ -31,6 +33,7 @@ settings:
     title: ''
     width: null
     height: null
+    uuid: null
   handler: default
 third_party_settings: {  }
 field_type: image

@@ -1,8 +1,8 @@
-uuid: 024c8de4-a0d1-4e5a-932a-428b3fd31f71
+uuid: 52e7c994-7f49-4cb3-8c5e-94eaf4d57c38
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - user.role.operator
   module:
     - user

@@ -1,10 +1,12 @@
-uuid: 59107419-ae33-4edd-bf03-3bb28ac11225
+uuid: d0579686-f383-4afe-a05a-9007acbbac3e
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_event_timeline_end
     - node.type.soccer_event
+  module:
+    - datetime
 id: node.soccer_event.field_event_timeline_end
 field_name: field_event_timeline_end
 entity_type: node

@@ -1,4 +1,4 @@
-uuid: 169b70c6-10da-4769-9803-3cd43f0c3996
+uuid: 492a9e49-832a-4ea8-8941-65076c0a442b
 langcode: en
 status: true
 dependencies:
@@ -9,9 +9,11 @@ field_name: field_stats_ball_pos
 entity_type: node
 type: integer
 settings:
-  unsigned: ''
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
+persist_with_no_fields: false

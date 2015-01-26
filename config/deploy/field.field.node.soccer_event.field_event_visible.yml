@@ -1,10 +1,12 @@
-uuid: 902c9f1c-c122-400e-a300-cf52d61dd285
+uuid: 8e410ecf-0f22-4578-845c-922cc5c9b1a9
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_event_visible
     - node.type.soccer_event
+  module:
+    - datetime
 id: node.soccer_event.field_event_visible
 field_name: field_event_visible
 entity_type: node

@@ -1,4 +1,4 @@
-uuid: 9b3d426b-ec27-400f-9e17-230efc4b62a8
+uuid: 6712d315-7f2c-4b4a-8f00-f405248fdbcf
 langcode: en
 status: true
 dependencies:
@@ -9,9 +9,11 @@ field_name: field_stats_goals_scored
 entity_type: node
 type: integer
 settings:
-  unsigned: ''
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
+persist_with_no_fields: false

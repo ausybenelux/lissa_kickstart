@@ -1,4 +1,4 @@
-uuid: dde920a2-aa40-480d-be00-c064bb29aca1
+uuid: c603a535-366e-4273-b500-a3746be5446c
 langcode: en
 status: true
 dependencies:
@@ -10,8 +10,10 @@ entity_type: notification_entity
 type: string
 settings:
   max_length: 255
+  case_sensitive: false
 module: core
 locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
+persist_with_no_fields: false

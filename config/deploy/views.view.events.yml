@@ -1,11 +1,13 @@
-uuid: 4c66ccca-462e-4d61-a51a-26ec8bc00a19
+uuid: 715f2bc2-0966-41bf-9600-00d0ee9fc5ab
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.soccer_event
   module:
     - node
-    - notification_timeline
     - rest
+    - user
 id: events
 label: Events
 module: views
@@ -13,7 +15,7 @@ description: ''
 tag: ''
 base_table: node
 base_field: nid
-core: 8.x
+core: '8'
 display:
   default:
     display_plugin: default
@@ -213,8 +215,12 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
           value:
             soccer_event: soccer_event
+          plugin_id: bundle
+          entity_type: node
+          entity_field: type
       sorts:
         created:
           id: created
@@ -267,24 +273,7 @@ display:
       title: Events
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
-  rest_export_1:
-    display_plugin: rest_export
-    id: rest_export_1
-    display_title: 'REST export'
-    position: 1
-    provider: rest
-    display_options:
-      path: api/events
-      access:
-        type: perm
-        options:
-          perm: 'access content'
-        provider: user
-        dependencies: {  }
-      defaults:
-        access: false
-      field_langcode: '***LANGUAGE_language_content***'
-      field_langcode_add_to_query: null
+      display_extenders: {  }
   admin_overview:
     display_plugin: page
     id: admin_overview
@@ -933,3 +922,23 @@ display:
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
       display_description: ''
+      display_extenders: {  }
+  rest_export_1:
+    display_plugin: rest_export
+    id: rest_export_1
+    display_title: 'REST export'
+    position: 1
+    provider: rest
+    display_options:
+      path: api/events
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+        provider: user
+        dependencies: {  }
+      defaults:
+        access: false
+      field_langcode: '***LANGUAGE_language_content***'
+      field_langcode_add_to_query: null
+      display_extenders: {  }

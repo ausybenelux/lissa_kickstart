@@ -1,8 +1,8 @@
-uuid: d9f93b9a-0a4b-4f53-9100-e2a8c8168fda
+uuid: e0849a89-2d13-4dcc-b306-6ef6ad19ecdc
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_stats_penalties
     - node.type.soccer_player_stats
 id: node.soccer_player_stats.field_stats_penalties
@@ -20,6 +20,5 @@ settings:
   max: null
   prefix: ''
   suffix: ''
-  size: normal
 third_party_settings: {  }
 field_type: integer

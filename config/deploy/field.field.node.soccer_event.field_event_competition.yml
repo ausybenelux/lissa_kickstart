@@ -1,10 +1,12 @@
-uuid: c1ee7378-e6a9-426a-9600-a9ca5faafd8c
+uuid: abceda69-3975-4b54-8000-a6b2e2b84f8b
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_event_competition
     - node.type.soccer_event
+  module:
+    - taxonomy
 id: node.soccer_event.field_event_competition
 field_name: field_event_competition
 entity_type: node

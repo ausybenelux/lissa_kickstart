@@ -1,10 +1,12 @@
-uuid: 9be9948d-820f-4847-9900-c35a2d128ec8
+uuid: f2566b8a-0a45-4ae9-9900-eb5931b69378
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.taxonomy_term.field_team_logo
     - taxonomy.vocabulary.team
+  module:
+    - image
 id: taxonomy_term.team.field_team_logo
 field_name: field_team_logo
 entity_type: taxonomy_term
@@ -31,6 +33,7 @@ settings:
     title: ''
     width: null
     height: null
+    uuid: null
   handler: default
 third_party_settings: {  }
 field_type: image

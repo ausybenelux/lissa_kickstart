@@ -1,10 +1,12 @@
-uuid: f3c78a21-7e50-47fc-950a-100edcba5c8b
+uuid: 7cbe822b-e032-4918-ac57-874971e2a020
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.notification_entity.field_status_type
     - notification_entity.type.status
+  module:
+    - options
 id: notification_entity.status.field_status_type
 field_name: field_status_type
 entity_type: notification_entity

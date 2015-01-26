@@ -1,4 +1,4 @@
-uuid: e1110cc9-67b1-4bd7-b30b-11dab3c04c29
+uuid: 4ed88c85-0288-470e-804d-77af1fa95308
 langcode: en
 status: true
 dependencies:
@@ -9,9 +9,11 @@ field_name: field_stats_penalties
 entity_type: node
 type: integer
 settings:
-  unsigned: ''
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
+persist_with_no_fields: false

@@ -1,8 +1,8 @@
-uuid: 3fa54f1c-396a-42e9-8c0d-1361f9f20519
+uuid: 29996be2-1510-4e20-8004-04bbbcd0dd60
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.field.notification_entity.goal.field_goal_player
     - field.field.notification_entity.goal.field_goal_score
     - field.field.notification_entity.goal.field_goal_team

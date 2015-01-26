@@ -1,8 +1,8 @@
-uuid: a68e0e08-f7eb-438c-9d01-1dac74992075
+uuid: 36f409a0-a156-4a39-bc04-4ff8d0d32829
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - user.role.production
   module:
     - user

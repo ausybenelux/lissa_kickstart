@@ -1,11 +1,12 @@
-uuid: 86411fcd-3f37-4f67-a400-b921577fd5ad
+uuid: 503dc282-d75d-43cf-ab34-522aa815426d
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.field.notification_entity.status.field_status_type
     - notification_entity.type.status
   module:
+    - image
     - notification_entity
     - options
 id: notification_entity.status.default

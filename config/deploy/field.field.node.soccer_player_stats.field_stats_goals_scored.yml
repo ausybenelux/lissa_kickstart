@@ -1,8 +1,8 @@
-uuid: e354f292-1a96-4f83-bb05-5a5baf5e0917
+uuid: b7dc8f20-0b48-4cd1-b300-a8a5e4724bf0
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_stats_goals_scored
     - node.type.soccer_player_stats
 id: node.soccer_player_stats.field_stats_goals_scored
@@ -20,6 +20,5 @@ settings:
   max: null
   prefix: ''
   suffix: ''
-  size: normal
 third_party_settings: {  }
 field_type: integer

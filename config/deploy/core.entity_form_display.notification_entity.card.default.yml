@@ -1,8 +1,8 @@
-uuid: f6ee1fca-52ff-4ed1-8b00-a824d11dfd75
+uuid: f88b2a47-5d05-44f7-9a0d-13d4075f684b
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.field.notification_entity.card.field_card_player
     - field.field.notification_entity.card.field_card_type
     - notification_entity.type.card

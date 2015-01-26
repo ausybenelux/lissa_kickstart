@@ -1,8 +1,8 @@
-uuid: 9034fd67-0148-49d0-af00-c61bd26bbee3
+uuid: 45394406-5324-42b2-b720-324bc273ec88
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_stats_free_kicks
     - node.type.soccer_player_stats
 id: node.soccer_player_stats.field_stats_free_kicks
@@ -20,6 +20,5 @@ settings:
   max: null
   prefix: ''
   suffix: ''
-  size: normal
 third_party_settings: {  }
 field_type: integer

@@ -1,8 +1,8 @@
-uuid: b1c0b973-9c54-4f14-9662-987bc6bc3bb0
+uuid: 2e5b44eb-1c2c-4406-8e00-0c23308f5793
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.field.taxonomy_term.team.field_team_color
     - field.field.taxonomy_term.team.field_team_competitions
     - field.field.taxonomy_term.team.field_team_logo

@@ -1,4 +1,4 @@
-uuid: 89db1c13-8945-4c17-bb08-8c2b7d2db792
+uuid: acd22bd5-a446-4e8e-9b00-ae23255af69d
 langcode: en
 status: true
 dependencies:
@@ -13,7 +13,6 @@ weight: 0
 provider: null
 plugin: system_main_block
 settings:
-  visibility: {  }
   id: system_main_block
   label: 'Main page content'
   provider: system
@@ -21,3 +20,5 @@ settings:
   cache:
     max_age: 0
     contexts: {  }
+  visibility: {  }
+visibility: {  }

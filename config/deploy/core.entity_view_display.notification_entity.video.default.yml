@@ -1,11 +1,12 @@
-uuid: 98806e97-bbe7-42db-8f09-9a15a643f8a2
+uuid: 9a1e21bb-b487-4649-9f09-09fd0cce0d84
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.field.notification_entity.video.field_video_url
     - notification_entity.type.video
   module:
+    - image
     - notification_entity
 id: notification_entity.video.default
 label: null

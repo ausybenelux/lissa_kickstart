@@ -1,8 +1,8 @@
-uuid: 46e54c28-4873-492b-a500-dc0c726fb8e4
+uuid: d18913d8-75dd-4a05-ab48-7200ba5e3a8b
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_stats_injuries
     - node.type.soccer_player_stats
 id: node.soccer_player_stats.field_stats_injuries
@@ -20,6 +20,5 @@ settings:
   max: null
   prefix: ''
   suffix: ''
-  size: normal
 third_party_settings: {  }
 field_type: integer

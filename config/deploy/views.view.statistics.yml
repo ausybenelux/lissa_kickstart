@@ -1,9 +1,14 @@
-uuid: 743f87fe-0314-470b-bf2a-4275c80626ff
+uuid: 1b3e98e4-0199-415f-a800-fbb44a5a62a4
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.soccer_event
+    - node.type.soccer_player_stats
+    - node.type.soccer_team_stats
   module:
     - node
+    - user
 id: statistics
 label: Statistics
 module: views
@@ -265,6 +270,7 @@ display:
       title: Statistics
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
   admin_overview:
     display_plugin: page
     id: admin_overview
@@ -831,3 +837,4 @@ display:
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
       display_description: ''
+      display_extenders: {  }

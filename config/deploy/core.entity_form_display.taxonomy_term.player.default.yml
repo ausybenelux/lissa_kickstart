@@ -1,8 +1,8 @@
-uuid: 416f3563-bcad-49dd-8107-7ce15cc5e886
+uuid: bf500939-881a-45ef-8300-de5613e134c6
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.field.taxonomy_term.player.field_player_first_name
     - field.field.taxonomy_term.player.field_player_teams
     - taxonomy.vocabulary.player

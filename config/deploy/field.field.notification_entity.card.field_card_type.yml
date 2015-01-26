@@ -1,10 +1,12 @@
-uuid: c56de46a-3d85-4517-8a00-f04fc9780695
+uuid: f486662c-a98e-4bdd-a33e-62e25b12bec5
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.notification_entity.field_card_type
     - notification_entity.type.card
+  module:
+    - options
 id: notification_entity.card.field_card_type
 field_name: field_card_type
 entity_type: notification_entity

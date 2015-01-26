@@ -1,8 +1,8 @@
-uuid: 3a394d27-110a-4f25-ae00-d11594b9b281
+uuid: 1f50d78a-856e-4d08-be07-7e8d473f5358
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_stats_draws
     - node.type.soccer_team_stats
 id: node.soccer_team_stats.field_stats_draws
@@ -20,6 +20,5 @@ settings:
   max: 100
   prefix: ''
   suffix: '%'
-  size: normal
 third_party_settings: {  }
 field_type: integer

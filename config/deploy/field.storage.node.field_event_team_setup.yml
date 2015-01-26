@@ -1,4 +1,4 @@
-uuid: 72955efc-8262-4286-b72e-466856f8c1a9
+uuid: 9b9bacb3-e61e-4100-9c00-ec1ea5a03570
 langcode: en
 status: true
 dependencies:
@@ -17,6 +17,7 @@ settings:
     title: ''
     width: null
     height: null
+    uuid: null
   target_type: file
   display_field: false
   display_default: false
@@ -26,3 +27,4 @@ locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
+persist_with_no_fields: false

@@ -1,9 +1,7 @@
-uuid: be681a38-93d9-49de-9a04-4c82afc257b7
+uuid: 32dd3da0-2748-42ec-b619-2595c63e02c1
 langcode: en
 status: true
-dependencies:
-  module:
-    - editor
+dependencies: {  }
 name: 'Full HTML'
 format: full_html
 weight: 1

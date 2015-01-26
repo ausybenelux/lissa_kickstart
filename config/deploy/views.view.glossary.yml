@@ -1,7 +1,9 @@
-uuid: 2c9a91c9-3a5f-4955-9204-4cc31adaaee2
+uuid: 39a1a005-015d-4dc5-8200-a5a3e8492852
 langcode: en
 status: false
 dependencies:
+  config:
+    - system.menu.main
   module:
     - node
     - user
@@ -28,16 +30,13 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-        provider: views
       use_ajax: true
       access:
         type: none
         options: {  }
-        provider: views
       cache:
         type: none
         options: {  }
-        provider: views
       exposed_form:
         type: basic
         options:
@@ -48,7 +47,6 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-        provider: views
       pager:
         type: mini
         options:
@@ -67,7 +65,6 @@ display:
           tags:
             previous: ‹‹
             next: ››
-        provider: views
       fields:
         title:
           id: title
@@ -119,7 +116,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          provider: node
+          entity_type: node
+          entity_field: title
         name:
           id: name
           table: users_field_data
@@ -173,7 +171,8 @@ display:
           overwrite_anonymous: false
           anonymous_text: ''
           format_username: true
-          provider: user
+          entity_type: user
+          entity_field: name
         changed:
           id: changed
           table: node_field_data
@@ -226,7 +225,8 @@ display:
           hide_alter_empty: true
           custom_date_format: ''
           timezone: ''
-          provider: views
+          entity_type: node
+          entity_field: changed
       arguments:
         title:
           id: title
@@ -259,7 +259,8 @@ display:
             fail: 'not found'
           validate_options: {  }
           break_phrase: false
-          provider: views
+          entity_type: node
+          entity_field: title
       relationships:
         uid:
           id: uid
@@ -270,7 +271,6 @@ display:
           group_type: group
           admin_label: author
           required: false
-          provider: views
       style:
         type: table
         options:
@@ -298,7 +298,6 @@ display:
           order: asc
           summary: ''
           empty_table: false
-        provider: views
       row:
         type: fields
         options:
@@ -306,7 +305,6 @@ display:
           separator: ''
           hide_empty: false
           default_field_elements: true
-        provider: views
       header: {  }
       footer: {  }
       empty: {  }
@@ -321,9 +319,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          dependencies:
-            module:
-              - views
           operator: in
           value:
             '***LANGUAGE_language_content***': '***LANGUAGE_language_content***'
@@ -355,25 +350,9 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: language
-          provider: views
-  page_1:
-    id: page_1
-    display_title: Page
-    display_plugin: page
-    position: 1
-    display_options:
-      query:
-        type: views_query
-        options: {  }
-      path: glossary
-      menu:
-        type: normal
-        title: Glossary
-        weight: 0
-        menu_name: main
-        parent: ''
-      field_langcode: '***LANGUAGE_language_content***'
-      field_langcode_add_to_query: null
+          entity_type: node
+          entity_field: langcode
+      display_extenders: {  }
   attachment_1:
     id: attachment_1
     display_title: Attachment
@@ -383,13 +362,11 @@ display:
       query:
         type: views_query
         options: {  }
-        provider: views
       pager:
         type: none
         options:
           offset: 0
           items_per_page: 0
-        provider: views
       defaults:
         arguments: false
       arguments:
@@ -427,10 +404,31 @@ display:
             fail: 'not found'
           validate_options: {  }
           break_phrase: false
-          provider: views
+          entity_type: node
+          entity_field: title
       displays:
         default: default
         page_1: page_1
       inherit_arguments: false
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
+  page_1:
+    id: page_1
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      query:
+        type: views_query
+        options: {  }
+      path: glossary
+      menu:
+        type: normal
+        title: Glossary
+        weight: 0
+        menu_name: main
+        parent: ''
+      field_langcode: '***LANGUAGE_language_content***'
+      field_langcode_add_to_query: null
+      display_extenders: {  }

@@ -1,10 +1,12 @@
-uuid: 299b0067-0692-401e-bd00-bc46c295b76b
+uuid: 22578d8b-9220-4800-b300-dcf339f9403a
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.node.field_stats_season
     - node.type.soccer_player_stats
+  module:
+    - taxonomy
 id: node.soccer_player_stats.field_stats_season
 field_name: field_stats_season
 entity_type: node

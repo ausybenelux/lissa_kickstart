@@ -1,9 +1,8 @@
-uuid: b39b3cf6-ce6c-4a63-b461-9793cee58819
+uuid: af5d4522-3b6e-4de9-aa39-57c4c15ad1cb
 langcode: en
 status: true
 dependencies:
-  entity:
-    - field.field.node.soccer_event.body
+  config:
     - field.field.node.soccer_event.field_event_away_team
     - field.field.node.soccer_event.field_event_competition
     - field.field.node.soccer_event.field_event_encoder_on
@@ -16,7 +15,6 @@ dependencies:
     - field.field.node.soccer_event.field_event_thumbnail
     - field.field.node.soccer_event.field_event_timeline_end
     - field.field.node.soccer_event.field_event_timeline_start
-    - field.field.node.soccer_event.field_event_twitter
     - field.field.node.soccer_event.field_event_visible
     - node.type.soccer_event
   module:
@@ -97,7 +95,7 @@ content:
     type: boolean_checkbox
     weight: 11
     settings:
-      display_label: '1'
+      display_label: true
     third_party_settings: {  }
   field_event_timeline_start:
     type: datetime_default

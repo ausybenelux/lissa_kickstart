@@ -1,4 +1,4 @@
-uuid: 91bf664d-b3eb-4f28-8605-5fa2d796bf0e
+uuid: b51c7253-e66e-4010-a202-021796b37df3
 langcode: en
 status: true
 dependencies:
@@ -9,9 +9,11 @@ field_name: field_stats_free_kicks
 entity_type: node
 type: integer
 settings:
-  unsigned: ''
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
+persist_with_no_fields: false

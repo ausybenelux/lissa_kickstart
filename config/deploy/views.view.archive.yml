@@ -1,7 +1,9 @@
-uuid: 79e48edf-83b8-474c-b302-02e179abc436
+uuid: 81c2ed5c-7263-461c-8813-19f5fe6b6154
 langcode: en
 status: false
 dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
   module:
     - node
 id: archive
@@ -27,16 +29,13 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-        provider: views
       title: 'Monthly archive'
       access:
         type: none
         options: {  }
-        provider: views
       cache:
         type: none
         options: {  }
-        provider: views
       exposed_form:
         type: basic
         options:
@@ -47,7 +46,6 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-        provider: views
       pager:
         type: mini
         options:
@@ -66,7 +64,6 @@ display:
           tags:
             previous: ‹‹
             next: ››
-        provider: views
       sorts:
         created:
           id: created
@@ -81,7 +78,8 @@ display:
           expose:
             label: ''
           granularity: second
-          provider: views
+          entity_type: node
+          entity_field: created
       arguments:
         created_year_month:
           id: created_year_month
@@ -101,7 +99,7 @@ display:
             items_per_page: 30
           specify_validation: true
           plugin_id: date_year_month
-          provider: views
+          entity_type: node
       filters:
         status:
           id: status
@@ -112,7 +110,8 @@ display:
           expose:
             operator: '0'
           plugin_id: boolean
-          provider: views
+          entity_type: node
+          entity_field: status
         langcode:
           id: langcode
           table: node_field_data
@@ -120,9 +119,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          dependencies:
-            module:
-              - views
           operator: in
           value:
             '***LANGUAGE_language_content***': '***LANGUAGE_language_content***'
@@ -154,7 +150,8 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: language
-          provider: views
+          entity_type: node
+          entity_field: langcode
       style:
         type: default
         options:
@@ -162,13 +159,10 @@ display:
           row_class: ''
           default_row_class: true
           uses_fields: false
-        provider: views
       row:
         type: 'entity:node'
         options:
           view_mode: teaser
-          comments: false
-        provider: node
       header: {  }
       footer: {  }
       empty: {  }
@@ -176,17 +170,16 @@ display:
       fields: {  }
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
   block_1:
     id: block_1
     display_title: Block
     display_plugin: block
     position: 1
-    provider: views
     display_options:
       query:
         type: views_query
         options: {  }
-        provider: views
       defaults:
         arguments: false
       arguments:
@@ -206,9 +199,10 @@ display:
             items_per_page: 30
           specify_validation: true
           plugin_id: date_year_month
-          provider: views
+          entity_type: node
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
   page_1:
     id: page_1
     display_title: Page
@@ -218,7 +212,7 @@ display:
       query:
         type: views_query
         options: {  }
-        provider: views
       path: archive
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }

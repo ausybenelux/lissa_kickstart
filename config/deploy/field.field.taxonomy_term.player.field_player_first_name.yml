@@ -1,8 +1,8 @@
-uuid: be68fd92-1625-47aa-9400-a186006d1e4b
+uuid: 8d618190-556b-4967-bd0a-10e628eeb510
 langcode: en
 status: true
 dependencies:
-  entity:
+  config:
     - field.storage.taxonomy_term.field_player_first_name
     - taxonomy.vocabulary.player
 id: taxonomy_term.player.field_player_first_name

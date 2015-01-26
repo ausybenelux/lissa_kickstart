@@ -1,4 +1,4 @@
-uuid: 63202951-daec-46d6-ae00-b728e7b15e7c
+uuid: 5739d478-b1e8-401f-a909-9ec219410669
 langcode: en
 status: true
 dependencies:
@@ -9,9 +9,11 @@ field_name: field_stats_wins
 entity_type: node
 type: integer
 settings:
-  unsigned: ''
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
+persist_with_no_fields: false

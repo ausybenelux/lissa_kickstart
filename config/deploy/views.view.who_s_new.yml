@@ -1,4 +1,4 @@
-uuid: 35b3926a-b055-4174-af06-6af822b9d8c3
+uuid: b9292438-099b-4f0a-a309-9c0ab5b74b5e
 langcode: en
 status: true
 dependencies:
@@ -23,11 +23,9 @@ display:
         type: perm
         options:
           perm: 'access content'
-        provider: user
       cache:
         type: none
         options: {  }
-        provider: views
       query:
         type: views_query
         options:
@@ -36,7 +34,6 @@ display:
           replica: false
           query_comment: false
           query_tags: {  }
-        provider: views
       exposed_form:
         type: basic
         options:
@@ -47,19 +44,15 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-        provider: views
       pager:
         type: some
         options:
           items_per_page: 5
           offset: 0
-        provider: views
       style:
         type: html_list
-        provider: views
       row:
         type: fields
-        provider: views
       fields:
         name:
           id: name
@@ -96,6 +89,8 @@ display:
           hide_alter_empty: true
           anonymous_text: ''
           format_username: true
+          entity_type: user
+          entity_field: name
       filters:
         status:
           value: true
@@ -106,6 +101,8 @@ display:
             operator: '0'
           group: 1
           plugin_id: boolean
+          entity_type: user
+          entity_field: status
         access:
           id: access
           table: users_field_data
@@ -146,6 +143,8 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: date
+          entity_type: user
+          entity_field: access
       sorts:
         created:
           id: created
@@ -160,19 +159,26 @@ display:
             label: ''
           granularity: second
           plugin_id: date
+          entity_type: user
+          entity_field: created
       title: 'Who''s new'
       header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }
       arguments: {  }
+      field_langcode: '***LANGUAGE_language_content***'
+      field_langcode_add_to_query: null
+      display_extenders: {  }
   block_1:
     display_plugin: block
     id: block_1
     display_title: 'Who''s new'
     position: 1
-    provider: views
     display_options:
       display_description: 'A list of new users'
       block_description: 'Who''s new'
       block_category: User
+      field_langcode: '***LANGUAGE_language_content***'
+      field_langcode_add_to_query: null
+      display_extenders: {  }
