@@ -4,6 +4,8 @@ dependencies:
   config:
     - field.storage.node.field_event_home_team
     - node.type.soccer_event
+  module:
+    - taxonomy
 id: node.soccer_event.field_event_home_team
 field_name: field_event_home_team
 entity_type: node

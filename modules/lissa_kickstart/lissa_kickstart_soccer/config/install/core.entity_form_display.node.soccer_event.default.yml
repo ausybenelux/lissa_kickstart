@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.soccer_event.body
     - field.field.node.soccer_event.field_event_away_team
     - field.field.node.soccer_event.field_event_competition
     - field.field.node.soccer_event.field_event_encoder_on
@@ -96,7 +95,7 @@ content:
     type: boolean_checkbox
     weight: 11
     settings:
-      display_label: '1'
+      display_label: true
     third_party_settings: {  }
   field_event_timeline_start:
     type: datetime_default
@@ -109,12 +108,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_event_twitter:
-    type: string_textfield
-    weight: 26
+    weight: 27
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    type: string_textfield
 hidden:
   body: true
   field_event_team1: true

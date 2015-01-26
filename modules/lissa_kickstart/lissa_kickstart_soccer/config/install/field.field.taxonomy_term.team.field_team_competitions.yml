@@ -4,6 +4,8 @@ dependencies:
   config:
     - field.storage.taxonomy_term.field_team_competitions
     - taxonomy.vocabulary.team
+  module:
+    - taxonomy
 id: taxonomy_term.team.field_team_competitions
 field_name: field_team_competitions
 entity_type: taxonomy_term

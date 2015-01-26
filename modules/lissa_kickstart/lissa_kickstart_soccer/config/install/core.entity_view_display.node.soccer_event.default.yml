@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.soccer_event.body
     - field.field.node.soccer_event.field_event_away_team
     - field.field.node.soccer_event.field_event_competition
     - field.field.node.soccer_event.field_event_encoder_on
@@ -124,13 +123,13 @@ content:
     third_party_settings: {  }
     label: inline
   field_event_twitter:
-    type: string
-    weight: 13
-    settings: {  }
+    weight: 14
+    label: above
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    label: inline
+    type: string
 hidden:
-  langcode: true
   body: true
   field_event_team1: true
   links: true

@@ -4,6 +4,8 @@ dependencies:
   config:
     - field.storage.taxonomy_term.field_team_logo
     - taxonomy.vocabulary.team
+  module:
+    - image
 id: taxonomy_term.team.field_team_logo
 field_name: field_team_logo
 entity_type: taxonomy_term
@@ -30,6 +32,7 @@ settings:
     title: ''
     width: null
     height: null
+    uuid: null
   handler: default
 third_party_settings: {  }
 field_type: image

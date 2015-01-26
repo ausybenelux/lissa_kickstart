@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_twitter
+    - node.type.soccer_event
+id: node.soccer_event.field_event_twitter
+field_name: field_event_twitter
+entity_type: node
+bundle: soccer_event
+label: 'Twitter hashtag'
+description: 'Enter the Twitter hashtag for this event. This will be used for displaying tweets in the application and added to the notification tweets.'
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: string

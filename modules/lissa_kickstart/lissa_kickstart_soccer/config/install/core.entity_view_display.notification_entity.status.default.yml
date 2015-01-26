@@ -5,6 +5,7 @@ dependencies:
     - field.field.notification_entity.status.field_status_type
     - notification_entity.type.status
   module:
+    - image
     - notification_entity
     - options
 id: notification_entity.status.default

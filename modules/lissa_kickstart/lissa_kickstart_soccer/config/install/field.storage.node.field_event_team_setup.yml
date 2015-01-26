@@ -16,6 +16,7 @@ settings:
     title: ''
     width: null
     height: null
+    uuid: null
   target_type: file
   display_field: false
   display_default: false
@@ -25,3 +26,4 @@ locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
+persist_with_no_fields: false

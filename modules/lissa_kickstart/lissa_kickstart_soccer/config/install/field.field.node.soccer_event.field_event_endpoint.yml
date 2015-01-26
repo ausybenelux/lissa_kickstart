@@ -4,6 +4,8 @@ dependencies:
   config:
     - field.storage.node.field_event_endpoint
     - node.type.soccer_event
+  module:
+    - link
 id: node.soccer_event.field_event_endpoint
 field_name: field_event_endpoint
 entity_type: node
@@ -15,7 +17,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  link_type: '17'
-  title: '0'
+  link_type: 17
+  title: 0
 third_party_settings: {  }
 field_type: link

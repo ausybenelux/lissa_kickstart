@@ -2,15 +2,15 @@ langcode: en
 status: true
 dependencies:
   module:
-    - datetime
     - node
-id: node.field_event_hide
-field_name: field_event_hide
+id: node.field_event_twitter
+field_name: field_event_twitter
 entity_type: node
-type: datetime
+type: string
 settings:
-  datetime_type: datetime
-module: datetime
+  max_length: 255
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

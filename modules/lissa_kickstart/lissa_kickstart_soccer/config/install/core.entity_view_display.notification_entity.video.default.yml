@@ -5,6 +5,7 @@ dependencies:
     - field.field.notification_entity.video.field_video_url
     - notification_entity.type.video
   module:
+    - image
     - notification_entity
 id: notification_entity.video.default
 label: null

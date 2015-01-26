@@ -1,11 +1,12 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.soccer_event
   module:
     - node
     - rest
-  config:
-    - node.type.soccer_event
+    - user
 id: events
 label: Events
 module: views
@@ -271,24 +272,7 @@ display:
       title: Events
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
-  rest_export_1:
-    display_plugin: rest_export
-    id: rest_export_1
-    display_title: 'REST export'
-    position: 1
-    provider: rest
-    display_options:
-      path: api/events
-      access:
-        type: perm
-        options:
-          perm: 'access content'
-        provider: user
-        dependencies: {  }
-      defaults:
-        access: false
-      field_langcode: '***LANGUAGE_language_content***'
-      field_langcode_add_to_query: null
+      display_extenders: {  }
   admin_overview:
     display_plugin: page
     id: admin_overview
@@ -937,3 +921,23 @@ display:
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
       display_description: ''
+      display_extenders: {  }
+  rest_export_1:
+    display_plugin: rest_export
+    id: rest_export_1
+    display_title: 'REST export'
+    position: 1
+    provider: rest
+    display_options:
+      path: api/events
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+        provider: user
+        dependencies: {  }
+      defaults:
+        access: false
+      field_langcode: '***LANGUAGE_language_content***'
+      field_langcode_add_to_query: null
+      display_extenders: {  }

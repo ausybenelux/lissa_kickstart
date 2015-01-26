@@ -4,6 +4,8 @@ dependencies:
   config:
     - field.storage.notification_entity.field_card_type
     - notification_entity.type.card
+  module:
+    - options
 id: notification_entity.card.field_card_type
 field_name: field_card_type
 entity_type: notification_entity

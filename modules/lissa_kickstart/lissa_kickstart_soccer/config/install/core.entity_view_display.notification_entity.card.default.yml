@@ -6,6 +6,7 @@ dependencies:
     - field.field.notification_entity.card.field_card_type
     - notification_entity.type.card
   module:
+    - image
     - notification_entity
     - options
     - taxonomy

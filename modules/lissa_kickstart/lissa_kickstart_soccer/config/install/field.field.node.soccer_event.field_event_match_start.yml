@@ -4,6 +4,8 @@ dependencies:
   config:
     - field.storage.node.field_event_match_start
     - node.type.soccer_event
+  module:
+    - datetime
 id: node.soccer_event.field_event_match_start
 field_name: field_event_match_start
 entity_type: node

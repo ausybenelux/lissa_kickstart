@@ -4,6 +4,8 @@ dependencies:
   config:
     - field.storage.notification_entity.field_status_type
     - notification_entity.type.status
+  module:
+    - options
 id: notification_entity.status.field_status_type
 field_name: field_status_type
 entity_type: notification_entity
