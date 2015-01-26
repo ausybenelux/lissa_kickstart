@@ -1,4 +1,4 @@
-uuid: ecb63d0b-55d9-4511-804b-7550a0b3013b
+uuid: d94a6231-7b4b-44b5-8b01-1c54bc172b5a
 langcode: en
 status: true
 dependencies:
@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.soccer_event.field_event_thumbnail
     - field.field.node.soccer_event.field_event_timeline_end
     - field.field.node.soccer_event.field_event_timeline_start
+    - field.field.node.soccer_event.field_event_twitter
     - field.field.node.soccer_event.field_event_visible
     - node.type.soccer_event
   module:
