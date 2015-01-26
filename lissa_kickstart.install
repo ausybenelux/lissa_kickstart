@@ -16,9 +16,7 @@ use Drupal\user\Entity\User;
 function lissa_kickstart_install() {
   // Force UUID so configuration can be deployed to this instance.
   $uuid = '65119fd0-68f7-45b7-ae4e-784208b9632c';
-  \Drupal::config('system.site')
-    ->set('uuid', $uuid)
-    ->save();
+  \Drupal::configFactory() ->getEditable('system.site') ->set('uuid', $uuid) ->save();
   // Now that all modules are installed, make sure the entity storage and other
   // handlers are up to date with the current entity and field definitions. For
   // example, Path module adds a base field to nodes and taxonomy terms after
