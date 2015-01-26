@@ -105,8 +105,7 @@
 
     <!-- Rsync the build into ./docroot -->
     <exec executable="rsync">
-      <arg value="-aqc"/>
-      <arg value="--exclude=sites/*/files/*"/>
+      <arg value="-rltzuvqc"/>
       <arg value="${builddir}/${drupal.docroot}/"/>
       <arg value="${docroot}"/>
     </exec>
@@ -160,7 +159,7 @@
   <target name="import" description="Import test data">
     <!-- Rsync the assets into the files dir. -->
     <exec executable="rsync">
-      <arg value="-aqc"/>
+      <arg value="-rltzuvqc"/>
       <arg value="${docroot}/profiles/lissa_kickstart/test_data/files/"/>
       <arg value="${docroot}/sites/default/files"/>
     </exec>
