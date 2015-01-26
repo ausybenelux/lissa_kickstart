@@ -1,4 +1,5 @@
 {
+    "name": "lissa_kickstart/notification_twitter",
     "require": {
         "jublonet/codebird-php": "2.6.1"
     }

@@ -1,15 +1,7 @@
 {
+    "name": "lissa_kickstart/notification_push",
     "require": {
-        "videlalvaro/php-amqplib": "v2.1.0",
-
-        "drupal/drupal-extension": "*",
-        "vipsoft/jira-extension": "*",
-
-        "behat/mink": "*",
-        "behat/mink-selenium2-driver": "*"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "4.1.*"
+        "videlalvaro/php-amqplib": "v2.1.0"
     },
     "config": {
         "bin-dir": "bin/"
