@@ -26,6 +26,15 @@
     </if>
   </target>
 
+  <target name="clean-file-permissions" description="Clean file permissions">
+    <if>
+      <available file="${docroot}/sites/${drupal.subdir}/files" type="dir" />
+      <then>
+        <exec command="chmod -R 0777 ${docroot}/sites/${drupal.subdir}/files" escape="false" />
+      </then>
+    </if>
+  </target>
+
   <target name="clean-build" description="Clean build artifacts">
     <if>
       <available file="${builddir}" type="dir" />
@@ -118,6 +127,8 @@
       <arg value="--writable"/>
       <arg value="${drupal.profile}"/>
     </exec>
+    <!-- Clean file permissions -->
+    <phingcall target="clean-file-permissions" />
     <!-- Set up the composer dependencies -->
     <if>
       <available file="${docroot}/core/composer.json" type="file" />
