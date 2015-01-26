@@ -1,16 +1,16 @@
-uuid: b6807dd3-abb1-469b-9200-e36a74daf7eb
+uuid: 0df3a8c4-c16a-41e3-a21b-270e257026de
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_stats_ball_pos
-field_name: field_stats_ball_pos
+id: node.field_event_twitter
+field_name: field_event_twitter
 entity_type: node
-type: integer
+type: string
 settings:
-  unsigned: false
-  size: normal
+  max_length: 255
+  case_sensitive: false
 module: core
 locked: false
 cardinality: 1

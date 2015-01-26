@@ -1,4 +1,4 @@
-uuid: b652c34c-ec7f-4079-9700-e8a79be1f48c
+uuid: 93457ff9-f738-4c52-bf40-646677c3def6
 langcode: en
 status: true
 dependencies:
@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.soccer_event.field_event_thumbnail
     - field.field.node.soccer_event.field_event_timeline_end
     - field.field.node.soccer_event.field_event_timeline_start
+    - field.field.node.soccer_event.field_event_twitter
     - field.field.node.soccer_event.field_event_visible
     - node.type.soccer_event
   module:
@@ -123,11 +124,12 @@ content:
     third_party_settings: {  }
     label: inline
   field_event_twitter:
-    type: string
-    weight: 13
-    settings: {  }
+    weight: 14
+    label: above
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    label: inline
+    type: string
 hidden:
   body: true
   field_event_team1: true

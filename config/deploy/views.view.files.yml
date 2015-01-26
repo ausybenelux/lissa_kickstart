@@ -1,4 +1,4 @@
-uuid: 588fe114-c1ee-4dbc-b209-9d753c900c2b
+uuid: 5257bec4-ac69-4c60-aa00-ea45f6492dd7
 langcode: en
 status: true
 dependencies:
@@ -490,7 +490,7 @@ display:
             alter_text: false
             text: ''
             make_link: true
-            path: 'admin/content/files/usage/[fid]'
+            path: 'admin/content/files/usage/{{fid}}'
             absolute: false
             external: false
             replace_spaces: false
