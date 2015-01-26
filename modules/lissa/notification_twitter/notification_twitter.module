@@ -71,9 +71,13 @@ function notification_twitter_tweet_notification(NotificationEntity $notificatio
 
   $event = $notificationEntity->getHost();
   $fields = $event->getFields();
-  $field = $fields['field_event_twitter'];
 
-  $hashtags = ' ' . $field->getValue()[0]['value'];
+  // Add the event hashtag if there is one.
+  $hashtags = '';
+  if (isset($fields['field_event_twitter'])) {
+    $field = $fields['field_event_twitter'];
+    $hashtags = ' ' . $field->getValue()[0]['value'];
+  }
 
   // A tweet should be 140 chars max
   $charsAvailable = 140 - strlen($hashtags);
