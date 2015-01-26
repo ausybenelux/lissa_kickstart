@@ -30,8 +30,13 @@ class NotificationEntityNormalizer extends ContentEntityNormalizer {
    * Implements \Symfony\Component\Serializer\Normalizer\NormalizerInterface::normalize()
    */
   public function normalize($entity, $format = NULL, array $context = array()) {
-    $context['merge_data']['api_meta']['event_uuid'] = $entity->getHost()->uuid();
-    $context['merge_data']['api_meta']['type'] = 'create';
+    if (!isset($context['merge_data']['api_meta']['event_uuid'])) {
+      $context['merge_data']['api_meta']['event_uuid'] = $entity->getHost()
+        ->uuid();
+    }
+    if (!isset($context['merge_data']['api_meta']['type'])) {
+      $context['merge_data']['api_meta']['type'] = 'create';
+    }
     $context['excluded_fields'][] = 'host_id';
     // Allow other modules to alter the pushed data.
     \Drupal::moduleHandler()->alter('notification_push_context', $context, $entity);
