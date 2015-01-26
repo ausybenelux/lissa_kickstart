@@ -105,7 +105,7 @@
 
     <!-- Rsync the build into ./docroot -->
     <exec executable="rsync">
-      <arg value="-rltzuvqc"/>
+      <arg value="-aqc"/>
       <arg value="${builddir}/${drupal.docroot}/"/>
       <arg value="${docroot}"/>
     </exec>
