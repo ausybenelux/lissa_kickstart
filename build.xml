@@ -123,12 +123,10 @@
       <available file="${docroot}/core/composer.json" type="file" />
       <then>
         <exec executable="php" dir="${docroot}/profiles/lissa_kickstart/modules/contrib/composer_manager/scripts">
-          <arg value="--no-dev"/>
-          <arg value="install"/>
+          <arg value="init.sh"/>
         </exec>
-        <exec executable="composer" dir="${docroot}/sites/default/files/composer">
-          <arg value="--no-dev"/>
-          <arg value="install"/>
+        <exec executable="composer" dir="${docroot}/core">
+          <arg value="drupal-update"/>
         </exec>
       </then>
     </if>
