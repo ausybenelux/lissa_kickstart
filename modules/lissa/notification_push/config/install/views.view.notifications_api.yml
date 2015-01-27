@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - node
     - rest
 id: notifications_api
 label: 'Notifications API'
@@ -221,6 +222,7 @@ display:
           provider: views
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
   notification_rest_export:
     display_plugin: rest_export
     id: notification_rest_export
@@ -239,9 +241,10 @@ display:
       style:
         type: serializer
         options:
-          uses_fields: 0
+          uses_fields: false
           formats:
             ext_json: ext_json
       row:
         type: data_entity
         options: {  }
+      display_extenders: {  }

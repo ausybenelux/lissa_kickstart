@@ -1,11 +1,13 @@
 langcode: en
 status: true
 dependencies:
-  module:
-    - node
   config:
+    - node.type.soccer_event
     - node.type.soccer_player_stats
     - node.type.soccer_team_stats
+  module:
+    - node
+    - user
 id: statistics
 label: Statistics
 module: views
@@ -267,6 +269,7 @@ display:
       title: Statistics
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
+      display_extenders: {  }
   admin_overview:
     display_plugin: page
     id: admin_overview
@@ -833,3 +836,4 @@ display:
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
       display_description: ''
+      display_extenders: {  }

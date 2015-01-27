@@ -12,7 +12,6 @@ weight: -2
 provider: null
 plugin: system_breadcrumb_block
 settings:
-  visibility: {  }
   id: system_breadcrumb_block
   label: Breadcrumbs
   provider: system
@@ -20,3 +19,5 @@ settings:
   cache:
     max_age: 0
     contexts: {  }
+  visibility: {  }
+visibility: {  }

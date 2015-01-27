@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.soccer_team_stats.body
     - field.field.node.soccer_team_stats.field_stats_defeats
     - field.field.node.soccer_team_stats.field_stats_draws
     - field.field.node.soccer_team_stats.field_stats_matches
@@ -22,7 +21,6 @@ content:
   links:
     weight: 100
 hidden:
-  langcode: true
   body: true
   field_stats_defeats: true
   field_stats_draws: true

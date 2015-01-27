@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.soccer_player_stats.body
     - field.field.node.soccer_player_stats.field_stats_ball_pos
     - field.field.node.soccer_player_stats.field_stats_fouls_committed
     - field.field.node.soccer_player_stats.field_stats_free_kicks
@@ -28,7 +27,6 @@ content:
   links:
     weight: 100
 hidden:
-  langcode: true
   body: true
   field_stats_ball_pos: true
   field_stats_fouls_committed: true

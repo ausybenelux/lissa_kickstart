@@ -4,6 +4,8 @@ dependencies:
   config:
     - field.storage.node.field_stats_season
     - node.type.soccer_team_stats
+  module:
+    - taxonomy
 id: node.soccer_team_stats.field_stats_season
 field_name: field_stats_season
 entity_type: node

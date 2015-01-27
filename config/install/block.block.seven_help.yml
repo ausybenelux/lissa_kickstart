@@ -1,8 +1,6 @@
 langcode: en
 status: true
 dependencies:
-  module:
-    - system
   theme:
     - seven
 id: seven_help
@@ -12,7 +10,6 @@ weight: 0
 provider: null
 plugin: system_help_block
 settings:
-  visibility: {  }
   id: system_help_block
   label: 'System Help'
   provider: system
@@ -20,3 +17,5 @@ settings:
   cache:
     max_age: -1
     contexts: {  }
+  visibility: {  }
+visibility: {  }

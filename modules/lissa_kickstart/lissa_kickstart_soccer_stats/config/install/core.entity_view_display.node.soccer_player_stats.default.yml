@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.soccer_player_stats.body
     - field.field.node.soccer_player_stats.field_stats_ball_pos
     - field.field.node.soccer_player_stats.field_stats_fouls_committed
     - field.field.node.soccer_player_stats.field_stats_free_kicks
@@ -118,7 +117,6 @@ content:
     third_party_settings: {  }
     label: inline
 hidden:
-  langcode: true
   body: true
   field_stats_free_kick: true
   links: true

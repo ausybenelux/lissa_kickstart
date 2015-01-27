@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.soccer_team_stats.body
     - field.field.node.soccer_team_stats.field_stats_defeats
     - field.field.node.soccer_team_stats.field_stats_draws
     - field.field.node.soccer_team_stats.field_stats_matches
@@ -64,7 +63,6 @@ content:
     third_party_settings: {  }
     label: inline
 hidden:
-  langcode: true
   body: true
   links: true
 third_party_settings: {  }
