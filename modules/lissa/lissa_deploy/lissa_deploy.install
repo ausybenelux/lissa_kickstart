@@ -1,0 +1,16 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the LISSA deploy module.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * @see system_install()
+ */
+function lissa_deploy_install() {
+  // Force UUID so configuration can be deployed to this instance.
+  $uuid = '65119fd0-68f7-45b7-ae4e-784208b9632c';
+  \Drupal::configFactory()->getEditable('system.site')->set('uuid', $uuid)->save();
+}

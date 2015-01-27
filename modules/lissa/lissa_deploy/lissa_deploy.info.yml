@@ -1,0 +1,6 @@
+name: LISSA Deploy
+description: 'Lissa deployment module'
+package: LISSA Kickstart
+type: module
+version: 1.0
+core: 8.x
