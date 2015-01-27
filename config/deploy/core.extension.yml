@@ -20,7 +20,6 @@ module:
   history: 0
   image: 0
   link: 0
-  lissa_kickstart: 0
   lissa_kickstart_core: 0
   lissa_kickstart_soccer: 0
   lissa_kickstart_soccer_stats: 0
@@ -41,7 +40,13 @@ module:
   taxonomy: 0
   text: 0
   toolbar: 0
+  update: 0
   user: 0
   views_ui: 0
   views: 10
-theme: {  }
+  lissa_kickstart: 1000
+theme:
+  classy: 0
+  seven: 0
+  lissa_bluedrop: 0
+  bartik: 0

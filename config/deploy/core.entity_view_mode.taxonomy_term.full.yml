@@ -1,5 +1,5 @@
 id: taxonomy_term.full
-uuid: 0a1ac39a-783c-44c1-a800-c9fab82fa87e
+uuid: db8a8950-3ab9-446c-a351-81989fdf8d49
 label: 'Taxonomy term page'
 targetEntityType: taxonomy_term
 status: true
