@@ -20,6 +20,7 @@ module:
   history: 0
   image: 0
   link: 0
+  lissa_deploy: 0
   lissa_kickstart_core: 0
   lissa_kickstart_soccer: 0
   lissa_kickstart_soccer_stats: 0
