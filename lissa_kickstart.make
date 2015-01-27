@@ -15,4 +15,4 @@ projects[composer_manager][download][branch] = 8.x-1.x
 
 projects[config_devel][type] = "module"
 projects[config_devel][subdir] = "contrib"
-projects[config_devel][version] = 1.0-alpha14
+projects[config_devel][version] = 1.0-beta4
