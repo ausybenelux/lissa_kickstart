@@ -24,7 +24,7 @@ class SettingsForm extends ConfigFormBase implements FormInterface, ContainerInj
    * {@inheritdoc}
    */
   protected function getEditableConfigNames() {
-    return array('host', 'port', 'user', 'password');
+    return array('notification_push.settings');
   }
 
   /**

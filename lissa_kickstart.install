@@ -24,11 +24,10 @@ function lissa_kickstart_install() {
   \Drupal::service('entity.definition_update_manager')->applyUpdates();
 
   // Allow visitor account creation by admins only.
-  $user_settings = \Drupal::config('user.settings');
-  $user_settings->set('register', USER_REGISTER_ADMINISTRATORS_ONLY)->save();
+  \Drupal::configFactory()->getEditable('user.settings')->set('register', USER_REGISTER_ADMINISTRATORS_ONLY)->save();
 
   // Enable the lissa bluedrop theme.
-  $theme_settings = \Drupal::config('system.theme');
+  $theme_settings = \Drupal::configFactory()->getEditable('system.theme');
   $theme = 'lissa_bluedrop';
   \Drupal::service('theme_handler')->install(array($theme));
   $theme_settings->set('default', $theme)->save();
@@ -36,7 +35,7 @@ function lissa_kickstart_install() {
   // Enable all permissions for the administrator role.
   user_role_grant_permissions('administrator', array_keys(\Drupal::moduleHandler()->invokeAll('permission')));
   // Set this as the administrator role.
-  $user_settings->set('admin_role', 'administrator')->save();
+  \Drupal::configFactory()->getEditable('user.settings')->set('admin_role', 'administrator')->save();
 
   // Assign user 1 the "administrator" role.
   $user = User::load(1);
@@ -44,5 +43,5 @@ function lissa_kickstart_install() {
   $user->save();
   
   // Enable the admin theme.
-  \Drupal::config('node.settings')->set('use_admin_theme', '1')->save();
+  \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', '1')->save();
 }

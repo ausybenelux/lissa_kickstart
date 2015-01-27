@@ -24,12 +24,7 @@ class SettingsForm extends ConfigFormBase implements FormInterface, ContainerInj
    * {@inheritdoc}
    */
   protected function getEditableConfigNames() {
-    return array(
-      'access_token',
-      'access_token_secret',
-      'consumer_key',
-      'consumer_secret',
-    );
+    return array('notification_twitter.settings');
   }
 
   /**
