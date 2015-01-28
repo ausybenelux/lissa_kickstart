@@ -20,7 +20,7 @@ function lissa_kickstart_soccer_stats_node_presave(Drupal\node\NodeInterface $no
     $title = $player . ' - ' . $season;
     $node->setTitle($title);
   }
-  elseif ($node->getType() == 'soccer_team_stats') {
+  elseif ($node->getType() == 'soccer_team_stats' && isset($node->get('field_stats_team')->entity) && isset($node->get('field_stats_season')->entity)) {
     $team = $node->get('field_stats_team')->entity->label();
     $season = $node->get('field_stats_season')->entity->label();
     $title = $team . ' - ' . $season;
