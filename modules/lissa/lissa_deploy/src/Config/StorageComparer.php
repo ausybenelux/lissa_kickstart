@@ -15,18 +15,16 @@ use Drupal\Core\Config\StorageComparer as StorageComparerBase;
 
 /**
  * Defines a config storage comparer that ignores UUIDs.
+ *
+ * Ignoring config entity UUIDs allows configuration to be imported from other
+ * sites. This is useful for OTAP setups where each drupal instance was
+ * installed seperately.
  */
 class StorageComparer extends StorageComparerBase {
 
   /**
-   * Creates the update changelist.
-   *
-   * The list of updates is sorted so that dependencies are created before
-   * configuration entities that depend on them. For example, field storages
-   * should be updated before fields.
-   *
-   * @param string $collection
-   *   The storage collection to operate on.
+   * {@inheritdoc}
+   */  The storage collection to operate on.
    */
   protected function addChangelistUpdate($collection) {
     foreach (array_intersect($this->sourceNames[$collection], $this->targetNames[$collection]) as $name) {
@@ -42,7 +40,7 @@ class StorageComparer extends StorageComparerBase {
   }
 
   /**
-   * Returns TRUE if the data sets, except the UUID, are equal.
+   * Returns TRUE if the datasets, except the UUID, are equal.
    */
   protected function isDataEqual($sourceData, $targetData) {
     if (isset($sourceData['uuid']) && isset($targetData['uuid'])) {

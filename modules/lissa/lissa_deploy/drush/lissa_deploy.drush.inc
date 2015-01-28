@@ -18,7 +18,7 @@ use Symfony\Component\Yaml\Parser;
 function lissa_deploy_drush_command() {
   $items = array();
 
-  $description = "Sync exported configurations." . "\n";
+  $description = "Sync exported configurations, ignoring config entity UUIDs." . "\n";
 
   $items['config-sync'] = array(
     'description' => $description,
