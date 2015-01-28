@@ -222,7 +222,7 @@
     </exec>
     <!-- Import the new configuration. -->
     <exec executable="drush" dir="${docroot}">
-      <arg value="config-import"/>
+      <arg value="config-sync"/>
       <arg value="deploy"/>
       <arg value="-y"/>
     </exec>
