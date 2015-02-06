@@ -127,7 +127,7 @@ The administration backend where operators manage events and notifications.
 Using the views and rest modules it also provides a REST API for fetching all
 published events and past notifications.
 
-Runs on port 80 in the default infrastructure single server setup:
+Runs on port 80 in the default infrastructure single server setup, login with admin/admin in the local setup:
 
 <http://admin.lissa.dev>
 
@@ -137,7 +137,7 @@ A message queue for storing and forwarding the real time notifications to
 clients. External services like Facebook, Twitter or other Drupal sites can
 plugin to the queue to send additional data in real time to clients.
 
-Runs on port 15672 in the default infrastructure single server setup:
+Runs on port 15672 in the default infrastructure single server setup, login with guest/guest in the local setup:
 
 <http://admin.lissa.dev:15672>
 
