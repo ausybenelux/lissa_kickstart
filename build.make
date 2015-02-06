@@ -15,7 +15,7 @@ projects[drupal][download][branch] = 8.0.x
 ; Download the install profile and recursively build all its dependencies:
 projects[lissa_kickstart][type] = profile
 projects[lissa_kickstart][download][type] = git
-projects[lissa_kickstart][download][url] = git@gitlab.crosscheck.be:lissa/lissa_kickstart.git
+projects[lissa_kickstart][download][url] = git@github.com:Crosscheck/lissa_kickstart.git
 
 ; Overwrite an existing build;
 projects[lissa_kickstart][overwrite] = TRUE
