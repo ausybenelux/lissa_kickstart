@@ -103,6 +103,18 @@ The [infrastructure](https://github.com/oneagency/lissa_infrastructure) repo
 has support for provisioning the backend across multiple servers. See the
 documentation included with the repository for more information.
 
+## Demo
+
+You can test the application using the demo web client located at <http://admin.lissa.dev/profiles/lissa_kickstart/test/client/demo.html>.
+
+The test web application will:
+
+- Load all events from the Drupal 8 REST event API.
+- Load all existing notifications from the Drupal 8 REST notification API.
+- Set up websocket connections to all events.
+
+Notifications added to events will show up automatically in the test web application.
+
 ## Architecture
 
 ![LISSA Component Diagram](doc/component-diagram.png)
