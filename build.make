@@ -22,7 +22,7 @@ projects[lissa_kickstart][overwrite] = TRUE
 
 ; Use a branch instead of a tag for development. It's advisable to use a tag
 ; of a fixed version when packaging for production.
-projects[lissa_kickstart][download][branch] = 8.x-1.x
+projects[lissa_kickstart][download][branch] = 8.0.x
 
 ; Keep the git directory so this build can be used for local development. It's
 ; advisable to delete this when packaging for production.
