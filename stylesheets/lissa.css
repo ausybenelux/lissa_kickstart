@@ -10,3 +10,7 @@
 .center {
   text-align: center;
 }
+
+ul li {
+  margin-left: 20px;
+}
