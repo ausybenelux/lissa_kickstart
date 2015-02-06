@@ -1,1 +1,0 @@
-# lissa_kickstart
