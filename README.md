@@ -38,7 +38,7 @@ instance with the LISSA Kickstart distribution.
 
 #### Vagrant setup
 
-```
+```bash
 git clone https://github.com/oneagency/lissa_infrastructure
 cd lissa_infrastructure
 vagrant up --provision`
@@ -46,7 +46,7 @@ vagrant up --provision`
 
 #### Drupal installation
 
-```
+```bash
 git clone https://github.com/oneagency/lissa_deploy
 cd lissa_deploy
 bundle install
