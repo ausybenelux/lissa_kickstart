@@ -151,18 +151,3 @@ Runs on port 8080 with the following endpoints:
 
 uuid can be replaced by the UUID of the event node a clients wants to receive
 notifications from.
-
-## Information architecture
-
-### Events
-
-## API
-
-The LISSA backend publishes content through a REST API.
-
-### List published events
-
-GET http://admin.lissa.dev/api/events; Accept: application/ext+json
-
-Example output can be found in lissa_kickstart/modules/lissa/ext/example.json
-
