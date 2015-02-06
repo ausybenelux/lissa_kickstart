@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>LISSA by ONEAgency</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>LISSA</h1>
+          <h2>A Drupal based technology stack for real time messaging in second screen applications.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/ONEAgency/lissa_kickstart/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/ONEAgency/lissa_kickstart/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/ONEAgency/lissa_kickstart" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="lissa-kickstart-distrubution" class="anchor" href="#lissa-kickstart-distrubution" aria-hidden="true"><span class="octicon octicon-link"></span></a>LISSA Kickstart Distrubution</h1>
+
+<p>LISSA is an open source technology stack for real time messaging in second
+screen applications. It allows media providers to publish live and on-demand
+video streams and push related notifications to clients.</p>
+
+<p>The LISSA Kickstart profile is a reusable Drupal 8 distribution for managing
+and publishing events and notifications. It comes pre-configured with the
+following functionality:</p>
+
+<ul>
+<li>Real-time push message API through the LISSA backend stack for publishing
+live notifications.</li>
+<li>REST API for publishing events.</li>
+<li>REST API for publishing on-demand notifications.</li>
+<li>A proof-of-concept for soccer matches with contextual soccer statistics.</li>
+<li>Twitter integration for pushing notifications to a Twitter account.</li>
+</ul>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3>
+<a id="using-vagrant" class="anchor" href="#using-vagrant" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Vagrant</h3>
+
+<p>The recommended way to install the LISSA distribution is by using the LISSA
+<a href="https://github.com/oneagency/lissa_infrastructure">infrastructure</a> and
+<a href="https://github.com/oneagency/lissa_deploy">deploy</a> repositories on GitHub.
+The infrastructure repo will provision a Vagrant box containing all the
+required services and the deploy repo will install and configure a Drupal 8
+instance with the LISSA Kickstart distribution.</p>
+
+<h4>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h4>
+
+<ul>
+<li>Bundler</li>
+<li>OSX: Xcode command line tools: xcode-select --install</li>
+<li>Virtualbox 4.3.10+</li>
+<li>Vagrant 1.6.3</li>
+<li>vagrant-omnibus plugin</li>
+<li>vagrant-hostsupdater plugin</li>
+<li>Git</li>
+</ul>
+
+<h4>
+<a id="vagrant-setup" class="anchor" href="#vagrant-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Vagrant setup</h4>
+
+<pre><code>git clone https://github.com/oneagency/lissa_infrastructure
+cd lissa_infrastructure
+vagrant up --provision`
+</code></pre>
+
+<h4>
+<a id="drupal-installation" class="anchor" href="#drupal-installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Drupal installation</h4>
+
+<pre><code>git clone https://github.com/oneagency/lissa_deploy
+cd lissa_deploy
+bundle install
+bundle exec cap local deploy
+</code></pre>
+
+<h3>
+<a id="using-phing" class="anchor" href="#using-phing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Phing</h3>
+
+<p>You can set up the Drupal distribution with Phing following these steps:</p>
+
+<ul>
+<li>cd to the root of this repository</li>
+<li>Execute the following command: phing -Ddocroot=/path/to/docroot</li>
+<li>Replace /path/to/docroot/parent with the path of your virtual host.</li>
+</ul>
+
+<p>The following steps will be executed:</p>
+
+<ul>
+<li>Create a docroot directory under /path/to/docroot/parent</li>
+<li>Execute drush make on the build.make file
+
+<ul>
+<li>Drush make will set up drupal 8 core</li>
+<li>Drush make will add the lissa_kickstart profile to the profiles directory</li>
+<li>Drush make will execute the lissa_kickstart.make file</li>
+</ul>
+</li>
+<li>Execute drush site-install with the parameters provided in
+build.defaults.properties</li>
+</ul>
+
+<h3>
+<a id="manual-installation" class="anchor" href="#manual-installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manual Installation</h3>
+
+<p>If you decide to install LISSA Kickstart manually please keep the following
+things in mind:</p>
+
+<ul>
+<li>Use the Drupal core version specified in the build.make file. Other versions
+of Drupal 8 may not be compatible.</li>
+<li>Install the contrib modules specified in the lissa_kickstart.make file.</li>
+<li>Install the services (see the <a href="https://github.com/oneagency/lissa_infrastructure">infrastructure repo</a>)
+for versions and configuration):
+
+<ul>
+<li>A RabbitMQ server</li>
+<li>An Nginx push stream server</li>
+<li>A service running the <a href="https://github.com/oneagency/lissa_worker">worker PHP script</a>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="server-installation" class="anchor" href="#server-installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Server Installation</h3>
+
+<p>You can provision your own server for a LISSA Kickstart installation by using
+the <a href="https://github.com/oneagency/lissa_infrastructure">infrastructure</a> repo
+on GitHub. This contains a set of Chef cookbooks with all the necessary services
+for running the full LISSA technology stack.</p>
+
+<p>After provisioning a server you can clone the
+<a href="https://github.com/oneagency/lissa_deploy">deploy</a> repository for deploying the
+distribution using capistrano.</p>
+
+<h4>
+<a id="distributed-servers" class="anchor" href="#distributed-servers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Distributed Servers</h4>
+
+<p>The <a href="https://github.com/oneagency/lissa_infrastructure">infrastructure</a> repo
+has support for provisioning the backend across multiple servers. See the
+documentation included with the repository for more information.</p>
+
+<h2>
+<a id="architecture" class="anchor" href="#architecture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Architecture</h2>
+
+<p><img src="doc/component-diagram.png" alt="LISSA Component Diagram"></p>
+
+<p>The LISSA stack is divided in the following components:</p>
+
+<h3>
+<a id="drupal-8" class="anchor" href="#drupal-8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Drupal 8</h3>
+
+<p>The administration backend where operators manage events and notifications.
+Using the views and rest modules it also provides a REST API for fetching all
+published events and past notifications.</p>
+
+<p>Runs on port 80 in the default infrastructure single server setup:</p>
+
+<p><a href="http://admin.lissa.dev">http://admin.lissa.dev</a></p>
+
+<h3>
+<a id="rabbitmq-messagequeue" class="anchor" href="#rabbitmq-messagequeue" aria-hidden="true"><span class="octicon octicon-link"></span></a>RabbitMQ MessageQueue</h3>
+
+<p>A message queue for storing and forwarding the real time notifications to
+clients. External services like Facebook, Twitter or other Drupal sites can
+plugin to the queue to send additional data in real time to clients.</p>
+
+<p>Runs on port 15672 in the default infrastructure single server setup:</p>
+
+<p><a href="http://admin.lissa.dev:15672">http://admin.lissa.dev:15672</a></p>
+
+<h3>
+<a id="php-worker" class="anchor" href="#php-worker" aria-hidden="true"><span class="octicon octicon-link"></span></a>PHP Worker</h3>
+
+<p>Parses the notifications from the message queue and forwards them to the nginx
+push stream server. This can be used for additional processing prior to sending
+the data to clients. It also increases scalability by providing multiple
+workers.</p>
+
+<p>There's an implementation that is set up either using the infrastructure repo or
+by running the worker.php script from the <a href="https://github.com/oneagency/lissa_worker">worker repo</a>
+using a process manager like supervisord.</p>
+
+<h3>
+<a id="nginx-push-stream-server" class="anchor" href="#nginx-push-stream-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nginx push stream server</h3>
+
+<p>Allows websocket connections for pushing the notification to clients.</p>
+
+<p>Runs on port 8080 with the following endpoints:</p>
+
+<ul>
+<li>/publish/uuid: publish notifications to all clients</li>
+<li>/ws/uuid: websocket endpoint for clients.</li>
+</ul>
+
+<p>uuid can be replaced by the UUID of the event node a clients wants to receive
+notifications from.</p>
+
+<h2>
+<a id="information-architecture" class="anchor" href="#information-architecture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Information architecture</h2>
+
+<h3>
+<a id="events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h3>
+
+<h2>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h2>
+
+<p>The LISSA backend publishes content through a REST API.</p>
+
+<h3>
+<a id="list-published-events" class="anchor" href="#list-published-events" aria-hidden="true"><span class="octicon octicon-link"></span></a>List published events</h3>
+
+<p>GET <a href="http://admin.lissa.dev/api/events">http://admin.lissa.dev/api/events</a>; Accept: application/ext+json</p>
+
+<p>Example output can be found in lissa_kickstart/modules/lissa/ext/example.json</p>
+        </section>
+
+        <footer>
+          LISSA is maintained by <a href="https://github.com/ONEAgency">ONEAgency</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
