@@ -1,4 +1,4 @@
-# LISSA Kickstart Distrubution
+# LISSA Kickstart Distribution
 
 LISSA is an open source technology stack for real time messaging in second
 screen applications. It allows media providers to publish live and on-demand
