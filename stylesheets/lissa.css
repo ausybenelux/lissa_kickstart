@@ -16,3 +16,18 @@ ul li {
   padding-left: 0px;
   margin-left: 20px;
 }
+
+table {
+  margin: 20px 0;
+  border-color: #ddd;
+}
+
+td, th {
+  text-align: left;
+  padding: 6px;
+  border-color: #ddd;
+}
+
+h3 {
+  color: #333;
+}
