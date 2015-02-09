@@ -3,7 +3,7 @@
 ; When executed with drush make this file will download the LISSA drupal profile
 ; and all its dependencies.
 
-core = "8.x"
+core = 8.x
 api = 2
 
 includes[] = drupal-org-core.make
