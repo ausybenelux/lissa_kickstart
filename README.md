@@ -233,7 +233,7 @@ There's an example client (JS) available on <http://admin.lissa.dev/profiles/lis
 - Login with admin / admin
 - Go to <http://admin.lissa.dev/node/4/timeline>
 - Add notifications
-- 
+ 
 When submitting the web client form the following will happen:
 
 - Events are loaded via AJAX using the event API
