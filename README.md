@@ -1,3 +1,5 @@
+![LISSA logo](doc/logo.png)
+
 # LISSA Kickstart Distribution
 
 LISSA is an open source technology stack for real time messaging in second
@@ -20,7 +22,7 @@ LISSA is separated into four projects:
 - [Kickstart](https://github.com/oneagency/lissa_kickstart): The Drupal installation profile for the backend interface.
 - [Infrastructure](https://github.com/oneagency/lissa_infrastructure): Vagrant and Chef scripts for provisioning a box with the services needed for running LISSA.
 - [Deploy](https://github.com/oneagency/lissa_deploy): Capistrano script for deploying LISSA Kickstart to a Vagrant box or remote servers.
-- [Worker](https://github.com/oneagency/lissa_worker): PHP script that parses and forwards notifications from a message queue to a push stream server. 
+- [Worker](https://github.com/oneagency/lissa_worker): PHP script that parses and forwards notifications from a message queue to a push stream server.
 
 ## Installation
 
@@ -139,7 +141,7 @@ Notifications added to events will show up automatically in the test web applica
 ![LISSA Component Diagram](doc/component-diagram.png)
 
 The LISSA stack is divided in the following components:
- 
+
 ### Drupal 8
 
 The administration backend where operators manage events and notifications.
@@ -200,7 +202,7 @@ The notification replay API is a JSON feed that returns existing notifications f
 
 The API can be accessed using the following method:
 
-- HTTP GET request to http://admin.lissa.dev/api/notifications/[event-uuid] 
+- HTTP GET request to http://admin.lissa.dev/api/notifications/[event-uuid]
 - Replace [event-uuid] by the uuid of the event you're requesting notifications for.
 - Extra request header: Accept: application/ext+json
 
@@ -233,18 +235,18 @@ There's an example client (JS) available on <http://admin.lissa.dev/profiles/lis
 - Login with admin / admin
 - Go to <http://admin.lissa.dev/node/4/timeline>
 - Add notifications
- 
+
 When submitting the web client form the following will happen:
 
 - Events are loaded via AJAX using the event API
 - For each event the notification replay API is loaded to fetch existing notifications
 - For each event a websocket channel is openend using the event UUID
- 
+
 #### Using the websocket
 
 - Connect to the websocket on admin.lissa.dev:8080/ws
 - Subscribe to the channel using the event uuid you want to get messages for.
- 
+
 #### Monitoring
 
 You can monitor in- and outgoing notifications in the RabbitMQ control panel.
@@ -253,7 +255,7 @@ You can monitor in- and outgoing notifications in the RabbitMQ control panel.
 - Login with guest / guest
 - Go to <http://admin.lissa.dev:15672/#/queues/%2F/content_notification>
 - When you add a notification it will be queued and automatically consumed
- 
+
 #### Background info
 
 When adding a notification in the Drupal backend it will follow this path:
@@ -262,7 +264,7 @@ When adding a notification in the Drupal backend it will follow this path:
 2. Drupal will push a JSON version of the notification data to the RabbitMQ queue at admin.lissa.dev:15672
 3. A supervisor process on admin.lissa.dev continuously monitors the RabbitMQ queue
 4. The process will consume items posted to the queue and forwards them to admin.lissa.dev:8080/publish using the event uuid as channel name.
-5. The nginx push stream server listens on /publish and will forward the payload to all clients connected on /ws/event-uuid or /subscribe/event-uuid 
+5. The nginx push stream server listens on /publish and will forward the payload to all clients connected on /ws/event-uuid or /subscribe/event-uuid
 
 #### Data format
 
