@@ -206,7 +206,7 @@ The API can be accessed using the following method:
 
 ### Message Queue
 
-The message queue is an AMQP service that accepts notifications related to the events. The Drupal 8 backend will post the notification entity actions to this queue so the worker can forward them to the websoocket connections.
+The message queue is an AMQP service that accepts notifications related to the events. The Drupal 8 backend will post the notification entity actions to this queue so the worker can forward them to the websocket connections.
 
 | Type        | Address | Credentials |
 | ----------- |--------------|------|
