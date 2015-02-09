@@ -31,3 +31,7 @@ td, th {
 h3 {
   color: #333;
 }
+
+h3, h4 {
+  margin-bottom: 20px;
+}
