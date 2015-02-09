@@ -15,6 +15,13 @@ following functionality:
 - A proof-of-concept for soccer matches with contextual soccer statistics.
 - Twitter integration for pushing notifications to a Twitter account.
 
+LISSA is separated into four projects:
+
+- [Kickstart](https://github.com/oneagency/lissa_kickstart): The Drupal installation profile for the backend interface.
+- [Infrastructure](https://github.com/oneagency/lissa_infrastructure): Vagrant and Chef scripts for provisioning a box with the services needed for running LISSA.
+- [Deploy](https://github.com/oneagency/lissa_deploy): Capistrano script for deploying LISSA Kickstart to a Vagrant box or remote servers.
+- [Worker](https://github.com/oneagency/lissa_worker): PHP script that parses and forwards notifications from a message queue to a push stream server. 
+
 ## Installation
 
 ### Using Vagrant
