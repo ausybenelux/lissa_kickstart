@@ -118,7 +118,7 @@ documentation included with the repository for more information.
 
 ### AMQP Server
 
-By default LISSA Kickstart will push its notifications to an AMQP server running on localhost:5672. You can change the address and credentials on <http://admin.lissa.dev/admin/config/services/notification-push/settings>.
+By default LISSA Kickstart will push its notifications to an AMQP server running on localhost:15672. You can change the address and credentials on <http://admin.lissa.dev/admin/config/services/notification-push/settings>.
 
 ### Twitter
 
@@ -212,7 +212,7 @@ The message queue is an AMQP service that accepts notifications related to the e
 
 | Type        | Address | Credentials |
 | ----------- |--------------|------|
-| RabbitMQ server	 | admin.lissa.dev:5672 | guest / guest |
+| RabbitMQ server	 | admin.lissa.dev:15672 | guest / guest |
 | RabbitMQ queue | content_notification | |
 
 ### Notification Stream
