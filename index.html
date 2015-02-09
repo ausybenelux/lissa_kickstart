@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/lissa.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
     <!--[if lt IE 9]>
@@ -19,8 +18,7 @@
       <div class="inner">
 
         <header>
-          <div class="center"><img class="lissa-logo" src="doc/logo.png"/></div>
-          <h1 class="hidden">LISSA</h1>
+          <h1>LISSA</h1>
           <h2>A Drupal based technology stack for real time messaging in second screen applications.</h2>
         </header>
 
@@ -34,7 +32,7 @@
 
         <section id="main_content">
           <h1>
-<a id="lissa-kickstart-distrubution" class="anchor" href="#lissa-kickstart-distrubution" aria-hidden="true"><span class="octicon octicon-link"></span></a>LISSA Kickstart Distribution</h1>
+<a id="lissa-kickstart-distribution" class="anchor" href="#lissa-kickstart-distribution" aria-hidden="true"><span class="octicon octicon-link"></span></a>LISSA Kickstart Distribution</h1>
 
 <p>LISSA is an open source technology stack for real time messaging in second
 screen applications. It allows media providers to publish live and on-demand
@@ -51,6 +49,19 @@ live notifications.</li>
 <li>REST API for publishing on-demand notifications.</li>
 <li>A proof-of-concept for soccer matches with contextual soccer statistics.</li>
 <li>Twitter integration for pushing notifications to a Twitter account.</li>
+</ul>
+
+<p>LISSA is separated into four projects:</p>
+
+<ul>
+<li>
+<a href="https://github.com/oneagency/lissa_kickstart">Kickstart</a>: The Drupal installation profile for the backend interface.</li>
+<li>
+<a href="https://github.com/oneagency/lissa_infrastructure">Infrastructure</a>: Vagrant and Chef scripts for provisioning a box with the services needed for running LISSA.</li>
+<li>
+<a href="https://github.com/oneagency/lissa_deploy">Deploy</a>: Capistrano script for deploying LISSA Kickstart to a Vagrant box or remote servers.</li>
+<li>
+<a href="https://github.com/oneagency/lissa_worker">Worker</a>: PHP script that parses and forwards notifications from a message queue to a push stream server. </li>
 </ul>
 
 <h2>
@@ -82,19 +93,17 @@ instance with the LISSA Kickstart distribution.</p>
 <h4>
 <a id="vagrant-setup" class="anchor" href="#vagrant-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Vagrant setup</h4>
 
-<pre><code>git clone https://github.com/oneagency/lissa_infrastructure
-cd lissa_infrastructure
-vagrant up --provision`
-</code></pre>
+<div class="highlight highlight-bash"><pre>git clone https://github.com/oneagency/lissa_infrastructure
+<span class="pl-s3">cd</span> lissa_infrastructure
+vagrant up --provision<span class="pl-s1"><span class="pl-pds">`</span></span></pre></div>
 
 <h4>
 <a id="drupal-installation" class="anchor" href="#drupal-installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Drupal installation</h4>
 
-<pre><code>git clone https://github.com/oneagency/lissa_deploy
-cd lissa_deploy
+<div class="highlight highlight-bash"><pre>git clone https://github.com/oneagency/lissa_deploy
+<span class="pl-s3">cd</span> lissa_deploy
 bundle install
-bundle exec cap local deploy
-</code></pre>
+bundle <span class="pl-s3">exec</span> cap <span class="pl-s">local</span> deploy</pre></div>
 
 <h3>
 <a id="using-phing" class="anchor" href="#using-phing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Phing</h3>
@@ -104,13 +113,13 @@ bundle exec cap local deploy
 <ul>
 <li>cd to the root of this repository</li>
 <li>Execute the following command: phing -Ddocroot=/path/to/docroot</li>
-<li>Replace /path/to/docroot/parent with the path of your virtual host.</li>
+<li>Replace /path/to/docroot with the path of your virtual host.</li>
 </ul>
 
 <p>The following steps will be executed:</p>
 
 <ul>
-<li>Create a docroot directory under /path/to/docroot/parent</li>
+<li>Create a docroot directory under /path/to/docroot</li>
 <li>Execute drush make on the build.make file
 
 <ul>
@@ -165,6 +174,21 @@ has support for provisioning the backend across multiple servers. See the
 documentation included with the repository for more information.</p>
 
 <h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
+
+<p>You can test the application using the demo web client located at <a href="http://admin.lissa.dev/profiles/lissa_kickstart/test/client/demo.html">http://admin.lissa.dev/profiles/lissa_kickstart/test/client/demo.html</a>.</p>
+
+<p>The test web application will:</p>
+
+<ul>
+<li>Load all events from the Drupal 8 REST event API.</li>
+<li>Load all existing notifications from the Drupal 8 REST notification API.</li>
+<li>Set up websocket connections to all events.</li>
+</ul>
+
+<p>Notifications added to events will show up automatically in the test web application.</p>
+
+<h2>
 <a id="architecture" class="anchor" href="#architecture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Architecture</h2>
 
 <p><img src="doc/component-diagram.png" alt="LISSA Component Diagram"></p>
@@ -178,7 +202,7 @@ documentation included with the repository for more information.</p>
 Using the views and rest modules it also provides a REST API for fetching all
 published events and past notifications.</p>
 
-<p>Runs on port 80 in the default infrastructure single server setup:</p>
+<p>Runs on port 80 in the default infrastructure single server setup, login with admin/admin in the local setup:</p>
 
 <p><a href="http://admin.lissa.dev">http://admin.lissa.dev</a></p>
 
@@ -189,7 +213,7 @@ published events and past notifications.</p>
 clients. External services like Facebook, Twitter or other Drupal sites can
 plugin to the queue to send additional data in real time to clients.</p>
 
-<p>Runs on port 15672 in the default infrastructure single server setup:</p>
+<p>Runs on port 15672 in the default infrastructure single server setup, login with guest/guest in the local setup:</p>
 
 <p><a href="http://admin.lissa.dev:15672">http://admin.lissa.dev:15672</a></p>
 
@@ -219,24 +243,6 @@ using a process manager like supervisord.</p>
 
 <p>uuid can be replaced by the UUID of the event node a clients wants to receive
 notifications from.</p>
-
-<h2>
-<a id="information-architecture" class="anchor" href="#information-architecture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Information architecture</h2>
-
-<h3>
-<a id="events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h3>
-
-<h2>
-<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h2>
-
-<p>The LISSA backend publishes content through a REST API.</p>
-
-<h3>
-<a id="list-published-events" class="anchor" href="#list-published-events" aria-hidden="true"><span class="octicon octicon-link"></span></a>List published events</h3>
-
-<p>GET <a href="http://admin.lissa.dev/api/events">http://admin.lissa.dev/api/events</a>; Accept: application/ext+json</p>
-
-<p>Example output can be found in lissa_kickstart/modules/lissa/ext/example.json</p>
         </section>
 
         <footer>
@@ -244,7 +250,7 @@ notifications from.</p>
           This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
         </footer>
 
-
+        
       </div>
     </div>
   </body>
