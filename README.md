@@ -110,6 +110,16 @@ The [infrastructure](https://github.com/oneagency/lissa_infrastructure) repo
 has support for provisioning the backend across multiple servers. See the
 documentation included with the repository for more information.
 
+## Configuration
+
+### AMQP Server
+
+By default LISSA Kickstart will push its notifications to an AMQP server running on localhost:5672. You can change the address and credentials on <http://admin.lissa.dev/admin/config/services/notification-push/settings>.
+
+### Twitter
+
+Twitter messages are by default pushed by a locked demo account. You can use another Twitter account by changing the settings at <http://admin.lissa.dev/admin/config/services/notification-twitter/settings>.
+
 ## Demo
 
 You can test the application using the demo web client located at <http://admin.lissa.dev/profiles/lissa_kickstart/test/client/demo.html>.
