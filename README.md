@@ -66,11 +66,11 @@ You can set up the Drupal distribution with Phing following these steps:
 
 - cd to the root of this repository
 - Execute the following command: phing -Ddocroot=/path/to/docroot
-- Replace /path/to/docroot/parent with the path of your virtual host.
+- Replace /path/to/docroot with the path of your virtual host.
 
 The following steps will be executed:
 
-- Create a docroot directory under /path/to/docroot/parent
+- Create a docroot directory under /path/to/docroot
 - Execute drush make on the build.make file
   - Drush make will set up drupal 8 core
   - Drush make will add the lissa_kickstart profile to the profiles directory
