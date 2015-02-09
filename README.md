@@ -60,6 +60,8 @@ bundle install
 bundle exec cap local deploy
 ```
 
+When Drupal has been installed you can go to <http://admin.lissa.dev> and log in with admin:admin.
+
 ### Using Phing
 
 You can set up the Drupal distribution with Phing following these steps:
