@@ -88,7 +88,7 @@ things in mind:
 - Use the Drupal core version specified in the build.make file. Other versions
   of Drupal 8 may not be compatible.
 - Install the contrib modules specified in the lissa_kickstart.make file.
-- Install the services (see the [infrastructure repo](https://github.com/oneagency/lissa_infrastructure))
+- Install the services (see the [infrastructure repo](https://github.com/oneagency/lissa_infrastructure)
   for versions and configuration):
   - A RabbitMQ server
   - An Nginx push stream server
