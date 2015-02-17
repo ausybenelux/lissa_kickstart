@@ -196,6 +196,165 @@ The events API is a JSON feed listing all public event nodes and their meta data
 
 Without the header only a limited set of data will be returned. The extended format will also load data for referenced entities (images, players, teams, etc.).
 
+Example JSON output:
+
+```json
+[{
+  "uuid": [{
+    "value": "6f0359f9-4252-471f-bd09-9d284110d92e"
+  }],
+  "type": [{
+    "target_id": "soccer_event"
+  }],
+  "langcode": [{
+    "value": "en"
+  }],
+  "title": [{
+    "value": "MUN - CHE",
+    "lang": "en"
+  }],
+  "status": [{
+    "value": "1",
+    "lang": "en"
+  }],
+  "created": [{
+    "value": "1411551574",
+    "lang": "en"
+  }],
+  "changed": [{
+    "value": "1421930410",
+    "lang": "en"
+  }],
+  "promote": [{
+    "value": "1",
+    "lang": "en"
+  }],
+  "sticky": [{
+    "value": "0",
+    "lang": "en"
+  }],
+  "revision_timestamp": [{
+    "value": "1411551574"
+  }],
+  "revision_log": [{
+    "value": "",
+    "lang": "en"
+  }],
+  "field_event_away_team": [{
+    "uuid": [{
+      "value": "e67158e6-99a7-4cba-bb00-e4f2473b472a"
+    }],
+    "vid": [{
+      "target_id": "team"
+    }],
+    "langcode": [{
+      "value": "en"
+    }],
+    "name": [{
+      "value": "CHE",
+      "lang": "en"
+    }],
+    "weight": [{
+      "value": "0"
+    }],
+    "changed": [{
+      "value": "1421230500"
+    }],
+    "field_team_color": [{
+      "value": "#0077B4"
+    }]
+  }],
+  "field_event_competition": [{
+    "uuid": [{
+      "value": "77da5380-eb94-480c-bb1d-292ce39135e6"
+    }],
+    "vid": [{
+      "target_id": "competition"
+    }],
+    "langcode": [{
+      "value": "en"
+    }],
+    "name": [{
+      "value": "Pro League",
+      "lang": "en"
+    }],
+    "weight": [{
+      "value": "0"
+    }],
+    "changed": [{
+      "value": "1418290608"
+    }]
+  }],
+  "field_event_encoder_on": [{
+    "value": "1"
+  }],
+  "field_event_endpoint": [{
+    "url": "http:\/\/demo.lissa.one-agency.be\/crosscheck\/manifest.xml",
+    "title": "",
+    "route_name": null,
+    "route_parameters": [],
+    "options": {
+      "external": true
+    }
+  }],
+  "field_event_hide": [{
+    "value": "2015-09-26T23:00:00"
+  }],
+  "field_event_home_team": [{
+    "uuid": [{
+      "value": "d76b3d0a-e2b4-431b-a000-cb0fb2804635"
+    }],
+    "vid": [{
+      "target_id": "team"
+    }],
+    "langcode": [{
+      "value": "en"
+    }],
+    "name": [{
+      "value": "MUN",
+      "lang": "en"
+    }],
+    "weight": [{
+      "value": "0"
+    }],
+    "changed": [{
+      "value": "1421230520"
+    }],
+    "field_team_color": [{
+      "value": "#D31E2F"
+    }]
+  }],
+  "field_event_interface": [{
+    "value": "0"
+  }],
+  "field_event_match_start": [{
+    "value": "2014-12-12T15:30:00"
+  }],
+  "field_event_team_setup": [{
+    "uri": [{
+      "value": "http:\/\/demo.lissa.one-agency.be\/sites\/default\/files\/event-setup.png"
+    }]
+  }],
+  "field_event_thumbnail": [{
+    "uri": [{
+      "value": "http:\/\/demo.lissa.one-agency.be\/sites\/default\/files\/event-thumbnail.png"
+    }]
+  }],
+  "field_event_timeline_end": [{
+    "value": "2014-12-12T16:00:00"
+  }],
+  "field_event_timeline_start": [{
+    "value": "2014-12-12T15:30:00"
+  }],
+  "field_event_twitter": [{
+    "value": "#mun"
+  }],
+  "field_event_visible": [{
+    "value": "2014-09-24T17:00:00"
+  }]
+}]
+```
+
 ### Notification Replay API
 
 The notification replay API is a JSON feed that returns existing notifications for a given event. It can be used to replay an event or allow users to watch an already ongoing event.
