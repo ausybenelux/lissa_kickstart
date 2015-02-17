@@ -859,6 +859,248 @@ There's an example client (JS) available on <http://admin.lissa.dev/profiles/lis
 | Stream subscription endpoint |	/subscribe |	admin.lissa.dev:8080/subscribe |
 | Channels (websocket) |	uuid of event |	admin.lissa.dev:8080/ws/event-uuid |
 
+**Example JSON payload:**
+
+```json
+{
+  "text": {
+    "uuid": [{
+      "value": "172a6a0c-216b-4865-ac00-a47e568ba5a3"
+    }],
+    "type": [{
+      "target_id": "goal"
+    }],
+    "title": [{
+      "value": "Goal by Maertens",
+      "lang": "und"
+    }],
+    "created": [{
+      "value": 1424158855,
+      "lang": "und"
+    }],
+    "changed": [{
+      "value": 1424158873,
+      "lang": "und"
+    }],
+    "timeline": [{
+      "value": "2015-02-17T08:41:45"
+    }],
+    "field_goal_player": [{
+      "uuid": [{
+        "value": "2e090f77-6306-4708-ac03-3b6fbc736e2b"
+      }],
+      "vid": [{
+        "target_id": "player"
+      }],
+      "langcode": [{
+        "value": "en"
+      }],
+      "name": [{
+        "value": "Maertens",
+        "lang": "en"
+      }],
+      "weight": [{
+        "value": "0"
+      }],
+      "changed": [{
+        "value": "1424131006"
+      }],
+      "field_player_first_name": [{
+        "value": ""
+      }],
+      "field_player_teams": [{
+        "uuid": [{
+          "value": "f1c3e324-b1ec-419e-921d-29a030c90de1"
+        }],
+        "vid": [{
+          "target_id": "team"
+        }],
+        "langcode": [{
+          "value": "en"
+        }],
+        "name": [{
+          "value": "Club Brugge",
+          "lang": "en"
+        }],
+        "weight": [{
+          "value": "0"
+        }],
+        "changed": [{
+          "value": "1424131006"
+        }],
+        "field_team_color": [{
+          "value": "#0077B4"
+        }],
+        "field_team_competitions": [{
+          "uuid": [{
+            "value": "c240bf18-9add-4d62-9251-819d7c93ee18"
+          }],
+          "vid": [{
+            "target_id": "competition"
+          }],
+          "langcode": [{
+            "value": "en"
+          }],
+          "name": [{
+            "value": "Jupiler League",
+            "lang": "en"
+          }],
+          "weight": [{
+            "value": "0"
+          }],
+          "changed": [{
+            "value": "1424131006"
+          }],
+          "api_meta": {
+            "type": "create",
+            "event_uuid": "8685158b-94c4-4c53-8237-559126994e9c"
+          }
+      }]
+    }],
+    "field_goal_score": [{
+      "value": "1 - 0"
+    }],
+    "field_goal_team": [{
+      "uuid": [{
+        "value": "f1c3e324-b1ec-419e-921d-29a030c90de1"
+      }],
+      "vid": [{
+        "target_id": "team"
+      }],
+      "langcode": [{
+        "value": "en"
+      }],
+      "name": [{
+        "value": "Club Brugge",
+        "lang": "en"
+      }],
+      "weight": [{
+        "value": "0"
+      }],
+      "changed": [{
+        "value": "1424131006"
+      }],
+      "field_team_color": [{
+        "value": "#0077B4"
+      }],
+      "field_team_competitions": [{
+        "uuid": [{
+          "value": "c240bf18-9add-4d62-9251-819d7c93ee18"
+        }],
+        "vid": [{
+          "target_id": "competition"
+        }],
+        "langcode": [{
+          "value": "en"
+        }],
+        "name": [{
+          "value": "Jupiler League",
+          "lang": "en"
+        }],
+        "weight": [{
+          "value": "0"
+        }],
+        "changed": [{
+          "value": "1424131006"
+        }]
+      }, {
+        "uuid": [{
+          "value": "77da5380-eb94-480c-bb1d-292ce39135e6"
+        }],
+        "vid": [{
+          "target_id": "competition"
+        }],
+        "langcode": [{
+          "value": "en"
+        }],
+        "name": [{
+          "value": "Pro League",
+          "lang": "en"
+        }],
+        "weight": [{
+          "value": "0"
+        }],
+        "changed": [{
+          "value": "1424131006"
+        }]
+    }],
+    "soccer_stats": {
+      "field_goal_team": {
+        "nid": [{
+          "value": "6"
+        }],
+        "uuid": [{
+          "value": "a691d7ed-e5e2-426b-8a00-fdd19585ebaa"
+        }],
+        "vid": [{
+          "value": "6"
+        }],
+        "type": [{
+          "target_id": "soccer_team_stats"
+        }],
+        "langcode": [{
+          "value": "en"
+        }],
+        "title": [{
+          "value": "Club Brugge - 2013\/2014"
+        }],
+        "uid": [{
+          "target_id": "0"
+        }],
+        "status": [{
+          "value": "1"
+        }],
+        "created": [{
+          "value": "1413373304"
+        }],
+        "changed": [{
+          "value": "1424131006"
+        }],
+        "promote": [{
+          "value": "0"
+        }],
+        "sticky": [{
+          "value": "0"
+        }],
+        "revision_timestamp": [{
+          "value": "1413373304"
+        }],
+        "revision_uid": [{
+          "target_id": "0"
+        }],
+        "revision_log": [{
+          "value": ""
+        }],
+        "path": [
+          []
+        ],
+        "field_stats_defeats": [{
+          "value": "10"
+        }],
+        "field_stats_draws": [{
+          "value": "0"
+        }],
+        "field_stats_matches": [{
+          "value": "12"
+        }],
+        "field_stats_season": [{
+          "target_id": "11"
+        }],
+        "field_stats_team": [{
+          "target_id": "3"
+        }],
+        "field_stats_wins": [{
+          "value": "90"
+        }]
+      }
+    }
+  },
+  "tag": "create",
+  "id": 1,
+  "channel": "8685158b-94c4-4c53-8237-559126994e9c"
+}
+```
+
 #### Testing the stream
 - Go to <http://admin.lissa.dev/profiles/lissa_kickstart/test/client/demo.html>
 - Enter admin.lissa.dev for the admin server and admin.lissa.dev:8080 for the worker server
