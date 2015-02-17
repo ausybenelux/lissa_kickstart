@@ -24,6 +24,28 @@ LISSA is separated into four projects:
 - [Deploy](https://github.com/oneagency/lissa_deploy): Capistrano script for deploying LISSA Kickstart to a Vagrant box or remote servers.
 - [Worker](https://github.com/oneagency/lissa_worker): PHP script that parses and forwards notifications from a message queue to a push stream server.
 
+
+## Table of Contents
+- [Installation](#installation)
+  - [Using Vagrant](#using-vagrant)
+  - [Using Phing](#using-phing)
+  - [Manual Installation](#manual-installation)
+  - [Server Installation](#server-installation)
+- [Configuration](#configuration)
+  - [AMQP Server](#amqp-server)
+  - [Twitter](#twitter)
+- [Demo](#demo)
+- [Architecture](#architecture)
+  - [Drupal 8](#drupal-8)
+  - [RabbitMQ Message Queue](#rabbitmq-message-queue)
+  - [PHP Worker](#php-worker)
+  - [Nginx Push Stream Server](#nginx-push-stream-server)
+- [APIs](#apis)
+  - [Events API](#events-api)
+  - [Notification Replay API](#notification-replay-api)
+  - [Message Queue](#message queue)
+  - [Notification Stream](#notification-stream)
+
 ## Installation
 
 ### Using Vagrant
@@ -152,7 +174,7 @@ Runs on port 80 in the default infrastructure single server setup, login with ad
 
 <http://admin.lissa.dev>
 
-### RabbitMQ MessageQueue
+### RabbitMQ Message Queue
 
 A message queue for storing and forwarding the real time notifications to
 clients. External services like Facebook, Twitter or other Drupal sites can
@@ -173,7 +195,7 @@ There's an implementation that is set up either using the infrastructure repo or
 by running the worker.php script from the [worker repo](https://github.com/oneagency/lissa_worker)
 using a process manager like supervisord.
 
-### Nginx push stream server
+### Nginx Push Stream Server
 
 Allows websocket connections for pushing the notification to clients.
 
