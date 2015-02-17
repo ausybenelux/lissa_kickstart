@@ -863,6 +863,9 @@ There's an example client (JS) available on <http://admin.lissa.dev/profiles/lis
 
 ```json
 {
+  "tag": "create",
+  "id": 1,
+  "channel": "8685158b-94c4-4c53-8237-559126994e9c",
   "text": {
     "uuid": [{
       "value": "172a6a0c-216b-4865-ac00-a47e568ba5a3"
@@ -950,11 +953,8 @@ There's an example client (JS) available on <http://admin.lissa.dev/profiles/lis
           }],
           "changed": [{
             "value": "1424131006"
-          }],
-          "api_meta": {
-            "type": "create",
-            "event_uuid": "8685158b-94c4-4c53-8237-559126994e9c"
-          }
+          }]
+        }]
       }]
     }],
     "field_goal_score": [{
@@ -1023,6 +1023,7 @@ There's an example client (JS) available on <http://admin.lissa.dev/profiles/lis
         "changed": [{
           "value": "1424131006"
         }]
+      }]
     }],
     "soccer_stats": {
       "field_goal_team": {
@@ -1094,10 +1095,7 @@ There's an example client (JS) available on <http://admin.lissa.dev/profiles/lis
         }]
       }
     }
-  },
-  "tag": "create",
-  "id": 1,
-  "channel": "8685158b-94c4-4c53-8237-559126994e9c"
+  }
 }
 ```
 
