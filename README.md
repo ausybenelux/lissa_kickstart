@@ -365,6 +365,479 @@ The API can be accessed using the following method:
 - Replace [event-uuid] by the uuid of the event you're requesting notifications for.
 - Extra request header: Accept: application/ext+json
 
+Example JSON output for notifications linked to the event in the previous example:
+
+**URL:**
+
+http://admin.lissa.dev/api/notifications/6f0359f9-4252-471f-bd09-9d284110d92e
+
+**Output:**
+
+```json
+[{
+  "uuid": [{
+    "value": "a3456c47-ee9d-428e-8619-250adb43884f"
+  }],
+  "type": [{
+    "target_id": "status"
+  }],
+  "title": [{
+    "value": "Second half started",
+    "lang": "und"
+  }],
+  "created": [{
+    "value": "1418642633",
+    "lang": "und"
+  }],
+  "changed": [{
+    "value": "1421231379",
+    "lang": "und"
+  }],
+  "timeline": [{
+    "value": "2014-12-12T15:30:05"
+  }],
+  "image": [{
+    "target_id": "0",
+    "display": null,
+    "description": null,
+    "alt": null,
+    "title": null,
+    "width": null,
+    "height": null,
+    "lang": "und"
+  }],
+  "field_status_type": [{
+    "value": "Second half started"
+  }],
+  "api_meta": {
+    "event_uuid": "6f0359f9-4252-471f-bd09-9d284110d92e",
+    "type": "create"
+  },
+  "soccer_stats": []
+}, {
+  "uuid": [{
+    "value": "e2a6cfd3-9c22-450f-8000-dcfca66ea189"
+  }],
+  "type": [{
+    "target_id": "card"
+  }],
+  "title": [{
+    "value": "Yellow card for Fabregas",
+    "lang": "und"
+  }],
+  "created": [{
+    "value": "1421231380",
+    "lang": "und"
+  }],
+  "changed": [{
+    "value": "1421231502",
+    "lang": "und"
+  }],
+  "timeline": [{
+    "value": "2014-12-12T15:32:50"
+  }],
+  "image": [{
+    "target_id": "0",
+    "display": null,
+    "description": null,
+    "alt": null,
+    "title": null,
+    "width": null,
+    "height": null,
+    "lang": "und"
+  }],
+  "content": [{
+    "value": "Yellow card for bad foul.",
+    "format": "full_html"
+  }],
+  "field_card_player": [{
+    "uuid": [{
+      "value": "3d159e09-bebc-469a-b300-eb01ce065cb9"
+    }],
+    "vid": [{
+      "target_id": "player"
+    }],
+    "langcode": [{
+      "value": "en"
+    }],
+    "name": [{
+      "value": "Fabregas",
+      "lang": "en"
+    }],
+    "weight": [{
+      "value": "0"
+    }],
+    "changed": [{
+      "value": "1421231361"
+    }],
+    "field_player_teams": [{
+      "uuid": [{
+        "value": "e67158e6-99a7-4cba-bb00-e4f2473b472a"
+      }],
+      "vid": [{
+        "target_id": "team"
+      }],
+      "langcode": [{
+        "value": "en"
+      }],
+      "name": [{
+        "value": "CHE",
+        "lang": "en"
+      }],
+      "weight": [{
+        "value": "0"
+      }],
+      "changed": [{
+        "value": "1421230500"
+      }],
+      "field_team_color": [{
+        "value": "#0077B4"
+      }],
+      "api_meta": {
+        "event_uuid": "6f0359f9-4252-471f-bd09-9d284110d92e",
+        "type": "create"
+      },
+      "soccer_stats": []
+    }],
+    "api_meta": {
+      "event_uuid": "6f0359f9-4252-471f-bd09-9d284110d92e",
+      "type": "create"
+    },
+    "soccer_stats": []
+  }],
+  "field_card_type": [{
+    "value": "Yellow"
+  }],
+  "api_meta": {
+    "event_uuid": "6f0359f9-4252-471f-bd09-9d284110d92e",
+    "type": "create"
+  },
+  "soccer_stats": []
+}, {
+  "uuid": [{
+    "value": "e5594983-10a2-4099-a800-c681f3ad85c5"
+  }],
+  "type": [{
+    "target_id": "goal"
+  }],
+  "title": [{
+    "value": "Goal by Drogba",
+    "lang": "und"
+  }],
+  "created": [{
+    "value": "1421231502",
+    "lang": "und"
+  }],
+  "changed": [{
+    "value": "1421748801",
+    "lang": "und"
+  }],
+  "timeline": [{
+    "value": "2014-12-12T15:35:50"
+  }],
+  "image": [{
+    "target_id": "0",
+    "display": null,
+    "description": null,
+    "alt": null,
+    "title": null,
+    "width": null,
+    "height": null,
+    "lang": "und"
+  }],
+  "content": [{
+    "value": "Didier Drogba header from the left side of the six yard box to the top left corner.",
+    "format": "full_html"
+  }],
+  "field_goal_player": [{
+    "uuid": [{
+      "value": "5a94ccb1-3baa-4341-8200-d78000ac5b51"
+    }],
+    "vid": [{
+      "target_id": "player"
+    }],
+    "langcode": [{
+      "value": "en"
+    }],
+    "name": [{
+      "value": "Drogba",
+      "lang": "en"
+    }],
+    "weight": [{
+      "value": "0"
+    }],
+    "changed": [{
+      "value": "1421231630"
+    }],
+    "field_player_teams": [{
+      "uuid": [{
+        "value": "e67158e6-99a7-4cba-bb00-e4f2473b472a"
+      }],
+      "vid": [{
+        "target_id": "team"
+      }],
+      "langcode": [{
+        "value": "en"
+      }],
+      "name": [{
+        "value": "CHE",
+        "lang": "en"
+      }],
+      "weight": [{
+        "value": "0"
+      }],
+      "changed": [{
+        "value": "1421230500"
+      }],
+      "field_team_color": [{
+        "value": "#0077B4"
+      }],
+      "api_meta": {
+        "event_uuid": "6f0359f9-4252-471f-bd09-9d284110d92e",
+        "type": "create"
+      },
+      "soccer_stats": []
+    }],
+    "api_meta": {
+      "event_uuid": "6f0359f9-4252-471f-bd09-9d284110d92e",
+      "type": "create"
+    },
+    "soccer_stats": []
+  }],
+  "field_goal_score": [{
+    "value": "0 - 1"
+  }],
+  "field_goal_team": [{
+    "uuid": [{
+      "value": "e67158e6-99a7-4cba-bb00-e4f2473b472a"
+    }],
+    "vid": [{
+      "target_id": "team"
+    }],
+    "langcode": [{
+      "value": "en"
+    }],
+    "name": [{
+      "value": "CHE",
+      "lang": "en"
+    }],
+    "weight": [{
+      "value": "0"
+    }],
+    "changed": [{
+      "value": "1421230500"
+    }],
+    "field_team_color": [{
+      "value": "#0077B4"
+    }],
+    "api_meta": {
+      "event_uuid": "6f0359f9-4252-471f-bd09-9d284110d92e",
+      "type": "create"
+    },
+    "soccer_stats": []
+  }],
+  "api_meta": {
+    "event_uuid": "6f0359f9-4252-471f-bd09-9d284110d92e",
+    "type": "create"
+  },
+  "soccer_stats": []
+}, {
+  "uuid": [{
+    "value": "7e1b8d58-f12f-4e7b-854d-77aecd0b440a"
+  }],
+  "type": [{
+    "target_id": "card"
+  }],
+  "title": [{
+    "value": "Yellow card for Oscar",
+    "lang": "und"
+  }],
+  "created": [{
+    "value": "1421231698",
+    "lang": "und"
+  }],
+  "changed": [{
+    "value": "1421231742",
+    "lang": "und"
+  }],
+  "timeline": [{
+    "value": "2014-12-12T15:45:00"
+  }],
+  "image": [{
+    "target_id": "0",
+    "display": null,
+    "description": null,
+    "alt": null,
+    "title": null,
+    "width": null,
+    "height": null,
+    "lang": "und"
+  }],
+  "content": [{
+    "value": "Yellow card for a bad foul.",
+    "format": "full_html"
+  }],
+  "field_card_player": [{
+    "uuid": [{
+      "value": "83ffff8e-da1e-4ca6-9104-4b60f67ad09c"
+    }],
+    "vid": [{
+      "target_id": "player"
+    }],
+    "langcode": [{
+      "value": "en"
+    }],
+    "name": [{
+      "value": "Oscar",
+      "lang": "en"
+    }],
+    "weight": [{
+      "value": "0"
+    }],
+    "changed": [{
+      "value": "1421231693"
+    }],
+    "field_player_teams": [{
+      "uuid": [{
+        "value": "e67158e6-99a7-4cba-bb00-e4f2473b472a"
+      }],
+      "vid": [{
+        "target_id": "team"
+      }],
+      "langcode": [{
+        "value": "en"
+      }],
+      "name": [{
+        "value": "CHE",
+        "lang": "en"
+      }],
+      "weight": [{
+        "value": "0"
+      }],
+      "changed": [{
+        "value": "1421230500"
+      }],
+      "field_team_color": [{
+        "value": "#0077B4"
+      }],
+      "api_meta": {
+        "event_uuid": "6f0359f9-4252-471f-bd09-9d284110d92e",
+        "type": "create"
+      },
+      "soccer_stats": []
+    }],
+    "api_meta": {
+      "event_uuid": "6f0359f9-4252-471f-bd09-9d284110d92e",
+      "type": "create"
+    },
+    "soccer_stats": []
+  }],
+  "field_card_type": [{
+    "value": "Yellow"
+  }],
+  "api_meta": {
+    "event_uuid": "6f0359f9-4252-471f-bd09-9d284110d92e",
+    "type": "create"
+  },
+  "soccer_stats": []
+}, {
+  "uuid": [{
+    "value": "f2f6f55d-549e-48fc-9400-f84c69b6bbe5"
+  }],
+  "type": [{
+    "target_id": "card"
+  }],
+  "title": [{
+    "value": "Yellow card for Ivanovic",
+    "lang": "und"
+  }],
+  "created": [{
+    "value": "1421231779",
+    "lang": "und"
+  }],
+  "changed": [{
+    "value": "1421231807",
+    "lang": "und"
+  }],
+  "timeline": [{
+    "value": "2014-12-12T15:48:00"
+  }],
+  "image": [{
+    "target_id": "0",
+    "display": null,
+    "description": null,
+    "alt": null,
+    "title": null,
+    "width": null,
+    "height": null,
+    "lang": "und"
+  }],
+  "field_card_player": [{
+    "uuid": [{
+      "value": "24a7660d-453c-4194-af08-8a4e1d6343e8"
+    }],
+    "vid": [{
+      "target_id": "player"
+    }],
+    "langcode": [{
+      "value": "en"
+    }],
+    "name": [{
+      "value": "Ivanovic",
+      "lang": "en"
+    }],
+    "weight": [{
+      "value": "0"
+    }],
+    "changed": [{
+      "value": "1421231773"
+    }],
+    "field_player_teams": [{
+      "uuid": [{
+        "value": "e67158e6-99a7-4cba-bb00-e4f2473b472a"
+      }],
+      "vid": [{
+        "target_id": "team"
+      }],
+      "langcode": [{
+        "value": "en"
+      }],
+      "name": [{
+        "value": "CHE",
+        "lang": "en"
+      }],
+      "weight": [{
+        "value": "0"
+      }],
+      "changed": [{
+        "value": "1421230500"
+      }],
+      "field_team_color": [{
+        "value": "#0077B4"
+      }],
+      "api_meta": {
+        "event_uuid": "6f0359f9-4252-471f-bd09-9d284110d92e",
+        "type": "create"
+      },
+      "soccer_stats": []
+    }],
+    "api_meta": {
+      "event_uuid": "6f0359f9-4252-471f-bd09-9d284110d92e",
+      "type": "create"
+    },
+    "soccer_stats": []
+  }],
+  "field_card_type": [{
+    "value": "Yellow"
+  }],
+  "api_meta": {
+    "event_uuid": "6f0359f9-4252-471f-bd09-9d284110d92e",
+    "type": "create"
+  },
+  "soccer_stats": []
+}]
+```
+
 ### Message Queue
 
 The message queue is an AMQP service that accepts notifications related to the events. The Drupal 8 backend will post the notification entity actions to this queue so the worker can forward them to the websocket connections.
