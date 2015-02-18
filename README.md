@@ -73,7 +73,7 @@ instance with the LISSA Kickstart distribution.
 git clone https://github.com/oneagency/lissa_infrastructure
 cd lissa_infrastructure
 ssh-add
-vagrant up --provision`
+vagrant up --provision
 ```
 
 #### Drupal installation
