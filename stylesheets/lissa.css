@@ -11,6 +11,7 @@
   text-align: center;
 }
 
+ol li,
 ul li {
   padding-left: 0px;
   margin-left: 20px;
@@ -20,6 +21,24 @@ a {
   word-break: break-word;
 }
 
+table {
+  margin: 20px 0;
+  border-color: #ddd;
+}
+
+td, th {
+  text-align: left;
+  padding: 6px;
+  border-color: #ddd;
+}
+
+h3 {
+  color: #333;
+}
+
+h3, h4 {
+  margin-bottom: 20px;
+}
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) { }

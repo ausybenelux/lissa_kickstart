@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/lissa.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/lissa.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -33,8 +33,9 @@
         <hr>
 
         <section id="main_content">
-          <h1>
-<a id="lissa-kickstart-distrubution" class="anchor" href="#lissa-kickstart-distrubution" aria-hidden="true"><span class="octicon octicon-link"></span></a>LISSA Kickstart Distribution</h1>
+
+<h1>
+<a id="lissa-kickstart-distribution" class="anchor" href="#lissa-kickstart-distribution" aria-hidden="true"><span class="octicon octicon-link"></span></a>LISSA Kickstart Distribution</h1>
 
 <p>LISSA is an open source technology stack for real time messaging in second
 screen applications. It allows media providers to publish live and on-demand
@@ -51,6 +52,19 @@ live notifications.</li>
 <li>REST API for publishing on-demand notifications.</li>
 <li>A proof-of-concept for soccer matches with contextual soccer statistics.</li>
 <li>Twitter integration for pushing notifications to a Twitter account.</li>
+</ul>
+
+<p>LISSA is separated into four projects:</p>
+
+<ul>
+<li>
+<a href="https://github.com/oneagency/lissa_kickstart">Kickstart</a>: The Drupal installation profile for the backend interface.</li>
+<li>
+<a href="https://github.com/oneagency/lissa_infrastructure">Infrastructure</a>: Vagrant and Chef scripts for provisioning a box with the services needed for running LISSA.</li>
+<li>
+<a href="https://github.com/oneagency/lissa_deploy">Deploy</a>: Capistrano script for deploying LISSA Kickstart to a Vagrant box or remote servers.</li>
+<li>
+<a href="https://github.com/oneagency/lissa_worker">Worker</a>: PHP script that parses and forwards notifications from a message queue to a push stream server.</li>
 </ul>
 
 <h2>
@@ -82,19 +96,19 @@ instance with the LISSA Kickstart distribution.</p>
 <h4>
 <a id="vagrant-setup" class="anchor" href="#vagrant-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Vagrant setup</h4>
 
-<pre><code>git clone https://github.com/oneagency/lissa_infrastructure
-cd lissa_infrastructure
-vagrant up --provision`
-</code></pre>
+<div class="highlight highlight-bash"><pre>git clone https://github.com/oneagency/lissa_infrastructure
+<span class="pl-s3">cd</span> lissa_infrastructure
+vagrant up --provision<span class="pl-s1"><span class="pl-pds">`</span></span></pre></div>
 
 <h4>
 <a id="drupal-installation" class="anchor" href="#drupal-installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Drupal installation</h4>
 
-<pre><code>git clone https://github.com/oneagency/lissa_deploy
-cd lissa_deploy
+<div class="highlight highlight-bash"><pre>git clone https://github.com/oneagency/lissa_deploy
+<span class="pl-s3">cd</span> lissa_deploy
 bundle install
-bundle exec cap local deploy
-</code></pre>
+bundle <span class="pl-s3">exec</span> cap <span class="pl-s">local</span> deploy</pre></div>
+
+<p>When Drupal has been installed you can go to <a href="http://admin.lissa.dev">http://admin.lissa.dev</a> and log in with admin:admin.</p>
 
 <h3>
 <a id="using-phing" class="anchor" href="#using-phing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Phing</h3>
@@ -104,13 +118,13 @@ bundle exec cap local deploy
 <ul>
 <li>cd to the root of this repository</li>
 <li>Execute the following command: phing -Ddocroot=/path/to/docroot</li>
-<li>Replace /path/to/docroot/parent with the path of your virtual host.</li>
+<li>Replace /path/to/docroot with the path of your virtual host.</li>
 </ul>
 
 <p>The following steps will be executed:</p>
 
 <ul>
-<li>Create a docroot directory under /path/to/docroot/parent</li>
+<li>Create a docroot directory under /path/to/docroot</li>
 <li>Execute drush make on the build.make file
 
 <ul>
@@ -133,7 +147,7 @@ things in mind:</p>
 <li>Use the Drupal core version specified in the build.make file. Other versions
 of Drupal 8 may not be compatible.</li>
 <li>Install the contrib modules specified in the lissa_kickstart.make file.</li>
-<li>Install the services (see the <a href="https://github.com/oneagency/lissa_infrastructure">infrastructure repo</a>)
+<li>Install the services (see the <a href="https://github.com/oneagency/lissa_infrastructure">infrastructure repo</a>
 for versions and configuration):
 
 <ul>
@@ -165,6 +179,34 @@ has support for provisioning the backend across multiple servers. See the
 documentation included with the repository for more information.</p>
 
 <h2>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h2>
+
+<h3>
+<a id="amqp-server" class="anchor" href="#amqp-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>AMQP Server</h3>
+
+<p>By default LISSA Kickstart will push its notifications to an AMQP server running on localhost:15672. You can change the address and credentials on <a href="http://admin.lissa.dev/admin/config/services/notification-push/settings">http://admin.lissa.dev/admin/config/services/notification-push/settings</a>.</p>
+
+<h3>
+<a id="twitter" class="anchor" href="#twitter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Twitter</h3>
+
+<p>Twitter messages are by default pushed by a locked demo account. You can use another Twitter account by changing the settings at <a href="http://admin.lissa.dev/admin/config/services/notification-twitter/settings">http://admin.lissa.dev/admin/config/services/notification-twitter/settings</a>.</p>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
+
+<p>You can test the application using the demo web client located at <a href="http://admin.lissa.dev/profiles/lissa_kickstart/test/client/demo.html">http://admin.lissa.dev/profiles/lissa_kickstart/test/client/demo.html</a>.</p>
+
+<p>The test web application will:</p>
+
+<ul>
+<li>Load all events from the Drupal 8 REST event API.</li>
+<li>Load all existing notifications from the Drupal 8 REST notification API.</li>
+<li>Set up websocket connections to all events.</li>
+</ul>
+
+<p>Notifications added to events will show up automatically in the test web application.</p>
+
+<h2>
 <a id="architecture" class="anchor" href="#architecture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Architecture</h2>
 
 <p><img src="doc/component-diagram.png" alt="LISSA Component Diagram"></p>
@@ -178,7 +220,7 @@ documentation included with the repository for more information.</p>
 Using the views and rest modules it also provides a REST API for fetching all
 published events and past notifications.</p>
 
-<p>Runs on port 80 in the default infrastructure single server setup:</p>
+<p>Runs on port 80 in the default infrastructure single server setup, login with admin/admin in the local setup:</p>
 
 <p><a href="http://admin.lissa.dev">http://admin.lissa.dev</a></p>
 
@@ -189,7 +231,7 @@ published events and past notifications.</p>
 clients. External services like Facebook, Twitter or other Drupal sites can
 plugin to the queue to send additional data in real time to clients.</p>
 
-<p>Runs on port 15672 in the default infrastructure single server setup:</p>
+<p>Runs on port 15672 in the default infrastructure single server setup, login with guest/guest in the local setup:</p>
 
 <p><a href="http://admin.lissa.dev:15672">http://admin.lissa.dev:15672</a></p>
 
@@ -221,22 +263,166 @@ using a process manager like supervisord.</p>
 notifications from.</p>
 
 <h2>
-<a id="information-architecture" class="anchor" href="#information-architecture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Information architecture</h2>
+<a id="apis" class="anchor" href="#apis" aria-hidden="true"><span class="octicon octicon-link"></span></a>APIs</h2>
 
 <h3>
-<a id="events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h3>
+<a id="events-api" class="anchor" href="#events-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events API</h3>
 
-<h2>
-<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h2>
+<p>The events API is a JSON feed listing all public event nodes and their meta data. It can be accessed using the following method:</p>
 
-<p>The LISSA backend publishes content through a REST API.</p>
+<ul>
+<li>HTTP GET request to <a href="http://admin.lissa.dev/api/events">http://admin.lissa.dev/api/events</a>
+</li>
+<li>Extra request header: Accept: application/ext+json</li>
+</ul>
+
+<p>Without the header only a limited set of data will be returned. The extended format will also load data for referenced entities (images, players, teams, etc.).</p>
 
 <h3>
-<a id="list-published-events" class="anchor" href="#list-published-events" aria-hidden="true"><span class="octicon octicon-link"></span></a>List published events</h3>
+<a id="notification-replay-api" class="anchor" href="#notification-replay-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notification Replay API</h3>
 
-<p>GET <a href="http://admin.lissa.dev/api/events">http://admin.lissa.dev/api/events</a>; Accept: application/ext+json</p>
+<p>The notification replay API is a JSON feed that returns existing notifications for a given event. It can be used to replay an event or allow users to watch an already ongoing event.</p>
 
-<p>Example output can be found in lissa_kickstart/modules/lissa/ext/example.json</p>
+<p>The API can be accessed using the following method:</p>
+
+<ul>
+<li>HTTP GET request to <a href="http://admin.lissa.dev/api/notifications/%5Bevent-uuid%5D">http://admin.lissa.dev/api/notifications/[event-uuid]</a>
+</li>
+<li>Replace [event-uuid] by the uuid of the event you're requesting notifications for.</li>
+<li>Extra request header: Accept: application/ext+json</li>
+</ul>
+
+<h3>
+<a id="message-queue" class="anchor" href="#message-queue" aria-hidden="true"><span class="octicon octicon-link"></span></a>Message Queue</h3>
+
+<p>The message queue is an AMQP service that accepts notifications related to the events. The Drupal 8 backend will post the notification entity actions to this queue so the worker can forward them to the websocket connections.</p>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Address</th>
+<th>Credentials</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RabbitMQ server</td>
+<td>admin.lissa.dev:15672</td>
+<td>guest / guest</td>
+</tr>
+<tr>
+<td>RabbitMQ queue</td>
+<td>content_notification</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="notification-stream" class="anchor" href="#notification-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notification Stream</h3>
+
+<p>The notifications are available via an <a href="http://wiki.nginx.org/HttpPushStreamModule">Nginx push stream</a>. Each event has its own channel (using the event UUID) where notifications will be sent to in JSON format.</p>
+
+<p>There's an example client (JS) available on <a href="http://admin.lissa.dev/profiles/lissa_kickstart/test/client/demo.html">http://admin.lissa.dev/profiles/lissa_kickstart/test/client/demo.html</a></p>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Websocket endpoint</td>
+<td>/ws</td>
+<td>admin.lissa.dev:8080/ws</td>
+</tr>
+<tr>
+<td>Stream subscription endpoint</td>
+<td>/subscribe</td>
+<td>admin.lissa.dev:8080/subscribe</td>
+</tr>
+<tr>
+<td>Channels (websocket)</td>
+<td>uuid of event</td>
+<td>admin.lissa.dev:8080/ws/event-uuid</td>
+</tr>
+</tbody>
+</table>
+
+<h4>
+<a id="testing-the-stream" class="anchor" href="#testing-the-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing the stream</h4>
+
+<ul>
+<li>Go to <a href="http://admin.lissa.dev/profiles/lissa_kickstart/test/client/demo.html">http://admin.lissa.dev/profiles/lissa_kickstart/test/client/demo.html</a>
+</li>
+<li>Enter admin.lissa.dev for the admin server and admin.lissa.dev:8080 for the worker server</li>
+<li>Submit the form</li>
+<li>Go to <a href="http://admin.lissa.dev">http://admin.lissa.dev</a>
+</li>
+<li>Login with admin / admin</li>
+<li>Go to <a href="http://admin.lissa.dev/node/4/timeline">http://admin.lissa.dev/node/4/timeline</a>
+</li>
+<li>Add notifications</li>
+</ul>
+
+<p>When submitting the web client form the following will happen:</p>
+
+<ul>
+<li>Events are loaded via AJAX using the event API</li>
+<li>For each event the notification replay API is loaded to fetch existing notifications</li>
+<li>For each event a websocket channel is openend using the event UUID</li>
+</ul>
+
+<h4>
+<a id="using-the-websocket" class="anchor" href="#using-the-websocket" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the websocket</h4>
+
+<ul>
+<li>Connect to the websocket on admin.lissa.dev:8080/ws</li>
+<li>Subscribe to the channel using the event uuid you want to get messages for.</li>
+</ul>
+
+<h4>
+<a id="monitoring" class="anchor" href="#monitoring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Monitoring</h4>
+
+<p>You can monitor in- and outgoing notifications in the RabbitMQ control panel.</p>
+
+<ul>
+<li>Go to <a href="http://admin.lissa.dev:15672">http://admin.lissa.dev:15672</a>
+</li>
+<li>Login with guest / guest</li>
+<li>Go to <a href="http://admin.lissa.dev:15672/#/queues/%2F/content_notification">http://admin.lissa.dev:15672/#/queues/%2F/content_notification</a>
+</li>
+<li>When you add a notification it will be queued and automatically consumed</li>
+</ul>
+
+<h4>
+<a id="background-info" class="anchor" href="#background-info" aria-hidden="true"><span class="octicon octicon-link"></span></a>Background info</h4>
+
+<p>When adding a notification in the Drupal backend it will follow this path:</p>
+
+<ol>
+<li>Notification entity is added to the Drupal database</li>
+<li>Drupal will push a JSON version of the notification data to the RabbitMQ queue at admin.lissa.dev:15672</li>
+<li>A supervisor process on admin.lissa.dev continuously monitors the RabbitMQ queue</li>
+<li>The process will consume items posted to the queue and forwards them to admin.lissa.dev:8080/publish using the event uuid as channel name.</li>
+<li>The nginx push stream server listens on /publish and will forward the payload to all clients connected on /ws/event-uuid or /subscribe/event-uuid</li>
+</ol>
+
+<h4>
+<a id="data-format" class="anchor" href="#data-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data format</h4>
+
+<p>The notifications are returned in JSON format. Each message sent over the websocket is an object with the following properties:</p>
+
+<ul>
+<li>text: the notification entity data in JSON</li>
+<li>tag: the action (one of create, update or delete)</li>
+<li>id: an internal id to identify individual messages</li>
+<li>channel: the host event uuid</li>
+</ul>
         </section>
 
         <footer>
@@ -244,7 +430,7 @@ notifications from.</p>
           This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
         </footer>
 
-
+        
       </div>
     </div>
   </body>
