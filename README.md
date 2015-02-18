@@ -179,6 +179,20 @@ The test web application will:
 
 Notifications added to events will show up automatically in the test web application.
 
+### Demo Scenario
+
+These steps help you setting up a demo:
+
+- Go to <http://admin.lissa.dev>
+- Login with the admin:admin account
+- Click on shortcuts and go to events
+- Click on the timeline link next to an event
+- Add one or more notifications
+- Go to <http://admin.lissa.dev/profiles/lissa_kickstart/test/client/demo.html>
+- The events and the existing notifications should show up
+- Go back to <http://admin.lissa.dev> and add more notifications
+- The notifications should show up in real time on <http://admin.lissa.dev/profiles/lissa_kickstart/test/client/demo.html>
+
 ## Architecture
 
 ![LISSA Component Diagram](doc/component-diagram.png)
